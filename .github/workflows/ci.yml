@@ -1,0 +1,43 @@
+name: CI (Code Quality & Security)
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./website
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Check Formatting
+        run: npm run format:check
+
+      - name: Type Check
+        run: npm run type-check
+
+      - name: Security Audit
+        run: npm run audit:check
+
+      - name: Build Test
+        run: npm run build

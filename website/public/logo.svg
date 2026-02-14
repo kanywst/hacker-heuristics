@@ -1,0 +1,16 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyber-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2ff" />
+      <stop offset="100%" stop-color="#7000ff" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <path d="M60 10L68 42L100 50L68 58L60 90L52 58L20 50L52 42L60 10Z" fill="url(#cyber-gradient)" filter="url(#glow)" />
+  <circle cx="30" cy="20" r="4" fill="#ff007a" />
+  <circle cx="90" cy="80" r="3" fill="#00f2ff" opacity="0.6" />
+  <circle cx="25" cy="85" r="2" fill="#7000ff" opacity="0.8" />
+</svg>
