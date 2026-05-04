@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'motion/react';
 import {
   Shield,
   Zap,
@@ -23,7 +23,7 @@ import {
   Layers,
   PieChart,
   ArrowRight,
-  Github,
+  Code2,
   Sparkles,
   Eye,
   Bug,
@@ -148,7 +148,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 glass-card hover:bg-white/5 transition-all text-white font-bold"
           >
-            <Github className="w-5 h-5" /> SOURCE_CODE
+            <Code2 className="w-5 h-5" /> SOURCE_CODE
           </a>
         </motion.div>
 

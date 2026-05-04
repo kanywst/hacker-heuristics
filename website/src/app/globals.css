@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-cyber-blue: #00f2ff;
+  --color-cyber-purple: #7000ff;
+  --color-cyber-pink: #ff007a;
+  --color-cyber-dark: #050505;
+}
 
 :root {
   --cyber-blue: #00f2ff;
@@ -15,7 +20,6 @@ body {
   overflow-x: hidden;
 }
 
-/* サイバーパンク背景 */
 .cyber-bg {
   position: fixed;
   inset: 0;
@@ -44,7 +48,6 @@ body {
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
 }
 
-/* スキャンライン効果 */
 .scanline {
   position: fixed;
   inset: 0;
