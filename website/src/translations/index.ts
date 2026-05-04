@@ -4,7 +4,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'The Grand Unified Theory of Engineering.',
       subtitle:
-        '27 Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
+        '30 Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
       ctaPrimary: 'Start Exploring',
       ctaSecondary: 'Read Docs',
     },
@@ -257,6 +257,33 @@ export const translations = {
         guideline:
           'Never say "Can someone look at this?" Say "@name, you are investigating this." Assign a single, named owner for every incident.',
       },
+      {
+        title: "Murphy's Law",
+        tag: 'Risk Engineering',
+        mechanism:
+          'Anything that can go wrong, will go wrong — given enough time, traffic, or unexpected input. Designing only for the happy path leaves a system one blip away from collapse.',
+        counter: 'Defensive Design / Chaos Engineering.',
+        guideline:
+          'Treat every external dependency, retry, and timeout as something that will fail in production. Build the failure path before the success path.',
+      },
+      {
+        title: 'Boy Scout Rule',
+        tag: 'Continuous Improvement',
+        mechanism:
+          "Codebases decay because cleanup is always 'someone else's job.' Each engineer absorbs the entropy hit but defers the fix to a future refactor that never lands.",
+        counter: 'Incremental Hygiene.',
+        guideline:
+          'Always leave the code cleaner than you found it. A one-line rename or a deleted dead branch is small enough for the same PR and bends the entropy curve over months.',
+      },
+      {
+        title: "Tesler's Law",
+        tag: 'Complexity',
+        mechanism:
+          'Every system has irreducible complexity that cannot be removed — only relocated. Hide it from the user and it lands on the developer; hide it from the developer and it lands on the customer at 3 AM.',
+        counter: 'Honest Layering.',
+        guideline:
+          "When a 'simple API' feels too clean, ask: who absorbed the complexity I just removed? If you can't name them, you didn't simplify — you displaced.",
+      },
     ],
     footer:
       '© 2026 Hacker Heuristics Project. Built for the next decade of engineering.',
@@ -266,7 +293,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'エンジニアリングの大統一理論。',
       subtitle:
-        '未知の領域を切り拓くための、究極の意思決定メンタルモデル27選。システムと組織の隠れた力学を解読せよ。',
+        '未知の領域を切り拓くための、究極の意思決定メンタルモデル30選。システムと組織の隠れた力学を解読せよ。',
       ctaPrimary: '探索を始める',
       ctaSecondary: 'ドキュメントを読む',
     },
@@ -518,6 +545,33 @@ export const translations = {
         counter: '明示的な役割割り当て / インシデントコマンダー。',
         guideline:
           '「誰か見てますか？」は禁句。「@名前、あなたが調査してください」と名指しせよ。全インシデントに単一のオーナーを。',
+      },
+      {
+        title: 'マーフィーの法則',
+        tag: 'リスク工学',
+        mechanism:
+          '「うまくいかない可能性があることは必ずうまくいかない。」十分な時間・トラフィック・想定外の入力があれば、潜在的な失敗モードはいずれ必ず発火する。',
+        counter: '防御的設計 / カオスエンジニアリング。',
+        guideline:
+          '外部依存・リトライ・タイムアウトはすべて本番で必ず失敗するものとして扱え。成功パスより先に失敗パスを設計せよ。',
+      },
+      {
+        title: 'ボーイスカウトの規則',
+        tag: '継続的改善',
+        mechanism:
+          'クリーンアップは常に「誰か別の人の仕事」になりがちで、コードベースは劣化していく。修正は「いつかのリファクタ」に先送りされ、それは結局来ない。',
+        counter: '漸進的衛生管理。',
+        guideline:
+          'コードを来たときよりきれいにして去れ。同じ PR に含められる小さな改善でも、月単位で見ればエントロピー曲線を曲げる。',
+      },
+      {
+        title: 'テスラーの複雑性保存則',
+        tag: '複雑性',
+        mechanism:
+          'あらゆるシステムには取り除けない本質的複雑性があり、それは消えず移動する。ユーザーから隠せば開発者へ、開発者から隠せば顧客へ、運用者から隠せば午前 3 時のオンコールに着地する。',
+        counter: '誠実なレイヤリング。',
+        guideline:
+          '「シンプルな API」が綺麗すぎると感じたら問え——いま自分が消した複雑性を誰が吸収したのか? 答えられないならそれは簡素化ではなく転嫁である。',
       },
     ],
     footer:

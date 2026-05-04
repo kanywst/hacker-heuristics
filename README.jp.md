@@ -2,7 +2,7 @@
   <img src="./website/public/logo.svg" width="100" height="100" alt="Hacker Heuristics Logo" />
   <h1>Hacker Heuristics</h1>
   <p><b>エンジニアリングの大統一理論</b></p>
-  <p>未知の領域を切り拓くための、究極の意思決定メンタルモデル27選。</p>
+  <p>未知の領域を切り拓くための、究極の意思決定メンタルモデル30選。</p>
 
   <p>
     <a href="https://github.com/kanywst/hacker-heuristics/stargazers"><img src="https://img.shields.io/github/stars/kanywst/hacker-heuristics?style=for-the-badge&color=00f2ff&labelColor=050505" alt="stars" /></a>
@@ -23,7 +23,7 @@
 
 Hacker Heuristics は、**認知心理学**、**安全工学**、そして**システム設計**の境界線を繋ぐメンタルモデルの厳選されたコレクションです。これは、あなたの脳のための「デバッグログ」であり、バイアスを特定し、それが技術負債やシステム障害として顕在化する前に「パッチ」を当てるための指針を提供します。
 
-## 27の原理原則
+## 30の原理原則
 
 |   カテゴリ   |                                           原理原則                                           |               核心となるアイデア               |
 | :----------: | :------------------------------------------------------------------------------------------: | :--------------------------------------------: |
@@ -34,7 +34,9 @@ Hacker Heuristics は、**認知心理学**、**安全工学**、そして**シ�
 |   **設計**   |           [コンウェイの法則](./translations/jp.md#7-コンウェイの法則-conways-law)            |         ソフトウェアは組織の鏡である。         |
 | **認知** |      [生存者バイアス](./translations/jp.md#21-生存者バイアス-survivorship-bias)       |      死者はブログ記事を書かない。       |
 | **インセンティブ** |      [コブラ効果](./translations/jp.md#23-コブラ効果-the-cobra-effect)      |   解決策がより悪い問題を生む。   |
-| ... 他20項目 |                           [全リストを見る →](./translations/jp.md)                           |                                                |
+| **リスク** | [マーフィーの法則](./translations/jp.md#28-マーフィーの法則-murphys-law) | うまくいかない可能性があることは必ずうまくいかない。 |
+| **複雑性** | [テスラーの複雑性保存則](./translations/jp.md#30-テスラーの複雑性保存則-teslers-law-of-conservation-of-complexity) | 複雑性は消えずに、ただ移動する。 |
+| ... 他21項目 |                           [全リストを見る →](./translations/jp.md)                           |                                                |
 
 ## インタラクティブ・ポータル
 

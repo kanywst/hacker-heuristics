@@ -28,6 +28,8 @@ export default function Header() {
           </a>
           <a
             href="https://github.com/kanywst/hacker-heuristics"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white transition-colors"
           >
             {t.github}
@@ -64,6 +66,8 @@ export default function Header() {
           </a>
           <a
             href="https://github.com/kanywst/hacker-heuristics"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white transition-colors"
             onClick={() => setIsOpen(false)}
           >

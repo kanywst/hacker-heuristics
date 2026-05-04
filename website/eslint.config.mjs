@@ -1,21 +1,14 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypeScript from 'eslint-config-next/typescript';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  // 無視設定を最初に追加
+const config = [
   {
     ignores: ['.next/**', 'out/**', 'node_modules/**', 'public/**'],
   },
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...nextCoreWebVitals,
+  ...nextTypeScript,
   {
+    files: ['**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/no-unescaped-entities': 'off',
@@ -23,4 +16,4 @@ const eslintConfig = [
   },
 ];
 
-export default eslintConfig;
+export default config;

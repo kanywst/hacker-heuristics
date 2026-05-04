@@ -161,3 +161,21 @@
 - **Mechanism:** In an emergency, the more people who are present, the less likely any single person is to take action. "Someone else will handle it." In engineering, a page sent to a group channel often means nobody responds.
 - **Counter:** **Explicit Role Assignment / Incident Commander**.
 - **Guideline:** Never say "Can someone look at this?" Instead, say "@name, you are investigating this." Assign a single, named owner for every incident.
+
+## 28. Murphy's Law
+- **Concept:** Failure as a Default Assumption.
+- **Mechanism:** "Anything that can go wrong, will go wrong." Given enough time, traffic, or unexpected input, every latent failure mode eventually fires. Engineers who design only for the happy path build systems that are one network blip away from collapse.
+- **Counter:** **Defensive Design / Chaos Engineering**.
+- **Guideline:** Treat every external dependency, retry, and timeout as something that *will* fail in production. Build the failure path before the success path.
+
+## 29. The Boy Scout Rule
+- **Concept:** Continuous Improvement (Robert C. Martin).
+- **Mechanism:** Codebases decay because cleanup is always "someone else's job." Each engineer absorbs the entropy hit but defers the fix to a future refactor that never lands. The graph trends down.
+- **Counter:** **Incremental Hygiene / Opportunistic Refactoring**.
+- **Guideline:** Always leave the code cleaner than you found it. A one-line rename, a clearer comment, a deleted dead branch — small enough to ship in the same PR, large enough to bend the entropy curve over months.
+
+## 30. Tesler's Law of Conservation of Complexity
+- **Concept:** Complexity is a Conserved Quantity.
+- **Mechanism:** Every system has an irreducible amount of complexity that cannot be removed — only relocated. Hide it from the user and it lands on the developer. Hide it from the developer and it lands on the operator. Hide it from the operator and it lands on the customer at 3 AM.
+- **Counter:** **Honest Layering / Explicit Tradeoffs**.
+- **Guideline:** When a "simple API" feels too clean, ask: who absorbed the complexity I just removed? If you can't name them, you didn't simplify — you displaced.
