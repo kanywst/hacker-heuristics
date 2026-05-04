@@ -1,6 +1,12 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 
 type Language = 'en' | 'jp';
 
@@ -15,6 +21,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Language>('en');
+
+  useEffect(() => {
+    document.documentElement.lang = lang === 'jp' ? 'ja' : 'en';
+  }, [lang]);
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>

@@ -15,11 +15,13 @@ import {
   HardDrive,
   Scale,
   TrendingUp,
-  PieChart,
+  Gauge,
   Cpu,
-  Layers,
+  Anchor,
   Terminal,
   Lock,
+  Layers,
+  PieChart,
   ArrowRight,
   Github,
   Sparkles,
@@ -49,9 +51,9 @@ const iconMap = [
   HardDrive,
   Scale,
   TrendingUp,
-  PieChart,
+  Gauge,
   Cpu,
-  Layers,
+  Anchor,
   Terminal,
   Lock,
   Layers,
@@ -142,6 +144,8 @@ export default function Home() {
           </button>
           <a
             href="https://github.com/kanywst/hacker-heuristics"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 glass-card hover:bg-white/5 transition-all text-white font-bold"
           >
             <Github className="w-5 h-5" /> SOURCE_CODE
