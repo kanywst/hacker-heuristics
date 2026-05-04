@@ -8,6 +8,14 @@ updates:
       time: "09:00"
       timezone: Asia/Tokyo
     open-pull-requests-limit: 5
+    ignore:
+      # eslint-plugin-react (transitive of eslint-config-next 16) is not
+      # yet ESLint 10 compatible — it throws
+      # `contextOrFilename.getFilename is not a function`. Hold ESLint
+      # at 9.x until the upstream plugin ships a fix.
+      - dependency-name: eslint
+        update-types:
+          - version-update:semver-major
     groups:
       next-react:
         patterns:
