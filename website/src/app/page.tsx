@@ -32,6 +32,9 @@ import {
   Feather,
   MessageCircle,
   UserX,
+  Bomb,
+  Sprout,
+  Boxes,
 } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageContext';
 import { translations } from '@/translations';
@@ -65,6 +68,9 @@ const iconMap = [
   Feather,
   MessageCircle,
   UserX,
+  Bomb,
+  Sprout,
+  Boxes,
 ];
 
 export default function Home() {
