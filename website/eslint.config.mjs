@@ -8,6 +8,7 @@ const config = [
   ...nextCoreWebVitals,
   ...nextTypeScript,
   {
+    files: ['**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/no-unescaped-entities': 'off',

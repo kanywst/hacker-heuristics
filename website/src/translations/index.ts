@@ -4,7 +4,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'The Grand Unified Theory of Engineering.',
       subtitle:
-        '27 Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
+        '30 Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
       ctaPrimary: 'Start Exploring',
       ctaSecondary: 'Read Docs',
     },
@@ -293,7 +293,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'エンジニアリングの大統一理論。',
       subtitle:
-        '未知の領域を切り拓くための、究極の意思決定メンタルモデル27選。システムと組織の隠れた力学を解読せよ。',
+        '未知の領域を切り拓くための、究極の意思決定メンタルモデル30選。システムと組織の隠れた力学を解読せよ。',
       ctaPrimary: '探索を始める',
       ctaSecondary: 'ドキュメントを読む',
     },
