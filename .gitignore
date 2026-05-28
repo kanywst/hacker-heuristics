@@ -31,3 +31,8 @@ build/
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code (local AI assistant artifacts)
+.claude/
+CLAUDE.md
+CLAUDE.local.md

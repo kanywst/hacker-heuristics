@@ -35,6 +35,11 @@ import {
   Bomb,
   Sprout,
   Boxes,
+  Mountain,
+  GraduationCap,
+  Grid3x3,
+  Hourglass,
+  GitBranch,
 } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageContext';
 import { translations } from '@/translations';
@@ -71,6 +76,11 @@ const iconMap = [
   Bomb,
   Sprout,
   Boxes,
+  Mountain,
+  GraduationCap,
+  Grid3x3,
+  Hourglass,
+  GitBranch,
 ];
 
 export default function Home() {

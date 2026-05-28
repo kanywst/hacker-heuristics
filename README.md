@@ -2,7 +2,7 @@
   <img src="./website/public/logo.svg" width="100" height="100" alt="Hacker Heuristics Logo" />
   <h1>Hacker Heuristics</h1>
   <p><b>The Grand Unified Theory of Engineering</b></p>
-  <p>30 Essential Mental Models for Navigating the Unknown.</p>
+  <p>Essential Mental Models for Navigating the Unknown.</p>
 
   <p>
     <a href="https://github.com/kanywst/hacker-heuristics/stargazers"><img src="https://img.shields.io/github/stars/kanywst/hacker-heuristics?style=for-the-badge&color=00f2ff&labelColor=050505" alt="stars" /></a>
@@ -23,20 +23,22 @@ In a world of increasing complexity, the primary bottleneck in engineering is no
 
 Hacker Heuristics is a curated collection of mental models that bridge the gap between **Cognitive Psychology**, **Safety Engineering**, and **System Design**. It provides a "debug log" for your brain to identify biases and a "patch" to correct them before they manifest as technical debt or system failure.
 
-## The 30 Principles
+## The Principles
 
-|     Category     |                                Principle                                 |                      The Core Idea                      |
-| :--------------: | :----------------------------------------------------------------------: | :-----------------------------------------------------: |
-|   **Decision**   |     [Type 1 vs Type 2](./content/en.md#1-type-1-vs-type-2-decisions)     |            Reversible vs Irreversible doors.            |
-|    **Safety**    | [Normalization of Deviance](./content/en.md#2-normalization-of-deviance) |       Don't let anomalies become your new normal.       |
-|   **Systems**    |        [Chesterton's Fence](./content/en.md#3-chestertons-fence)         |         Understand the 'Why' before you delete.         |
-|   **Culture**    |            [Hanlon's Razor](./content/en.md#12-hanlons-razor)            | Never attribute to malice what is explained by context. |
-|    **Design**    |              [Conway's Law](./content/en.md#7-conways-law)               |          Your software mirrors your org chart.          |
-| **Cognition** |     [Survivorship Bias](./content/en.md#21-survivorship-bias)     |          The dead don't write blog posts.          |
-| **Incentives** |       [The Cobra Effect](./content/en.md#23-the-cobra-effect)       |   Solutions that create worse problems.   |
-| **Risk** | [Murphy's Law](./content/en.md#28-murphys-law) | Anything that can go wrong, will. |
-| **Complexity** | [Tesler's Law](./content/en.md#30-teslers-law-of-conservation-of-complexity) | Complexity is conserved, only relocated. |
-| ... and 21 more. |                  [Explore Full List →](./content/en.md)                  |                                                         |
+|     Category     |                                  Principle                                  |                      The Core Idea                      |
+| :--------------: | :-------------------------------------------------------------------------: | :-----------------------------------------------------: |
+|   **Decision**   |      [Type 1 vs Type 2](./content/en.md#1-type-1-vs-type-2-decisions)       |            Reversible vs Irreversible doors.            |
+|    **Safety**    |  [Normalization of Deviance](./content/en.md#2-normalization-of-deviance)   |       Don't let anomalies become your new normal.       |
+|    **Safety**    |        [Swiss Cheese Model](./content/en.md#33-swiss-cheese-model)          |     Accidents happen when holes in layers align.        |
+|   **Systems**    |         [Chesterton's Fence](./content/en.md#3-chestertons-fence)           |         Understand the 'Why' before you delete.         |
+|   **Culture**    |             [Hanlon's Razor](./content/en.md#12-hanlons-razor)              | Never attribute to malice what is explained by context. |
+|    **Design**    |               [Conway's Law](./content/en.md#7-conways-law)                 |          Your software mirrors your org chart.          |
+|  **Cognition**   |        [Survivorship Bias](./content/en.md#21-survivorship-bias)            |            The dead don't write blog posts.             |
+|  **Cognition**   |    [Dunning-Kruger Effect](./content/en.md#31-dunning-kruger-effect)        |   The unskilled cannot see they are unskilled.          |
+| **Incentives**   |          [The Cobra Effect](./content/en.md#23-the-cobra-effect)            |          Solutions that create worse problems.          |
+|    **Risk**      |              [Murphy's Law](./content/en.md#28-murphys-law)                 |            Anything that can go wrong, will.            |
+| **Complexity**   | [Tesler's Law](./content/en.md#30-teslers-law-of-conservation-of-complexity)|         Complexity is conserved, only relocated.        |
+|  *...and more*   |                  [Explore Full List →](./content/en.md)                     |                                                         |
 
 ## Interactive Experience
 
@@ -55,8 +57,9 @@ Visit `http://localhost:3000` to experience the cyber-aesthetic interface.
 We welcome heuristics that have a strong basis in **Cognitive Science** or **Engineering History**.
 
 1. Check the existing [list](./content/en.md).
-2. Ensure your proposal follows the **Mechanism / Counter / Guideline** structure.
-3. Open a PR.
+2. Ensure your proposal follows the **Concept / Mechanism / Counter / Guideline / Source** structure. The `Source` line must cite the original author, paper, or book — not a blog post that summarizes one.
+3. Add the entry to both `content/en.md` and `translations/jp.md`, plus the short form to `website/src/translations/index.ts` (with a matching icon in `iconMap`).
+4. Open a PR.
 
 ## License
 
