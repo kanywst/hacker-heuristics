@@ -4,7 +4,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'The Grand Unified Theory of Engineering.',
       subtitle:
-        '30 Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
+        'Essential Mental Models for Navigating the Unknown. Decipher the hidden mechanics of systems and organizations.',
       ctaPrimary: 'Start Exploring',
       ctaSecondary: 'Read Docs',
     },
@@ -90,7 +90,7 @@ export const translations = {
         title: "Brooks' Law",
         tag: 'Management',
         mechanism:
-          'Adding people to a late project increases communication overhead exponentially. New people drain veterans.',
+          'Adding people to a late project explodes communication channels quadratically (n(n-1)/2). New people drain veterans.',
         counter: 'Scope Cutting.',
         guideline:
           'If a project is late, do not add people. Remove features or push the date.',
@@ -284,6 +284,51 @@ export const translations = {
         guideline:
           "When a 'simple API' feels too clean, ask: who absorbed the complexity I just removed? If you can't name them, you didn't simplify — you displaced.",
       },
+      {
+        title: 'Dunning-Kruger Effect',
+        tag: 'Metacognition',
+        mechanism:
+          'Lacking expertise also means lacking the meta-skill to recognize incompetence. Novices over-claim; true experts under-claim, assuming others share their understanding.',
+        counter: 'Calibrated Confidence.',
+        guideline:
+          'When someone declares a hard problem "easy," check their domain history before trusting the estimate. Weight the quiet veteran over the confident newcomer.',
+      },
+      {
+        title: 'Curse of Knowledge',
+        tag: 'Communication',
+        mechanism:
+          'Once you know a thing, you cannot easily imagine not knowing it. Docs, error messages, and APIs become obvious to the author and opaque to the next reader.',
+        counter: 'User Testing / Onboarding Buddies.',
+        guideline:
+          'Before shipping docs or an API, have someone unfamiliar attempt the task while you watch silently. Their confusion maps the assumptions you forgot to spell out.',
+      },
+      {
+        title: 'Swiss Cheese Model',
+        tag: 'Safety Engineering',
+        mechanism:
+          'Every protective layer has holes. Accidents happen when holes across independent layers happen to align. No single layer is ever sufficient.',
+        counter: 'Defense in Depth.',
+        guideline:
+          'In an incident review, do not stop at the one thing that failed. Enumerate every layer that should have caught it and ask why each hole was open at the same moment.',
+      },
+      {
+        title: 'Premature Optimization',
+        tag: 'Engineering Discipline',
+        mechanism:
+          '"Premature optimization is the root of all evil." Optimizing before measurement wastes hours and entangles hot and cold paths, obstructing the real fix.',
+        counter: 'Profile First.',
+        guideline:
+          'Write the obvious code first. Only optimize hot paths that a profiler proves are bottlenecks. Keep the other 97% simple for the next maintainer.',
+      },
+      {
+        title: "Linus's Law",
+        tag: 'Open Source',
+        mechanism:
+          '"Given enough eyeballs, all bugs are shallow." Defects invisible to one mind become trivial under many independent perspectives — if the code is actually visible.',
+        counter: 'Rotated Reviewers / Bug Bounties.',
+        guideline:
+          'If a bug class keeps slipping through, do not assign the same reviewers more carefully — expose the code to differently-shaped eyes. Rotate, open up, bounty.',
+      },
     ],
     footer:
       '© 2026 Hacker Heuristics Project. Built for the next decade of engineering.',
@@ -293,7 +338,7 @@ export const translations = {
       tag: 'Engineering Excellence 2026',
       title: 'エンジニアリングの大統一理論。',
       subtitle:
-        '未知の領域を切り拓くための、究極の意思決定メンタルモデル30選。システムと組織の隠れた力学を解読せよ。',
+        '未知の領域を切り拓くための、究極の意思決定メンタルモデル集。システムと組織の隠れた力学を解読せよ。',
       ctaPrimary: '探索を始める',
       ctaSecondary: 'ドキュメントを読む',
     },
@@ -379,7 +424,7 @@ export const translations = {
         title: 'ブルックスの法則',
         tag: 'マネジメント',
         mechanism:
-          '遅れているプロジェクトに人を追加すると、調整コストが爆発し、さらに遅延する。',
+          '遅れているプロジェクトに人を追加すると、通信路が二次関数的に爆発する (n 人で n(n-1)/2 本)。新人はベテランの手を止め、貢献より損失が上回る。',
         counter: 'スコープ削減。',
         guideline:
           'プロジェクトが遅れているなら人を増やすな。機能を削るか、期限を延ばせ。',
@@ -572,6 +617,51 @@ export const translations = {
         counter: '誠実なレイヤリング。',
         guideline:
           '「シンプルな API」が綺麗すぎると感じたら問え——いま自分が消した複雑性を誰が吸収したのか? 答えられないならそれは簡素化ではなく転嫁である。',
+      },
+      {
+        title: 'ダニング・クルーガー効果',
+        tag: 'メタ認知',
+        mechanism:
+          '専門性を欠くと「自分の無能さを認識するメタ能力」も欠ける。初心者は過信し、本当の熟達者は他人も自分と同じ理解を持つと仮定して過小評価する。',
+        counter: '較正された自信。',
+        guideline:
+          '誰かが難問を「簡単」と断言したら、見積もりを信じる前にその分野の実績を確認せよ。寡黙な熟達者の声を、自信ある新参者より重く扱え。',
+      },
+      {
+        title: '知識の呪い',
+        tag: 'コミュニケーション',
+        mechanism:
+          '一度知ってしまうと「知らなかった状態」を想像できなくなる。ドキュメント、エラーメッセージ、API は著者には自明、次に読む人には不透明になる。',
+        counter: 'ユーザーテスト / オンボーディングバディ。',
+        guideline:
+          'ドキュメントや API を出荷する前に、未経験者にタスクを実行させ自分は黙って観察せよ。その混乱が、自分が言語化し忘れた前提を正確に指す。',
+      },
+      {
+        title: 'スイスチーズモデル',
+        tag: '安全工学',
+        mechanism:
+          'すべての防御層には穴がある。事故は独立した複数層の穴が偶然一直線に並んだ瞬間に起きる。単一層は決して十分でない。',
+        counter: '多層防御。',
+        guideline:
+          'インシデント調査では「失敗した一つの要素」で止まるな。本来防げたはずの全層を列挙し、なぜ同時に穴が開いていたかを問え。',
+      },
+      {
+        title: '早すぎる最適化',
+        tag: 'エンジニア規律',
+        mechanism:
+          '「早すぎる最適化はあらゆる悪の根源」(Knuth)。計測前の最適化は時間を浪費し、ホットとコールドを絡め取って本来必要となる最適化を阻む複雑性を残す。',
+        counter: 'プロファイル優先。',
+        guideline:
+          'まず素直なコードを書け。プロファイラがボトルネックと証明したホットパスのみを最適化せよ。残り 97% は次のメンテナーのために単純なまま保て。',
+      },
+      {
+        title: 'リーナスの法則',
+        tag: 'オープンソース',
+        mechanism:
+          '「十分な目玉があれば、あらゆるバグは浅い」(Raymond)。一人には不可視の欠陥も、独立した多視点の前では自明になる——ただしコードが実際に見えていれば。',
+        counter: 'レビュアーのローテーション / バグバウンティ。',
+        guideline:
+          'あるバグの型が漏れ続けるなら、同じ人に丁寧にレビューさせるのではなく、形の違う目を増やせ。ローテーション、公開、バウンティを使え。',
       },
     ],
     footer:
