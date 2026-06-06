@@ -1,13 +1,15 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #0c0b08;
-  --color-stone: #15120d;
-  --color-carve: #ece4d4;
-  --color-carve-dim: #a39884;
-  --color-bronze: #c2884a;
-  --color-bronze-bright: #e0aa6b;
-  --color-hairline: rgba(236, 228, 212, 0.1);
+  --color-ink: #0b0a07;
+  --color-stone: #16130d;
+  --color-carve: #f1eadb;
+  --color-carve-dim: #b0a48d;
+  --color-bronze: #d98e3d;
+  --color-bronze-bright: #f5b75c;
+  --color-lapis: #4f8ad6;
+  --color-lapis-bright: #74a6e8;
+  --color-hairline: rgba(241, 234, 219, 0.12);
 
   --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --font-body:
@@ -28,7 +30,7 @@ body {
 }
 
 ::selection {
-  background: rgba(194, 136, 74, 0.3);
+  background: rgba(217, 142, 61, 0.3);
   color: #fff;
 }
 
@@ -41,7 +43,12 @@ body {
   background:
     radial-gradient(
       120% 70% at 50% -10%,
-      rgba(194, 136, 74, 0.12) 0%,
+      rgba(217, 142, 61, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      80% 60% at 88% 112%,
+      rgba(79, 138, 214, 0.14) 0%,
       transparent 55%
     ),
     radial-gradient(
@@ -106,7 +113,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(194, 136, 74, 0.45),
+    rgba(217, 142, 61, 0.45),
     transparent
   );
 }
@@ -121,7 +128,7 @@ body {
     rgba(236, 228, 212, 0)
   );
   border: 1px solid var(--color-hairline);
-  border-top: 1px solid rgba(194, 136, 74, 0.28);
+  border-top: 1px solid rgba(217, 142, 61, 0.28);
   transition:
     border-color 0.4s ease,
     transform 0.4s ease,
@@ -130,10 +137,10 @@ body {
 
 .tablet:hover {
   transform: translateY(-4px);
-  border-color: rgba(194, 136, 74, 0.45);
+  border-color: rgba(217, 142, 61, 0.45);
   background: linear-gradient(
     180deg,
-    rgba(194, 136, 74, 0.06),
+    rgba(217, 142, 61, 0.06),
     rgba(236, 228, 212, 0)
   );
 }
@@ -149,7 +156,7 @@ body {
 /* The directive (guideline) block — a carved inset */
 .directive {
   border-left: 2px solid var(--color-bronze);
-  background: rgba(194, 136, 74, 0.05);
+  background: rgba(217, 142, 61, 0.05);
 }
 
 /* Bronze link underline that grows on hover */
@@ -196,7 +203,7 @@ body {
 }
 
 .btn-ghost {
-  border: 1px solid rgba(194, 136, 74, 0.4);
+  border: 1px solid rgba(217, 142, 61, 0.4);
   color: var(--color-carve);
   transition:
     border-color 0.3s ease,
@@ -205,7 +212,7 @@ body {
 
 .btn-ghost:hover {
   border-color: var(--color-bronze);
-  background: rgba(194, 136, 74, 0.08);
+  background: rgba(217, 142, 61, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {

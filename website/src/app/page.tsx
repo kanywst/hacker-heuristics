@@ -136,7 +136,7 @@ export default function Home() {
 
               <div className="mt-auto space-y-4 pt-2">
                 <div className="flex items-baseline gap-2 text-sm">
-                  <span className="eyebrow shrink-0 text-bronze">
+                  <span className="eyebrow shrink-0 text-lapis-bright">
                     {lang === 'en' ? 'Counter' : '対'}
                   </span>
                   <span className="text-carve">{h.counter}</span>
