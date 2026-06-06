@@ -6,31 +6,36 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from './LanguageContext';
 import { translations } from '@/translations';
 
+const GITHUB_URL = 'https://github.com/kanywst/hammurabi';
+
 export default function Header() {
   const { lang } = useLanguage();
   const t = translations[lang].nav;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 border-b border-white/10 glass px-6 py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold tracking-tighter gradient-text">
-          Hacker Heuristics
-        </h1>
+    <header className="fixed top-0 z-50 w-full border-b border-hairline bg-ink/70 px-6 py-4 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
+        <a href="#top" className="flex items-baseline gap-2">
+          <span className="text-bronze">§</span>
+          <span className="display text-xl tracking-tight text-carve">
+            Hammurabi
+          </span>
+        </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-white/70 items-center">
-          <a href="#principles" className="hover:text-white transition-colors">
+        <nav className="hidden items-center gap-8 text-sm text-carve-dim md:flex">
+          <a href="#laws" className="link-bronze">
             {t.principles}
           </a>
-          <a href="#about" className="hover:text-white transition-colors">
+          <a href="#about" className="link-bronze">
             {t.about}
           </a>
           <a
-            href="https://github.com/kanywst/hacker-heuristics"
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="link-bronze"
           >
             {t.github}
           </a>
@@ -39,36 +44,36 @@ export default function Header() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-white/70 hover:text-white transition-colors"
+          className="text-carve-dim transition-colors hover:text-carve md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4 text-sm font-medium text-white/70 border-t border-white/10 pt-4">
+        <nav className="mt-4 flex flex-col gap-4 border-t border-hairline pt-4 text-sm text-carve-dim md:hidden">
           <a
-            href="#principles"
-            className="hover:text-white transition-colors"
+            href="#laws"
+            className="link-bronze"
             onClick={() => setIsOpen(false)}
           >
             {t.principles}
           </a>
           <a
             href="#about"
-            className="hover:text-white transition-colors"
+            className="link-bronze"
             onClick={() => setIsOpen(false)}
           >
             {t.about}
           </a>
           <a
-            href="https://github.com/kanywst/hacker-heuristics"
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
+            className="link-bronze"
             onClick={() => setIsOpen(false)}
           >
             {t.github}

@@ -7,19 +7,19 @@ export default function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="flex p-1 rounded-lg bg-white/5 border border-white/10 glass">
+    <div className="flex rounded-full border border-hairline bg-stone p-1">
       {(['en', 'jp'] as const).map((l) => (
         <button
           key={l}
           onClick={() => setLang(l)}
-          className={`px-3 py-1 text-xs font-bold rounded-md transition-all relative ${
-            lang === l ? 'text-white' : 'text-white/40 hover:text-white/60'
+          className={`relative rounded-full px-3 py-1 text-xs font-bold transition-colors ${
+            lang === l ? 'text-ink' : 'text-carve-dim hover:text-carve'
           }`}
         >
           {lang === l && (
             <motion.div
               layoutId="activeTab"
-              className="absolute inset-0 bg-blue-600 rounded-md -z-10"
+              className="absolute inset-0 -z-10 rounded-full bg-bronze"
               transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
             />
           )}

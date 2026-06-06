@@ -5,9 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   // GitHub Pages のサブパス（リポジトリ名）に合わせて設定
-  basePath: process.env.NODE_ENV === 'production' ? '/hacker-heuristics' : '',
-  assetPrefix:
-    process.env.NODE_ENV === 'production' ? '/hacker-heuristics/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/hammurabi' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/hammurabi/' : '',
 };
 
 export default nextConfig;

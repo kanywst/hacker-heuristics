@@ -1,4 +1,4 @@
-# Hacker Heuristics: コンプリート・コレクション
+# Hammurabi: エンジニアが知るべき法則集
 
 ## 1. 意思決定の可逆性 (Type 1 vs Type 2 Decisions)
 
