@@ -116,7 +116,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline md:grid-cols-2 lg:grid-cols-3">
           {t.heuristics.map((h, i) => (
-            <article key={h.title} className="tablet flex flex-col gap-5 p-7">
+            <article key={i} className="tablet flex flex-col gap-5 p-7">
               <div className="flex items-start justify-between gap-4">
                 <span className="tablet__num text-5xl">
                   § {String(i + 1).padStart(2, '0')}
