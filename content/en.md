@@ -1,4 +1,4 @@
-# Hacker Heuristics: The Complete Collection
+# Hammurabi: Laws Every Engineer Should Know
 
 ## 1. Type 1 vs Type 2 Decisions
 
