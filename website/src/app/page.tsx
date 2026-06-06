@@ -105,71 +105,53 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── The Laws — each one a tension between a pull and its counter ── */}
-      <section id="laws" className="mx-auto max-w-5xl px-6 py-28">
+      {/* ── The Laws ─────────────────────────────────────────── */}
+      <section id="laws" className="mx-auto max-w-6xl px-6 py-28">
         <header className="mb-16 text-center">
           <p className="eyebrow text-bronze">Codex</p>
           <h2 className="display mt-3 text-4xl text-carve sm:text-5xl">
             {lang === 'en' ? 'The Laws' : '法則'}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-carve-dim">
-            {lang === 'en'
-              ? 'Every law is a pull; every pull has a counter. Read the tension, then the ruling.'
-              : 'すべての法則は引力であり、すべての引力には対抗力がある。緊張を読み、裁定を下せ。'}
-          </p>
         </header>
 
-        <div className="border-y border-hairline">
+        <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline md:grid-cols-2 lg:grid-cols-3">
           {t.heuristics.map((h, i) => (
-            <article
-              key={i}
-              className="border-t border-hairline py-12 first:border-t-0 md:py-14"
-            >
-              <div className="mb-8 flex flex-wrap items-baseline gap-x-5 gap-y-1">
-                <span className="tablet__num text-4xl sm:text-5xl">
+            <article key={i} className="tablet flex flex-col gap-5 p-7">
+              <div className="flex items-start justify-between gap-4">
+                <span className="tablet__num text-5xl">
                   § {String(i + 1).padStart(2, '0')}
                 </span>
-                <h3 className="display text-2xl text-carve sm:text-3xl">
-                  {h.title}
-                </h3>
-                <span className="eyebrow ml-auto text-carve-dim">{h.tag}</span>
+                <span className="eyebrow mt-2 text-right text-carve-dim">
+                  {h.tag}
+                </span>
               </div>
 
-              <div className="grid gap-8 md:grid-cols-[1fr_auto_1fr] md:gap-0">
-                {/* The pull */}
-                <div className="md:pr-10">
-                  <p className="eyebrow mb-3 text-bronze">
-                    {lang === 'en' ? 'The Law' : '法則 — 引力'}
-                  </p>
-                  <p className="text-[15px] leading-relaxed text-carve-dim">
-                    {h.mechanism}
-                  </p>
-                </div>
+              <h3 className="display text-2xl leading-tight text-carve">
+                {h.title}
+              </h3>
 
-                {/* The balance seam */}
-                <div className="hidden md:flex md:flex-col md:items-center md:self-stretch">
-                  <span className="w-px flex-1 bg-hairline" />
-                  <span className="py-3 text-bronze">◆</span>
-                  <span className="w-px flex-1 bg-hairline" />
-                </div>
-
-                {/* The counter + its ruling */}
-                <div className="md:pl-10">
-                  <p className="eyebrow mb-3 text-lapis-bright">
-                    {lang === 'en' ? 'The Counter' : '対抗 — 反力'}
-                  </p>
-                  <p className="display text-lg text-lapis-bright">
-                    {h.counter}
-                  </p>
-                  <p className="mt-3 border-l-2 border-bronze pl-4 text-[15px] italic leading-relaxed text-carve">
-                    {h.guideline}
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-8 text-xs text-carve-dim md:text-center">
-                <span className="text-bronze">§</span> {h.source}
+              <p className="text-sm leading-relaxed text-carve-dim">
+                {h.mechanism}
               </p>
+
+              <div className="mt-auto space-y-4 pt-2">
+                <div className="flex items-baseline gap-2 text-sm">
+                  <span className="eyebrow shrink-0 text-lapis-bright">
+                    {lang === 'en' ? 'Counter' : '対'}
+                  </span>
+                  <span className="text-carve">{h.counter}</span>
+                </div>
+
+                <div className="directive rounded-r px-4 py-3">
+                  <p className="display text-[15px] italic leading-relaxed text-carve">
+                    “{h.guideline}”
+                  </p>
+                </div>
+
+                <p className="border-t border-hairline pt-3 text-xs text-carve-dim">
+                  <span className="text-bronze">§</span> {h.source}
+                </p>
+              </div>
             </article>
           ))}
         </div>
