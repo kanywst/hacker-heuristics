@@ -18,10 +18,37 @@ const manrope = Manrope({
   variable: '--font-body-sans',
 });
 
+const SITE_URL = 'https://kanywst.github.io/hammurabi';
+const SITE_TITLE = 'Hammurabi — Laws Every Engineer Should Know';
+const SITE_DESCRIPTION =
+  'A codex of engineering laws, each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.';
+const SITE_IMAGE = `${SITE_URL}/header.jpg`;
+
 export const metadata: Metadata = {
-  title: 'Hammurabi — Laws Every Engineer Should Know',
-  description:
-    'A codex of engineering laws, each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    siteName: 'Hammurabi',
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: SITE_IMAGE,
+        width: 1600,
+        height: 643,
+        alt: SITE_TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_IMAGE],
+  },
 };
 
 export default function RootLayout({
