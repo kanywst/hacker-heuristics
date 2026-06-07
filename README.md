@@ -24,18 +24,20 @@ Hammurabi is a curated codex of engineering laws drawn from **Cognitive Psycholo
 |   **Safety**   |  [Normalization of Deviance](./content/en.md#2-normalization-of-deviance)    |       Don't let anomalies become your new normal.       |
 |   **Safety**   |         [Swiss Cheese Model](./content/en.md#33-swiss-cheese-model)          |      Accidents happen when holes in layers align.       |
 |  **Systems**   |          [Chesterton's Fence](./content/en.md#3-chestertons-fence)           |         Understand the 'Why' before you delete.         |
-|  **Culture**   |              [Hanlon's Razor](./content/en.md#12-hanlons-razor)              | Never attribute to malice what is explained by context. |
-|   **Design**   |                [Conway's Law](./content/en.md#7-conways-law)                 |          Your software mirrors your org chart.          |
+| **Organization** |              [Hanlon's Razor](./content/en.md#12-hanlons-razor)              | Never attribute to malice what is explained by context. |
+| **Organization** |                [Conway's Law](./content/en.md#7-conways-law)                 |          Your software mirrors your org chart.          |
 | **Cognition**  |          [Survivorship Bias](./content/en.md#21-survivorship-bias)           |            The dead don't write blog posts.             |
 | **Cognition**  |      [Dunning-Kruger Effect](./content/en.md#31-dunning-kruger-effect)       |       The unskilled cannot see they are unskilled.       |
 | **Incentives** |           [The Cobra Effect](./content/en.md#23-the-cobra-effect)            |          Solutions that create worse problems.          |
-|    **Risk**    |               [Murphy's Law](./content/en.md#28-murphys-law)                 |            Anything that can go wrong, will.             |
-| **Complexity** | [Tesler's Law](./content/en.md#30-teslers-law-of-conservation-of-complexity) |        Complexity is conserved, only relocated.         |
+|   **Safety**   |               [Murphy's Law](./content/en.md#28-murphys-law)                 |            Anything that can go wrong, will.             |
+|  **Systems**   | [Tesler's Law](./content/en.md#30-teslers-law-of-conservation-of-complexity) |        Complexity is conserved, only relocated.         |
+| **Distributed Systems** |              [CAP Theorem](./content/en.md#36-cap-theorem)                  |    You can't have consistency and availability under a partition.    |
+| **Organization** |           [Peter Principle](./content/en.md#39-peter-principle)            |        People rise until they reach a role they're bad at.        |
 | *...and more*  |                 [Explore the full codex →](./content/en.md)                  |                                                        |
 
 ## The Site
 
-An engraved, editorial companion site renders all the laws as a numbered code of articles (§ 01–35).
+An engraved, editorial companion site renders the full codex as a numbered code of articles (§ 01 onward), framed by a prologue and an epilogue.
 
 ```bash
 cd website

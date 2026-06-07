@@ -23,6 +23,7 @@ const fadeUp = {
 export default function Home() {
   const { lang } = useLanguage();
   const t = translations[lang];
+  const lastArticle = String(t.heuristics.length).padStart(2, '0');
 
   return (
     <div className="relative">
@@ -38,7 +39,7 @@ export default function Home() {
           animate="show"
           className="eyebrow text-bronze"
         >
-          {t.hero.tag}
+          § 01–{lastArticle} · {t.hero.tagLabel}
         </motion.p>
 
         <motion.h1
@@ -105,6 +106,24 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ── Prologue ─────────────────────────────────────────── */}
+      <section
+        id="prologue"
+        className="mx-auto max-w-3xl px-6 py-28 text-center"
+      >
+        <p className="eyebrow text-bronze">{t.ui.prologueLabel}</p>
+        <blockquote className="display mt-8 text-2xl italic leading-snug text-carve sm:text-3xl">
+          {t.ui.prologueQuote}
+        </blockquote>
+        <p className="eyebrow mt-6 text-carve-dim">{t.ui.prologueQuoteBy}</p>
+        <div className="rule-diamond mx-auto my-10 w-32">
+          <span className="text-bronze">◆</span>
+        </div>
+        <p className="text-base leading-relaxed text-carve-dim">
+          {t.ui.prologueBody}
+        </p>
+      </section>
+
       {/* ── The Laws ─────────────────────────────────────────── */}
       <section id="laws" className="mx-auto max-w-6xl px-6 py-28">
         <header className="mb-16 text-center">
@@ -159,18 +178,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Maxim ────────────────────────────────────────────── */}
+      {/* ── Epilogue ─────────────────────────────────────────── */}
       <section
         id="about"
         className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center"
       >
-        <div className="rule-diamond mb-10 w-24">
+        <p className="eyebrow text-bronze">{t.ui.epilogueLabel}</p>
+        <div className="rule-diamond my-10 w-24">
           <span className="text-bronze">◆</span>
         </div>
         <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
           {t.ui.maxim}
         </blockquote>
         <p className="eyebrow mt-8 text-bronze">{t.ui.maximBy}</p>
+        <p className="mt-12 max-w-2xl text-sm italic leading-relaxed text-carve-dim">
+          {t.ui.epilogueCurse}
+        </p>
       </section>
     </div>
   );

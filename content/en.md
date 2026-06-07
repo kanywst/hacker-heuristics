@@ -279,3 +279,91 @@
 - **Counter:** **Open Source / Rotated Reviewers / Bug Bounties / Internal Code Discoverability**.
 - **Guideline:** If the same class of bug keeps slipping through, the fix is not more careful review by the same people — it is exposing the code to more, differently-shaped eyes. Rotate reviewers, open up internal libraries, run bug bounties.
 - **Source:** Eric S. Raymond, *The Cathedral and the Bazaar* (1999) — named for Linus Torvalds.
+
+## 36. CAP Theorem
+
+- **Concept:** Impossibility Under Partition.
+- **Mechanism:** A networked data store cannot simultaneously guarantee **C**onsistency, **A**vailability, and **P**artition tolerance. Because network partitions are not optional in the real world, the live choice is really between consistency and availability *at the moment a partition happens*.
+- **Counter:** **PACELC / Tunable Consistency**.
+- **Guideline:** Decide *before* an outage whether each operation prefers consistency or availability. The partition will happen; the only question is what your system does when it does.
+- **Source:** Eric Brewer, *Towards Robust Distributed Systems* (PODC keynote, 2000); proved by Seth Gilbert & Nancy Lynch (*SIGACT News*, 2002).
+
+## 37. Little's Law
+
+- **Concept:** Queueing Invariant.
+- **Mechanism:** In any stable system, the average number of items in the system (L) equals the average arrival rate (λ) times the average time each item spends in it (W): **L = λW**. It holds regardless of arrival distribution or service discipline.
+- **Counter:** **Backpressure / Admission Control**.
+- **Guideline:** To cut latency (W) without adding capacity, cut work-in-progress (L). Cap concurrent requests — a shorter queue is faster than a faster server.
+- **Source:** John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961).
+
+## 38. Two Generals Problem
+
+- **Concept:** Impossibility of Guaranteed Agreement.
+- **Mechanism:** Two parties communicating over an unreliable channel can never be *certain* they have reached agreement — every message needs an acknowledgment, which itself needs an acknowledgment, forever. No fixed number of messages yields common knowledge.
+- **Counter:** **Idempotency / Eventual Consistency / Acknowledged Retries**.
+- **Guideline:** Never assume "I sent it, so they got it." Make every cross-network action safely retryable and idempotent, and reconcile state instead of trusting a single round-trip.
+- **Source:** E. A. Akkoyunlu, K. Ekanadham & R. V. Huber (1975); framed as a database problem by Jim Gray, *Notes on Data Base Operating Systems* (1978).
+
+## 39. Peter Principle
+
+- **Concept:** Promotion to Incompetence.
+- **Mechanism:** In a hierarchy, people are promoted on performance in their *current* role, not the one above. So everyone tends to rise until they reach a role they are bad at — and there they stay. Competence is promoted away; incompetence accumulates.
+- **Counter:** **Dual Career Ladders / Role-Specific Evaluation**.
+- **Guideline:** Do not promote your best engineer into management as a reward — it removes a great engineer and risks creating a poor manager. Offer a technical ladder, and evaluate candidates for the role above, not the one they already mastered.
+- **Source:** Laurence J. Peter & Raymond Hull, *The Peter Principle* (1969).
+
+## 40. Parkinson's Law
+
+- **Concept:** Work Expands to Fill Time.
+- **Mechanism:** "Work expands so as to fill the time available for its completion." Give a task a week and it takes a week; the same task with a two-day deadline ships in two days. Slack is consumed, not banked.
+- **Counter:** **Timeboxing**.
+- **Guideline:** Set deliberately short timeboxes for open-ended work and review at the deadline. A tight box forces the scoping decisions an open one defers forever.
+- **Source:** C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; book, 1957).
+
+## 41. Wirth's Law
+
+- **Concept:** Software Bloat Outpaces Hardware.
+- **Mechanism:** "Software is getting slower more rapidly than hardware is becoming faster." Each hardware gain is absorbed by added abstraction layers, features, and carelessness, so user-perceived speed stays flat or worsens.
+- **Counter:** **Performance Budgets / Lean Software**.
+- **Guideline:** Treat the speed a faster machine buys you as a budget to protect, not a license to spend. Set a performance budget and fail the build when a release regresses against it.
+- **Source:** Niklaus Wirth, *A Plea for Lean Software* (IEEE Computer, 1995).
+
+## 42. Ninety-Ninety Rule
+
+- **Concept:** The Estimation Tail.
+- **Mechanism:** "The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time." The visible work hides a second, equally large body of integration, edge cases, and polish.
+- **Counter:** **Demo on Real Data / Hard Definition of Done**.
+- **Guideline:** When something looks "almost done," assume an entire second project remains: the last-10% of hardening, edge cases, and integration. Schedule it explicitly instead of treating it as a rounding error.
+- **Source:** Tom Cargill (Bell Labs); popularized by Jon Bentley, *Programming Pearls* (CACM, 1985).
+
+## 43. Eagleson's Law
+
+- **Concept:** Code Memory Decay.
+- **Mechanism:** "Any code of your own that you haven't looked at for six months might as well have been written by someone else." Your mental model of the code evaporates far faster than the code does; context is not stored in the source.
+- **Counter:** **ADRs / Self-Explaining Code / Code Comments on the "Why"**.
+- **Guideline:** Write code and commit messages for the stranger you will become in six months. If a decision is not obvious from the code, record the *why* in a comment or an ADR — not just in your head.
+- **Source:** Programming folklore attributed to Peter Eagleson; a long-circulated adage among the catalogued "laws of software development."
+
+## 44. Hick's Law
+
+- **Concept:** Choice Overload.
+- **Mechanism:** The time to make a decision grows logarithmically with the number of choices: **T = b·log₂(n+1)**. More options do not just add visual clutter — they measurably slow every user down.
+- **Counter:** **Progressive Disclosure / Sensible Defaults**.
+- **Guideline:** Cut the number of choices on any screen or API surface to the few that matter; push the rest behind defaults and progressive disclosure. Fewer doors, faster decisions.
+- **Source:** William E. Hick (1952) and Ray Hyman (1953) — the "Hick–Hyman Law."
+
+## 45. Fitts's Law
+
+- **Concept:** Target Acquisition Cost.
+- **Mechanism:** The time to move to a target depends on its distance and size: distant, small targets are slow and error-prone; near, large targets are fast. Pointing is a physical act with a measurable cost.
+- **Counter:** **Edges & Corners / Sizing by Frequency**.
+- **Guideline:** Make frequent or destructive actions big and easy to hit; make rare or dangerous ones small and far. Screen edges and corners are effectively infinite targets — put primary actions there.
+- **Source:** Paul M. Fitts, *The Information Capacity of the Human Motor System in Controlling the Amplitude of Movement* (Journal of Experimental Psychology, 1954).
+
+## 46. Miller's Law
+
+- **Concept:** Working-Memory Limit.
+- **Mechanism:** "The Magical Number Seven, Plus or Minus Two" — human working memory holds only about seven chunks at once. Cross that limit and recall collapses; the brain drops items rather than slowing down.
+- **Counter:** **Chunking / Information Hiding**.
+- **Guideline:** Group related items into a handful of named chunks — phone-number style — wherever a person must hold state in their head: function arguments, form fields, menu groups, on-call steps.
+- **Source:** George A. Miller, *The Magical Number Seven, Plus or Minus Two* (Psychological Review, 1956).
