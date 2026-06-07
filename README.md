@@ -1,8 +1,4 @@
-<img src="./website/public/logo.svg" width="100" height="100" alt="Hammurabi Logo" />
-
-# Hammurabi
-
-**Laws Every Engineer Should Know**
+<img src="./website/public/header.jpg" alt="Hammurabi — Laws Every Engineer Should Know" width="100%" />
 
 A codex of engineering laws — each with its counter-force, a field guideline, and a source.
 

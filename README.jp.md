@@ -1,8 +1,4 @@
-<img src="./website/public/logo.svg" width="100" height="100" alt="Hammurabi Logo" />
-
-# Hammurabi
-
-**エンジニアが知るべき法則集**
+<img src="./website/public/header.jpg" alt="Hammurabi — Laws Every Engineer Should Know" width="100%" />
 
 各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた、エンジニアリングの法典。
 
