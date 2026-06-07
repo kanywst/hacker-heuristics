@@ -110,7 +110,7 @@ export default function Home() {
         <header className="mb-16 text-center">
           <p className="eyebrow text-bronze">Codex</p>
           <h2 className="display mt-3 text-4xl text-carve sm:text-5xl">
-            {lang === 'en' ? 'The Laws' : '法則'}
+            {t.ui.laws}
           </h2>
         </header>
 
@@ -137,14 +137,16 @@ export default function Home() {
               <div className="mt-auto space-y-4 pt-2">
                 <div className="flex items-baseline gap-2 text-sm">
                   <span className="eyebrow shrink-0 text-lapis-bright">
-                    {lang === 'en' ? 'Counter' : '対'}
+                    {t.ui.counter}
                   </span>
                   <span className="text-carve">{h.counter}</span>
                 </div>
 
                 <div className="directive rounded-r px-4 py-3">
                   <p className="display text-[15px] italic leading-relaxed text-carve">
-                    “{h.guideline}”
+                    {t.ui.quoteOpen}
+                    {h.guideline}
+                    {t.ui.quoteClose}
                   </p>
                 </div>
 
@@ -166,13 +168,9 @@ export default function Home() {
           <span className="text-bronze">◆</span>
         </div>
         <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
-          {lang === 'en'
-            ? 'Good engineering is not the avoidance of all risk, but the deliberate choice of which risks are worth taking.'
-            : '優れたエンジニアリングとは、すべてのリスクを避けることではない。どのリスクを取る価値があるかを、意図して選ぶことである。'}
+          {t.ui.maxim}
         </blockquote>
-        <p className="eyebrow mt-8 text-bronze">
-          {lang === 'en' ? '— The Code' : '— 法典より'}
-        </p>
+        <p className="eyebrow mt-8 text-bronze">{t.ui.maximBy}</p>
       </section>
     </div>
   );

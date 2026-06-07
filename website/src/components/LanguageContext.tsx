@@ -7,6 +7,7 @@ import React, {
   useState,
   ReactNode,
 } from 'react';
+import { translations } from '@/translations';
 
 type Language = 'en' | 'jp';
 
@@ -24,6 +25,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = lang === 'jp' ? 'ja' : 'en';
+    document.title = translations[lang].ui.metaTitle;
   }, [lang]);
 
   return (

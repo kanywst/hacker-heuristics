@@ -13,6 +13,16 @@ export const translations = {
       about: 'About',
       github: 'GitHub',
     },
+    ui: {
+      laws: 'The Laws',
+      counter: 'Counter',
+      quoteOpen: '“',
+      quoteClose: '”',
+      maxim:
+        'Good engineering is not the avoidance of all risk, but the deliberate choice of which risks are worth taking.',
+      maximBy: '— The Code',
+      metaTitle: 'Hammurabi — Laws Every Engineer Should Know',
+    },
     heuristics: [
       {
         title: 'Type 1 vs Type 2 Decisions',
@@ -381,6 +391,16 @@ export const translations = {
       principles: '法則',
       about: '概要',
       github: 'GitHub',
+    },
+    ui: {
+      laws: '法則',
+      counter: '対',
+      quoteOpen: '「',
+      quoteClose: '」',
+      maxim:
+        '優れたエンジニアリングとは、すべてのリスクを避けることではない。どのリスクを取る価値があるかを、意図して選ぶことである。',
+      maximBy: '— 法典より',
+      metaTitle: 'Hammurabi — エンジニアが知るべき法則集',
     },
     heuristics: [
       {
