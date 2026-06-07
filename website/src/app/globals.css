@@ -21,6 +21,12 @@
   color-scheme: dark;
 }
 
+/* Keep in-page anchors clear of the fixed header */
+html {
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-ink);
   color: var(--color-carve);

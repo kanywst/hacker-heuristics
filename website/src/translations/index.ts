@@ -1,7 +1,7 @@
 export const translations = {
   en: {
     hero: {
-      tag: '§ I — XXXV · The Code of Engineering',
+      tag: '§ 01–35 · The Code of Engineering',
       title: 'Hammurabi',
       subtitle: 'Laws Every Engineer Should Know',
       lede: 'Thirty-five laws that govern systems, teams, and decisions — each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
@@ -380,7 +380,7 @@ export const translations = {
   },
   jp: {
     hero: {
-      tag: '§ I — XXXV · エンジニアリングの法典',
+      tag: '§ 01–35 · エンジニアリングの法典',
       title: 'Hammurabi',
       subtitle: 'エンジニアが知るべき法則集',
       lede: 'システム・チーム・意思決定を支配する35の法則。各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた。人類最古の成文法典に因んで。',

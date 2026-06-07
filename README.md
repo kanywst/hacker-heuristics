@@ -35,7 +35,7 @@ Hammurabi is a curated codex of engineering laws drawn from **Cognitive Psycholo
 
 ## The Site
 
-An engraved, editorial companion site renders all the laws as a numbered code of articles (§ I–XXXV).
+An engraved, editorial companion site renders all the laws as a numbered code of articles (§ 01–35).
 
 ```bash
 cd website

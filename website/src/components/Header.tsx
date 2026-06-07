@@ -47,6 +47,8 @@ export default function Header() {
           className="text-carve-dim transition-colors hover:text-carve md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -54,7 +56,10 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="mt-4 flex flex-col gap-4 border-t border-hairline pt-4 text-sm text-carve-dim md:hidden">
+        <nav
+          id="mobile-menu"
+          className="mt-4 flex flex-col gap-4 border-t border-hairline pt-4 text-sm text-carve-dim md:hidden"
+        >
           <a
             href="#laws"
             className="link-bronze"
