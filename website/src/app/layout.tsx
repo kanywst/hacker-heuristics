@@ -3,6 +3,7 @@ import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/components/LanguageContext';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -37,15 +38,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Header />
           <main>{children}</main>
-          <footer className="border-t border-hairline py-16 text-center">
-            <div className="rule-diamond mx-auto mb-6 w-24">
-              <span className="text-bronze">◆</span>
-            </div>
-            <p className="display text-lg text-carve">Hammurabi</p>
-            <p className="mt-2 text-sm text-carve-dim">
-              Laws Every Engineer Should Know · MIT License © 2026
-            </p>
-          </footer>
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

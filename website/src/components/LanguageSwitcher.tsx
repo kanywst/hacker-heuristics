@@ -12,6 +12,8 @@ export default function LanguageSwitcher() {
         <button
           key={l}
           onClick={() => setLang(l)}
+          aria-pressed={lang === l}
+          aria-label={l === 'en' ? 'English' : '日本語'}
           className={`relative rounded-full px-3 py-1 text-xs font-bold transition-colors ${
             lang === l ? 'text-ink' : 'text-carve-dim hover:text-carve'
           }`}

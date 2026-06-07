@@ -1,0 +1,18 @@
+'use client';
+
+import { useLanguage } from './LanguageContext';
+import { translations } from '@/translations';
+
+export default function Footer() {
+  const { lang } = useLanguage();
+
+  return (
+    <footer className="border-t border-hairline py-16 text-center">
+      <div className="rule-diamond mx-auto mb-6 w-24">
+        <span className="text-bronze">◆</span>
+      </div>
+      <p className="display text-lg text-carve">Hammurabi</p>
+      <p className="mt-2 text-sm text-carve-dim">{translations[lang].footer}</p>
+    </footer>
+  );
+}
