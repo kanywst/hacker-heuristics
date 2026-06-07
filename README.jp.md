@@ -24,18 +24,20 @@ Hammurabi は、**認知心理学**、**安全工学**、**システム設計**�
 |   **安全工学**   |          [逸脱の常態化](./translations/jp.md#2-逸脱の常態化-normalization-of-deviance)           |     小さな異常を「正常」と定義し直してはいけない。     |
 |   **安全工学**   |        [スイスチーズモデル](./translations/jp.md#33-スイスチーズモデル-swiss-cheese-model)        |     事故は複数層の穴が一直線に並んだ瞬間に起きる。     |
 |   **システム**   |         [チェスタトンの柵](./translations/jp.md#3-チェスタトンの柵-chestertons-fence)         |         消す前に「なぜ存在するか」を説明せよ。         |
-|     **文化**     |             [ハンロンの剃刀](./translations/jp.md#12-ハンロンの剃刀-hanlons-razor)             |            悪意ではなく文脈の欠如を疑え。            |
-|     **設計**     |            [コンウェイの法則](./translations/jp.md#7-コンウェイの法則-conways-law)            |           ソフトウェアは組織の鏡である。            |
+|     **組織**     |             [ハンロンの剃刀](./translations/jp.md#12-ハンロンの剃刀-hanlons-razor)             |            悪意ではなく文脈の欠如を疑え。            |
+|     **組織**     |            [コンウェイの法則](./translations/jp.md#7-コンウェイの法則-conways-law)            |           ソフトウェアは組織の鏡である。            |
 |     **認知**     |          [生存者バイアス](./translations/jp.md#21-生存者バイアス-survivorship-bias)           |           死者はブログ記事を書かない。            |
 |     **認知**     | [ダニング・クルーガー効果](./translations/jp.md#31-ダニング・クルーガー効果-dunning-kruger-effect) |     無能な者は自分が無能であることを認識できない。     |
 | **インセンティブ** |             [コブラ効果](./translations/jp.md#23-コブラ効果-the-cobra-effect)              |             解決策がより悪い問題を生む。             |
-|    **リスク**    |          [マーフィーの法則](./translations/jp.md#28-マーフィーの法則-murphys-law)           |    うまくいかない可能性があることは必ずうまくいかない。    |
-|    **複雑性**    | [テスラーの複雑性保存則](./translations/jp.md#30-テスラーの複雑性保存則-teslers-law-of-conservation-of-complexity) |          複雑性は消えずに、ただ移動する。          |
+|   **安全工学**   |          [マーフィーの法則](./translations/jp.md#28-マーフィーの法則-murphys-law)           |    うまくいかない可能性があることは必ずうまくいかない。    |
+|   **システム**   | [テスラーの複雑性保存則](./translations/jp.md#30-テスラーの複雑性保存則-teslers-law-of-conservation-of-complexity) |          複雑性は消えずに、ただ移動する。          |
+|   **分散システム**   |                  [CAP定理](./translations/jp.md#36-cap定理-cap-theorem)                   |   分断時、一貫性と可用性は両立できない。   |
+|     **組織**     |          [ピーターの法則](./translations/jp.md#39-ピーターの法則-peter-principle)          |       人は不得手な職位に達するまで昇進する。       |
 |    *...他多数*    |                          [全リストを見る →](./translations/jp.md)                          |                                                 |
 
 ## サイト
 
-碑文・エディトリアル調のサイトで、全法則を番号付きの条文（§ 01–35）として読めます。
+碑文・エディトリアル調のサイトで、全法則を番号付きの条文（§ 01〜）として読めます。序文 (Prologue) と結文 (Epilogue) が法典を挟みます。
 
 ```bash
 cd website

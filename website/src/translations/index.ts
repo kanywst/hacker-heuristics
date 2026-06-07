@@ -1,16 +1,16 @@
 export const translations = {
   en: {
     hero: {
-      tag: '§ 01–35 · The Code of Engineering',
+      tagLabel: 'The Code of Engineering',
       title: 'Hammurabi',
       subtitle: 'Laws Every Engineer Should Know',
-      lede: 'Thirty-five laws that govern systems, teams, and decisions — each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
+      lede: 'Laws that govern systems, teams, and decisions — each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
       ctaPrimary: 'Read the Codex',
       ctaSecondary: 'Source',
     },
     nav: {
       principles: 'The Laws',
-      about: 'About',
+      about: 'Epilogue',
       github: 'GitHub',
     },
     ui: {
@@ -18,15 +18,24 @@ export const translations = {
       counter: 'Counter',
       quoteOpen: '“',
       quoteClose: '”',
+      prologueLabel: 'Prologue',
+      prologueQuote:
+        '“…to bring about the rule of righteousness in the land, so that the strong should not harm the weak.”',
+      prologueQuoteBy: '— The Code of Hammurabi, c. 1754 BCE',
+      prologueBody:
+        'Hammurabi did not invent justice; he wrote it down, numbered it, and set it in stone where everyone could read the same law. This codex does that for engineering — the recurring forces that govern systems, teams, and decisions, carved as articles so they can be cited, argued, and amended, rather than rediscovered at 3 AM.',
       maxim:
         'Good engineering is not the avoidance of all risk, but the deliberate choice of which risks are worth taking.',
       maximBy: '— The Code',
+      epilogueLabel: 'Epilogue',
+      epilogueCurse:
+        'Let the engineer who tears down a fence without learning why it stands, who turns a measure into a target, or who calls a hard problem easy — inherit the pager at 3 AM.',
       metaTitle: 'Hammurabi — Laws Every Engineer Should Know',
     },
     heuristics: [
       {
         title: 'Type 1 vs Type 2 Decisions',
-        tag: 'Decision Theory',
+        tag: 'Decision',
         mechanism:
           'The brain instinctively treats all failures as threats, demanding excessive caution for reversible decisions (two-way doors).',
         counter: "The 'One-Way Door' Filter.",
@@ -36,7 +45,7 @@ export const translations = {
       },
       {
         title: 'Normalization of Deviance',
-        tag: 'Safety Engineering',
+        tag: 'Safety',
         mechanism:
           "When a minor rule is broken and no disaster occurs, the brain re-classifies deviance as 'normal'.",
         counter: 'Broken Windows Theory.',
@@ -46,7 +55,7 @@ export const translations = {
       },
       {
         title: "Chesterton's Fence",
-        tag: 'Systems Thinking',
+        tag: 'Systems',
         mechanism:
           "The ego jumps to 'simplify' by deleting legacy code/rules it doesn't immediately understand.",
         counter: "Balance with YAGNI (You Ain't Gonna Need It).",
@@ -56,7 +65,7 @@ export const translations = {
       },
       {
         title: 'Normalcy Bias',
-        tag: 'Cognitive Psychology',
+        tag: 'Cognition',
         mechanism:
           "In a crisis, the brain defaults to the most frequent explanation. 'It's just a transient error' as systems fail.",
         counter: 'Pre-mortem / Red Teaming.',
@@ -66,7 +75,7 @@ export const translations = {
       },
       {
         title: 'Law of Triviality',
-        tag: 'Social Dynamics',
+        tag: 'Organization',
         mechanism:
           'People provide more feedback on simple things (naming) than complex ones because everyone understands them.',
         counter: 'Core Value Focus.',
@@ -76,7 +85,7 @@ export const translations = {
       },
       {
         title: "Gall's Law",
-        tag: 'System Design',
+        tag: 'Systems',
         mechanism:
           'The delusion that complex systems can be designed top-down from scratch. They are too chaotic.',
         counter: 'The MVP (Minimum Viable Product).',
@@ -86,7 +95,7 @@ export const translations = {
       },
       {
         title: "Conway's Law",
-        tag: 'Org Design',
+        tag: 'Organization',
         mechanism:
           "Software architecture is a map of the org chart. If teams don't talk, their services won't integrate.",
         counter: 'Inverse Conway Maneuver.',
@@ -96,7 +105,7 @@ export const translations = {
       },
       {
         title: "Hyrum's Law",
-        tag: 'API Design',
+        tag: 'Systems',
         mechanism:
           'With enough users, every observable behavior (even bugs) will be depended on by someone.',
         counter: 'Chaos Engineering.',
@@ -107,7 +116,7 @@ export const translations = {
       },
       {
         title: "Brooks' Law",
-        tag: 'Management',
+        tag: 'Organization',
         mechanism:
           'Adding people to a late project explodes communication channels quadratically (n(n-1)/2). New people drain veterans.',
         counter: 'Scope Cutting.',
@@ -117,7 +126,7 @@ export const translations = {
       },
       {
         title: 'The XY Problem',
-        tag: 'Communication',
+        tag: 'Cognition',
         mechanism:
           'Users get stuck on a solution (Y) and ask for help with it, forgetting the original problem (X).',
         counter: 'Five Whys.',
@@ -127,7 +136,7 @@ export const translations = {
       },
       {
         title: "Postel's Law",
-        tag: 'Interoperability',
+        tag: 'Distributed Systems',
         mechanism:
           'Assuming everyone follows the spec perfectly leads to brittle failures in distributed systems.',
         counter: 'Fail-Fast (Internal only).',
@@ -137,7 +146,7 @@ export const translations = {
       },
       {
         title: "Hanlon's Razor",
-        tag: 'Culture',
+        tag: 'Organization',
         mechanism:
           "Assuming malice or sabotage for bugs/delays when it's usually just lack of sleep or context.",
         counter: 'Psychological Safety.',
@@ -157,7 +166,7 @@ export const translations = {
       },
       {
         title: "Goodhart's Law",
-        tag: 'Metrics',
+        tag: 'Incentives',
         mechanism:
           "When a measure becomes a target, it ceases to be a good measure. Rewards for 'commits' create junk commits.",
         counter: 'Balanced Scorecards.',
@@ -167,7 +176,7 @@ export const translations = {
       },
       {
         title: 'Lindy Effect',
-        tag: 'Survivability',
+        tag: 'Systems',
         mechanism:
           'For non-perishables like software, the longer it has survived, the longer it is likely to survive.',
         counter: 'Hype Cycle Analysis.',
@@ -177,7 +186,7 @@ export const translations = {
       },
       {
         title: 'Sunk Cost Fallacy',
-        tag: 'Psychology',
+        tag: 'Decision',
         mechanism:
           "Continuing to invest in failing projects because 'we've already spent so much.' The brain hates loss.",
         counter: 'Zero-Based Budgeting.',
@@ -187,7 +196,7 @@ export const translations = {
       },
       {
         title: 'Cargo Cult Engineering',
-        tag: 'Engineering Culture',
+        tag: 'Cognition',
         mechanism:
           "Copying practices of successful companies (Spotify Model) without understanding the 'why'.",
         counter: 'First Principles Thinking.',
@@ -197,7 +206,7 @@ export const translations = {
       },
       {
         title: "Amdahl's Law",
-        tag: 'Optimization',
+        tag: 'Performance',
         mechanism:
           'Optimizing a part has no impact if the bottleneck is elsewhere. Resource waste.',
         counter: 'Theory of Constraints.',
@@ -207,7 +216,7 @@ export const translations = {
       },
       {
         title: 'Leaky Abstractions',
-        tag: 'Architecture',
+        tag: 'Systems',
         mechanism:
           "All non-trivial abstractions leak. You can't use SQL without understanding indexes eventually.",
         counter: 'T-Shaped Skills.',
@@ -217,7 +226,7 @@ export const translations = {
       },
       {
         title: 'Pareto Principle',
-        tag: 'Prioritization',
+        tag: 'Decision',
         mechanism:
           '80% of bugs come from 20% of code. 80% of value comes from 20% of features.',
         counter: 'Ruthless Prioritization.',
@@ -237,7 +246,7 @@ export const translations = {
       },
       {
         title: "Kernighan's Law",
-        tag: 'Code Quality',
+        tag: 'Maintainability',
         mechanism:
           '"Debugging is twice as hard as writing the code. If you write the cleverest code you can, you are by definition not smart enough to debug it."',
         counter: 'KISS (Keep It Simple, Stupid).',
@@ -247,7 +256,7 @@ export const translations = {
       },
       {
         title: 'The Cobra Effect',
-        tag: 'Incentive Design',
+        tag: 'Incentives',
         mechanism:
           'A solution designed to fix a problem creates a worse one. A bounty on cobras led people to breed cobras for the reward.',
         counter: 'Second-Order Effects Analysis.',
@@ -257,7 +266,7 @@ export const translations = {
       },
       {
         title: "Dunbar's Number",
-        tag: 'Org Scaling',
+        tag: 'Organization',
         mechanism:
           'Humans can maintain ~150 stable relationships. Teams larger than ~8 experience exponential communication breakdown.',
         counter: 'Two-Pizza Rule / Team Topologies.',
@@ -267,7 +276,7 @@ export const translations = {
       },
       {
         title: 'Worse is Better',
-        tag: 'Design Philosophy',
+        tag: 'Systems',
         mechanism:
           "A simpler, 'inferior' design that is easy to implement and adopt will beat a theoretically 'correct' but complex one. Unix beat Lisp. HTTP beat CORBA.",
         counter: 'The Right Thing / Perfectionism.',
@@ -277,7 +286,7 @@ export const translations = {
       },
       {
         title: "Cunningham's Law",
-        tag: 'Knowledge',
+        tag: 'Organization',
         mechanism:
           '"The best way to get the right answer on the internet is not to ask a question; it\'s to post the wrong answer." People correct mistakes faster than they answer questions.',
         counter: 'Socratic Method.',
@@ -287,7 +296,7 @@ export const translations = {
       },
       {
         title: 'Bystander Effect',
-        tag: 'Incident Response',
+        tag: 'Organization',
         mechanism:
           "The more people present, the less likely any single person acts. 'Someone else will handle it.' A page to a group channel often means nobody responds.",
         counter: 'Explicit Role Assignment / Incident Commander.',
@@ -297,7 +306,7 @@ export const translations = {
       },
       {
         title: "Murphy's Law",
-        tag: 'Risk Engineering',
+        tag: 'Safety',
         mechanism:
           'Anything that can go wrong, will go wrong — given enough time, traffic, or unexpected input. Designing only for the happy path leaves a system one blip away from collapse.',
         counter: 'Defensive Design / Chaos Engineering.',
@@ -307,7 +316,7 @@ export const translations = {
       },
       {
         title: 'Boy Scout Rule',
-        tag: 'Continuous Improvement',
+        tag: 'Maintainability',
         mechanism:
           "Codebases decay because cleanup is always 'someone else's job.' Each engineer absorbs the entropy hit but defers the fix to a future refactor that never lands.",
         counter: 'Incremental Hygiene.',
@@ -317,7 +326,7 @@ export const translations = {
       },
       {
         title: "Tesler's Law",
-        tag: 'Complexity',
+        tag: 'Systems',
         mechanism:
           'Every system has irreducible complexity that cannot be removed — only relocated. Hide it from the user and it lands on the developer; hide it from the developer and it lands on the customer at 3 AM.',
         counter: 'Honest Layering.',
@@ -327,7 +336,7 @@ export const translations = {
       },
       {
         title: 'Dunning-Kruger Effect',
-        tag: 'Metacognition',
+        tag: 'Cognition',
         mechanism:
           'Lacking expertise also means lacking the meta-skill to recognize incompetence. Novices over-claim; true experts under-claim, assuming others share their understanding.',
         counter: 'Calibrated Confidence.',
@@ -337,7 +346,7 @@ export const translations = {
       },
       {
         title: 'Curse of Knowledge',
-        tag: 'Communication',
+        tag: 'Cognition',
         mechanism:
           'Once you know a thing, you cannot easily imagine not knowing it. Docs, error messages, and APIs become obvious to the author and opaque to the next reader.',
         counter: 'User Testing / Onboarding Buddies.',
@@ -347,7 +356,7 @@ export const translations = {
       },
       {
         title: 'Swiss Cheese Model',
-        tag: 'Safety Engineering',
+        tag: 'Safety',
         mechanism:
           'Every protective layer has holes. Accidents happen when holes across independent layers happen to align. No single layer is ever sufficient.',
         counter: 'Defense in Depth.',
@@ -357,7 +366,7 @@ export const translations = {
       },
       {
         title: 'Premature Optimization',
-        tag: 'Engineering Discipline',
+        tag: 'Performance',
         mechanism:
           '"Premature optimization is the root of all evil." Optimizing before measurement wastes hours and entangles hot and cold paths, obstructing the real fix.',
         counter: 'Profile First.',
@@ -367,7 +376,7 @@ export const translations = {
       },
       {
         title: "Linus's Law",
-        tag: 'Open Source',
+        tag: 'Maintainability',
         mechanism:
           '"Given enough eyeballs, all bugs are shallow." Defects invisible to one mind become trivial under many independent perspectives — if the code is actually visible.',
         counter: 'Rotated Reviewers / Bug Bounties.',
@@ -375,21 +384,134 @@ export const translations = {
           'If a bug class keeps slipping through, do not assign the same reviewers more carefully — expose the code to differently-shaped eyes. Rotate, open up, bounty.',
         source: 'Eric S. Raymond, The Cathedral and the Bazaar (1999)',
       },
+      {
+        title: 'CAP Theorem',
+        tag: 'Distributed Systems',
+        mechanism:
+          'A networked store cannot simultaneously guarantee Consistency, Availability, and Partition tolerance. Partitions are not optional, so you are really choosing C or A when one strikes.',
+        counter: 'PACELC / Tunable Consistency.',
+        guideline:
+          'Decide before an outage whether each operation prefers consistency or availability. The partition will happen; the only question is what your system does when it does.',
+        source:
+          'Eric Brewer, PODC keynote (2000); proved by Gilbert & Lynch (2002)',
+      },
+      {
+        title: "Little's Law",
+        tag: 'Performance',
+        mechanism:
+          'In any stable system, items-in-system (L) equals arrival rate (λ) times time-in-system (W): L = λW. It holds regardless of arrival distribution or service order.',
+        counter: 'Backpressure / Admission Control.',
+        guideline:
+          'To cut latency without adding capacity, cut work-in-progress. Cap concurrent requests — a shorter queue is faster than a faster server.',
+        source: 'John D. C. Little, Operations Research (1961)',
+      },
+      {
+        title: 'Two Generals Problem',
+        tag: 'Distributed Systems',
+        mechanism:
+          'Two parties on an unreliable channel can never be certain they agree — every message needs an ack, which needs an ack, forever. No fixed exchange guarantees common knowledge.',
+        counter: 'Idempotency / Eventual Consistency.',
+        guideline:
+          'Never assume "I sent it, so they got it." Make every cross-network action safely retryable and idempotent, and reconcile state instead of trusting one round-trip.',
+        source:
+          'Akkoyunlu, Ekanadham & Huber (1975); framed by Jim Gray (1978)',
+      },
+      {
+        title: 'Peter Principle',
+        tag: 'Organization',
+        mechanism:
+          'People are promoted on performance in their current role, not the next one. So everyone rises until they reach a role they are bad at — and there they stay.',
+        counter: 'Dual Career Ladders.',
+        guideline:
+          'Do not promote your best engineer into management as a reward. Offer a technical ladder, and evaluate candidates for the role above, not the one they already mastered.',
+        source: 'Laurence J. Peter & Raymond Hull, The Peter Principle (1969)',
+      },
+      {
+        title: "Parkinson's Law",
+        tag: 'Organization',
+        mechanism:
+          '"Work expands so as to fill the time available for its completion." Give a task a week and it takes a week; the same task with a two-day deadline ships in two days.',
+        counter: 'Timeboxing.',
+        guideline:
+          'Set deliberately short timeboxes for open-ended work and review at the deadline. A tight box forces the scoping decisions an open one defers forever.',
+        source: 'C. Northcote Parkinson, The Economist (1955)',
+      },
+      {
+        title: "Wirth's Law",
+        tag: 'Performance',
+        mechanism:
+          '"Software is getting slower more rapidly than hardware is becoming faster." Each hardware gain is absorbed by added layers and features, so perceived speed stays flat.',
+        counter: 'Performance Budgets.',
+        guideline:
+          'Treat the speed a faster machine buys you as a budget to protect, not a license to spend. Set a performance budget and fail the build when a release regresses against it.',
+        source: 'Niklaus Wirth, A Plea for Lean Software (1995)',
+      },
+      {
+        title: 'Ninety-Ninety Rule',
+        tag: 'Estimation',
+        mechanism:
+          '"The first 90% of the code takes 90% of the time. The remaining 10% takes the other 90%." The visible work hides a second, equal body of integration and edge cases.',
+        counter: 'Demo on Real Data.',
+        guideline:
+          'When something looks almost done, assume an entire second project remains: hardening, edge cases, integration. Schedule it, do not treat it as a rounding error.',
+        source:
+          'Tom Cargill (Bell Labs); Jon Bentley, Programming Pearls (1985)',
+      },
+      {
+        title: "Eagleson's Law",
+        tag: 'Maintainability',
+        mechanism:
+          'Any code you have not looked at for six months might as well have been written by someone else. Your mental model evaporates far faster than the code does.',
+        counter: 'ADRs / Self-Explaining Code.',
+        guideline:
+          'Write code and commit messages for the stranger you will become in six months. If a decision is not obvious from the code, record the why — not in your head.',
+        source: 'Programming folklore attributed to Peter Eagleson',
+      },
+      {
+        title: "Hick's Law",
+        tag: 'Interaction',
+        mechanism:
+          'Decision time grows logarithmically with the number of choices: T = b·log₂(n+1). More options do not just clutter — they measurably slow every user down.',
+        counter: 'Progressive Disclosure / Defaults.',
+        guideline:
+          'Cut the choices on any screen or API surface to the few that matter; push the rest behind sensible defaults. Fewer doors, faster decisions.',
+        source: 'W. E. Hick (1952) & Ray Hyman (1953)',
+      },
+      {
+        title: "Fitts's Law",
+        tag: 'Interaction',
+        mechanism:
+          'Time to reach a target depends on its distance and size: far, small targets are slow and error-prone; near, large ones are fast. Pointing has a measurable cost.',
+        counter: 'Edges & Corners / Frequency Sizing.',
+        guideline:
+          'Make frequent actions big and easy to hit; make rare or destructive ones small and far. Screen edges and corners are infinite targets — put primary actions there.',
+        source: 'Paul M. Fitts, J. Experimental Psychology (1954)',
+      },
+      {
+        title: "Miller's Law",
+        tag: 'Cognition',
+        mechanism:
+          '"The Magical Number Seven, Plus or Minus Two." Working memory holds about seven chunks. Cross that and recall collapses — the brain drops items rather than slowing.',
+        counter: 'Chunking / Information Hiding.',
+        guideline:
+          'Group related items into a handful of named chunks wherever a person must hold state in their head: arguments, form fields, menu groups, on-call steps.',
+        source: 'George A. Miller, Psychological Review (1956)',
+      },
     ],
     footer: '© 2026 Hammurabi · Laws Every Engineer Should Know.',
   },
   jp: {
     hero: {
-      tag: '§ 01–35 · エンジニアリングの法典',
+      tagLabel: 'エンジニアリングの法典',
       title: 'Hammurabi',
       subtitle: 'エンジニアが知るべき法則集',
-      lede: 'システム・チーム・意思決定を支配する35の法則。各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた。人類最古の成文法典に因んで。',
+      lede: 'システム・チーム・意思決定を支配する法則。各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた。人類最古の成文法典に因んで。',
       ctaPrimary: 'コーデックスを読む',
       ctaSecondary: 'ソース',
     },
     nav: {
       principles: '法則',
-      about: '概要',
+      about: '結文',
       github: 'GitHub',
     },
     ui: {
@@ -397,15 +519,24 @@ export const translations = {
       counter: '対',
       quoteOpen: '「',
       quoteClose: '」',
+      prologueLabel: '序',
+      prologueQuote:
+        '「…この地に正義を行き渡らせ、強き者が弱き者を虐げぬように。」',
+      prologueQuoteBy: '— ハンムラビ法典、紀元前1754年頃',
+      prologueBody:
+        'ハンムラビは正義を発明したのではない。それを書き留め、番号を振り、誰もが同じ法を読める石に刻んだ。この法典は同じことをエンジニアリングに対して行う——システム・チーム・意思決定を支配する反復する力を、午前3時に再発見されるのではなく、引用し、議論し、改訂できるよう、条文として刻む。',
       maxim:
         '優れたエンジニアリングとは、すべてのリスクを避けることではない。どのリスクを取る価値があるかを、意図して選ぶことである。',
       maximBy: '— 法典より',
+      epilogueLabel: '結',
+      epilogueCurse:
+        'なぜ柵が立つかを学ばずに引き倒す者、測定を目標へとすり替える者、難問を「簡単だ」と言い切る者——その者に午前3時のページャーを継がせよ。',
       metaTitle: 'Hammurabi — エンジニアが知るべき法則集',
     },
     heuristics: [
       {
         title: '意思決定の可逆性',
-        tag: '意思決定理論',
+        tag: '意思決定',
         mechanism:
           '脳は生存本能的にすべての失敗を脅威と見なし、すぐに戻せる決定にも過剰な慎重さを求めてしまう。',
         counter: '「一方向のドア」フィルター。',
@@ -425,7 +556,7 @@ export const translations = {
       },
       {
         title: 'チェスタトンの柵',
-        tag: 'システム思考',
+        tag: 'システム',
         mechanism:
           'エゴは理解できないものを「単純化」という名目で削除したがる。背景文脈の欠如による罠。',
         counter: 'YAGNIに対するバランス。',
@@ -435,7 +566,7 @@ export const translations = {
       },
       {
         title: '正常性バイアス',
-        tag: '認知心理学',
+        tag: '認知',
         mechanism:
           '真の異常に直面しても、脳はエネルギー節約のため「いつものパターン」で解釈しようとする。',
         counter: 'プレモータム / レッドチーミング。',
@@ -445,7 +576,7 @@ export const translations = {
       },
       {
         title: 'パーキンソンの凡俗法則',
-        tag: '社会力学',
+        tag: '組織',
         mechanism:
           '人は複雑なことより、誰でも理解できる単純なこと（命名等）に多くのフィードバックをしてしまう。',
         counter: 'コア・バリューへの集中。',
@@ -455,7 +586,7 @@ export const translations = {
       },
       {
         title: 'ガルの法則',
-        tag: 'システム設計',
+        tag: 'システム',
         mechanism:
           '複雑なシステムをゼロから設計できるという妄想。複雑系はトップダウンでは設計できない。',
         counter: 'MVP (実用最小限の製品)。',
@@ -465,7 +596,7 @@ export const translations = {
       },
       {
         title: 'コンウェイの法則',
-        tag: '組織設計',
+        tag: '組織',
         mechanism:
           'ソフトウェア構造は組織図の写し鏡になる。チームが会話しなければ統合もスムーズにいかない。',
         counter: '逆コンウェイ戦略。',
@@ -475,7 +606,7 @@ export const translations = {
       },
       {
         title: 'ハイラムの法則',
-        tag: 'API設計',
+        tag: 'システム',
         mechanism:
           'ユーザー数が増えれば、システムの観測可能なあらゆる挙動は誰かの依存対象になる。',
         counter: 'カオスエンジニアリング。',
@@ -485,7 +616,7 @@ export const translations = {
       },
       {
         title: 'ブルックスの法則',
-        tag: 'マネジメント',
+        tag: '組織',
         mechanism:
           '遅れているプロジェクトに人を追加すると、通信路が二次関数的に爆発する (n 人で n(n-1)/2 本)。新人はベテランの手を止め、貢献より損失が上回る。',
         counter: 'スコープ削減。',
@@ -495,7 +626,7 @@ export const translations = {
       },
       {
         title: 'XY問題',
-        tag: 'コミュニケーション',
+        tag: '認知',
         mechanism:
           '解決策（Y）で詰まったとき、本来の目的（X）を忘れ、Yの方法を質問してしまう。',
         counter: 'なぜなぜ分析。',
@@ -505,7 +636,7 @@ export const translations = {
       },
       {
         title: 'ポステルの法則',
-        tag: '相互運用性',
+        tag: '分散システム',
         mechanism:
           '全員が仕様を完璧に守ると想定すると、分散システムでは脆い失敗を招く。',
         counter: 'フェイルファスト (内部限定)。',
@@ -515,7 +646,7 @@ export const translations = {
       },
       {
         title: 'ハンロンの剃刀',
-        tag: '文化・デバッグ',
+        tag: '組織',
         mechanism:
           'バグや遅延を悪意と受け取ってしまうが、実際には単なる睡眠不足や文脈欠如であることが多い。',
         counter: '心理的安全性。',
@@ -525,7 +656,7 @@ export const translations = {
       },
       {
         title: 'ホフスタッターの法則',
-        tag: '見積もり',
+        tag: '見積り',
         mechanism:
           'この法則を考慮しても常に予想以上の時間がかかる。脳は未知の未知を可視化できない。',
         counter: '実績ベースのスケジューリング。',
@@ -535,7 +666,7 @@ export const translations = {
       },
       {
         title: 'グッドハートの法則',
-        tag: '指標',
+        tag: 'インセンティブ',
         mechanism:
           'ある指標が目標になると、それは良い指標ではなくなる。コミット数評価はゴミを量産する。',
         counter: 'バランスト・スコアカード。',
@@ -545,7 +676,7 @@ export const translations = {
       },
       {
         title: 'リンディ効果',
-        tag: '生存性',
+        tag: 'システム',
         mechanism:
           '非腐敗的なものは、長く生き残ってきたものほど今後も長く生き残る可能性が高い。',
         counter: 'ハイプサイクル分析。',
@@ -555,7 +686,7 @@ export const translations = {
       },
       {
         title: 'サンクコストの誤謬',
-        tag: '心理学',
+        tag: '意思決定',
         mechanism:
           '「既に投資したから」という理由で失敗に固執する。脳は負けを認めるのを嫌う。',
         counter: 'ゼロベース予算。',
@@ -565,7 +696,7 @@ export const translations = {
       },
       {
         title: 'カーゴ・カルト・エンジニアリング',
-        tag: 'エンジニア文化',
+        tag: '認知',
         mechanism:
           '成功企業の慣行を、なぜ機能したか理解せずに真似る罠。形だけ真似ても結果は出ない。',
         counter: '第一原理思考。',
@@ -575,7 +706,7 @@ export const translations = {
       },
       {
         title: 'アムダールの法則',
-        tag: '最適化',
+        tag: '性能',
         mechanism:
           'ボトルネックが他にある場合、一部を最適化しても全体性能には影響しない。リソースの浪費。',
         counter: '制約理論。',
@@ -585,7 +716,7 @@ export const translations = {
       },
       {
         title: 'リーキー・アブストラクション',
-        tag: 'アーキテクチャ',
+        tag: 'システム',
         mechanism:
           'あらゆる抽象化はある程度「漏れる」。下の層を理解せずに使い続けることはできない。',
         counter: 'T型スキル。',
@@ -595,7 +726,7 @@ export const translations = {
       },
       {
         title: 'パレートの法則',
-        tag: '優先順位',
+        tag: '意思決定',
         mechanism:
           'バグの80%は20%のコードに、価値の80%は20%の機能に起因する。不平等の法則。',
         counter: '非情な優先順位付け。',
@@ -615,7 +746,7 @@ export const translations = {
       },
       {
         title: 'カーニハンの法則',
-        tag: 'コード品質',
+        tag: '保守性',
         mechanism:
           '「デバッグはコードを書くときの2倍の知性を要する。最大限賢いコードを書いた時点で、デバッグする知性が定義上足りなくなる。」',
         counter: 'KISS (Keep It Simple, Stupid)。',
@@ -625,7 +756,7 @@ export const translations = {
       },
       {
         title: 'コブラ効果',
-        tag: 'インセンティブ設計',
+        tag: 'インセンティブ',
         mechanism:
           '問題解決の施策がかえって問題を悪化させる。コブラ駆除の懸賞金がコブラの養殖を誘発した。',
         counter: '二次効果分析。',
@@ -635,7 +766,7 @@ export const translations = {
       },
       {
         title: 'ダンバー数',
-        tag: '組織スケーリング',
+        tag: '組織',
         mechanism:
           '人間の認知限界は約150の安定した関係。チームが約8人を超えるとコミュニケーションが指数関数的に崩壊。',
         counter: 'ツー・ピザ・ルール / チームトポロジー。',
@@ -645,7 +776,7 @@ export const translations = {
       },
       {
         title: '劣っている方が勝つ',
-        tag: '設計哲学',
+        tag: 'システム',
         mechanism:
           '単純で「不完全」だが実装容易な設計が、理論的に「正しい」複雑な設計に勝つ。UnixはLispに、HTTPはCORBAに勝った。',
         counter: 'The Right Thing / 完璧主義。',
@@ -655,7 +786,7 @@ export const translations = {
       },
       {
         title: 'カニンガムの法則',
-        tag: '知識共有',
+        tag: '組織',
         mechanism:
           '「正しい答えを得る最良の方法は質問ではなく間違った答えの投稿だ。」人は質問に答えるより間違いを訂正する動機が強い。',
         counter: 'ソクラテス式問答。',
@@ -665,7 +796,7 @@ export const translations = {
       },
       {
         title: '傍観者効果',
-        tag: 'インシデント対応',
+        tag: '組織',
         mechanism:
           '居合わせる人数が多いほど個人が行動しない。「誰かが対応するだろう」で全員が見送る。グループアラートは無視される。',
         counter: '明示的な役割割り当て / インシデントコマンダー。',
@@ -675,7 +806,7 @@ export const translations = {
       },
       {
         title: 'マーフィーの法則',
-        tag: 'リスク工学',
+        tag: '安全工学',
         mechanism:
           '「うまくいかない可能性があることは必ずうまくいかない。」十分な時間・トラフィック・想定外の入力があれば、潜在的な失敗モードはいずれ必ず発火する。',
         counter: '防御的設計 / カオスエンジニアリング。',
@@ -685,7 +816,7 @@ export const translations = {
       },
       {
         title: 'ボーイスカウトの規則',
-        tag: '継続的改善',
+        tag: '保守性',
         mechanism:
           'クリーンアップは常に「誰か別の人の仕事」になりがちで、コードベースは劣化していく。修正は「いつかのリファクタ」に先送りされ、それは結局来ない。',
         counter: '漸進的衛生管理。',
@@ -695,7 +826,7 @@ export const translations = {
       },
       {
         title: 'テスラーの複雑性保存則',
-        tag: '複雑性',
+        tag: 'システム',
         mechanism:
           'あらゆるシステムには取り除けない本質的複雑性があり、それは消えず移動する。ユーザーから隠せば開発者へ、開発者から隠せば顧客へ、運用者から隠せば午前 3 時のオンコールに着地する。',
         counter: '誠実なレイヤリング。',
@@ -705,7 +836,7 @@ export const translations = {
       },
       {
         title: 'ダニング・クルーガー効果',
-        tag: 'メタ認知',
+        tag: '認知',
         mechanism:
           '専門性を欠くと「自分の無能さを認識するメタ能力」も欠ける。初心者は過信し、本当の熟達者は他人も自分と同じ理解を持つと仮定して過小評価する。',
         counter: '較正された自信。',
@@ -715,7 +846,7 @@ export const translations = {
       },
       {
         title: '知識の呪い',
-        tag: 'コミュニケーション',
+        tag: '認知',
         mechanism:
           '一度知ってしまうと「知らなかった状態」を想像できなくなる。ドキュメント、エラーメッセージ、API は著者には自明、次に読む人には不透明になる。',
         counter: 'ユーザーテスト / オンボーディングバディ。',
@@ -735,7 +866,7 @@ export const translations = {
       },
       {
         title: '早すぎる最適化',
-        tag: 'エンジニア規律',
+        tag: '性能',
         mechanism:
           '「早すぎる最適化はあらゆる悪の根源」(Knuth)。計測前の最適化は時間を浪費し、ホットとコールドを絡め取って本来必要となる最適化を阻む複雑性を残す。',
         counter: 'プロファイル優先。',
@@ -745,13 +876,125 @@ export const translations = {
       },
       {
         title: 'リーナスの法則',
-        tag: 'オープンソース',
+        tag: '保守性',
         mechanism:
           '「十分な目玉があれば、あらゆるバグは浅い」(Raymond)。一人には不可視の欠陥も、独立した多視点の前では自明になる——ただしコードが実際に見えていれば。',
         counter: 'レビュアーのローテーション / バグバウンティ。',
         guideline:
           'あるバグの型が漏れ続けるなら、同じ人に丁寧にレビューさせるのではなく、形の違う目を増やせ。ローテーション、公開、バウンティを使え。',
         source: 'Eric S. Raymond『The Cathedral and the Bazaar』(1999)',
+      },
+      {
+        title: 'CAP定理',
+        tag: '分散システム',
+        mechanism:
+          'ネットワーク化されたストアは、一貫性・可用性・分断耐性を同時には保証できない。分断は不可避なので、それが起きた瞬間に実質「一貫性か可用性か」を選ばされる。',
+        counter: 'PACELC / 調整可能な一貫性。',
+        guideline:
+          '障害が起きる前に、各操作が一貫性と可用性のどちらを優先するか決めておけ。分断は必ず起きる。問われるのは「起きた時にシステムが何をするか」だけだ。',
+        source:
+          'Eric Brewer, PODC 基調講演 (2000); Gilbert & Lynch が証明 (2002)',
+      },
+      {
+        title: 'リトルの法則',
+        tag: '性能',
+        mechanism:
+          '安定したシステムでは、系内の項目数 (L) は到着率 (λ) と滞留時間 (W) の積に等しい: L = λW。到着分布やサービス順序に依らず成り立つ。',
+        counter: 'バックプレッシャ / 流入制御。',
+        guideline:
+          '容量を増やさずレイテンシを下げたいなら、仕掛り (WIP) を減らせ。同時リクエスト数に上限を。短い行列は速いサーバより速い。',
+        source: 'John D. C. Little, Operations Research (1961)',
+      },
+      {
+        title: '二人の将軍問題',
+        tag: '分散システム',
+        mechanism:
+          '不確実な通信路上の二者は、合意できたと確信できない。あらゆるメッセージは確認応答を要し、その応答もまた応答を要し、永遠に終わらない。',
+        counter: 'べき等性 / 結果整合性。',
+        guideline:
+          '「送ったから届いた」と決して仮定するな。ネットワークを跨ぐ操作は再送安全かつべき等に設計し、一往復を信じず状態を突き合わせて整合させよ。',
+        source: 'Akkoyunlu, Ekanadham & Huber (1975); Jim Gray が定式化 (1978)',
+      },
+      {
+        title: 'ピーターの法則',
+        tag: '組織',
+        mechanism:
+          '人は「次の職務」ではなく「現職の成績」で昇進する。だから誰もが不得手な職位に達するまで昇り、そこで留まる。有能は昇進で失われ、無能が堆積する。',
+        counter: '専門職とマネジメントの複線キャリア。',
+        guideline:
+          '最高のエンジニアを褒美にマネジメントへ昇進させるな。技術職の梯子を用意し、達成済みの職務ではなく「一つ上の職務」への適性で評価せよ。',
+        source: 'Laurence J. Peter & Raymond Hull, The Peter Principle (1969)',
+      },
+      {
+        title: 'パーキンソンの法則',
+        tag: '組織',
+        mechanism:
+          '「仕事は、それを完了するために与えられた時間を満たすまで膨張する」。一週間与えれば一週間かかり、同じ作業も締切が二日なら二日で片付く。',
+        counter: 'タイムボックス。',
+        guideline:
+          '終わりの見えない作業には意図的に短いタイムボックスを切り、締切で見直せ。きつい箱は、緩い箱が永遠に先送りするスコープ判断を強制する。',
+        source: 'C. Northcote Parkinson, The Economist (1955)',
+      },
+      {
+        title: 'ヴィルトの法則',
+        tag: '性能',
+        mechanism:
+          '「ソフトウェアはハードウェアが速くなるよりも速く遅くなる」。ハードの利得は層の追加と機能で吸収され、体感速度は横ばいか悪化する。',
+        counter: 'パフォーマンスバジェット。',
+        guideline:
+          '速いマシンが買ってくれた速度は「使う許可」ではなく「守る予算」とみなせ。性能予算を設け、リリースが予算を割ったらビルドを失敗させよ。',
+        source: 'Niklaus Wirth, A Plea for Lean Software (1995)',
+      },
+      {
+        title: '90対90の法則',
+        tag: '見積り',
+        mechanism:
+          '「最初の90%のコードが時間の90%を、残り10%のコードがもう90%を食う」。目に見える作業は、同じ大きさの統合・エッジケース・仕上げを隠している。',
+        counter: '本番相当データでのデモ。',
+        guideline:
+          '「ほぼ完成」に見えたら、もう一つ丸ごとプロジェクトが残ると思え——堅牢化・エッジケース・統合。端数として無視せず明示的に見積もれ。',
+        source:
+          'Tom Cargill (Bell Labs); Jon Bentley, Programming Pearls (1985)',
+      },
+      {
+        title: 'イーグルソンの法則',
+        tag: '保守性',
+        mechanism:
+          '半年見ていない自分のコードは、他人が書いたも同然。コードそのものより遥かに速く、頭の中のメンタルモデルが蒸発する。文脈はソースに保存されない。',
+        counter: 'ADR / 自己説明的なコード。',
+        guideline:
+          '半年後に他人と化す自分のために、コードとコミットメッセージを書け。コードから自明でない判断は「なぜ」を残せ——頭の中ではなく。',
+        source: 'Peter Eagleson に帰される、プログラミングの口伝',
+      },
+      {
+        title: 'ヒックの法則',
+        tag: 'ヒューマンインタフェース',
+        mechanism:
+          '決定時間は選択肢の数の対数で増える: T = b·log₂(n+1)。選択肢の増加は見た目を散らかすだけでなく、全ユーザーを計測可能なほど遅くする。',
+        counter: '段階的開示 / 既定値。',
+        guideline:
+          '画面や API 表面の選択肢を「効くものだけ」に削り、残りは妥当な既定値の裏へ。ドアが少ないほど決定は速い。',
+        source: 'W. E. Hick (1952) & Ray Hyman (1953)',
+      },
+      {
+        title: 'フィッツの法則',
+        tag: 'ヒューマンインタフェース',
+        mechanism:
+          '対象に到達する時間は距離と大きさで決まる。遠く小さい対象は遅く誤りやすく、近く大きい対象は速い。ポインティングには計測可能なコストがある。',
+        counter: '端と角の活用 / 頻度に応じたサイズ。',
+        guideline:
+          '頻用する操作は大きく当てやすく、稀・破壊的な操作は小さく遠くに。画面の端と角は無限大の的——主要操作はそこへ置け。',
+        source: 'Paul M. Fitts, J. Experimental Psychology (1954)',
+      },
+      {
+        title: 'ミラーの法則',
+        tag: '認知',
+        mechanism:
+          '「マジカルナンバー 7 ± 2」。作業記憶が保持できるのは約7チャンク。それを超えると想起は崩壊する——脳は速度を落とさず項目を捨てる。',
+        counter: 'チャンク化 / 情報隠蔽。',
+        guideline:
+          '人が頭の中で状態を保持せねばならない場所——引数・フォーム項目・メニュー群・オンコール手順——では、関連項目を少数の名前付きチャンクにまとめよ。',
+        source: 'George A. Miller, Psychological Review (1956)',
       },
     ],
     footer: '© 2026 Hammurabi · エンジニアが知るべき法則集。',
