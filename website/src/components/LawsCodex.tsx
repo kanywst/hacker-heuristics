@@ -54,17 +54,21 @@ export default function LawsCodex() {
   const copyLink = (n: number) => {
     const id = `law-${String(n).padStart(2, '0')}`;
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(url).catch(() => {});
-    }
     window.history.replaceState(null, '', `#${id}`);
-    setCopied(n);
-    // Reset the previous timer so rapid clicks restart the 1.5s confirmation.
-    if (copyTimeout.current) clearTimeout(copyTimeout.current);
-    copyTimeout.current = setTimeout(() => {
-      setCopied((c) => (c === n ? null : c));
-      copyTimeout.current = null;
-    }, 1500);
+    if (!navigator.clipboard) return;
+    // Only show the "copied" confirmation once the write actually succeeds.
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        setCopied(n);
+        // Reset the previous timer so rapid clicks restart the confirmation.
+        if (copyTimeout.current) clearTimeout(copyTimeout.current);
+        copyTimeout.current = setTimeout(() => {
+          setCopied((c) => (c === n ? null : c));
+          copyTimeout.current = null;
+        }, 1500);
+      })
+      .catch(() => {});
   };
 
   return (
@@ -93,7 +97,11 @@ export default function LawsCodex() {
       </div>
 
       {/* Category filter */}
-      <div className="mb-12 flex flex-wrap items-center justify-center gap-2">
+      <div
+        role="group"
+        aria-label={t.ui.filterGroupLabel}
+        className="mb-12 flex flex-wrap items-center justify-center gap-2"
+      >
         <button
           onClick={() => setActiveTag(null)}
           aria-pressed={effectiveTag === null}
@@ -152,7 +160,7 @@ export default function LawsCodex() {
                     {copied === n ? (
                       <Check className="h-4 w-4 text-bronze" />
                     ) : (
-                      <Link2 className="h-4 w-4 opacity-0 transition-opacity group-hover/num:opacity-60" />
+                      <Link2 className="h-4 w-4 opacity-0 transition-opacity group-hover/num:opacity-60 group-focus-visible/num:opacity-60" />
                     )}
                   </button>
                   <span className="eyebrow mt-2 text-right text-carve-dim">
