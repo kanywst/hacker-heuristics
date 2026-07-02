@@ -367,3 +367,83 @@
 - **Counter:** **Chunking / Information Hiding**.
 - **Guideline:** Group related items into a handful of named chunks — phone-number style — wherever a person must hold state in their head: function arguments, form fields, menu groups, on-call steps.
 - **Source:** George A. Miller, *The Magical Number Seven, Plus or Minus Two* (Psychological Review, 1956).
+
+## 47. Fallacies of Distributed Computing
+
+- **Concept:** The hidden assumptions of networked code.
+- **Mechanism:** Newcomers to distributed systems silently assume the network is reliable, latency is zero, bandwidth is infinite, the network is secure, topology is stable, there is one administrator, transport cost is zero, and the network is homogeneous. Every one of these eight assumptions fails in production.
+- **Counter:** **Design for Failure** (without gold-plating against impossible modes).
+- **Guideline:** Before shipping any cross-process call, name which of the eight assumptions you are relying on and add an explicit timeout, retry, and failure path for each.
+- **Source:** L. Peter Deutsch (fallacies 5–7, 1994) and James Gosling (the 8th, ~1997), building on earlier work at Sun Microsystems.
+
+## 48. Ironies of Automation
+
+- **Concept:** Automation reshapes the human role rather than removing it.
+- **Mechanism:** Automating the routine parts of a task leaves the human only the rarest, hardest exceptions — while their manual skill and situational awareness atrophy from disuse, precisely at the moment a failing automated system hands control back to them.
+- **Counter:** **Human-in-the-Loop Drills** (better teaming, not less automation).
+- **Guideline:** Keep operators sharp with regular game-days and hands-on drills, and design handoffs so a human takes over with context, not cold.
+- **Source:** Lisanne Bainbridge, *Ironies of Automation* (Automatica, 1983).
+
+## 49. Principle of Least Privilege
+
+- **Concept:** Grant the minimum authority required.
+- **Mechanism:** Every component granted more authority than it strictly needs enlarges the blast radius of any bug, compromise, or accident, and multiplies the interactions an auditor must reason about.
+- **Counter:** **Psychological Acceptability** — over-restriction that users route around defeats itself.
+- **Guideline:** Default every process, service account, and token to deny, then add only the minimal scopes the job provably needs; re-audit the grants whenever the job changes.
+- **Source:** Jerome Saltzer & Michael Schroeder, *The Protection of Information in Computer Systems* (Proceedings of the IEEE, 1975).
+
+## 50. Kerckhoffs's Principle
+
+- **Concept:** Security must not depend on the secrecy of the mechanism.
+- **Mechanism:** A cryptosystem should remain secure even if everything about it except the key is public. Secrecy of the algorithm is brittle: mechanisms leak, get reverse-engineered, and get reused across systems.
+- **Counter:** **Defense in Depth** — obscurity may be one thin extra layer, never the foundation.
+- **Guideline:** Assume the attacker has your source and design. Put all of the secret in rotatable keys, and never rely on a hidden algorithm to protect anything.
+- **Source:** Auguste Kerckhoffs, *La cryptographie militaire* (Journal des sciences militaires, 1883).
+
+## 51. Gustafson's Law
+
+- **Concept:** Scaled speedup for growing problems.
+- **Mechanism:** For a fixed time budget, a larger machine lets you solve a proportionally larger problem, so the serial fraction shrinks with scale and speedup grows near-linearly — the optimistic counterpart to Amdahl's fixed-workload pessimism.
+- **Counter:** **Amdahl's Law** — for a fixed-size workload, the serial fraction still hard-caps speedup.
+- **Guideline:** Before justifying more cores, ask whether the problem size grows with the hardware. If the workload is fixed, reason with Amdahl; if it scales, Gustafson applies.
+- **Source:** John L. Gustafson, *Reevaluating Amdahl's Law* (Communications of the ACM, 1988).
+
+## 52. The Tail at Scale
+
+- **Concept:** Tail latency dominates at fan-out.
+- **Mechanism:** In a service that fans out to many components, rare per-node slowness (GC pauses, contention, a failing disk) is near-certain to hit some node on every request. So tail latency (p99, p99.9) governs the user experience even when medians look healthy.
+- **Counter:** **Redundancy Has a Price** — hedged and tied requests add load; don't chase the tail where the median is what users feel.
+- **Guideline:** Set SLOs on p99/p99.9, not the mean, and deploy tail-tolerance — hedged requests, micro-partitioning — instead of trying to make every node uniformly fast.
+- **Source:** Jeffrey Dean & Luiz André Barroso, *The Tail at Scale* (Communications of the ACM, 2013).
+
+## 53. Ashby's Law of Requisite Variety
+
+- **Concept:** Only variety can absorb variety.
+- **Mechanism:** A controller can regulate a system only if it can match the variety of states that system can produce. Under-powered control simply cannot cope with a sufficiently rich environment.
+- **Counter:** **Constrain the Environment** — excess control variety is itself cost and complexity.
+- **Guideline:** When incidents keep escaping your alerts and runbooks, either add matching response capability or deliberately shrink the system's state space: fewer configurations, stricter inputs.
+- **Source:** W. Ross Ashby, *An Introduction to Cybernetics* (Chapman & Hall, 1956).
+
+## 54. Law of Demeter
+
+- **Concept:** Principle of Least Knowledge.
+- **Mechanism:** An object that reaches through other objects' internals (`a.getB().getC().doThing()`) couples itself to the entire dependency chain, so a change anywhere along that chain ripples back and breaks it.
+- **Counter:** **Pragmatism over Dogma** — strict application breeds forwarding and wrapper bloat.
+- **Guideline:** Only call methods on your direct collaborators, your arguments, objects you create, and your own fields. If you are chaining getters, add a method to the object that owns the data.
+- **Source:** Karl Lieberherr & Ian Holland, *Assuring Good Style for Object-Oriented Programs* (IEEE Software, 1989).
+
+## 55. Jevons Paradox
+
+- **Concept:** Efficiency can increase total consumption.
+- **Mechanism:** Making a resource cheaper to use per unit lowers its effective price and can raise total consumption instead of lowering it — the efficiency gain is spent on more usage rather than banked as savings.
+- **Counter:** **Cap the Rebound** — pair efficiency with a quota, cap, or price signal to actually capture the savings.
+- **Guideline:** When you make something cheaper — compute, storage, an internal API — expect demand to balloon; provision and budget for the rebound instead of assuming a net reduction.
+- **Source:** William Stanley Jevons, *The Coal Question* (1865).
+
+## 56. Normal Accident Theory
+
+- **Concept:** In some systems, accidents are structural.
+- **Mechanism:** In systems that are both interactively complex and tightly coupled, small independent failures interact in ways no designer anticipated and propagate faster than operators can intervene — so accidents become a property of the structure, not bad luck.
+- **Counter:** **High-Reliability Organizations** — culture, slack, and decoupling measurably beat fatalism.
+- **Guideline:** Reduce coupling — add buffers, timeouts, bulkheads, and circuit breakers — and cut complexity before adding more safety interlocks, which themselves add interactions.
+- **Source:** Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984).
