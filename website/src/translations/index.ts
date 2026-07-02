@@ -31,6 +31,11 @@ export const translations = {
       epilogueCurse:
         'Let the engineer who tears down a fence without learning why it stands, who turns a measure into a target, or who calls a hard problem easy — inherit the pager at 3 AM.',
       metaTitle: 'Hammurabi — Laws Every Engineer Should Know',
+      filterAll: 'All',
+      searchPlaceholder: 'Search the codex',
+      resultsNone: 'No law matches your search.',
+      copyLink: 'Copy link',
+      backToTop: 'Back to top',
     },
     heuristics: [
       {
@@ -632,6 +637,11 @@ export const translations = {
       epilogueCurse:
         'なぜ柵が立つかを学ばずに引き倒す者、測定を目標へとすり替える者、難問を「簡単だ」と言い切る者——その者に午前3時のページャーを継がせよ。',
       metaTitle: 'Hammurabi — エンジニアが知るべき法則集',
+      filterAll: 'すべて',
+      searchPlaceholder: '法典を検索',
+      resultsNone: '該当する法則がありません。',
+      copyLink: 'リンクをコピー',
+      backToTop: 'トップへ戻る',
     },
     heuristics: [
       {
