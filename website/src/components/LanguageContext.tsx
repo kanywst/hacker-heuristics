@@ -1,10 +1,11 @@
 'use client';
 
-import React, {
+import {
   createContext,
   useContext,
   useCallback,
   useEffect,
+  useState,
   useSyncExternalStore,
   ReactNode,
 } from 'react';
@@ -23,13 +24,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
-// A tiny external store backed by localStorage. Reading it through
-// useSyncExternalStore lets us serve 'en' during SSR/hydration (matching the
-// static export) and then swap to the stored/browser preference on the client
-// without a hydration mismatch.
-const listeners = new Set<() => void>();
-let current: Language | null = null;
-
 function readPreferred(): Language {
   // localStorage can throw (private mode, blocked storage) — degrade to the
   // browser locale, then to English, rather than crashing the first render.
@@ -47,32 +41,50 @@ function readPreferred(): Language {
   return prefersJa ? 'jp' : 'en';
 }
 
-function subscribe(callback: () => void) {
-  listeners.add(callback);
-  return () => listeners.delete(callback);
-}
-
-function getSnapshot(): Language {
-  if (current === null) current = readPreferred();
-  return current;
-}
-
+// Server/hydration snapshot: always 'en', matching the static export.
 function getServerSnapshot(): Language {
   return 'en';
 }
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const lang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+// A tiny external store backed by localStorage, created per provider instance
+// so state never leaks across tests or concurrently rendered providers.
+// Reading it through useSyncExternalStore serves 'en' during SSR/hydration and
+// swaps to the stored/browser preference on the client without a mismatch.
+function createLanguageStore() {
+  let current: Language | null = null;
+  const listeners = new Set<() => void>();
 
-  const setLang = useCallback((next: Language) => {
-    current = next;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // storage may be disabled or full — the in-memory choice still applies
-    }
-    listeners.forEach((l) => l());
-  }, []);
+  return {
+    subscribe(callback: () => void) {
+      listeners.add(callback);
+      return () => listeners.delete(callback);
+    },
+    getSnapshot(): Language {
+      if (current === null) current = readPreferred();
+      return current;
+    },
+    setLang(next: Language) {
+      current = next;
+      try {
+        window.localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // storage may be disabled or full — the in-memory choice still applies
+      }
+      listeners.forEach((l) => l());
+    },
+  };
+}
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [store] = useState(createLanguageStore);
+
+  const lang = useSyncExternalStore(
+    store.subscribe,
+    store.getSnapshot,
+    getServerSnapshot
+  );
+
+  const setLang = useCallback((next: Language) => store.setLang(next), [store]);
 
   useEffect(() => {
     document.documentElement.lang = lang === 'jp' ? 'ja' : 'en';
