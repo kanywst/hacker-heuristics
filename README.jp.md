@@ -33,6 +33,8 @@ Hammurabi は、**認知心理学**、**安全工学**、**システム設計**�
 |   **システム**   | [テスラーの複雑性保存則](./translations/jp.md#30-テスラーの複雑性保存則-teslers-law-of-conservation-of-complexity) |          複雑性は消えずに、ただ移動する。          |
 |   **分散システム**   |                  [CAP定理](./translations/jp.md#36-cap定理-cap-theorem)                   |   分断時、一貫性と可用性は両立できない。   |
 |     **組織**     |          [ピーターの法則](./translations/jp.md#39-ピーターの法則-peter-principle)          |       人は不得手な職位に達するまで昇進する。       |
+|   **分散システム**   | [分散コンピューティングの誤謬](./translations/jp.md#47-分散コンピューティングの誤謬-fallacies-of-distributed-computing) | ネットワークは信頼できない。最初からずっと。 |
+|  **セキュリティ**  | [最小権限の原則](./translations/jp.md#49-最小権限の原則-principle-of-least-privilege) | 必要最小限の権限だけを与えよ。 |
 |    *...他多数*    |                          [全リストを見る →](./translations/jp.md)                          |                                                 |
 
 ## サイト

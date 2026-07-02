@@ -33,6 +33,8 @@ Hammurabi is a curated codex of engineering laws drawn from **Cognitive Psycholo
 |  **Systems**   | [Tesler's Law](./content/en.md#30-teslers-law-of-conservation-of-complexity) |        Complexity is conserved, only relocated.         |
 | **Distributed Systems** |              [CAP Theorem](./content/en.md#36-cap-theorem)                  |    You can't have consistency and availability under a partition.    |
 | **Organization** |           [Peter Principle](./content/en.md#39-peter-principle)            |        People rise until they reach a role they're bad at.        |
+| **Distributed Systems** | [Fallacies of Distributed Computing](./content/en.md#47-fallacies-of-distributed-computing) | The network is not reliable, and never was. |
+|  **Security**  | [Least Privilege](./content/en.md#49-principle-of-least-privilege) | Grant the minimum authority required. |
 | *...and more*  |                 [Explore the full codex →](./content/en.md)                  |                                                        |
 
 ## The Site

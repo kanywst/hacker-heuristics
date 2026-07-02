@@ -497,6 +497,106 @@ export const translations = {
           'Group related items into a handful of named chunks wherever a person must hold state in their head: arguments, form fields, menu groups, on-call steps.',
         source: 'George A. Miller, Psychological Review (1956)',
       },
+      {
+        title: 'Fallacies of Distributed Computing',
+        tag: 'Distributed Systems',
+        mechanism:
+          'Newcomers to networked code silently assume the network is reliable, latency is zero, bandwidth is infinite, topology is stable, and transport is free — every one of which fails in production.',
+        counter: 'Design for Failure.',
+        guideline:
+          'Before any cross-process call, name which of the eight assumptions you are making and give each an explicit timeout, retry, and failure path.',
+        source: 'L. Peter Deutsch & James Gosling, Sun Microsystems (1994–97)',
+      },
+      {
+        title: 'Ironies of Automation',
+        tag: 'Safety',
+        mechanism:
+          'Automating the routine leaves humans only the rarest, hardest exceptions — while their manual skill atrophies from disuse, exactly when a failing system hands control back.',
+        counter: 'Human-in-the-Loop Drills.',
+        guideline:
+          'Keep operators sharp with regular game-days and hands-on drills; design handoffs so a human takes over with context, not cold.',
+        source: 'Lisanne Bainbridge, Automatica (1983)',
+      },
+      {
+        title: 'Principle of Least Privilege',
+        tag: 'Security',
+        mechanism:
+          'Every component granted more authority than it needs enlarges the blast radius of any bug or compromise and multiplies what an auditor must reason about.',
+        counter: 'Psychological Acceptability.',
+        guideline:
+          'Default every process, service account, and token to deny; grant only the minimal scopes the job provably needs, and re-audit when the job changes.',
+        source: 'Jerome Saltzer & Michael Schroeder, Proc. IEEE (1975)',
+      },
+      {
+        title: "Kerckhoffs's Principle",
+        tag: 'Security',
+        mechanism:
+          'A cryptosystem must stay secure even if everything about it except the key is public. Secrecy of the mechanism is brittle: algorithms leak, get reverse-engineered, and get reused.',
+        counter: 'Defense in Depth.',
+        guideline:
+          'Assume the attacker has your source and design. Put all the secret in rotatable keys; never rely on a hidden algorithm to protect anything.',
+        source: 'Auguste Kerckhoffs, Journal des sciences militaires (1883)',
+      },
+      {
+        title: "Gustafson's Law",
+        tag: 'Performance',
+        mechanism:
+          'For a fixed time budget, a bigger machine lets you solve a proportionally bigger problem, so the serial fraction shrinks with scale — speedup grows near-linearly, unlike Amdahl’s fixed-workload pessimism.',
+        counter: "Amdahl's Law.",
+        guideline:
+          'Before buying more cores, ask whether the problem grows with the hardware. If the workload is fixed, use Amdahl; if it scales, Gustafson applies.',
+        source: 'John L. Gustafson, Communications of the ACM (1988)',
+      },
+      {
+        title: 'The Tail at Scale',
+        tag: 'Distributed Systems',
+        mechanism:
+          'In a service that fans out to many components, rare per-node slowness (GC pauses, contention, a bad disk) is near-certain to hit some node on every request, so tail latency (p99) dominates the experience even when medians look fine.',
+        counter: 'Redundancy Has a Price.',
+        guideline:
+          'Set SLOs on p99/p99.9, not the mean. Reach for tail-tolerance — hedged requests, micro-partitioning — rather than trying to make every node uniformly fast.',
+        source: 'Jeffrey Dean & Luiz Barroso, Communications of the ACM (2013)',
+      },
+      {
+        title: "Ashby's Law of Requisite Variety",
+        tag: 'Systems',
+        mechanism:
+          'A controller can regulate a system only if it can match the variety of states that system throws at it — only variety can absorb variety. Under-powered control cannot cope with a rich environment.',
+        counter: 'Constrain the Environment.',
+        guideline:
+          'When incidents keep escaping your alerts and runbooks, either add matching response capability or deliberately shrink the state space: fewer configs, stricter inputs.',
+        source: 'W. Ross Ashby, An Introduction to Cybernetics (1956)',
+      },
+      {
+        title: 'Law of Demeter',
+        tag: 'Maintainability',
+        mechanism:
+          "An object that reaches through other objects' internals (a.getB().getC().doThing()) couples itself to the whole dependency chain, so a distant change ripples back and breaks it.",
+        counter: 'Pragmatism over Dogma.',
+        guideline:
+          'Only call methods on your direct collaborators, your arguments, objects you create, and your own fields. If you are chaining getters, add a method to the object that owns the data.',
+        source: 'Karl Lieberherr & Ian Holland, IEEE Software (1989)',
+      },
+      {
+        title: 'Jevons Paradox',
+        tag: 'Incentives',
+        mechanism:
+          'Making a resource cheaper to use per unit lowers its effective price and can raise total consumption instead of lowering it — the efficiency gain gets spent on more usage.',
+        counter: 'Cap the Rebound.',
+        guideline:
+          'When you make something cheaper — compute, storage, an internal API — expect demand to balloon. Provision and budget for the rebound instead of assuming net savings.',
+        source: 'William Stanley Jevons, The Coal Question (1865)',
+      },
+      {
+        title: 'Normal Accident Theory',
+        tag: 'Safety',
+        mechanism:
+          'In systems that are both interactively complex and tightly coupled, small independent failures interact in ways no designer foresaw and propagate faster than operators can intervene — accidents become structural, not bad luck.',
+        counter: 'High-Reliability Organizations.',
+        guideline:
+          'Reduce coupling — buffers, timeouts, bulkheads, circuit breakers — and cut complexity before adding more safety interlocks, which themselves add interactions.',
+        source: 'Charles Perrow, Normal Accidents (1984)',
+      },
     ],
     footer: '© 2026 Hammurabi · Laws Every Engineer Should Know.',
   },
@@ -995,6 +1095,106 @@ export const translations = {
         guideline:
           '人が頭の中で状態を保持せねばならない場所——引数・フォーム項目・メニュー群・オンコール手順——では、関連項目を少数の名前付きチャンクにまとめよ。',
         source: 'George A. Miller, Psychological Review (1956)',
+      },
+      {
+        title: '分散コンピューティングの誤謬',
+        tag: '分散システム',
+        mechanism:
+          'ネットワーク越しのコードに不慣れな者は、ネットワークは信頼でき、遅延はゼロ、帯域は無限、構成は不変で、転送コストはゼロだと暗黙に仮定する——そのどれもが本番では崩れる。',
+        counter: '失敗前提の設計。',
+        guideline:
+          'プロセス間呼び出しの前に、8つの仮定のどれを置いているかを明示し、各々にタイムアウト・リトライ・失敗経路を与えよ。',
+        source: 'L. Peter Deutsch & James Gosling, Sun Microsystems (1994–97)',
+      },
+      {
+        title: '自動化の皮肉',
+        tag: '安全工学',
+        mechanism:
+          '定型作業を自動化すると、人間には最も稀で難しい例外だけが残る——しかも使わぬ間に手作業の技能は衰える。システムが破綻して制御を返すのは、まさにその瞬間である。',
+        counter: '人間参加型の訓練。',
+        guideline:
+          '定期的なゲームデーと実地訓練で運用者の勘を保て。引き継ぎは、文脈なく冷えた状態でなく、状況を保持したまま人が引き取れるよう設計せよ。',
+        source: 'Lisanne Bainbridge, Automatica (1983)',
+      },
+      {
+        title: '最小権限の原則',
+        tag: 'セキュリティ',
+        mechanism:
+          '必要以上の権限を与えられた要素は、あらゆるバグや侵害の被害範囲を広げ、監査者が考慮すべき相互作用を増やす。',
+        counter: '心理的受容性。',
+        guideline:
+          'すべてのプロセス・サービスアカウント・トークンを既定で拒否とし、職務が証明できる最小限の権限だけを与えよ。職務が変わったら権限を再監査せよ。',
+        source: 'Jerome Saltzer & Michael Schroeder, Proc. IEEE (1975)',
+      },
+      {
+        title: 'ケルクホフスの原理',
+        tag: 'セキュリティ',
+        mechanism:
+          '暗号方式は、鍵以外のすべてが公開されても安全でなければならない。仕組みの秘匿は脆い——アルゴリズムは漏れ、解析され、使い回される。',
+        counter: '多層防御。',
+        guideline:
+          '攻撃者は自分のソースと設計をすべて握っていると仮定せよ。秘密はすべて交換可能な鍵に置き、隠したアルゴリズムに防御を頼るな。',
+        source: 'Auguste Kerckhoffs, Journal des sciences militaires (1883)',
+      },
+      {
+        title: 'グスタフソンの法則',
+        tag: '性能',
+        mechanism:
+          '時間の予算を固定すれば、大きな計算機はそれに比例して大きな問題を解ける。ゆえに規模とともに逐次部分の割合は縮み、速度向上はほぼ線形に伸びる——固定作業量を前提とするアムダールの悲観とは異なる。',
+        counter: 'アムダールの法則。',
+        guideline:
+          'コアを増やす前に、問題がハードウェアとともに大きくなるかを問え。作業量が固定ならアムダール、規模とともに増えるならグスタフソンが効く。',
+        source: 'John L. Gustafson, Communications of the ACM (1988)',
+      },
+      {
+        title: 'スケールの裾野',
+        tag: '分散システム',
+        mechanism:
+          '多数の要素へ扇状に処理を広げるサービスでは、ノード単位の稀な遅延（GC 停止・競合・不良ディスク）がほぼ毎リクエストどこかのノードで発生する。ゆえに中央値が良好に見えても、裾野のレイテンシ（p99）が体感を支配する。',
+        counter: '冗長化には代償がある。',
+        guideline:
+          '平均ではなく p99／p99.9 で SLO を引け。すべてのノードを均一に速くしようとするより、ヘッジドリクエストやマイクロ分割といった裾野耐性の技法を用いよ。',
+        source: 'Jeffrey Dean & Luiz Barroso, Communications of the ACM (2013)',
+      },
+      {
+        title: 'アシュビーの必要多様性の法則',
+        tag: 'システム',
+        mechanism:
+          '制御装置が系を調整できるのは、その系が生み出す状態の多様性に匹敵できる場合のみである——多様性のみが多様性を吸収する。力不足の制御は豊かな環境に対処できない。',
+        counter: '環境そのものを制約する。',
+        guideline:
+          '障害がアラートや手順書を繰り返しすり抜けるなら、対応能力を多様性に見合うまで増やすか、設定を減らし入力を厳しくして系の状態空間を意図的に縮めよ。',
+        source: 'W. Ross Ashby, An Introduction to Cybernetics (1956)',
+      },
+      {
+        title: 'デメテルの法則',
+        tag: '保守性',
+        mechanism:
+          '他オブジェクトの内部を辿って呼び出すコード（a.getB().getC().doThing()）は、依存の連鎖全体に自らを結びつける。ゆえに遠くの変更が波及して壊れる。',
+        counter: '教条より実用。',
+        guideline:
+          '呼んでよいのは、直接の協力者・引数・自分が生成したもの・自分のフィールドのメソッドだけ。getter を数珠つなぎにしているなら、データを持つオブジェクト側にメソッドを足せ。',
+        source: 'Karl Lieberherr & Ian Holland, IEEE Software (1989)',
+      },
+      {
+        title: 'ジェヴォンズのパラドックス',
+        tag: 'インセンティブ',
+        mechanism:
+          '資源の単位あたり利用を安くすると実効価格が下がり、総消費はむしろ増えうる——効率化で浮いた分が、さらなる利用に費やされる。',
+        counter: '反動に上限を設ける。',
+        guideline:
+          '計算資源・ストレージ・社内 API など何かを安くしたら、需要が膨らむと見込め。純減を前提にせず、反動を織り込んで容量と予算を確保せよ。',
+        source: 'William Stanley Jevons, The Coal Question (1865)',
+      },
+      {
+        title: '通常事故理論',
+        tag: '安全工学',
+        mechanism:
+          '相互作用的に複雑で、かつ密結合な系では、独立した小さな故障が設計者の予見しない形で相互作用し、運用者が介入するより速く伝播する——事故は不運ではなく構造的な性質となる。',
+        counter: '高信頼性組織（HRO）。',
+        guideline:
+          'バッファ・タイムアウト・隔壁・サーキットブレーカで結合を緩め、複雑さを削れ。安全連動装置を足すのはその後だ——連動装置自体もまた相互作用を増やす。',
+        source: 'Charles Perrow, Normal Accidents (1984)',
       },
     ],
     footer: '© 2026 Hammurabi · エンジニアが知るべき法則集。',
