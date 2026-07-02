@@ -22,7 +22,7 @@ const SITE_URL = 'https://kanywst.github.io/hammurabi';
 const SITE_TITLE = 'Hammurabi — Laws Every Engineer Should Know';
 const SITE_DESCRIPTION =
   'A codex of engineering laws, each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.';
-const SITE_IMAGE = `${SITE_URL}/header.jpg`;
+const SITE_IMAGE = `${SITE_URL}/banner.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
