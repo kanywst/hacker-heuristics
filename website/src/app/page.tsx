@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowDown, ArrowUpRight, Check, Link2, Search } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageContext';
 import { translations } from '@/translations';
@@ -29,6 +29,14 @@ export default function Home() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState<number | null>(null);
+  const copyTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clear a pending "copied" reset if the component unmounts first.
+  useEffect(() => {
+    return () => {
+      if (copyTimeout.current) clearTimeout(copyTimeout.current);
+    };
+  }, []);
 
   const tags = useMemo(
     () => Array.from(new Set(t.heuristics.map((h) => h.tag))),
@@ -62,7 +70,12 @@ export default function Home() {
     }
     window.history.replaceState(null, '', `#${id}`);
     setCopied(n);
-    window.setTimeout(() => setCopied((c) => (c === n ? null : c)), 1500);
+    // Reset the previous timer so rapid clicks restart the 1.5s confirmation.
+    if (copyTimeout.current) clearTimeout(copyTimeout.current);
+    copyTimeout.current = setTimeout(() => {
+      setCopied((c) => (c === n ? null : c));
+      copyTimeout.current = null;
+    }, 1500);
   };
 
   const chip =

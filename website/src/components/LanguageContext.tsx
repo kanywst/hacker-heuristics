@@ -34,12 +34,17 @@ function readPreferred(): Language {
   // localStorage can throw (private mode, blocked storage) — degrade to the
   // browser locale, then to English, rather than crashing the first render.
   try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === 'en' || stored === 'jp') return stored;
+    if (typeof window !== 'undefined') {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored === 'en' || stored === 'jp') return stored;
+    }
   } catch {
     // ignore and fall through to locale detection
   }
-  return navigator.language.toLowerCase().startsWith('ja') ? 'jp' : 'en';
+  const prefersJa =
+    typeof navigator !== 'undefined' &&
+    navigator.language?.toLowerCase().startsWith('ja');
+  return prefersJa ? 'jp' : 'en';
 }
 
 function subscribe(callback: () => void) {
