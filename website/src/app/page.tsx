@@ -88,7 +88,7 @@ export default function Home() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="display mt-6 text-7xl font-light leading-[0.92] tracking-tight text-carve sm:text-8xl md:text-[10rem]"
+          className="display mt-6 text-6xl font-light leading-[0.92] tracking-tight text-carve sm:text-8xl md:text-[10rem]"
         >
           Hammurabi
         </motion.h1>
@@ -110,7 +110,9 @@ export default function Home() {
           animate="show"
           className="rule-diamond mx-auto my-8 w-40"
         >
-          <span className="text-bronze">◆</span>
+          <span aria-hidden className="text-bronze">
+            ◆
+          </span>
         </motion.div>
 
         <motion.p
@@ -158,7 +160,9 @@ export default function Home() {
         </blockquote>
         <p className="eyebrow mt-6 text-carve-dim">{t.ui.prologueQuoteBy}</p>
         <div className="rule-diamond mx-auto my-10 w-32">
-          <span className="text-bronze">◆</span>
+          <span aria-hidden className="text-bronze">
+            ◆
+          </span>
         </div>
         <p className="text-base leading-relaxed text-carve-dim">
           {t.ui.prologueBody}
@@ -299,7 +303,9 @@ export default function Home() {
       >
         <p className="eyebrow text-bronze">{t.ui.epilogueLabel}</p>
         <div className="rule-diamond my-10 w-24">
-          <span className="text-bronze">◆</span>
+          <span aria-hidden className="text-bronze">
+            ◆
+          </span>
         </div>
         <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
           {t.ui.maxim}

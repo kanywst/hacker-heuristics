@@ -4,6 +4,7 @@ import './globals.css';
 import { LanguageProvider } from '@/components/LanguageContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 import { translations } from '@/translations';
 
 const fraunces = Fraunces({
@@ -90,6 +91,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>
