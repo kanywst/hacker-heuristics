@@ -57,7 +57,9 @@ export default function Home() {
   const copyLink = (n: number) => {
     const id = `law-${String(n).padStart(2, '0')}`;
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
-    navigator.clipboard?.writeText(url).catch(() => {});
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).catch(() => {});
+    }
     window.history.replaceState(null, '', `#${id}`);
     setCopied(n);
     window.setTimeout(() => setCopied((c) => (c === n ? null : c)), 1500);

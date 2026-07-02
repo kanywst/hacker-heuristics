@@ -31,8 +31,14 @@ const listeners = new Set<() => void>();
 let current: Language | null = null;
 
 function readPreferred(): Language {
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === 'en' || stored === 'jp') return stored;
+  // localStorage can throw (private mode, blocked storage) — degrade to the
+  // browser locale, then to English, rather than crashing the first render.
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === 'en' || stored === 'jp') return stored;
+  } catch {
+    // ignore and fall through to locale detection
+  }
   return navigator.language.toLowerCase().startsWith('ja') ? 'jp' : 'en';
 }
 
@@ -55,7 +61,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLang = useCallback((next: Language) => {
     current = next;
-    window.localStorage.setItem(STORAGE_KEY, next);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      // storage may be disabled or full — the in-memory choice still applies
+    }
     listeners.forEach((l) => l());
   }, []);
 
