@@ -11,6 +11,7 @@ export default function BackToTop() {
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 600);
+    onScroll(); // reflect the position on mount (e.g. reload while scrolled)
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);

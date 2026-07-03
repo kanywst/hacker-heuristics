@@ -130,7 +130,9 @@ export default function Home() {
       </section>
 
       {/* ── The Laws ─────────────────────────────────────────── */}
-      <LawsCodex />
+      {/* Remount on language change so the (localized) category filter
+          and search reset cleanly instead of holding a stale tag. */}
+      <LawsCodex key={lang} />
 
       {/* ── Epilogue ─────────────────────────────────────────── */}
       <section
