@@ -32,15 +32,11 @@ export default function LawsCodex() {
     [t]
   );
 
-  // Category tags are localized, so a filter chosen in one language no longer
-  // exists after switching — fall back to "all" rather than showing nothing.
-  const effectiveTag = activeTag && tags.includes(activeTag) ? activeTag : null;
-
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return t.heuristics
       .map((h, i) => ({ h, n: i + 1 }))
-      .filter(({ h }) => !effectiveTag || h.tag === effectiveTag)
+      .filter(({ h }) => !activeTag || h.tag === activeTag)
       .filter(({ h }) =>
         !q
           ? true
@@ -49,7 +45,7 @@ export default function LawsCodex() {
               .toLowerCase()
               .includes(q)
       );
-  }, [t, effectiveTag, query]);
+  }, [t, activeTag, query]);
 
   const copyLink = (n: number) => {
     const id = `law-${String(n).padStart(2, '0')}`;
@@ -104,9 +100,9 @@ export default function LawsCodex() {
       >
         <button
           onClick={() => setActiveTag(null)}
-          aria-pressed={effectiveTag === null}
+          aria-pressed={activeTag === null}
           className={`${chip} ${
-            effectiveTag === null
+            activeTag === null
               ? 'border-bronze/50 bg-bronze/10 text-carve'
               : 'border-hairline text-carve-dim hover:border-bronze/40 hover:text-carve'
           }`}
@@ -117,9 +113,9 @@ export default function LawsCodex() {
           <button
             key={tag}
             onClick={() => setActiveTag(tag)}
-            aria-pressed={effectiveTag === tag}
+            aria-pressed={activeTag === tag}
             className={`${chip} ${
-              effectiveTag === tag
+              activeTag === tag
                 ? 'border-bronze/50 bg-bronze/10 text-carve'
                 : 'border-hairline text-carve-dim hover:border-bronze/40 hover:text-carve'
             }`}
