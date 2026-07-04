@@ -33,18 +33,26 @@ export default function LawsCodex() {
   );
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    // Match each whitespace-separated term independently (AND), so a query
+    // like "distributed failure" hits a law that contains both words apart.
+    const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return t.heuristics
       .map((h, i) => ({ h, n: i + 1 }))
       .filter(({ h }) => !activeTag || h.tag === activeTag)
-      .filter(({ h }) =>
-        !q
-          ? true
-          : [h.title, h.mechanism, h.counter, h.guideline, h.source, h.tag]
-              .join(' ')
-              .toLowerCase()
-              .includes(q)
-      );
+      .filter(({ h }) => {
+        if (terms.length === 0) return true;
+        const content = [
+          h.title,
+          h.mechanism,
+          h.counter,
+          h.guideline,
+          h.source,
+          h.tag,
+        ]
+          .join(' ')
+          .toLowerCase();
+        return terms.every((term) => content.includes(term));
+      });
   }, [t, activeTag, query]);
 
   const copyLink = (n: number) => {
