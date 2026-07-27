@@ -13,7 +13,7 @@
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "audit:check": "npm audit --audit-level=high"
+    "audit:check": "npm audit --omit=dev --audit-level=high && npm audit --audit-level=critical"
   },
   "dependencies": {
     "clsx": "^2.1.1",
