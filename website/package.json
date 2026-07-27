@@ -19,7 +19,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^1.25.0",
     "motion": "^12.42.2",
-    "next": "^16.2.10",
+    "next": "^16.2.12",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "tailwind-merge": "^3.6.0"
@@ -30,10 +30,14 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.2.10",
-    "postcss": "^8",
+    "eslint-config-next": "^16.2.12",
+    "postcss": "^8.5.23",
     "prettier": "^3.9.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^6"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "sharp": "^0.35.3"
   }
 }
