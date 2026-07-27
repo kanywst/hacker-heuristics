@@ -16,6 +16,14 @@ updates:
       - dependency-name: eslint
         update-types:
           - version-update:semver-major
+      # brace-expansion is only patched in 5.0.8, but it is reached through
+      # minimatch 3.x (via eslint / eslint-config-next), which requires the
+      # 1.x line. Forcing 5.x breaks ESLint at runtime with
+      # `TypeError: expand is not a function`, because v5 changed its export
+      # shape. The 1.x and 2.x lines have no patched release, so there is no
+      # compatible fix — dev-only, build-time, and the globs it expands are
+      # authored in this repo. `audit:check` gates production deps instead.
+      - dependency-name: brace-expansion
       # typescript-eslint (transitive of eslint-config-next 16) pins its peer
       # range to `typescript >=4.8.4 <6.1.0`, and typescript-estree crashes on
       # the TypeScript 7 compiler API with
