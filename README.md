@@ -431,9 +431,9 @@ The `§` number is a stable display label, assigned in file order. The permanent
 
 - **Concept:** Continuous Improvement.
 - **Mechanism:** Codebases decay because cleanup is always "someone else's job." Each engineer absorbs the entropy hit but defers the fix to a future refactor that never lands. The graph trends down.
-- **Counter:** **Incremental Hygiene / Opportunistic Refactoring**.
-- **Guideline:** Always leave the code cleaner than you found it. A one-line rename, a clearer comment, a deleted dead branch — small enough to ship in the same PR, large enough to bend the entropy curve over months.
-- **Source:** Adapted from a Boy Scouts of America campsite rule; applied to code in Robert C. Martin, *Clean Code* (2008). — [source ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
+- **Counter:** **One Reason Per Diff** — cleanup riding along with a behaviour change hides the change, and a pull request that also renames forty things is one nobody reviews.
+- **Guideline:** Always leave the code cleaner than you found it, and keep the cleanup small enough to read inside the same diff — a one-line rename, a clearer comment, a deleted dead branch. Anything bigger gets its own commit.
+- **Source:** Robert C. Martin, *The Boy Scout Rule*, in Kevlin Henney (ed.), *97 Things Every Programmer Should Know* (O'Reilly, 2010) — adapting Baden-Powell's "leave this world a little better than you found it". Also stated in *Clean Code* (2008). — [source ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
 - **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Broken Windows Theory](#broken-windows-theory)
 
 ### Tesler's Law
@@ -807,7 +807,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Mechanism:** When one module serves two audiences, their change requests arrive on different schedules and collide in the same file. Coupling is not really about calls between modules — it is about who is entitled to force you to edit them.
 - **Counter:** **Premature Decomposition** — splitting by imagined responsibilities produces a scatter of one-method classes and moves all the complexity into the wiring between them.
 - **Guideline:** Define responsibility by who asks for the change, not by what the code does. If two different people can each demand an edit to the same module, split it along that line and nowhere else.
-- **Source:** Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002); restated as "gather together the things that change for the same reason" in *Clean Architecture* (2017). — [source ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
+- **Source:** Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002); sharpened to "a module should be responsible to one, and only one, actor" in *The Single Responsibility Principle* (The Clean Code Blog, 8 May 2014), which is what this links to, and restated in *Clean Architecture* (2017). — [source ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
 - **See also:** [DRY Principle](#dry-principle) · [Law of Demeter](#law-of-demeter) · [Conway's Law](#conways-law)
 
 ### Principle of Least Astonishment
