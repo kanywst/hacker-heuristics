@@ -1,0 +1,29 @@
+name: Release
+
+# A codex you can cite needs versions. This turns conventional commits on main
+# into a release pull request, and merging that pull request cuts a tagged
+# release with a changelog — so "Hammurabi v1.2, § 07" means one exact text.
+#
+# Requires "Allow GitHub Actions to create and approve pull requests" under
+# Settings -> Actions -> General.
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json
