@@ -104,6 +104,18 @@ body {
   font-optical-sizing: auto;
 }
 
+/* Japanese has no italic. Asking for one synthesises a slant, which reads as a
+   rendering fault rather than as emphasis — so the editorial italic is dropped
+   inside the Japanese codex. Genuine Latin emphasis in the same text (book and
+   paper titles, set with <em>) keeps its real italic face. */
+.quoted {
+  font-style: italic;
+}
+
+:lang(ja) .quoted {
+  font-style: normal;
+}
+
 .eyebrow {
   font-family: var(--font-body);
   text-transform: uppercase;
@@ -135,6 +147,27 @@ body {
 
 /* --- The law tablet -------------------------------------------------- */
 
+/* A code of laws whose rows do not line up is not a code of laws. Each card
+   subgrids onto the parent's rows, so Counter, Guideline and Source sit on the
+   same line right across a row no matter how long any one mechanism runs.
+   Spacing lives in each cell's padding rather than a gap, because a subgrid
+   inherits its gutters from the parent and would otherwise open hairlines
+   through the middle of every card. */
+.codex-grid {
+  column-gap: 1px;
+  row-gap: 0;
+}
+
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 768px) {
+    .codex-grid > .tablet {
+      display: grid;
+      grid-row: span 6;
+      grid-template-rows: subgrid;
+    }
+  }
+}
+
 .tablet {
   position: relative;
   background: linear-gradient(
@@ -146,15 +179,16 @@ body {
   border-top: 1px solid rgba(217, 142, 61, 0.28);
   transition:
     border-color 0.4s ease,
-    transform 0.4s ease;
+    background 0.4s ease;
 }
 
+/* Lighting the slab rather than lifting it: a card that detaches on hover tears
+   a hole in the grid it is part of. */
 .tablet:hover {
-  transform: translateY(-4px);
   border-color: rgba(217, 142, 61, 0.45);
   background: linear-gradient(
     180deg,
-    rgba(217, 142, 61, 0.06),
+    rgba(217, 142, 61, 0.07),
     rgba(236, 228, 212, 0)
   );
 }
