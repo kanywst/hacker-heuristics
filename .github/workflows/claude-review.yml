@@ -4,17 +4,15 @@ name: Claude review
 # script here can. It reviews, it does not gate: nothing here is a required
 # check.
 #
-# The action refuses to run when this file differs from the copy on the default
-# branch, so a pull request cannot rewrite its own reviewer. The cost is that
-# any change to this file, including the one that added it, goes unreviewed by
-# Claude until it is merged.
+# The action validates this file against the copy on the default branch and
+# skips itself if they differ, so a pull request cannot rewrite its own reviewer.
+# The cost is that any pull request touching this file goes unreviewed until the
+# change is on main — land the workflow edit first, then reopen or re-push the
+# work that needed it.
 
 on:
   pull_request:
-    # converted_to_draft is here to cancel, not to run. The job skips drafts, so
-    # the run this starts exists only to take over the concurrency group and stop
-    # a review of a pull request its author has just pulled back.
-    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
+    types: [opened, synchronize, reopened]
 
 permissions: {}
 
@@ -26,16 +24,19 @@ concurrency:
 
 jobs:
   review:
-    # A pull request from a fork gets no secrets, so the job would fail on
-    # authentication rather than say anything useful. Dependabot is same-repo but
-    # is handed dependabot secrets rather than the repository's, so it would fail
-    # the token check and paint every dependency bump red; the type check keeps
-    # every bot out for the same reason. Drafts are skipped until they are marked
-    # ready, which is what the ready_for_review trigger is for.
+    # Every pull request gets reviewed, drafts included, with two exceptions that
+    # are mechanical rather than editorial:
+    #
+    # Dependabot runs are handed dependabot secrets rather than the repository's,
+    # so the token is not there to be read and every dependency bump would go red
+    # on the check step instead of being reviewed.
+    #
+    # A pull request from a fork gets no secrets at all, for the same reason.
+    # Skipping is the graceful outcome; the alternative is a guaranteed failure
+    # that says nothing about the diff.
     if: >-
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.user.type == 'User' &&
-      github.event.pull_request.draft == false
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
