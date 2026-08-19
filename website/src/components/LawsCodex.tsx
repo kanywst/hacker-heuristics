@@ -141,21 +141,20 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-carve-dim">{t.ui.resultsNone}</p>
       ) : (
-        <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline md:grid-cols-2 lg:grid-cols-3">
+        <div className="codex-grid grid grid-cols-1 overflow-hidden border border-hairline md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((law) => {
             const text = law[lang];
             return (
               <motion.article
                 key={law.slug}
                 id={law.slug}
-                layout
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="tablet flex flex-col gap-5 p-7"
+                className="tablet p-7"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-4 pb-5">
                   <button
                     type="button"
                     onClick={() => copyLink(law.slug)}
@@ -174,7 +173,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                   </span>
                 </div>
 
-                <h3 className="display text-2xl leading-tight text-carve">
+                <h3 className="display pb-5 text-2xl leading-tight text-carve">
                   <Link
                     href={routeFor(lang, law.slug)}
                     className="transition-colors hover:text-bronze-bright"
@@ -183,34 +182,35 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                   </Link>
                 </h3>
 
-                <p className="text-sm leading-relaxed text-carve-dim">
+                <p className="pb-6 text-sm leading-relaxed text-carve-dim">
                   <RichText>{text.mechanism}</RichText>
                 </p>
 
-                <div className="mt-auto space-y-4 pt-2">
-                  <div className="flex items-baseline gap-2 text-sm">
-                    <span className="eyebrow shrink-0 text-lapis-bright">
-                      {t.ui.counter}
-                    </span>
-                    <span className="text-carve">{text.counter.name}</span>
-                  </div>
+                <div className="flex items-baseline gap-2 pb-4 text-sm">
+                  <span className="eyebrow shrink-0 text-lapis-bright">
+                    {t.ui.counter}
+                  </span>
+                  <span className="text-carve">{text.counter.name}</span>
+                </div>
 
+                <div className="pb-5">
                   <div className="directive rounded-r px-4 py-3">
-                    <p className="display text-[15px] italic leading-relaxed text-carve">
+                    <p className="quoted display text-[15px] leading-relaxed text-carve">
                       {t.ui.quoteOpen}
                       <RichText>{text.guideline}</RichText>
                       {t.ui.quoteClose}
                     </p>
                   </div>
+                </div>
 
-                  <p className="border-t border-hairline pt-3 text-xs text-carve-dim">
+                <div className="flex flex-col justify-end gap-3 border-t border-hairline pt-3">
+                  <p className="text-xs text-carve-dim">
                     <span className="text-bronze">§</span>{' '}
                     <RichText>{text.source}</RichText>
                   </p>
-
                   <Link
                     href={routeFor(lang, law.slug)}
-                    className="link-bronze block text-xs text-carve-dim"
+                    className="link-bronze self-start text-xs text-carve-dim"
                   >
                     {t.ui.readArticle} →
                   </Link>

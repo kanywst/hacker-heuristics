@@ -56,7 +56,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="display mt-4 text-2xl italic text-bronze-bright sm:text-3xl"
+          className="quoted display mt-4 text-2xl text-bronze-bright sm:text-3xl"
         >
           {t.hero.subtitle}
         </motion.p>
@@ -113,7 +113,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
         className="mx-auto max-w-3xl px-6 py-28 text-center"
       >
         <p className="eyebrow text-bronze">{t.ui.prologueLabel}</p>
-        <blockquote className="display mt-8 text-2xl italic leading-snug text-carve sm:text-3xl">
+        <blockquote className="quoted display mt-8 text-2xl leading-snug text-carve sm:text-3xl">
           {t.ui.prologueQuote}
         </blockquote>
         <p className="eyebrow mt-6 text-carve-dim">{t.ui.prologueQuoteBy}</p>
@@ -145,7 +145,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
           {t.ui.maxim}
         </blockquote>
         <p className="eyebrow mt-8 text-bronze">{t.ui.maximBy}</p>
-        <p className="mt-12 max-w-2xl text-sm italic leading-relaxed text-carve-dim">
+        <p className="quoted mt-12 max-w-2xl text-sm leading-relaxed text-carve-dim">
           {t.ui.epilogueCurse}
         </p>
       </section>

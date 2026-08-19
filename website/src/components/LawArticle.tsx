@@ -1,11 +1,17 @@
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { translations } from '@/translations';
-import { lawBySlug, tags, type Law, type Locale } from '@/data/laws';
+import { laws, lawBySlug, tags, type Law, type Locale } from '@/data/laws';
 import { article, DATA_URL, routeFor } from '@/lib/site';
 import RichText from './RichText';
 import LawDiagram from './diagrams';
 
+/**
+ * A labelled section of the article. On wide screens the label sits out in the
+ * margin, the way a scholarly edition annotates a text — which is both what the
+ * subject calls for and what stops the page from being a narrow column floating
+ * in an empty room.
+ */
 function Field({
   label,
   children,
@@ -14,12 +20,12 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-t border-hairline pt-6">
-      <p className="eyebrow text-bronze">{label}</p>
-      <div className="mt-3 text-base leading-relaxed text-carve-dim">
+    <section className="border-t border-hairline pt-6 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-8">
+      <p className="eyebrow text-bronze lg:pt-1 lg:text-right">{label}</p>
+      <div className="mt-3 text-base leading-relaxed text-carve-dim lg:mt-0">
         {children}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -31,8 +37,13 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
     .map((slug) => lawBySlug.get(slug))
     .filter((candidate): candidate is Law => Boolean(candidate));
 
+  // The codex is a sequence, so an article knows the ones either side of it.
+  const index = laws.findIndex((candidate) => candidate.slug === law.slug);
+  const previous = index > 0 ? laws[index - 1] : null;
+  const next = index < laws.length - 1 ? laws[index + 1] : null;
+
   return (
-    <article className="mx-auto max-w-3xl px-6 pb-28 pt-36">
+    <article className="mx-auto max-w-4xl px-6 pb-24 pt-32">
       <Link
         href={`${routeFor(lang)}#laws`}
         className="link-bronze inline-flex items-center gap-2 text-sm text-carve-dim"
@@ -40,42 +51,44 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
         <ArrowLeft className="h-4 w-4" /> {t.law.backToCodex}
       </Link>
 
-      <header className="mt-10">
-        <p className="eyebrow text-carve-dim">
+      <header className="mb-14 mt-10 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-8">
+        <p className="eyebrow text-carve-dim lg:pt-4 lg:text-right">
           <span className="text-bronze">§ {article(law.number)}</span>
-          {tag ? ` · ${tag[lang]}` : null}
+          {tag ? <span className="mt-1.5 block">{tag[lang]}</span> : null}
         </p>
-        <h1 className="display mt-4 text-4xl leading-tight text-carve sm:text-5xl">
-          {text.title}
-        </h1>
-        <p className="mt-4 text-lg text-bronze-bright">{text.concept}</p>
+        <div>
+          <h1 className="display text-4xl leading-tight text-carve sm:text-5xl">
+            {text.title}
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-carve-dim">
+            {text.concept}
+          </p>
+        </div>
       </header>
 
-      <div className="rule-diamond mx-auto my-12 w-32">
-        <span aria-hidden className="text-bronze">
-          ◆
-        </span>
-      </div>
-
-      <div className="space-y-8">
+      <div className="space-y-10">
         <Field label={t.law.mechanism}>
           <RichText>{text.mechanism}</RichText>
           <LawDiagram slug={law.slug} lang={lang} />
         </Field>
 
         <Field label={t.law.counter}>
-          <strong className="text-carve">{text.counter.name}</strong>
-          {text.counter.note ? (
-            <>
-              {' — '}
-              <RichText>{text.counter.note}</RichText>
-            </>
-          ) : null}
+          <p>
+            <strong className="text-carve">{text.counter.name}</strong>
+            {text.counter.note ? (
+              <>
+                {' — '}
+                <RichText>{text.counter.note}</RichText>
+              </>
+            ) : null}
+          </p>
         </Field>
 
+        {/* The guideline is the thing this codex has that other lists do not, so
+            it is the one block on the page that is allowed to be loud. */}
         <Field label={t.law.guideline}>
-          <div className="directive rounded-r px-5 py-4">
-            <p className="display text-lg italic leading-relaxed text-carve">
+          <div className="directive rounded-r px-6 py-5">
+            <p className="quoted display text-xl leading-relaxed text-carve sm:text-2xl">
               {t.ui.quoteOpen}
               <RichText>{text.guideline}</RichText>
               {t.ui.quoteClose}
@@ -91,7 +104,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
             href={law.sourceUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="link-bronze mt-3 inline-flex items-center gap-1.5 break-all text-sm text-bronze-bright"
+            className="link-bronze mt-3 inline-flex items-center gap-1.5 text-sm text-bronze-bright"
           >
             {t.law.sourceLink} <ArrowUpRight className="h-4 w-4 shrink-0" />
           </a>
@@ -118,7 +131,44 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
         )}
       </div>
 
-      <footer className="mt-16 border-t border-hairline pt-6 text-sm">
+      {/* Reading straight through is a legitimate way to use a numbered code, so
+          the article that comes next is one click away rather than a trip back
+          through the index. */}
+      <nav
+        aria-label={t.law.adjacent}
+        className="mt-16 grid gap-px border border-hairline sm:grid-cols-2"
+      >
+        {previous ? (
+          <Link
+            href={routeFor(lang, previous.slug)}
+            className="tablet group/nav flex flex-col gap-1 p-6"
+          >
+            <span className="eyebrow flex items-center gap-2 text-carve-dim">
+              <ArrowLeft className="h-3.5 w-3.5" /> § {article(previous.number)}
+            </span>
+            <span className="display text-lg text-carve transition-colors group-hover/nav:text-bronze-bright">
+              {previous[lang].title}
+            </span>
+          </Link>
+        ) : (
+          <span aria-hidden className="hidden sm:block" />
+        )}
+        {next ? (
+          <Link
+            href={routeFor(lang, next.slug)}
+            className="tablet group/nav flex flex-col items-end gap-1 p-6 text-right"
+          >
+            <span className="eyebrow flex items-center gap-2 text-carve-dim">
+              § {article(next.number)} <ArrowRight className="h-3.5 w-3.5" />
+            </span>
+            <span className="display text-lg text-carve transition-colors group-hover/nav:text-bronze-bright">
+              {next[lang].title}
+            </span>
+          </Link>
+        ) : null}
+      </nav>
+
+      <footer className="mt-10 text-sm">
         <a
           href={DATA_URL}
           target="_blank"
