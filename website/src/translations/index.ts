@@ -7,8 +7,7 @@ export const translations = {
     hero: {
       tagLabel: 'The Code of Engineering',
       title: 'Hammurabi',
-      subtitle: 'Laws Every Engineer Should Know',
-      lede: 'Laws that govern systems, teams, and decisions — each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
+      lede: 'Every law in the Code of Hammurabi is a conditional — šumma awīlum, “if a man…”. So is every law here: if the mechanism holds, then do this, unless the counter-force applies.',
       ctaPrimary: 'Read the Codex',
       ctaSecondary: 'Source',
     },
@@ -19,7 +18,6 @@ export const translations = {
     },
     ui: {
       laws: 'The Laws',
-      counter: 'Counter',
       quoteOpen: '“',
       quoteClose: '”',
       prologueLabel: 'Prologue',
@@ -46,9 +44,10 @@ export const translations = {
       readArticle: 'Read the article',
     },
     law: {
-      mechanism: 'Mechanism',
-      counter: 'Counter',
-      guideline: 'Guideline',
+      article: 'The article',
+      opIf: 'If',
+      opThen: 'Then',
+      opUnless: 'Unless',
       source: 'Source',
       sourceLink: 'Go to the source',
       seeAlso: 'See also',
@@ -67,8 +66,7 @@ export const translations = {
     hero: {
       tagLabel: 'エンジニアリングの法典',
       title: 'Hammurabi',
-      subtitle: 'エンジニアが知るべき法則集',
-      lede: 'システム・チーム・意思決定を支配する法則。各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた。人類最古の成文法典に因んで。',
+      lede: 'ハンムラビ法典の条文はすべて条件文である——šumma awīlum、「人が…したならば」。この法典も同じだ。もしその力が働くならば、こうせよ。ただし対抗力が効く場合を除く。',
       ctaPrimary: 'コーデックスを読む',
       ctaSecondary: 'ソース',
     },
@@ -79,7 +77,6 @@ export const translations = {
     },
     ui: {
       laws: '法則',
-      counter: '対',
       quoteOpen: '「',
       quoteClose: '」',
       prologueLabel: '序',
@@ -106,9 +103,10 @@ export const translations = {
       readArticle: '条文を読む',
     },
     law: {
-      mechanism: 'メカニズム',
-      counter: '対立概念',
-      guideline: '判断の指針',
+      article: '条文',
+      opIf: 'もし',
+      opThen: 'ならば',
+      opUnless: 'ただし',
       source: '出典',
       sourceLink: '原典へ',
       seeAlso: '関連する条文',

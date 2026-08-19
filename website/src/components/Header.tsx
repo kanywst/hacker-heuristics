@@ -30,7 +30,7 @@ export default function Header({
     <header className="fixed top-0 z-50 w-full border-b border-hairline bg-ink/70 px-6 py-4 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link href={home} className="flex items-baseline gap-2">
-          <span className="text-bronze">§</span>
+          <span className="text-gold">§</span>
           <span className="display text-xl tracking-tight text-carve">
             Hammurabi
           </span>
@@ -38,7 +38,7 @@ export default function Header({
 
         <nav className="hidden items-center gap-8 text-sm text-carve-dim md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="link-bronze">
+            <Link key={link.href} href={link.href} className="link-quiet">
               {link.label}
             </Link>
           ))}
@@ -46,7 +46,7 @@ export default function Header({
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-bronze"
+            className="link-quiet"
           >
             {t.github}
           </a>
@@ -73,7 +73,7 @@ export default function Header({
             <Link
               key={link.href}
               href={link.href}
-              className="link-bronze"
+              className="link-quiet"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -83,7 +83,7 @@ export default function Header({
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-bronze"
+            className="link-quiet"
             onClick={() => setIsOpen(false)}
           >
             {t.github}

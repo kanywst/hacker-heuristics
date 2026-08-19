@@ -45,8 +45,8 @@ export const ink = {
   faint: 'var(--color-hairline)',
   text: 'var(--color-carve)',
   dim: 'var(--color-carve-dim)',
-  accent: 'var(--color-bronze)',
-  accentBright: 'var(--color-bronze-bright)',
+  accent: 'var(--color-gold)',
+  accentBright: 'var(--color-gold-bright)',
   cool: 'var(--color-lapis-bright)',
   panel: 'var(--color-stone)',
 };

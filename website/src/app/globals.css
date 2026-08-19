@@ -1,20 +1,30 @@
 @import 'tailwindcss';
 
+/* The stele is polished black diorite, and the pigment Mesopotamia prized was
+   lapis. So the ground is cold stone rather than warm brown, blue carries the
+   structure, and gold is spent on one thing only: the article numeral. */
 @theme {
-  --color-ink: #0b0a07;
-  --color-stone: #16130d;
-  --color-carve: #f1eadb;
-  --color-carve-dim: #b0a48d;
-  --color-bronze: #d98e3d;
-  --color-bronze-bright: #f5b75c;
-  --color-lapis: #4f8ad6;
-  --color-lapis-bright: #74a6e8;
-  --color-hairline: rgba(241, 234, 219, 0.12);
+  --color-ink: #0a0c10;
+  --color-stone: #12151b;
+  --color-carve: #e9e8e4;
+  --color-carve-dim: #8a8f9a;
+  --color-lapis: #5b74ff;
+  --color-lapis-bright: #8fa0ff;
+  --color-gold: #c9a227;
+  --color-gold-bright: #e0bb43;
+  --color-hairline: rgba(233, 232, 228, 0.11);
 
-  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  /* Bodoni Moda is a didone: the thick-to-hairline contrast is a chisel cut,
+     which is why it is here and why it is never used below ~18px. Its optical
+     size axis pulls the hairlines back as the type gets smaller. */
+  --font-display:
+    var(--font-bodoni), 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP',
+    Georgia, serif;
   --font-body:
     var(--font-body-sans), 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
     sans-serif;
+  --font-mono:
+    var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
@@ -36,14 +46,14 @@ body {
 }
 
 ::selection {
-  background: rgba(217, 142, 61, 0.3);
+  background: rgba(91, 116, 255, 0.32);
   color: #fff;
 }
 
-/* Keyboard focus: a legible bronze ring against the dark slab.
+/* Keyboard focus: a legible lapis ring against the dark slab.
    The browser curves the outline to each element's own radius. */
 :focus-visible {
-  outline: 2px solid var(--color-bronze);
+  outline: 2px solid var(--color-lapis);
   outline-offset: 3px;
 }
 
@@ -69,20 +79,6 @@ body {
       rgba(0, 0, 0, 0.6) 0%,
       transparent 60%
     );
-}
-
-/* Faint carved vertical columns, like ruled stone */
-.stele-rules {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image: linear-gradient(
-    90deg,
-    rgba(236, 228, 212, 0.035) 1px,
-    transparent 1px
-  );
-  background-size: 7.5rem 100%;
-  mask-image: radial-gradient(120% 80% at 50% 0%, black 30%, transparent 75%);
 }
 
 /* Stone grain overlay */
@@ -116,33 +112,57 @@ body {
   font-style: normal;
 }
 
+/* Every label, operator and numeral in the interface is monospaced. The codex
+   is a legal instrument on one side and a listing on the other; this is the
+   listing half, and it is what makes the rhyme visible. */
 .eyebrow {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.32em;
-  font-size: 0.66rem;
-  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  font-weight: 500;
 }
 
-/* A hairline rule with bronze gradients, engraving-style */
-.rule-diamond {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--color-bronze);
+.mono {
+  font-family: var(--font-mono);
 }
 
-.rule-diamond::before,
-.rule-diamond::after {
-  content: '';
-  height: 1px;
-  flex: 1;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(217, 142, 61, 0.45),
-    transparent
-  );
+/* The IF / THEN / UNLESS rail. The operators form a right-aligned column and the
+   clauses form a block, the way a statute sets out its conditions. */
+.clause {
+  display: grid;
+  grid-template-columns: minmax(3.25rem, auto) 1fr;
+  gap: 0.3rem 1rem;
+  align-items: baseline;
+}
+
+.clause__op {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-lapis-bright);
+  text-align: right;
+  padding-top: 0.35rem;
+  white-space: nowrap;
+}
+
+.clause__op--then {
+  color: var(--color-gold);
+}
+
+/* On a phone the operator column costs more width than it earns, so the
+   operators sit above their clauses instead of beside them. */
+@media (max-width: 40rem) {
+  .clause {
+    grid-template-columns: 1fr;
+    gap: 0.2rem 0;
+  }
+
+  .clause__op {
+    text-align: left;
+    padding-top: 0.7rem;
+  }
 }
 
 /* --- The law tablet -------------------------------------------------- */
@@ -172,11 +192,11 @@ body {
   position: relative;
   background: linear-gradient(
     180deg,
-    rgba(236, 228, 212, 0.04),
-    rgba(236, 228, 212, 0)
+    rgba(233, 232, 228, 0.035),
+    rgba(233, 232, 228, 0)
   );
   border: 1px solid var(--color-hairline);
-  border-top: 1px solid rgba(217, 142, 61, 0.28);
+  border-top: 1px solid rgba(91, 116, 255, 0.26);
   transition:
     border-color 0.4s ease,
     background 0.4s ease;
@@ -185,36 +205,37 @@ body {
 /* Lighting the slab rather than lifting it: a card that detaches on hover tears
    a hole in the grid it is part of. */
 .tablet:hover {
-  border-color: rgba(217, 142, 61, 0.45);
+  border-color: rgba(91, 116, 255, 0.42);
   background: linear-gradient(
     180deg,
-    rgba(217, 142, 61, 0.07),
-    rgba(236, 228, 212, 0)
+    rgba(91, 116, 255, 0.07),
+    rgba(233, 232, 228, 0)
   );
 }
 
 .tablet__num {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1;
-  color: var(--color-bronze);
+  color: var(--color-gold);
   font-variant-numeric: lining-nums;
 }
 
-/* The directive (guideline) block — a carved inset */
+/* The THEN clause — the verdict, and the only place gold appears besides the
+   article numeral. */
 .directive {
-  border-left: 2px solid var(--color-bronze);
-  background: rgba(217, 142, 61, 0.05);
+  border-left: 2px solid var(--color-gold);
+  background: rgba(201, 162, 39, 0.055);
 }
 
 /* Bronze link underline that grows on hover */
-.link-bronze {
+.link-quiet {
   position: relative;
   color: var(--color-carve);
   transition: color 0.3s ease;
 }
 
-.link-bronze::after {
+.link-quiet::after {
   content: '';
   position: absolute;
   left: 0;
@@ -223,35 +244,32 @@ body {
   width: 100%;
   transform: scaleX(0);
   transform-origin: left;
-  background: var(--color-bronze);
+  background: var(--color-lapis);
   transition: transform 0.3s ease;
 }
 
-.link-bronze:hover {
-  color: var(--color-bronze-bright);
+.link-quiet:hover {
+  color: var(--color-lapis-bright);
 }
 
-.link-bronze:hover::after {
+.link-quiet:hover::after {
   transform: scaleX(1);
 }
 
-/* A solid bronze CTA */
-.btn-bronze {
-  background: var(--color-bronze);
-  color: #1a1206;
+/* A solid CTA. Square, not a pill — this is a code, not a product page. */
+.btn-solid {
+  background: var(--color-lapis);
+  color: #060810;
   font-weight: 600;
-  transition:
-    background 0.3s ease,
-    transform 0.2s ease;
+  transition: background 0.3s ease;
 }
 
-.btn-bronze:hover {
-  background: var(--color-bronze-bright);
-  transform: translateY(-2px);
+.btn-solid:hover {
+  background: var(--color-lapis-bright);
 }
 
 .btn-ghost {
-  border: 1px solid rgba(217, 142, 61, 0.4);
+  border: 1px solid rgba(91, 116, 255, 0.38);
   color: var(--color-carve);
   transition:
     border-color 0.3s ease,
@@ -259,8 +277,8 @@ body {
 }
 
 .btn-ghost:hover {
-  border-color: var(--color-bronze);
-  background: rgba(217, 142, 61, 0.08);
+  border-color: var(--color-lapis);
+  background: rgba(91, 116, 255, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {

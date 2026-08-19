@@ -21,7 +21,7 @@ function Field({
 }) {
   return (
     <section className="border-t border-hairline pt-6 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-8">
-      <p className="eyebrow text-bronze lg:pt-1 lg:text-right">{label}</p>
+      <p className="eyebrow text-gold lg:pt-1 lg:text-right">{label}</p>
       <div className="mt-3 text-base leading-relaxed text-carve-dim lg:mt-0">
         {children}
       </div>
@@ -46,14 +46,14 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
     <article className="mx-auto max-w-4xl px-6 pb-24 pt-32">
       <Link
         href={`${routeFor(lang)}#laws`}
-        className="link-bronze inline-flex items-center gap-2 text-sm text-carve-dim"
+        className="link-quiet inline-flex items-center gap-2 text-sm text-carve-dim"
       >
         <ArrowLeft className="h-4 w-4" /> {t.law.backToCodex}
       </Link>
 
       <header className="mb-14 mt-10 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-8">
         <p className="eyebrow text-carve-dim lg:pt-4 lg:text-right">
-          <span className="text-bronze">§ {article(law.number)}</span>
+          <span className="text-gold">§ {article(law.number)}</span>
           {tag ? <span className="mt-1.5 block">{tag[lang]}</span> : null}
         </p>
         <div>
@@ -67,33 +67,38 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
       </header>
 
       <div className="space-y-10">
-        <Field label={t.law.mechanism}>
-          <RichText>{text.mechanism}</RichText>
-          <LawDiagram slug={law.slug} lang={lang} />
-        </Field>
+        {/* Every article in the Code of Hammurabi is a conditional — šumma
+            awīlum, "if a man…". So is every article here: the mechanism is the
+            condition, the guideline is the consequence, and the counter-force is
+            the exception that keeps the rule from becoming dogma. */}
+        <Field label={t.law.article}>
+          <div className="clause">
+            <p className="clause__op">{t.law.opIf}</p>
+            <p>
+              <RichText>{text.mechanism}</RichText>
+            </p>
 
-        <Field label={t.law.counter}>
-          <p>
-            <strong className="text-carve">{text.counter.name}</strong>
-            {text.counter.note ? (
-              <>
-                {' — '}
-                <RichText>{text.counter.note}</RichText>
-              </>
-            ) : null}
-          </p>
-        </Field>
+            <p className="clause__op clause__op--then">{t.law.opThen}</p>
+            <div className="directive rounded-r px-5 py-4">
+              <p className="quoted display text-xl leading-relaxed text-carve sm:text-2xl">
+                {t.ui.quoteOpen}
+                <RichText>{text.guideline}</RichText>
+                {t.ui.quoteClose}
+              </p>
+            </div>
 
-        {/* The guideline is the thing this codex has that other lists do not, so
-            it is the one block on the page that is allowed to be loud. */}
-        <Field label={t.law.guideline}>
-          <div className="directive rounded-r px-6 py-5">
-            <p className="quoted display text-xl leading-relaxed text-carve sm:text-2xl">
-              {t.ui.quoteOpen}
-              <RichText>{text.guideline}</RichText>
-              {t.ui.quoteClose}
+            <p className="clause__op">{t.law.opUnless}</p>
+            <p>
+              <strong className="text-carve">{text.counter.name}</strong>
+              {text.counter.note ? (
+                <>
+                  {' — '}
+                  <RichText>{text.counter.note}</RichText>
+                </>
+              ) : null}
             </p>
           </div>
+          <LawDiagram slug={law.slug} lang={lang} />
         </Field>
 
         <Field label={t.law.source}>
@@ -104,7 +109,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
             href={law.sourceUrl}
             target="_blank"
             rel="noopener noreferrer nofollow"
-            className="link-bronze mt-3 inline-flex items-center gap-1.5 text-sm text-bronze-bright"
+            className="link-quiet mt-3 inline-flex items-center gap-1.5 text-sm text-lapis-bright"
           >
             {t.law.sourceLink} <ArrowUpRight className="h-4 w-4 shrink-0" />
           </a>
@@ -117,11 +122,9 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
                 <li key={other.slug}>
                   <Link
                     href={routeFor(lang, other.slug)}
-                    className="link-bronze text-carve"
+                    className="link-quiet text-carve"
                   >
-                    <span className="text-bronze">
-                      § {article(other.number)}
-                    </span>{' '}
+                    <span className="text-gold">§ {article(other.number)}</span>{' '}
                     {other[lang].title}
                   </Link>
                 </li>
@@ -146,7 +149,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
             <span className="eyebrow flex items-center gap-2 text-carve-dim">
               <ArrowLeft className="h-3.5 w-3.5" /> § {article(previous.number)}
             </span>
-            <span className="display text-lg text-carve transition-colors group-hover/nav:text-bronze-bright">
+            <span className="display text-lg text-carve transition-colors group-hover/nav:text-lapis-bright">
               {previous[lang].title}
             </span>
           </Link>
@@ -161,7 +164,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
             <span className="eyebrow flex items-center gap-2 text-carve-dim">
               § {article(next.number)} <ArrowRight className="h-3.5 w-3.5" />
             </span>
-            <span className="display text-lg text-carve transition-colors group-hover/nav:text-bronze-bright">
+            <span className="display text-lg text-carve transition-colors group-hover/nav:text-lapis-bright">
               {next[lang].title}
             </span>
           </Link>
@@ -173,7 +176,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
           href={DATA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="link-bronze inline-flex items-center gap-1.5 text-carve-dim"
+          className="link-quiet inline-flex items-center gap-1.5 text-carve-dim"
         >
           {t.law.editOnGitHub} <ArrowUpRight className="h-4 w-4" />
         </a>
