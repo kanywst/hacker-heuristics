@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
 import { translations } from '@/translations';
+import type { Locale } from '@/data/laws';
 
-export default function BackToTop() {
-  const { lang } = useLanguage();
+export default function BackToTop({ lang }: { lang: Locale }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

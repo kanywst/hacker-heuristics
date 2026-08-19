@@ -5,3 +5,6 @@ public
 *.md
 package-lock.json
 next-env.d.ts
+
+# generated from ../data/laws.yaml by ../scripts/generate.mjs
+src/data/laws.ts

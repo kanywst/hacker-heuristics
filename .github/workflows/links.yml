@@ -1,0 +1,34 @@
+name: Source links
+
+# Citations are the point of this codex, and link rot is silent. This runs on a
+# schedule rather than on every pull request, because a publisher having a bad
+# afternoon should not block a merge — it should open an issue.
+
+on:
+  schedule:
+    # Mondays, 00:30 UTC (09:30 Asia/Tokyo).
+    - cron: "30 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check every source URL
+        run: npm run check:links -- --verbose

@@ -6,7 +6,7 @@ import { codexJsonLd } from '@/lib/jsonld';
 import { alternatesFor, OG_LOCALE, routeFor, urlFor } from '@/lib/site';
 import { translations } from '@/translations';
 
-const LOCALE = 'en' as const;
+const LOCALE = 'ja' as const;
 const copy = translations[LOCALE].ui;
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <PageShell lang={LOCALE} counterpart={routeFor('ja')}>
+    <PageShell lang={LOCALE} counterpart={routeFor('en')}>
       <JsonLd data={codexJsonLd(LOCALE)} />
       <HomePage lang={LOCALE} />
     </PageShell>
