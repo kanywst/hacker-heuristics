@@ -28,7 +28,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
   const tag = tags.find((candidate) => candidate.key === law.tag);
   const related = law.seeAlso
     .map((slug) => lawBySlug.get(slug))
-    .filter((related): related is Law => Boolean(related));
+    .filter((candidate): candidate is Law => Boolean(candidate));
 
   return (
     <article className="mx-auto max-w-3xl px-6 pb-28 pt-36">

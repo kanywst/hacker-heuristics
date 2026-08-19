@@ -2,8 +2,6 @@
 // and reaches the site through the generated module in src/data/laws.ts.
 import type { Locale } from '@/data/laws';
 
-export const LOCALES: Locale[] = ['en', 'ja'];
-
 export const translations = {
   en: {
     hero: {
@@ -48,8 +46,6 @@ export const translations = {
       readArticle: 'Read the article',
     },
     law: {
-      article: 'Article',
-      concept: 'Concept',
       mechanism: 'Mechanism',
       counter: 'Counter',
       guideline: 'Guideline',
@@ -58,7 +54,6 @@ export const translations = {
       seeAlso: 'See also',
       backToCodex: 'Back to the codex',
       editOnGitHub: 'Improve this article on GitHub',
-      metaSuffix: 'Hammurabi',
     },
     footer: '© 2026 Hammurabi · Laws Every Engineer Should Know.',
     switcher: { label: 'Language', other: '日本語' },
@@ -110,8 +105,6 @@ export const translations = {
       readArticle: '条文を読む',
     },
     law: {
-      article: '条',
-      concept: '概念',
       mechanism: 'メカニズム',
       counter: '対立概念',
       guideline: '判断の指針',
@@ -120,7 +113,6 @@ export const translations = {
       seeAlso: '関連する条文',
       backToCodex: '法典に戻る',
       editOnGitHub: 'GitHub でこの条文を改善する',
-      metaSuffix: 'Hammurabi',
     },
     footer: '© 2026 Hammurabi · エンジニアが知るべき法則集。',
     switcher: { label: '言語', other: 'English' },

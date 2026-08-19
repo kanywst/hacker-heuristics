@@ -37,7 +37,9 @@ export function lawJsonLd(law: Law, locale: Locale) {
     '@type': 'DefinedTerm',
     '@id': urlFor(locale, law.slug),
     name: law[locale].title,
-    alternateName: law.en.title,
+    // The English name is the one people search for, so it is worth carrying on
+    // the Japanese article — but repeating it as an alternate of itself is not.
+    ...(locale === 'en' ? {} : { alternateName: law.en.title }),
     description: law[locale].mechanism,
     termCode: `§ ${article(law.number)}`,
     url: urlFor(locale, law.slug),

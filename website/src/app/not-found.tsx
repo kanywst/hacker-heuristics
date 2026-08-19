@@ -1,9 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 import { translations } from '@/translations';
 import { DEFAULT_LOCALE, routeFor } from '@/lib/site';
 
 const t = translations[DEFAULT_LOCALE];
+
+export const metadata: Metadata = {
+  title: t.notFound.title,
+  description: t.notFound.body,
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

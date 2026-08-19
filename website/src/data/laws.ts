@@ -349,7 +349,8 @@ export const laws: Law[] = [
     "seeAlso": [
       "conways-law",
       "dunbars-number",
-      "second-system-effect"
+      "second-system-effect",
+      "metcalfes-law"
     ],
     "en": {
       "title": "Brooks' Law",
@@ -1830,7 +1831,7 @@ export const laws: Law[] = [
         "name": "修繕もタダではない",
         "note": "塗装に注ぐ注意は土台に注がれない注意であり、そもそも元の犯罪学的主張の実証には強い異論がある"
       },
-      "guideline": "いま触っているファイルにある、最初の目に見える欠陥を直せ。見逃す例外にはすべて担当者と期限を付けよ。自分がいま立っていない場所の窓を直すためにリファクタを起こすな。",
+      "guideline": "いま触っているファイルにある、最初の目に見える欠陥を直せ。黙認する例外にはすべて担当者と期限を付けよ。自分がいま立っていない場所の窓を直すためにリファクタを起こすな。",
       "source": "James Q. Wilson & George L. Kelling『Broken Windows』(The Atlantic, 1982年3月号)。"
     }
   },
@@ -1921,7 +1922,7 @@ export const laws: Law[] = [
     "ja": {
       "title": "DRY 原則",
       "concept": "あらゆる知識は、系の中でただ一つの権威ある表現を持つ。",
-      "mechanism": "重複した知識は必ずずれていく。コピー同士を一緒に変えることを強制するものが何もないからだ。コストは余分な文字数ではない。将来の誰かが片方だけを直し、自分自身と静かに矛盾する系を出荷してしまうことだ。",
+      "mechanism": "重複した知識は必ずずれていく。コピー同士を一緒に変えることを強制するものが何もないからだ。コストは余分な文字数ではない。将来の誰かが片方だけを直し、自分自身と静かに矛盾するシステムを出荷してしまうことだ。",
       "counter": {
         "name": "誤った抽象より重複のほうが安い",
         "note": "今は似ているだけの2つのブロックは、分岐が必要になった瞬間に互いを縛り合う"
@@ -1980,7 +1981,7 @@ export const laws: Law[] = [
         "note": "a system can carry several independent faults at once, and the simplest story that fits the symptoms is not automatically the true one"
       },
       "guideline": "Rank your hypotheses by how many unverified assumptions each needs, and test the cheapest first. Ask \"what changed?\" before \"what is broken?\"",
-      "source": "Attributed to William of Ockham (c. 1287–1347); the shaving metaphor is a later gloss on his principle of parsimony, *entia non sunt multiplicanda praeter necessitatem*."
+      "source": "Attributed to William of Ockham (c. 1287–1347); the shaving metaphor and the formula *entia non sunt multiplicanda praeter necessitatem* are both later glosses on his principle of parsimony."
     },
     "ja": {
       "title": "オッカムの剃刀",
@@ -1991,7 +1992,7 @@ export const laws: Law[] = [
         "note": "系は複数の独立した障害を同時に抱えうる。症状に合う最も単純な物語が、自動的に真実になるわけではない"
       },
       "guideline": "仮説を「未検証の仮定がいくつ必要か」で並べ、最も安いものから検証せよ。「何が壊れたか」の前に「何が変わったか」を問え。",
-      "source": "オッカムのウィリアム (1287頃–1347) に帰される。「剃刀」の比喩は、彼の倹約の原理 *entia non sunt multiplicanda praeter necessitatem* に対する後世の注釈。"
+      "source": "オッカムのウィリアム (1287頃–1347) に帰される。「剃刀」の比喩も、定式 *entia non sunt multiplicanda praeter necessitatem* も、彼の倹約の原理に対する後世の注釈である。"
     }
   },
   {
@@ -2195,7 +2196,8 @@ export const laws: Law[] = [
     "tag": "systems",
     "sourceUrl": "https://en.wikipedia.org/wiki/Metcalfe%27s_law",
     "seeAlso": [
-      "dunbars-number"
+      "dunbars-number",
+      "brooks-law"
     ],
     "en": {
       "title": "Metcalfe's Law",

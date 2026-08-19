@@ -44,11 +44,13 @@ function indexTable(laws, tags, locale) {
   const t = COPY[locale];
   const rows = laws.map((law) => {
     const title = heading(law, locale);
+    // A pipe anywhere in a cell would end the column early.
+    const cell = (text) => text.replace(/\|/g, '\\|');
     const cells = [
       `\`${article(law.number)}\``,
-      `[${title}](#${anchor(title)})`,
-      tags[law.tag][locale],
-      law[locale].concept.replace(/\|/g, '\\|'),
+      `[${cell(title)}](#${anchor(title)})`,
+      cell(tags[law.tag][locale]),
+      cell(law[locale].concept),
     ];
     return `| ${cells.join(' | ')} |`;
   });
