@@ -173,9 +173,10 @@ export const laws: Law[] = [
       "concept": "Second-Order Thinking.",
       "mechanism": "We view legacy code/processes as \"clutter\" because we lack the context of their origin. The ego jumps to \"simplify\" by deleting what it doesn't understand.",
       "counter": {
-        "name": "YAGNI (You Ain't Gonna Need It)"
+        "name": "Time-Boxed Archaeology",
+        "note": "taken absolutely the rule removes nothing ever, because the reason is sometimes gone with the person who had it"
       },
-      "guideline": "You are forbidden from removing a \"fence\" (code/rule) until you can explain exactly why it was put there in the first place.",
+      "guideline": "You are forbidden from removing a \"fence\" (code/rule) until you can explain why it was put there — but put a deadline on the search. When it expires, take the fence down behind a flag, with a rollback ready, and watch what complains.",
       "source": "G. K. Chesterton, *The Thing* (1929) — the original parable of the fence in the road."
     },
     "ja": {
@@ -183,9 +184,10 @@ export const laws: Law[] = [
       "concept": "二次的思考。",
       "mechanism": "背景文脈を知らない古いコードやプロセスを「無駄」に見誤る。エゴは理解できないものを「単純化」という名目で削除したがる。",
       "counter": {
-        "name": "YAGNI (You Ain't Gonna Need It)"
+        "name": "期限を切った考古学",
+        "note": "この規則を絶対に適用すれば何ひとつ削除できなくなる。理由を知っていた人と一緒に、理由そのものが去っていることもある"
       },
-      "guideline": "その「柵（コード/ルール）」がなぜそこに立てられたのか、理由を完全に説明できるようになるまで、それを壊してはならない。",
+      "guideline": "その「柵（コード/ルール）」がなぜそこに立てられたのかを説明できるようになるまで壊してはならない——ただし、その調査には期限を切れ。期限が切れたら、ロールバックを用意してフラグの裏で外し、何が苦情を上げるかを見よ。",
       "source": "G. K. Chesterton, *The Thing* (1929) — 道に立つ柵の寓話の原典。"
     }
   },
@@ -236,7 +238,7 @@ export const laws: Law[] = [
         "name": "Core Value Focus"
       },
       "guideline": "If a PR review spends 80% of comments on style/naming, approve immediately and move the discussion to an automated linter config.",
-      "source": "C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — the original \"bike-shed\" committee parable."
+      "source": "C. Northcote Parkinson, *Parkinson's Law and Other Studies in Administration* (Houghton Mifflin, 1957), in the chapter \"High Finance, or the Point of Vanishing Interest\" — the original bike-shed committee parable. Published in the UK as *Parkinson's Law: The Pursuit of Progress* (John Murray, 1958)."
     },
     "ja": {
       "title": "パーキンソンの凡俗法則",
@@ -246,7 +248,7 @@ export const laws: Law[] = [
         "name": "コア・バリューへの集中"
       },
       "guideline": "PRレビューのコメントの8割がスタイルや命名に集中しているなら、即座に承認し、議論をリンターの設定自動化に移せ。",
-      "source": "C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — 自転車置き場委員会の原典の寓話。"
+      "source": "C. Northcote Parkinson『Parkinson's Law and Other Studies in Administration』(Houghton Mifflin, 1957) 所収「High Finance, or the Point of Vanishing Interest」——自転車置き場の委員会の寓話の初出。英国版は『Parkinson's Law: The Pursuit of Progress』(John Murray, 1958)。"
     }
   },
   {
@@ -408,7 +410,7 @@ export const laws: Law[] = [
     "slug": "postels-law",
     "number": 11,
     "tag": "distributed-systems",
-    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc760",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc761",
     "seeAlso": [
       "hyrums-law",
       "fallacies-of-distributed-computing"
@@ -421,7 +423,7 @@ export const laws: Law[] = [
         "name": "Fail-Fast (Internal only)"
       },
       "guideline": "Be conservative in what you send (strict compliance) and liberal in what you accept (handle messy inputs gracefully).",
-      "source": "Jon Postel, *RFC 760* (1980) and *RFC 793* (TCP, 1981)."
+      "source": "Jon Postel, *RFC 761* (DoD Standard TCP, January 1980) §2.10 — \"be conservative in what you do, be liberal in what you accept from others\". The same guidance appears in *RFC 760* (IP) §3.2 in different words, and verbatim again in *RFC 793* (1981)."
     },
     "ja": {
       "title": "ポステルの法則",
@@ -431,7 +433,7 @@ export const laws: Law[] = [
         "name": "フェイルファスト (内部エラー限定)"
       },
       "guideline": "自分が送るものには厳格に（仕様準拠）、受け取るものには寛容に（不完全な入力も優雅に処理）。",
-      "source": "Jon Postel, *RFC 760* (1980) および *RFC 793 (TCP)* (1981)。"
+      "source": "Jon Postel『RFC 761』(DoD Standard TCP, 1980年1月) §2.10——\"be conservative in what you do, be liberal in what you accept from others\"。同じ趣旨は『RFC 760』(IP) §3.2 に別の言い回しで、『RFC 793』(1981) に同文で再掲される。"
     }
   },
   {
@@ -808,22 +810,22 @@ export const laws: Law[] = [
     "en": {
       "title": "Dunbar's Number",
       "concept": "Cognitive Scaling Limit.",
-      "mechanism": "Humans can maintain approximately 150 stable social relationships. Teams larger than ~8 people experience exponential communication breakdown because the brain cannot track that many working relationships.",
+      "mechanism": "Humans can maintain approximately 150 stable social relationships. Dunbar's result is about neocortex size and group size across primates — it is not about work teams. What engineering extrapolates from it is a separate argument: communication channels grow as n(n-1)/2, so past the size where everyone can still hold everyone else's context, added people go into coordination rather than output.",
       "counter": {
         "name": "Two-Pizza Rule / Team Topologies"
       },
       "guideline": "When a team exceeds 7±2 people, split it. If \"information-sharing meetings\" start multiplying, that's the symptom of exceeding the cognitive limit.",
-      "source": "Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)."
+      "source": "Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992). The smaller team-size figures usually quoted alongside it — 7±2, the two-pizza rule — are folklore rather than Dunbar's finding."
     },
     "ja": {
       "title": "ダンバー数",
       "concept": "認知的スケーリング限界。",
-      "mechanism": "人間が安定した社会関係を維持できる認知限界は約150人。チームが約8人を超えると、脳がその数の人間関係を追跡できなくなり、コミュニケーションが指数関数的に崩壊し始める。",
+      "mechanism": "人間が安定した社会関係を維持できる認知限界は約150人。ダンバーの結果は霊長類全般における新皮質サイズと群れの大きさの関係についてであって、仕事のチームについてではない。エンジニアリングがそこから外挿しているのは別の議論だ——コミュニケーション経路は n(n-1)/2 で増えるので、全員が全員の文脈をまだ保持できる規模を超えた時点から、増えた人員は成果ではなく調整に消える。",
       "counter": {
         "name": "ツー・ピザ・ルール / チームトポロジー"
       },
       "guideline": "チームが7±2人を超えたら分割を検討せよ。「情報共有ミーティング」が増殖し始めたら、認知限界を超えた兆候である。",
-      "source": "Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。"
+      "source": "Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。併せて引かれる小さいチーム規模の数字——7±2、ツー・ピザ・ルール——はダンバーの知見ではなく、通俗的な外挿である。"
     }
   },
   {
@@ -1295,7 +1297,7 @@ export const laws: Law[] = [
         "name": "Timeboxing"
       },
       "guideline": "Set deliberately short timeboxes for open-ended work and review at the deadline. A tight box forces the scoping decisions an open one defers forever.",
-      "source": "C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; book, 1957)."
+      "source": "C. Northcote Parkinson, *Parkinson's Law* (The Economist, 19 November 1955); expanded into *Parkinson's Law and Other Studies in Administration* (Houghton Mifflin, 1957)."
     },
     "ja": {
       "title": "パーキンソンの法則",
@@ -1305,7 +1307,7 @@ export const laws: Law[] = [
         "name": "タイムボックス"
       },
       "guideline": "終わりの見えない作業には意図的に短いタイムボックスを切り、締切の時点で見直せ。きつい箱は、緩い箱が永遠に先送りしてしまうスコープ判断を強制する。",
-      "source": "C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; 書籍, 1957)。"
+      "source": "C. Northcote Parkinson『Parkinson's Law』(The Economist, 1955年11月19日)。『Parkinson's Law and Other Studies in Administration』(Houghton Mifflin, 1957) に発展した。"
     }
   },
   {

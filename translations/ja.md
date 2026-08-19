@@ -145,8 +145,8 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 
 - **概念:** 二次的思考。
 - **メカニズム:** 背景文脈を知らない古いコードやプロセスを「無駄」に見誤る。エゴは理解できないものを「単純化」という名目で削除したがる。
-- **対立概念:** **YAGNI (You Ain't Gonna Need It)**。
-- **判断の指針:** その「柵（コード/ルール）」がなぜそこに立てられたのか、理由を完全に説明できるようになるまで、それを壊してはならない。
+- **対立概念:** **期限を切った考古学** — この規則を絶対に適用すれば何ひとつ削除できなくなる。理由を知っていた人と一緒に、理由そのものが去っていることもある。
+- **判断の指針:** その「柵（コード/ルール）」がなぜそこに立てられたのかを説明できるようになるまで壊してはならない——ただし、その調査には期限を切れ。期限が切れたら、ロールバックを用意してフラグの裏で外し、何が苦情を上げるかを見よ。
 - **出典:** G. K. Chesterton, *The Thing* (1929) — 道に立つ柵の寓話の原典。 — [原典 ↗](https://www.chesterton.org/taking-a-fence-down/)
 - **関連:** [イーグルソンの法則 (Eagleson's Law)](#イーグルソンの法則-eaglesons-law) · [YAGNI (YAGNI)](#yagni-yagni)
 
@@ -169,7 +169,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **メカニズム:** 人は複雑なこと（分散合意）より、単純なこと（変数名）に多くのフィードバックをする。誰でも理解できるため、意見を言うことで偽の貢献感を得やすいため。
 - **対立概念:** **コア・バリューへの集中**。
 - **判断の指針:** PRレビューのコメントの8割がスタイルや命名に集中しているなら、即座に承認し、議論をリンターの設定自動化に移せ。
-- **出典:** C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — 自転車置き場委員会の原典の寓話。 — [原典 ↗](https://en.wikipedia.org/wiki/Law_of_triviality)
+- **出典:** C. Northcote Parkinson『Parkinson's Law and Other Studies in Administration』(Houghton Mifflin, 1957) 所収「High Finance, or the Point of Vanishing Interest」——自転車置き場の委員会の寓話の初出。英国版は『Parkinson's Law: The Pursuit of Progress』(John Murray, 1958)。 — [原典 ↗](https://en.wikipedia.org/wiki/Law_of_triviality)
 - **関連:** [パーキンソンの法則 (Parkinson's Law)](#パーキンソンの法則-parkinsons-law)
 
 ### ガルの法則 (Gall's Law)
@@ -235,7 +235,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **メカニズム:** 分散システムで全員が仕様を完璧に守ると想定すると、脆い失敗を招く。
 - **対立概念:** **フェイルファスト (内部エラー限定)**。
 - **判断の指針:** 自分が送るものには厳格に（仕様準拠）、受け取るものには寛容に（不完全な入力も優雅に処理）。
-- **出典:** Jon Postel, *RFC 760* (1980) および *RFC 793 (TCP)* (1981)。 — [原典 ↗](https://www.rfc-editor.org/rfc/rfc760)
+- **出典:** Jon Postel『RFC 761』(DoD Standard TCP, 1980年1月) §2.10——"be conservative in what you do, be liberal in what you accept from others"。同じ趣旨は『RFC 760』(IP) §3.2 に別の言い回しで、『RFC 793』(1981) に同文で再掲される。 — [原典 ↗](https://www.rfc-editor.org/rfc/rfc761)
 - **関連:** [ハイラムの法則 (Hyrum's Law)](#ハイラムの法則-hyrums-law) · [分散コンピューティングの誤謬 (Fallacies of Distributed Computing)](#分散コンピューティングの誤謬-fallacies-of-distributed-computing)
 
 ### ハンロンの剃刀 (Hanlon's Razor)
@@ -375,10 +375,10 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 `§ 24` · 組織
 
 - **概念:** 認知的スケーリング限界。
-- **メカニズム:** 人間が安定した社会関係を維持できる認知限界は約150人。チームが約8人を超えると、脳がその数の人間関係を追跡できなくなり、コミュニケーションが指数関数的に崩壊し始める。
+- **メカニズム:** 人間が安定した社会関係を維持できる認知限界は約150人。ダンバーの結果は霊長類全般における新皮質サイズと群れの大きさの関係についてであって、仕事のチームについてではない。エンジニアリングがそこから外挿しているのは別の議論だ——コミュニケーション経路は n(n-1)/2 で増えるので、全員が全員の文脈をまだ保持できる規模を超えた時点から、増えた人員は成果ではなく調整に消える。
 - **対立概念:** **ツー・ピザ・ルール / チームトポロジー**。
 - **判断の指針:** チームが7±2人を超えたら分割を検討せよ。「情報共有ミーティング」が増殖し始めたら、認知限界を超えた兆候である。
-- **出典:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。 — [原典 ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
+- **出典:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。併せて引かれる小さいチーム規模の数字——7±2、ツー・ピザ・ルール——はダンバーの知見ではなく、通俗的な外挿である。 — [原典 ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
 - **関連:** [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [ミラーの法則 (Miller's Law)](#ミラーの法則-millers-law) · [メトカーフの法則 (Metcalfe's Law)](#メトカーフの法則-metcalfes-law) · [リンゲルマン効果 (Ringelmann Effect)](#リンゲルマン効果-ringelmann-effect)
 
 ### 劣っている方が勝つ (Worse is Better)
@@ -554,7 +554,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **メカニズム:** 「仕事は、それを完了するために与えられた時間を満たすまで膨張する。」一週間与えれば一週間かかり、同じ作業も締切が二日なら二日で片付く。緩衝 (slack) は貯蓄されず、消費される。
 - **対立概念:** **タイムボックス**。
 - **判断の指針:** 終わりの見えない作業には意図的に短いタイムボックスを切り、締切の時点で見直せ。きつい箱は、緩い箱が永遠に先送りしてしまうスコープ判断を強制する。
-- **出典:** C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; 書籍, 1957)。 — [原典 ↗](https://www.economist.com/news/1955/11/19/parkinsons-law)
+- **出典:** C. Northcote Parkinson『Parkinson's Law』(The Economist, 1955年11月19日)。『Parkinson's Law and Other Studies in Administration』(Houghton Mifflin, 1957) に発展した。 — [原典 ↗](https://www.economist.com/news/1955/11/19/parkinsons-law)
 - **関連:** [意思決定の可逆性 (Type 1 vs Type 2 Decisions)](#意思決定の可逆性-type-1-vs-type-2-decisions) · [パーキンソンの凡俗法則 (Law of Triviality)](#パーキンソンの凡俗法則-law-of-triviality) · [ホフスタッターの法則 (Hofstadter's Law)](#ホフスタッターの法則-hofstadters-law)
 
 ### ヴィルトの法則 (Wirth's Law)

@@ -145,8 +145,8 @@ The `§` number is a stable display label, assigned in file order. The permanent
 
 - **Concept:** Second-Order Thinking.
 - **Mechanism:** We view legacy code/processes as "clutter" because we lack the context of their origin. The ego jumps to "simplify" by deleting what it doesn't understand.
-- **Counter:** **YAGNI (You Ain't Gonna Need It)**.
-- **Guideline:** You are forbidden from removing a "fence" (code/rule) until you can explain exactly why it was put there in the first place.
+- **Counter:** **Time-Boxed Archaeology** — taken absolutely the rule removes nothing ever, because the reason is sometimes gone with the person who had it.
+- **Guideline:** You are forbidden from removing a "fence" (code/rule) until you can explain why it was put there — but put a deadline on the search. When it expires, take the fence down behind a flag, with a rollback ready, and watch what complains.
 - **Source:** G. K. Chesterton, *The Thing* (1929) — the original parable of the fence in the road. — [source ↗](https://www.chesterton.org/taking-a-fence-down/)
 - **See also:** [Eagleson's Law](#eaglesons-law) · [YAGNI](#yagni)
 
@@ -169,7 +169,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Mechanism:** People provide more feedback on simple things (naming variables) than complex things (distributed consensus) because everyone understands the simple things, creating a false sense of value.
 - **Counter:** **Core Value Focus**.
 - **Guideline:** If a PR review spends 80% of comments on style/naming, approve immediately and move the discussion to an automated linter config.
-- **Source:** C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — the original "bike-shed" committee parable. — [source ↗](https://en.wikipedia.org/wiki/Law_of_triviality)
+- **Source:** C. Northcote Parkinson, *Parkinson's Law and Other Studies in Administration* (Houghton Mifflin, 1957), in the chapter "High Finance, or the Point of Vanishing Interest" — the original bike-shed committee parable. Published in the UK as *Parkinson's Law: The Pursuit of Progress* (John Murray, 1958). — [source ↗](https://en.wikipedia.org/wiki/Law_of_triviality)
 - **See also:** [Parkinson's Law](#parkinsons-law)
 
 ### Gall's Law
@@ -235,7 +235,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Mechanism:** In a distributed system, assuming everyone follows the spec perfectly leads to brittle failures.
 - **Counter:** **Fail-Fast (Internal only)**.
 - **Guideline:** Be conservative in what you send (strict compliance) and liberal in what you accept (handle messy inputs gracefully).
-- **Source:** Jon Postel, *RFC 760* (1980) and *RFC 793* (TCP, 1981). — [source ↗](https://www.rfc-editor.org/rfc/rfc760)
+- **Source:** Jon Postel, *RFC 761* (DoD Standard TCP, January 1980) §2.10 — "be conservative in what you do, be liberal in what you accept from others". The same guidance appears in *RFC 760* (IP) §3.2 in different words, and verbatim again in *RFC 793* (1981). — [source ↗](https://www.rfc-editor.org/rfc/rfc761)
 - **See also:** [Hyrum's Law](#hyrums-law) · [Fallacies of Distributed Computing](#fallacies-of-distributed-computing)
 
 ### Hanlon's Razor
@@ -375,10 +375,10 @@ The `§` number is a stable display label, assigned in file order. The permanent
 `§ 24` · Organization
 
 - **Concept:** Cognitive Scaling Limit.
-- **Mechanism:** Humans can maintain approximately 150 stable social relationships. Teams larger than ~8 people experience exponential communication breakdown because the brain cannot track that many working relationships.
+- **Mechanism:** Humans can maintain approximately 150 stable social relationships. Dunbar's result is about neocortex size and group size across primates — it is not about work teams. What engineering extrapolates from it is a separate argument: communication channels grow as n(n-1)/2, so past the size where everyone can still hold everyone else's context, added people go into coordination rather than output.
 - **Counter:** **Two-Pizza Rule / Team Topologies**.
 - **Guideline:** When a team exceeds 7±2 people, split it. If "information-sharing meetings" start multiplying, that's the symptom of exceeding the cognitive limit.
-- **Source:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992). — [source ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
+- **Source:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992). The smaller team-size figures usually quoted alongside it — 7±2, the two-pizza rule — are folklore rather than Dunbar's finding. — [source ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
 - **See also:** [Conway's Law](#conways-law) · [Brooks' Law](#brooks-law) · [Miller's Law](#millers-law) · [Metcalfe's Law](#metcalfes-law) · [Ringelmann Effect](#ringelmann-effect)
 
 ### Worse is Better
@@ -554,7 +554,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Mechanism:** "Work expands so as to fill the time available for its completion." Give a task a week and it takes a week; the same task with a two-day deadline ships in two days. Slack is consumed, not banked.
 - **Counter:** **Timeboxing**.
 - **Guideline:** Set deliberately short timeboxes for open-ended work and review at the deadline. A tight box forces the scoping decisions an open one defers forever.
-- **Source:** C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; book, 1957). — [source ↗](https://www.economist.com/news/1955/11/19/parkinsons-law)
+- **Source:** C. Northcote Parkinson, *Parkinson's Law* (The Economist, 19 November 1955); expanded into *Parkinson's Law and Other Studies in Administration* (Houghton Mifflin, 1957). — [source ↗](https://www.economist.com/news/1955/11/19/parkinsons-law)
 - **See also:** [Type 1 vs Type 2 Decisions](#type-1-vs-type-2-decisions) · [Law of Triviality](#law-of-triviality) · [Hofstadter's Law](#hofstadters-law)
 
 ### Wirth's Law
