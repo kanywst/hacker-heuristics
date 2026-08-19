@@ -75,29 +75,34 @@ jobs:
             PR: ${{ github.event.pull_request.number }}
 
             hammurabi is a codex of engineering laws, each with its counter-force, a field
-            guideline and a source. Content lives under content/, translations under
-            translations/, and the site under website/.
+            guideline and a primary source. `data/laws.yaml` is the only source of truth;
+            README.md, translations/ja.md and website/src/data/laws.ts are generated from
+            it by scripts/generate.mjs. The site is under website/.
 
-            Do not repeat what CI already does. Lint, types and the build run on this PR
-            already.
+            Do not repeat what CI already does. Lint, types, the build, the codex schema
+            and the generated-file drift check all run on this PR already. Reviewing the
+            generated files is wasted effort — read the diff in data/laws.yaml.
 
             Look for what only a reader can catch:
 
             1. Entries that break their own form. Each law needs a genuine counter-force
-               rather than a restatement, a guideline that is actually actionable, and a
-               source that says what it is cited for.
+               rather than a restatement or a caveat, a guideline that is actually
+               actionable, and a source that says what it is cited for.
 
-            2. Attribution. A law credited to the wrong person, or a source that is a blog
-               post quoting the real source, is the defect readers will catch first.
+            2. Attribution. A law credited to the wrong person, a source that is a blog
+               post quoting the real source, or a date that belongs to a different work,
+               is the defect readers will catch first. Check the citation against what the
+               entry claims it supports.
 
-            3. Translation parity. A change to one language that the other misses leaves the
-               two versions asserting different things.
+            3. Translation parity. A change to `en` that `ja` misses — or a `ja` rendering
+               that softens, strengthens or drops a claim — leaves the two codices
+               asserting different things.
 
-            4. Schema consistency across entries, since a missing field usually renders as a
-               gap rather than an error.
-
-            5. Over-claiming. These are heuristics, not laws of nature, and a sentence that
+            4. Over-claiming. These are heuristics, not laws of nature, and a sentence that
                forgets that is worth flagging.
+
+            5. Slug stability. A changed `slug` on an existing law silently breaks every
+               permalink to it. Flag any diff that renames one.
 
             Post findings as inline comments on the lines they concern. Use one
             top-level comment for the summary, posted with

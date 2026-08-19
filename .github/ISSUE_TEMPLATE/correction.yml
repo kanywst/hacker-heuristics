@@ -1,0 +1,46 @@
+name: Report a correction
+description: An attribution, source, translation or claim in the codex is wrong
+title: "fix: "
+labels: ["codex", "correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are the most valuable issue you can file here. A wrong attribution undermines the one thing this codex claims over every other list of laws.
+
+  - type: input
+    id: article
+    attributes:
+      label: Which article
+      description: The § number, the title, or the slug.
+      placeholder: "§ 01 / type-1-vs-type-2-decisions"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is wrong
+      options:
+        - Attribution — credited to the wrong person or work
+        - Source — the citation does not say what it is cited for, or the link is dead
+        - Claim — the mechanism or guideline overstates what the source supports
+        - Translation — the English and Japanese say different things
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What the codex currently says
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should say, and how you know
+      description: Link the source you checked. A page or section number helps.
+    validations:
+      required: true

@@ -925,6 +925,28 @@ npm run generate      # rewrite README.md, translations/ja.md, website data
 npm run check:links   # verify every source URL still resolves
 ```
 
+## Contributors
+
+Thanks to everyone who has added an article, fixed an attribution, or corrected a translation.
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/kanywst"><img src="https://avatars.githubusercontent.com/u/45947799?v=4?s=80" width="80px;" alt="kanywst"/><br /><sub><b>kanywst</b></sub></a><br /><a href="#content-kanywst" title="Content">🖋</a> <a href="https://github.com/kanywst/hammurabi/commits?author=kanywst" title="Code">💻</a> <a href="#design-kanywst" title="Design">🎨</a> <a href="#translation-kanywst" title="Translation">🌍</a> <a href="#maintenance-kanywst" title="Maintenance">🚧</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This list is maintained with [all-contributors](https://allcontributors.org). Contributions of every kind count — a corrected source is worth as much as a new law.
+
 ## License
 
 - **Content** — the codex text in `data/`, `README.md` and `translations/` — is licensed under [CC BY-SA 4.0](./LICENSE). Use it, translate it, build on it; keep the attribution and share alike.

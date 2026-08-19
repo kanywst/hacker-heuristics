@@ -1,0 +1,22 @@
+{
+  "projectName": "hammurabi",
+  "projectOwner": "kanywst",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 80,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributorsPerLine": 6,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![all-contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-c2884a?style=for-the-badge&labelColor=0c0b08)](#contributors)",
+  "contributors": [
+    {
+      "login": "kanywst",
+      "name": "kanywst",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45947799?v=4",
+      "profile": "https://github.com/kanywst",
+      "contributions": ["content", "code", "design", "translation", "maintenance"]
+    }
+  ]
+}
