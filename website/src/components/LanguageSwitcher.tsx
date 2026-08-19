@@ -24,7 +24,7 @@ export default function LanguageSwitcher({
       hrefLang={HTML_LANG[other]}
       lang={HTML_LANG[other]}
       aria-label={`${t.label}: ${t.other}`}
-      className="rounded-full border border-hairline bg-stone px-3 py-1 text-xs font-bold text-carve-dim transition-colors hover:border-bronze/40 hover:text-carve"
+      className="rounded-full border border-hairline bg-stone px-3 py-1 text-xs font-bold text-carve-dim transition-colors hover:border-lapis/40 hover:text-carve"
     >
       {t.other}
     </Link>

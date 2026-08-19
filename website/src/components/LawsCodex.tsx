@@ -85,7 +85,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
   return (
     <section id="laws" className="mx-auto max-w-6xl px-6 py-28">
       <header className="mb-12 text-center">
-        <p className="eyebrow text-bronze">Codex</p>
+        <p className="eyebrow text-gold">Codex</p>
         <h2 className="display mt-3 text-4xl text-carve sm:text-5xl">
           {t.ui.laws}
         </h2>
@@ -102,7 +102,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t.ui.searchPlaceholder}
           aria-label={t.ui.searchPlaceholder}
-          className="w-full rounded-full border border-hairline bg-stone/60 py-2.5 pl-11 pr-4 text-sm text-carve placeholder:text-carve-dim focus-visible:border-bronze/60 focus-visible:outline-none"
+          className="w-full rounded-full border border-hairline bg-stone/60 py-2.5 pl-11 pr-4 text-sm text-carve placeholder:text-carve-dim focus-visible:border-lapis/60 focus-visible:outline-none"
         />
       </div>
 
@@ -116,8 +116,8 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
           aria-pressed={activeTag === null}
           className={`${chip} ${
             activeTag === null
-              ? 'border-bronze/50 bg-bronze/10 text-carve'
-              : 'border-hairline text-carve-dim hover:border-bronze/40 hover:text-carve'
+              ? 'border-lapis/50 bg-lapis/10 text-carve'
+              : 'border-hairline text-carve-dim hover:border-lapis/40 hover:text-carve'
           }`}
         >
           {t.ui.filterAll}
@@ -129,8 +129,8 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
             aria-pressed={activeTag === tag.key}
             className={`${chip} ${
               activeTag === tag.key
-                ? 'border-bronze/50 bg-bronze/10 text-carve'
-                : 'border-hairline text-carve-dim hover:border-bronze/40 hover:text-carve'
+                ? 'border-lapis/50 bg-lapis/10 text-carve'
+                : 'border-hairline text-carve-dim hover:border-lapis/40 hover:text-carve'
             }`}
           >
             {tag[lang]}
@@ -163,7 +163,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                   >
                     <span aria-hidden>§</span> {article(law.number)}
                     {copied === law.slug ? (
-                      <Check className="h-4 w-4 text-bronze" />
+                      <Check className="h-4 w-4 text-gold" />
                     ) : (
                       <Link2 className="h-4 w-4 opacity-0 transition-opacity group-hover/num:opacity-60 group-focus-visible/num:opacity-60" />
                     )}
@@ -176,24 +176,23 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                 <h3 className="display pb-5 text-2xl leading-tight text-carve">
                   <Link
                     href={routeFor(lang, law.slug)}
-                    className="transition-colors hover:text-bronze-bright"
+                    className="transition-colors hover:text-lapis-bright"
                   >
                     {text.title}
                   </Link>
                 </h3>
 
-                <p className="pb-6 text-sm leading-relaxed text-carve-dim">
-                  <RichText>{text.mechanism}</RichText>
-                </p>
-
-                <div className="flex items-baseline gap-2 pb-4 text-sm">
-                  <span className="eyebrow shrink-0 text-lapis-bright">
-                    {t.ui.counter}
-                  </span>
-                  <span className="text-carve">{text.counter.name}</span>
+                <div className="pb-6">
+                  <p className="eyebrow mb-1.5 text-lapis-bright">
+                    {t.law.opIf}
+                  </p>
+                  <p className="text-sm leading-relaxed text-carve-dim">
+                    <RichText>{text.mechanism}</RichText>
+                  </p>
                 </div>
 
                 <div className="pb-5">
+                  <p className="eyebrow mb-1.5 text-gold">{t.law.opThen}</p>
                   <div className="directive rounded-r px-4 py-3">
                     <p className="quoted display text-[15px] leading-relaxed text-carve">
                       {t.ui.quoteOpen}
@@ -203,14 +202,21 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                   </div>
                 </div>
 
+                <div className="pb-5">
+                  <p className="eyebrow mb-1.5 text-lapis-bright">
+                    {t.law.opUnless}
+                  </p>
+                  <p className="text-sm text-carve">{text.counter.name}</p>
+                </div>
+
                 <div className="flex flex-col justify-end gap-3 border-t border-hairline pt-3">
                   <p className="text-xs text-carve-dim">
-                    <span className="text-bronze">§</span>{' '}
+                    <span className="text-gold">§</span>{' '}
                     <RichText>{text.source}</RichText>
                   </p>
                   <Link
                     href={routeFor(lang, law.slug)}
-                    className="link-bronze self-start text-xs text-carve-dim"
+                    className="link-quiet self-start text-xs text-carve-dim"
                   >
                     {t.ui.readArticle} →
                   </Link>

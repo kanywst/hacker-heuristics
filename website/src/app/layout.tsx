@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
-import { Fraunces, Manrope } from 'next/font/google';
+import {
+  Bodoni_Moda,
+  JetBrains_Mono,
+  Schibsted_Grotesk,
+} from 'next/font/google';
 import './globals.css';
 import { translations } from '@/translations';
 import {
@@ -11,17 +15,28 @@ import {
   urlFor,
 } from '@/lib/site';
 
-const fraunces = Fraunces({
+// A didone for display: the thick-to-hairline contrast is the chisel cut, and
+// the optical-size axis pulls the hairlines back before they can disappear at
+// text sizes. Never set below about 18px.
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
   display: 'swap',
   style: ['normal', 'italic'],
-  variable: '--font-fraunces',
+  variable: '--font-bodoni',
 });
 
-const manrope = Manrope({
+const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-body-sans',
+});
+
+// Every label, operator and numeral. The engineering half of the rhyme.
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500'],
+  variable: '--font-mono-face',
 });
 
 const copy = translations[DEFAULT_LOCALE].ui;
@@ -65,11 +80,10 @@ export default function RootLayout({
   return (
     <html
       lang={HTML_LANG[DEFAULT_LOCALE]}
-      className={`${fraunces.variable} ${manrope.variable}`}
+      className={`${bodoni.variable} ${schibsted.variable} ${jetbrains.variable}`}
     >
       <body className="antialiased">
         <div className="stele-wash" />
-        <div className="stele-rules" />
         <div className="grain" />
         {children}
       </body>

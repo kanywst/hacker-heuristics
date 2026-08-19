@@ -20,7 +20,7 @@ export default function BackToTop({ lang }: { lang: Locale }) {
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label={translations[lang].ui.backToTop}
-      className={`btn-bronze fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full shadow-lg transition-opacity duration-300 ${
+      className={`btn-solid fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full shadow-lg transition-opacity duration-300 ${
         visible ? 'opacity-100' : 'pointer-events-none invisible opacity-0'
       }`}
     >

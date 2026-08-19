@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { translations } from '@/translations';
 import LawsCodex from './LawsCodex';
-import { laws, type Locale } from '@/data/laws';
+import { laws, lawBySlug, type Locale } from '@/data/laws';
 import { article, REPO_URL } from '@/lib/site';
 
 const fadeUp = {
@@ -23,20 +23,27 @@ const fadeUp = {
 export default function HomePage({ lang }: { lang: Locale }) {
   const t = translations[lang];
   const lastArticle = article(laws.length);
+  // Goodhart is short enough to read at a glance and famous enough that the
+  // form, not the content, is what the reader notices.
+  const demo = lawBySlug.get('goodharts-law');
 
   return (
     <div className="relative">
-      {/* ── Hero ─────────────────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────────────
+          The thesis, demonstrated rather than described: the page opens by
+          showing one real article in the conditional form the original code was
+          written in, so the claim in the lede is already proved by the time you
+          finish reading it. */}
       <section
         id="top"
-        className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center"
+        className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pt-24"
       >
         <motion.p
           custom={0}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="eyebrow text-bronze"
+          className="eyebrow text-gold"
         >
           § 01–{lastArticle} · {t.hero.tagLabel}
         </motion.p>
@@ -46,7 +53,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="display mt-6 text-6xl font-light leading-[0.92] tracking-tight text-carve sm:text-8xl md:text-[10rem]"
+          className="display mt-5 text-[3.5rem] leading-[0.9] tracking-tight text-carve sm:text-8xl md:text-[9.5rem]"
         >
           Hammurabi
         </motion.h1>
@@ -56,43 +63,50 @@ export default function HomePage({ lang }: { lang: Locale }) {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="quoted display mt-4 text-2xl text-bronze-bright sm:text-3xl"
-        >
-          {t.hero.subtitle}
-        </motion.p>
-
-        <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="rule-diamond mx-auto my-8 w-40"
-        >
-          <span aria-hidden className="text-bronze">
-            ◆
-          </span>
-        </motion.div>
-
-        <motion.p
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="max-w-2xl text-base leading-relaxed text-carve-dim"
+          className="mono mt-6 max-w-3xl text-xs leading-relaxed tracking-wide text-carve-dim sm:text-sm"
         >
           {t.hero.lede}
         </motion.p>
 
+        {demo ? (
+          <motion.div
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="tablet mt-10 max-w-3xl p-6 sm:p-8"
+          >
+            <p className="eyebrow mb-5 text-carve-dim">
+              <span className="text-gold">§ {article(demo.number)}</span> ·{' '}
+              {demo[lang].title}
+            </p>
+            <div className="clause">
+              <p className="clause__op">{t.law.opIf}</p>
+              <p className="text-sm leading-relaxed text-carve-dim">
+                {demo[lang].mechanism}
+              </p>
+              <p className="clause__op clause__op--then">{t.law.opThen}</p>
+              <p className="quoted display text-lg leading-relaxed text-carve sm:text-xl">
+                {t.ui.quoteOpen}
+                {demo[lang].guideline}
+                {t.ui.quoteClose}
+              </p>
+              <p className="clause__op">{t.law.opUnless}</p>
+              <p className="text-sm text-carve">{demo[lang].counter.name}</p>
+            </div>
+          </motion.div>
+        ) : null}
+
         <motion.div
-          custom={5}
+          custom={4}
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-10 flex flex-wrap items-center gap-3"
         >
           <a
             href="#laws"
-            className="btn-bronze flex items-center gap-2 rounded-full px-7 py-3 text-sm"
+            className="btn-solid flex items-center gap-2 px-6 py-3 text-sm"
           >
             {t.hero.ctaPrimary} <ArrowDown className="h-4 w-4" />
           </a>
@@ -100,7 +114,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost flex items-center gap-2 rounded-full px-7 py-3 text-sm"
+            className="btn-ghost flex items-center gap-2 px-6 py-3 text-sm"
           >
             {t.hero.ctaSecondary} <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -112,16 +126,11 @@ export default function HomePage({ lang }: { lang: Locale }) {
         id="prologue"
         className="mx-auto max-w-3xl px-6 py-28 text-center"
       >
-        <p className="eyebrow text-bronze">{t.ui.prologueLabel}</p>
+        <p className="eyebrow text-gold">{t.ui.prologueLabel}</p>
         <blockquote className="quoted display mt-8 text-2xl leading-snug text-carve sm:text-3xl">
           {t.ui.prologueQuote}
         </blockquote>
         <p className="eyebrow mt-6 text-carve-dim">{t.ui.prologueQuoteBy}</p>
-        <div className="rule-diamond mx-auto my-10 w-32">
-          <span aria-hidden className="text-bronze">
-            ◆
-          </span>
-        </div>
         <p className="text-base leading-relaxed text-carve-dim">
           {t.ui.prologueBody}
         </p>
@@ -135,16 +144,11 @@ export default function HomePage({ lang }: { lang: Locale }) {
         id="about"
         className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center"
       >
-        <p className="eyebrow text-bronze">{t.ui.epilogueLabel}</p>
-        <div className="rule-diamond my-10 w-24">
-          <span aria-hidden className="text-bronze">
-            ◆
-          </span>
-        </div>
+        <p className="eyebrow text-gold">{t.ui.epilogueLabel}</p>
         <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
           {t.ui.maxim}
         </blockquote>
-        <p className="eyebrow mt-8 text-bronze">{t.ui.maximBy}</p>
+        <p className="eyebrow mt-8 text-gold">{t.ui.maximBy}</p>
         <p className="quoted mt-12 max-w-2xl text-sm leading-relaxed text-carve-dim">
           {t.ui.epilogueCurse}
         </p>
