@@ -1,15 +1,20 @@
 import type { MetadataRoute } from 'next';
 import { laws } from '@/data/laws';
-import { LOCALES, urlFor } from '@/lib/site';
+import { DEFAULT_LOCALE, LOCALES, urlFor } from '@/lib/site';
 
 // Required for `output: 'export'` — emit a static sitemap.xml at build time.
 export const dynamic = 'force-static';
 
 function alternates(slug?: string) {
   return {
-    languages: Object.fromEntries(
-      LOCALES.map((locale) => [locale, urlFor(locale, slug)])
-    ),
+    languages: {
+      ...Object.fromEntries(
+        LOCALES.map((locale) => [locale, urlFor(locale, slug)])
+      ),
+      // Tells a crawler which version to serve a reader whose language matches
+      // neither entry, rather than leaving it to guess.
+      'x-default': urlFor(DEFAULT_LOCALE, slug),
+    },
   };
 }
 

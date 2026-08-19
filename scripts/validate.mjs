@@ -41,6 +41,24 @@ for (const law of laws) {
   }
 }
 
+// An article that names another law in its prose but does not link to it is a
+// dead end for the reader — which is the failure the cross-references exist to
+// prevent. Matching is on the squashed English title to keep it out of the way
+// of ordinary phrasing.
+const squash = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, '');
+for (const law of laws) {
+  const prose = squash(
+    [law.en.counter.name, law.en.counter.note ?? '', law.en.mechanism, law.en.guideline].join(' ')
+  );
+  for (const other of laws) {
+    if (other.slug === law.slug || law.see_also.includes(other.slug)) continue;
+    const title = squash(other.en.title);
+    if (title.length >= 8 && prose.includes(title)) {
+      warnings.push(`${law.slug} names "${other.en.title}" in its prose but does not link to it`);
+    }
+  }
+}
+
 for (const warning of warnings) console.warn(`warn: ${warning}`);
 
 if (problems.length > 0) {

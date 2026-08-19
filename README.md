@@ -214,7 +214,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Scope Cutting**.
 - **Guideline:** If a project is late, do not add people. Remove features or push the date.
 - **Source:** Fred Brooks, *The Mythical Man-Month* (1975, anniversary edition 1995). — [source ↗](https://en.wikipedia.org/wiki/Brooks%27s_law)
-- **See also:** [Conway's Law](#conways-law) · [Dunbar's Number](#dunbars-number) · [Second-System Effect](#second-system-effect)
+- **See also:** [Conway's Law](#conways-law) · [Dunbar's Number](#dunbars-number) · [Second-System Effect](#second-system-effect) · [Metcalfe's Law](#metcalfes-law)
 
 ### XY Problem
 
@@ -796,7 +796,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Mechanism:** Under incident pressure the mind reaches for the interesting hypothesis — a kernel bug, a bad disk, an attacker. The explanation requiring the fewest unverified assumptions is almost always the deploy that went out twenty minutes ago.
 - **Counter:** **Hickam's Dictum** — a system can carry several independent faults at once, and the simplest story that fits the symptoms is not automatically the true one.
 - **Guideline:** Rank your hypotheses by how many unverified assumptions each needs, and test the cheapest first. Ask "what changed?" before "what is broken?"
-- **Source:** Attributed to William of Ockham (c. 1287–1347); the shaving metaphor is a later gloss on his principle of parsimony, *entia non sunt multiplicanda praeter necessitatem*. — [source ↗](https://en.wikipedia.org/wiki/Occam%27s_razor)
+- **Source:** Attributed to William of Ockham (c. 1287–1347); the shaving metaphor and the formula *entia non sunt multiplicanda praeter necessitatem* are both later glosses on his principle of parsimony. — [source ↗](https://en.wikipedia.org/wiki/Occam%27s_razor)
 - **See also:** [Normalcy Bias](#normalcy-bias) · [Hanlon's Razor](#hanlons-razor)
 
 ### Single Responsibility Principle
@@ -874,7 +874,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **The Same Quadratic Is a Cost** — connections are an asset between users and a liability between colleagues; Brooks' Law is Metcalfe's Law with the sign flipped.
 - **Guideline:** For a product whose value comes from other users, spend early effort on the smallest network that is already useful to its own members, not on features. For a team, do the opposite and cut connections.
 - **Source:** Attributed to Robert Metcalfe (c. 1980); the n log n critique is Bob Briscoe, Andrew Odlyzko & Benjamin Tilly, *Metcalfe's Law is Wrong* (IEEE Spectrum, July 2006). — [source ↗](https://en.wikipedia.org/wiki/Metcalfe%27s_law)
-- **See also:** [Dunbar's Number](#dunbars-number)
+- **See also:** [Dunbar's Number](#dunbars-number) · [Brooks' Law](#brooks-law)
 
 ### Ringelmann Effect
 

@@ -12,16 +12,20 @@ const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REQUIRED_TEXT = ['title', 'concept', 'mechanism', 'guideline', 'source'];
 
 /**
- * GitHub's heading-anchor algorithm: lowercase, drop everything that is not a
- * word character, space or hyphen, then turn runs of whitespace into hyphens.
- * Used for in-markdown links so the table of contents can never rot.
+ * GitHub's heading-anchor algorithm: lowercase, drop every character that is
+ * not a word character, space or hyphen, then replace each remaining space with
+ * a hyphen. Used for in-markdown links so the table of contents can never rot.
+ *
+ * "Word character" follows Ruby's \p{Word} — letters, marks, digits and the
+ * underscore — because that is what GitHub's slugger uses. Note that spaces are
+ * substituted one for one rather than collapsed: two spaces become two hyphens
+ * there, so they must here too.
  */
 export function anchor(heading) {
   return heading
     .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s-]/gu, '')
-    .trim()
-    .replace(/\s+/g, '-');
+    .replace(/[^\p{L}\p{M}\p{N}_\- ]/gu, '')
+    .replace(/ /g, '-');
 }
 
 /** § 07 — display only, derived from position so it can never drift. */
@@ -99,14 +103,22 @@ export function loadCodex({ file = join(ROOT, 'data', 'laws.yaml') } = {}) {
       if (loc.counter && 'note' in loc.counter && !loc.counter.note?.trim()) {
         fail(`${at}.${locale}.counter.note is present but empty`);
       }
-      if (typeof loc.title === 'string') {
-        const a = anchor(loc.title);
-        const seen = seenAnchors[locale];
-        if (seen.has(a)) fail(`${at}.${locale}.title collides with "${seen.get(a)}" (both anchor to #${a})`);
-        else seen.set(a, loc.title);
-      }
     }
   });
+
+  // Anchor collisions are checked on the composed heading rather than the bare
+  // title, because that is what lands in the markdown — the Japanese codex
+  // heads each article with both names.
+  for (const law of laws) {
+    if (typeof law?.en?.title !== 'string' || typeof law?.ja?.title !== 'string') continue;
+    for (const locale of LOCALES) {
+      const text = heading(law, locale);
+      const a = anchor(text);
+      const seen = seenAnchors[locale];
+      if (seen.has(a)) fail(`${law.slug}: heading "${text}" collides with "${seen.get(a)}" (both anchor to #${a})`);
+      else seen.set(a, text);
+    }
+  }
 
   // see_also is resolved after every slug is known, so order in the file does
   // not decide whether a forward reference is legal.

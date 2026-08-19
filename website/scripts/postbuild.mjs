@@ -8,9 +8,13 @@
  * to happen in the output.
  */
 import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const OUT = new URL('../out/', import.meta.url).pathname;
+// fileURLToPath rather than URL.pathname: the latter leaves the path
+// percent-encoded, so a checkout under a directory with a space in its name
+// would silently find nothing.
+const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'out');
 const JA = join(OUT, 'ja');
 
 async function htmlFiles(dir) {
