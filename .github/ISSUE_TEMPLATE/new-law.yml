@@ -1,0 +1,69 @@
+name: Propose a law
+description: Suggest an article for the codex
+title: "law: "
+labels: ["codex", "new law"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A law earns a place if it is a recurring force (not a preference), has a real origin, has a genuine counter-force, and tells someone what to do differently on Monday. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: title
+    attributes:
+      label: Name
+      placeholder: Conway's Law
+    validations:
+      required: true
+
+  - type: input
+    id: concept
+    attributes:
+      label: Concept
+      description: The core idea in one line.
+      placeholder: Mirroring.
+    validations:
+      required: true
+
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Mechanism
+      description: Why does it happen? Usually a fact about people or about systems, not about software.
+    validations:
+      required: true
+
+  - type: textarea
+    id: counter
+    attributes:
+      label: Counter-force
+      description: The principle that stops it becoming dogma. Not a restatement, not a caveat — something a reasonable engineer would sometimes follow instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: guideline
+    attributes:
+      label: Field guideline
+      description: What do I do on Monday? Write it in the imperative.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Primary source
+      description: The paper, book, letter, RFC or talk where this actually appeared — with a link. Not a blog post summarising one.
+      placeholder: "Melvin E. Conway, How Do Committees Invent? (Datamation, 1968) — https://www.melconway.com/Home/Committees_Paper.html"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you file
+      options:
+        - label: I checked the codex and this law is not already in it.
+          required: true
+        - label: The source above is the origin of the idea, not a summary of it.
+          required: true
