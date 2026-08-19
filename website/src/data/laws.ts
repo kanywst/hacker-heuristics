@@ -135,7 +135,8 @@ export const laws: Law[] = [
       "swiss-cheese-model",
       "normal-accident-theory",
       "boy-scout-rule",
-      "normalcy-bias"
+      "normalcy-bias",
+      "broken-windows-theory"
     ],
     "en": {
       "title": "Normalization of Deviance",
@@ -164,7 +165,8 @@ export const laws: Law[] = [
     "tag": "systems",
     "sourceUrl": "https://www.chesterton.org/taking-a-fence-down/",
     "seeAlso": [
-      "eaglesons-law"
+      "eaglesons-law",
+      "yagni"
     ],
     "en": {
       "title": "Chesterton's Fence",
@@ -194,7 +196,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://en.wikipedia.org/wiki/Normalcy_bias",
     "seeAlso": [
       "murphys-law",
-      "normalization-of-deviance"
+      "normalization-of-deviance",
+      "occams-razor"
     ],
     "en": {
       "title": "Normalcy Bias",
@@ -252,7 +255,9 @@ export const laws: Law[] = [
     "tag": "systems",
     "sourceUrl": "https://en.wikipedia.org/wiki/John_Gall_(author)",
     "seeAlso": [
-      "worse-is-better"
+      "worse-is-better",
+      "yagni",
+      "second-system-effect"
     ],
     "en": {
       "title": "Gall's Law",
@@ -282,7 +287,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://www.melconway.com/Home/Committees_Paper.html",
     "seeAlso": [
       "dunbars-number",
-      "brooks-law"
+      "brooks-law",
+      "single-responsibility-principle"
     ],
     "en": {
       "title": "Conway's Law",
@@ -311,7 +317,8 @@ export const laws: Law[] = [
     "tag": "systems",
     "sourceUrl": "https://www.hyrumslaw.com/",
     "seeAlso": [
-      "postels-law"
+      "postels-law",
+      "principle-of-least-astonishment"
     ],
     "en": {
       "title": "Hyrum's Law",
@@ -341,7 +348,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://en.wikipedia.org/wiki/Brooks%27s_law",
     "seeAlso": [
       "conways-law",
-      "dunbars-number"
+      "dunbars-number",
+      "second-system-effect"
     ],
     "en": {
       "title": "Brooks' Law",
@@ -429,7 +437,8 @@ export const laws: Law[] = [
     "tag": "organization",
     "sourceUrl": "https://en.wikipedia.org/wiki/Hanlon%27s_razor",
     "seeAlso": [
-      "bystander-effect"
+      "bystander-effect",
+      "occams-razor"
     ],
     "en": {
       "title": "Hanlon's Razor",
@@ -488,7 +497,8 @@ export const laws: Law[] = [
     "tag": "incentives",
     "sourceUrl": "https://en.wikipedia.org/wiki/Goodhart%27s_law",
     "seeAlso": [
-      "cobra-effect"
+      "cobra-effect",
+      "shirky-principle"
     ],
     "en": {
       "title": "Goodhart's Law",
@@ -517,7 +527,8 @@ export const laws: Law[] = [
     "tag": "systems",
     "sourceUrl": "https://en.wikipedia.org/wiki/Lindy_effect",
     "seeAlso": [
-      "worse-is-better"
+      "worse-is-better",
+      "amaras-law"
     ],
     "en": {
       "title": "Lindy Effect",
@@ -575,7 +586,8 @@ export const laws: Law[] = [
     "tag": "cognition",
     "sourceUrl": "https://calteches.library.caltech.edu/51/2/CargoCult.htm",
     "seeAlso": [
-      "survivorship-bias"
+      "survivorship-bias",
+      "the-bitter-lesson"
     ],
     "en": {
       "title": "Cargo Cult Engineering",
@@ -605,7 +617,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://doi.org/10.1145/1465482.1465560",
     "seeAlso": [
       "gustafsons-law",
-      "premature-optimization"
+      "premature-optimization",
+      "theory-of-constraints"
     ],
     "en": {
       "title": "Amdahl's Law",
@@ -693,7 +706,8 @@ export const laws: Law[] = [
     "tag": "cognition",
     "sourceUrl": "https://en.wikipedia.org/wiki/Survivorship_bias",
     "seeAlso": [
-      "cargo-cult-engineering"
+      "cargo-cult-engineering",
+      "amaras-law"
     ],
     "en": {
       "title": "Survivorship Bias",
@@ -722,7 +736,8 @@ export const laws: Law[] = [
     "tag": "maintainability",
     "sourceUrl": "https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style",
     "seeAlso": [
-      "eaglesons-law"
+      "eaglesons-law",
+      "kiss-principle"
     ],
     "en": {
       "title": "Kernighan's Law",
@@ -783,7 +798,9 @@ export const laws: Law[] = [
     "seeAlso": [
       "conways-law",
       "brooks-law",
-      "millers-law"
+      "millers-law",
+      "metcalfes-law",
+      "ringelmann-effect"
     ],
     "en": {
       "title": "Dunbar's Number",
@@ -813,7 +830,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://www.dreamsongs.com/RiseOfWorseIsBetter.html",
     "seeAlso": [
       "galls-law",
-      "lindy-effect"
+      "lindy-effect",
+      "second-system-effect"
     ],
     "en": {
       "title": "Worse is Better",
@@ -871,7 +889,8 @@ export const laws: Law[] = [
     "tag": "organization",
     "sourceUrl": "https://doi.org/10.1037/h0025589",
     "seeAlso": [
-      "hanlons-razor"
+      "hanlons-razor",
+      "ringelmann-effect"
     ],
     "en": {
       "title": "Bystander Effect",
@@ -930,7 +949,8 @@ export const laws: Law[] = [
     "tag": "maintainability",
     "sourceUrl": "https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html",
     "seeAlso": [
-      "normalization-of-deviance"
+      "normalization-of-deviance",
+      "broken-windows-theory"
     ],
     "en": {
       "title": "Boy Scout Rule",
@@ -1020,7 +1040,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://doi.org/10.1086/261651",
     "seeAlso": [
       "xy-problem",
-      "dunning-kruger-effect"
+      "dunning-kruger-effect",
+      "principle-of-least-astonishment"
     ],
     "en": {
       "title": "Curse of Knowledge",
@@ -1168,7 +1189,8 @@ export const laws: Law[] = [
     "tag": "performance",
     "sourceUrl": "https://doi.org/10.1287/opre.9.3.383",
     "seeAlso": [
-      "tail-at-scale"
+      "tail-at-scale",
+      "theory-of-constraints"
     ],
     "en": {
       "title": "Little's Law",
@@ -1226,7 +1248,8 @@ export const laws: Law[] = [
     "tag": "organization",
     "sourceUrl": "https://en.wikipedia.org/wiki/Peter_principle",
     "seeAlso": [
-      "dunning-kruger-effect"
+      "dunning-kruger-effect",
+      "shirky-principle"
     ],
     "en": {
       "title": "Peter Principle",
@@ -1286,7 +1309,8 @@ export const laws: Law[] = [
     "tag": "performance",
     "sourceUrl": "https://doi.org/10.1109/2.348001",
     "seeAlso": [
-      "jevons-paradox"
+      "jevons-paradox",
+      "moores-law"
     ],
     "en": {
       "title": "Wirth's Law",
@@ -1589,7 +1613,8 @@ export const laws: Law[] = [
     "tag": "performance",
     "sourceUrl": "https://doi.org/10.1145/42411.42415",
     "seeAlso": [
-      "amdahls-law"
+      "amdahls-law",
+      "moores-law"
     ],
     "en": {
       "title": "Gustafson's Law",
@@ -1652,7 +1677,8 @@ export const laws: Law[] = [
     "sourceUrl": "https://en.wikipedia.org/wiki/Variety_(cybernetics)",
     "seeAlso": [
       "teslers-law",
-      "normal-accident-theory"
+      "normal-accident-theory",
+      "kiss-principle"
     ],
     "en": {
       "title": "Ashby's Law of Requisite Variety",
@@ -1683,7 +1709,9 @@ export const laws: Law[] = [
     "tag": "maintainability",
     "sourceUrl": "https://doi.org/10.1109/52.35588",
     "seeAlso": [
-      "leaky-abstractions"
+      "leaky-abstractions",
+      "dry-principle",
+      "single-responsibility-principle"
     ],
     "en": {
       "title": "Law of Demeter",
@@ -1772,6 +1800,488 @@ export const laws: Law[] = [
       },
       "guideline": "バッファ・タイムアウト・隔壁・サーキットブレーカで結合を緩め、複雑さを削れ。安全連動装置を足すのはその後だ——連動装置自体もまた相互作用を増やす。",
       "source": "Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984)。"
+    }
+  },
+  {
+    "slug": "broken-windows-theory",
+    "number": 57,
+    "tag": "safety",
+    "sourceUrl": "https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/",
+    "seeAlso": [
+      "normalization-of-deviance",
+      "boy-scout-rule"
+    ],
+    "en": {
+      "title": "Broken Windows Theory",
+      "concept": "Visible disorder invites more disorder.",
+      "mechanism": "An unrepaired broken window signals that nobody is watching, which lowers the cost of the next violation. In a codebase, one tolerated hack, one skipped test and one permanently silenced alert together announce that the standard is optional.",
+      "counter": {
+        "name": "Repair Is Not Free",
+        "note": "attention spent on paint is attention not spent on the foundation, and the criminological evidence for the original claim is contested"
+      },
+      "guideline": "Repair the first visible defect in a file you are already touching, and give every tolerated exception an owner and a date. Do not open a refactor for a window you are not standing next to.",
+      "source": "James Q. Wilson & George L. Kelling, *Broken Windows* (The Atlantic, March 1982)."
+    },
+    "ja": {
+      "title": "割れ窓理論",
+      "concept": "目に見える無秩序が、さらなる無秩序を招く。",
+      "mechanism": "割れたまま放置された窓は「誰も見ていない」という信号になり、次の違反のコストを下げる。コードベースでも、見逃された一つのハック、飛ばされた一つのテスト、恒久的に黙らされた一つのアラートが揃って「この基準は守らなくてよい」と宣言する。",
+      "counter": {
+        "name": "修繕もタダではない",
+        "note": "塗装に注ぐ注意は土台に注がれない注意であり、そもそも元の犯罪学的主張の実証には強い異論がある"
+      },
+      "guideline": "いま触っているファイルにある、最初の目に見える欠陥を直せ。見逃す例外にはすべて担当者と期限を付けよ。自分がいま立っていない場所の窓を直すためにリファクタを起こすな。",
+      "source": "James Q. Wilson & George L. Kelling『Broken Windows』(The Atlantic, 1982年3月号)。"
+    }
+  },
+  {
+    "slug": "yagni",
+    "number": 58,
+    "tag": "maintainability",
+    "sourceUrl": "https://ronjeffries.com/xprog/articles/practices/pracnotneed/",
+    "seeAlso": [
+      "chestertons-fence",
+      "galls-law"
+    ],
+    "en": {
+      "title": "YAGNI",
+      "concept": "You aren't gonna need it — build for the case in front of you.",
+      "mechanism": "Speculative generality is paid for three times: writing the abstraction, carrying it while it is unused, and unpicking it when the anticipated requirement finally arrives in a different shape. Predictions about future requirements are usually wrong in exactly the details the abstraction fixed.",
+      "counter": {
+        "name": "Chesterton's Fence",
+        "note": "YAGNI licenses you not to build something; it never licenses you to delete something whose purpose you have not established"
+      },
+      "guideline": "Implement the case you actually have. When you feel the pull to generalise, name the second concrete case first — if you cannot, you do not have a pattern, you have a guess.",
+      "source": "Ron Jeffries, Extreme Programming practice notes; named \"You Aren't Gonna Need It\" and popularised in Kent Beck, *Extreme Programming Explained* (1999)."
+    },
+    "ja": {
+      "title": "YAGNI",
+      "concept": "それはきっと必要にならない——目の前のケースだけを作れ。",
+      "mechanism": "推測に基づく一般化は3回支払わされる。抽象を書くとき、使われないまま抱え続けるとき、そして予期した要件が違う形で実際に来て解きほぐすとき。将来要件の予測は、たいてい「その抽象が固定してしまった細部」で外れる。",
+      "counter": {
+        "name": "チェスタトンの柵",
+        "note": "YAGNI が許すのは「作らないこと」だけであり、目的を確かめていないものを「消すこと」まで許してはいない"
+      },
+      "guideline": "実際に手元にあるケースだけを実装せよ。一般化したくなったら、まず2つ目の具体的なケースを名指しせよ。名指しできないなら、それはパターンではなく当て推量だ。",
+      "source": "Ron Jeffries による Extreme Programming の実践ノート。\"You Aren't Gonna Need It\" として命名され、Kent Beck『Extreme Programming Explained』(1999) で広まった。"
+    }
+  },
+  {
+    "slug": "kiss-principle",
+    "number": 59,
+    "tag": "maintainability",
+    "sourceUrl": "https://en.wikipedia.org/wiki/KISS_principle",
+    "seeAlso": [
+      "kernighans-law",
+      "ashbys-law"
+    ],
+    "en": {
+      "title": "KISS Principle",
+      "concept": "Simple enough to be repaired under bad conditions.",
+      "mechanism": "\"Keep it simple, stupid\" came out of aircraft design, where the requirement was that a jet be repairable by an average mechanic in a field with basic tools. The test was never elegance — it was whether an ordinary person could fix it in the worst circumstances the thing would actually meet.",
+      "counter": {
+        "name": "Ashby's Law of Requisite Variety",
+        "note": "a system simpler than the problem it has to regulate cannot cope with it, and simplicity below that floor is displaced complexity rather than less of it"
+      },
+      "guideline": "Judge a design by who can repair it at 3 AM, not by how it reads in review. If the on-call engineer needs the author on the call, it is not simple — it is familiar to one person.",
+      "source": "Attributed to Kelly Johnson at Lockheed's Skunk Works (c. 1960), as a field-maintainability requirement for combat aircraft."
+    },
+    "ja": {
+      "title": "KISS の原則",
+      "concept": "悪条件下でも修理できる程度に単純であること。",
+      "mechanism": "\"Keep it simple, stupid\" は航空機設計から出た言葉で、要件は「平均的な整備兵が、基本的な工具だけで、野戦で直せること」だった。基準は優雅さではなく、その機体が実際に遭遇する最悪の状況で、普通の人間が直せるかどうかだった。",
+      "counter": {
+        "name": "アシュビーの必要多様性の法則",
+        "note": "制御すべき問題より単純な系はその問題に対処できない。その下限を割った単純さは、複雑さの削減ではなく移動である"
+      },
+      "guideline": "設計はレビューでの読みやすさではなく、「午前3時に誰が直せるか」で評価せよ。オンコール担当が作者を呼ばないと直せないなら、それは単純なのではなく、一人にとって馴染みがあるだけだ。",
+      "source": "Lockheed Skunk Works の Kelly Johnson に帰される (1960年頃)。戦闘機の野戦整備性の要求として。"
+    }
+  },
+  {
+    "slug": "dry-principle",
+    "number": 60,
+    "tag": "maintainability",
+    "sourceUrl": "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
+    "seeAlso": [
+      "law-of-demeter",
+      "single-responsibility-principle"
+    ],
+    "en": {
+      "title": "DRY Principle",
+      "concept": "Every piece of knowledge has one authoritative representation.",
+      "mechanism": "Duplicated knowledge drifts, because nothing forces the copies to change together. The cost is not the extra characters — it is that some future editor fixes one copy and ships a system that now quietly contradicts itself.",
+      "counter": {
+        "name": "Duplication Is Cheaper Than the Wrong Abstraction",
+        "note": "two blocks that merely look alike today will fight each other the moment they need to diverge"
+      },
+      "guideline": "Deduplicate knowledge, not text. Before merging two similar blocks, ask whether they change for the same reason and at the request of the same person; if not, leave them apart.",
+      "source": "Andrew Hunt & David Thomas, *The Pragmatic Programmer* (Addison-Wesley, 1999) — \"every piece of knowledge must have a single, unambiguous, authoritative representation within a system.\""
+    },
+    "ja": {
+      "title": "DRY 原則",
+      "concept": "あらゆる知識は、系の中でただ一つの権威ある表現を持つ。",
+      "mechanism": "重複した知識は必ずずれていく。コピー同士を一緒に変えることを強制するものが何もないからだ。コストは余分な文字数ではない。将来の誰かが片方だけを直し、自分自身と静かに矛盾する系を出荷してしまうことだ。",
+      "counter": {
+        "name": "誤った抽象より重複のほうが安い",
+        "note": "今は似ているだけの2つのブロックは、分岐が必要になった瞬間に互いを縛り合う"
+      },
+      "guideline": "重複を排除するのはテキストではなく知識だ。似た2つのブロックを統合する前に、「同じ理由で、同じ人の要求によって変わるか」を問え。違うなら分けたままにせよ。",
+      "source": "Andrew Hunt & David Thomas『The Pragmatic Programmer』(Addison-Wesley, 1999)——「あらゆる知識は、システムの中で単一かつ明確で権威ある表現を持たねばならない」。"
+    }
+  },
+  {
+    "slug": "theory-of-constraints",
+    "number": 61,
+    "tag": "performance",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Theory_of_constraints",
+    "seeAlso": [
+      "amdahls-law",
+      "littles-law"
+    ],
+    "en": {
+      "title": "Theory of Constraints",
+      "concept": "Throughput is set by exactly one constraint at a time.",
+      "mechanism": "Every chain has one weakest link. Improvement anywhere else raises local efficiency while total throughput stays flat — and often makes things worse, because the faster upstream stage simply piles more work in front of the real bottleneck.",
+      "counter": {
+        "name": "The Constraint Moves",
+        "note": "relieve one and another takes its place, so a process permanently optimised around yesterday's bottleneck starves at the new one"
+      },
+      "guideline": "Find the constraint, exploit it fully before you buy capacity, and subordinate every other stage to it. Then measure again — you have just created a different bottleneck somewhere else.",
+      "source": "Eliyahu M. Goldratt & Jeff Cox, *The Goal: A Process of Ongoing Improvement* (North River Press, 1984)."
+    },
+    "ja": {
+      "title": "制約理論",
+      "concept": "スループットは、常にただ一つの制約によって決まる。",
+      "mechanism": "鎖には必ず最も弱い環が一つある。それ以外のどこを改善しても、局所的な効率は上がるが全体のスループットは動かない。むしろ悪化することが多い——速くなった上流工程が、本当のボトルネックの前により多くの仕掛品を積み上げるからだ。",
+      "counter": {
+        "name": "制約は移動する",
+        "note": "一つを緩めれば別のものが制約になる。昨日のボトルネックに合わせて恒久的に最適化された工程は、新しい制約のところで飢える"
+      },
+      "guideline": "制約を特定し、能力を買い足す前にまず徹底的に使い切り、他の全工程をそれに従属させよ。そのうえで測り直せ。あなたはたった今、別の場所に新しいボトルネックを作ったところだ。",
+      "source": "Eliyahu M. Goldratt & Jeff Cox『The Goal: A Process of Ongoing Improvement』(North River Press, 1984)。"
+    }
+  },
+  {
+    "slug": "occams-razor",
+    "number": 62,
+    "tag": "cognition",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Occam%27s_razor",
+    "seeAlso": [
+      "normalcy-bias",
+      "hanlons-razor"
+    ],
+    "en": {
+      "title": "Occam's Razor",
+      "concept": "Prefer the explanation that requires the fewest new assumptions.",
+      "mechanism": "Under incident pressure the mind reaches for the interesting hypothesis — a kernel bug, a bad disk, an attacker. The explanation requiring the fewest unverified assumptions is almost always the deploy that went out twenty minutes ago.",
+      "counter": {
+        "name": "Hickam's Dictum",
+        "note": "a system can carry several independent faults at once, and the simplest story that fits the symptoms is not automatically the true one"
+      },
+      "guideline": "Rank your hypotheses by how many unverified assumptions each needs, and test the cheapest first. Ask \"what changed?\" before \"what is broken?\"",
+      "source": "Attributed to William of Ockham (c. 1287–1347); the shaving metaphor is a later gloss on his principle of parsimony, *entia non sunt multiplicanda praeter necessitatem*."
+    },
+    "ja": {
+      "title": "オッカムの剃刀",
+      "concept": "新しい仮定を最も必要としない説明を選べ。",
+      "mechanism": "インシデントの圧力下では、思考は面白い仮説に手を伸ばす——カーネルのバグ、壊れたディスク、攻撃者。だが未検証の仮定を最も必要としない説明は、ほぼ常に「20分前に出たデプロイ」である。",
+      "counter": {
+        "name": "ヒッカムの格言",
+        "note": "系は複数の独立した障害を同時に抱えうる。症状に合う最も単純な物語が、自動的に真実になるわけではない"
+      },
+      "guideline": "仮説を「未検証の仮定がいくつ必要か」で並べ、最も安いものから検証せよ。「何が壊れたか」の前に「何が変わったか」を問え。",
+      "source": "オッカムのウィリアム (1287頃–1347) に帰される。「剃刀」の比喩は、彼の倹約の原理 *entia non sunt multiplicanda praeter necessitatem* に対する後世の注釈。"
+    }
+  },
+  {
+    "slug": "single-responsibility-principle",
+    "number": 63,
+    "tag": "maintainability",
+    "sourceUrl": "https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html",
+    "seeAlso": [
+      "dry-principle",
+      "law-of-demeter",
+      "conways-law"
+    ],
+    "en": {
+      "title": "Single Responsibility Principle",
+      "concept": "A module should have one reason to change. The S in SOLID.",
+      "mechanism": "When one module serves two audiences, their change requests arrive on different schedules and collide in the same file. Coupling is not really about calls between modules — it is about who is entitled to force you to edit them.",
+      "counter": {
+        "name": "Premature Decomposition",
+        "note": "splitting by imagined responsibilities produces a scatter of one-method classes and moves all the complexity into the wiring between them"
+      },
+      "guideline": "Define responsibility by who asks for the change, not by what the code does. If two different people can each demand an edit to the same module, split it along that line and nowhere else.",
+      "source": "Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002); restated as \"gather together the things that change for the same reason\" in *Clean Architecture* (2017)."
+    },
+    "ja": {
+      "title": "単一責任の原則",
+      "concept": "モジュールが変更される理由は一つであるべき。SOLID の S。",
+      "mechanism": "一つのモジュールが二つの利用者集団に仕える場合、彼らの変更要求は異なるスケジュールで届き、同じファイルの上で衝突する。結合とは本当はモジュール間の呼び出しの話ではない——「誰があなたにそのモジュールの編集を強制できるか」の話だ。",
+      "counter": {
+        "name": "早すぎる分解",
+        "note": "想像上の責務で分割すると、メソッド1個のクラスが散乱し、複雑さがすべてその間の配線に移るだけになる"
+      },
+      "guideline": "責務は「コードが何をするか」ではなく「誰が変更を要求してくるか」で定義せよ。同じモジュールに対して別々の人物がそれぞれ編集を要求できるなら、その線でだけ分割せよ。",
+      "source": "Robert C. Martin『Agile Software Development: Principles, Patterns, and Practices』(2002)。『Clean Architecture』(2017) では「同じ理由で変わるものを集めよ」と言い換えられている。"
+    }
+  },
+  {
+    "slug": "principle-of-least-astonishment",
+    "number": 64,
+    "tag": "interaction",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Principle_of_least_astonishment",
+    "seeAlso": [
+      "hyrums-law",
+      "curse-of-knowledge"
+    ],
+    "en": {
+      "title": "Principle of Least Astonishment",
+      "concept": "A component should behave the way its users already expect.",
+      "mechanism": "Users arrive with a model assembled from every similar thing they have used. A behaviour that is defensible but surprising costs more than a behaviour that is slightly worse but predicted, because the surprise is paid again by every user, every time, forever.",
+      "counter": {
+        "name": "Astonishment Is Relative",
+        "note": "designing only for today's expectations freezes bad conventions in place; sometimes the right move is to surprise everyone once, loudly, with a migration path"
+      },
+      "guideline": "When two designs are close, take the one that matches the convention your users already know — the flag name, the exit code, the sort order. Spend deliberate surprise only where you can afford to announce it.",
+      "source": "Long-standing folklore in language and interface design; stated explicitly in Michael F. Cowlishaw, *The Design of the REXX Language* (IBM Systems Journal, 1984)."
+    },
+    "ja": {
+      "title": "驚き最小の原則",
+      "concept": "部品は、利用者がすでに期待しているとおりに振る舞うべき。",
+      "mechanism": "利用者は、これまで使ってきた似たものすべてから組み立てたモデルを持ってやって来る。「筋は通っているが意外な」振る舞いは、「わずかに劣るが予想どおりの」振る舞いより高くつく。驚きは全利用者が、毎回、永久に支払い続けるからだ。",
+      "counter": {
+        "name": "驚きは相対的である",
+        "note": "今日の期待だけに合わせた設計は、悪い慣習をその場に凍結する。ときには移行手順を添えて、一度だけ大きく驚かせるのが正しい"
+      },
+      "guideline": "2つの設計が拮抗したら、利用者がすでに知っている慣習に合うほうを取れ——フラグ名、終了コード、並び順。意図的な驚きは、告知するコストを払える場所にだけ使え。",
+      "source": "言語・インタフェース設計の古くからの言い伝え。Michael F. Cowlishaw『The Design of the REXX Language』(IBM Systems Journal, 1984) に明示的な記述がある。"
+    }
+  },
+  {
+    "slug": "second-system-effect",
+    "number": 65,
+    "tag": "systems",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Second-system_effect",
+    "seeAlso": [
+      "brooks-law",
+      "galls-law",
+      "worse-is-better"
+    ],
+    "en": {
+      "title": "Second-System Effect",
+      "concept": "The second system a person designs is the most dangerous one.",
+      "mechanism": "The first system is built cautiously, by someone unsure of the ground. Its success converts that caution into confidence, and every idea deferred the first time is loaded into the rewrite at once. The result is over-general, late, and frequently never ships at all.",
+      "counter": {
+        "name": "Gall's Law",
+        "note": "the answer is not to freeze the first system but to grow it — a rewrite that ships in slices is not a second system"
+      },
+      "guideline": "When rewriting, carry forward the constraints and not just the wish list. Cut the deferred features to the two that actually blocked users, and replace the original one piece at a time.",
+      "source": "Fred Brooks, *The Mythical Man-Month* (Addison-Wesley, 1975), chapter 5."
+    },
+    "ja": {
+      "title": "セカンドシステム症候群",
+      "concept": "人が設計する2番目のシステムが、最も危険である。",
+      "mechanism": "1番目のシステムは、地面の固さを測りかねている者によって慎重に作られる。その成功が慎重さを自信に変え、1回目に見送ったアイデアがすべて一度に書き直しへ流し込まれる。結果は過剰に汎用的で、遅れ、そして多くの場合そもそも出荷されない。",
+      "counter": {
+        "name": "ガルの法則",
+        "note": "答えは1番目のシステムを凍結することではなく、育てることだ。分割して出荷される書き直しは「2番目のシステム」ではない"
+      },
+      "guideline": "書き直すときは、願望リストだけでなく制約も引き継げ。見送っていた機能は「実際に利用者を止めていた2つ」まで削り、元のシステムを一つずつ置き換えよ。",
+      "source": "Fred Brooks『人月の神話』(Addison-Wesley, 1975) 第5章。"
+    }
+  },
+  {
+    "slug": "moores-law",
+    "number": 66,
+    "tag": "performance",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moore%27s_law",
+    "seeAlso": [
+      "wirths-law",
+      "gustafsons-law",
+      "the-bitter-lesson"
+    ],
+    "en": {
+      "title": "Moore's Law",
+      "concept": "Transistors per chip double on a regular cadence.",
+      "mechanism": "Moore's observation was economic rather than physical: the component count giving the lowest cost per component doubles about every two years. It held for half a century and quietly underwrote every plan that assumed hardware would rescue it — but single-thread performance stopped following it once Dennard scaling ended around 2005.",
+      "counter": {
+        "name": "Wirth's Law",
+        "note": "the gains get spent rather than banked, and clock speed stopped rising long before transistor counts did"
+      },
+      "guideline": "Do not budget for the hardware bailing out a design. If the workload is single-threaded and latency-bound, next year's machine will not save it — you have to parallelise it or do less work.",
+      "source": "Gordon E. Moore, *Cramming More Components onto Integrated Circuits* (Electronics, 19 April 1965)."
+    },
+    "ja": {
+      "title": "ムーアの法則",
+      "concept": "チップあたりのトランジスタ数は一定の周期で倍になる。",
+      "mechanism": "ムーアの観察は物理ではなく経済のものだった——部品あたりコストが最小になる集積度が、およそ2年で倍になる。これが半世紀成立し、「ハードがいずれ救ってくれる」という前提のあらゆる計画を静かに支えた。だが2005年頃にデナードスケーリングが終わってから、シングルスレッド性能はこの曲線から外れている。",
+      "counter": {
+        "name": "ヴィルトの法則",
+        "note": "得られた余力は貯金されず消費される。しかもクロック速度はトランジスタ数よりずっと早く頭打ちになった"
+      },
+      "guideline": "ハードウェアが設計を救ってくれる前提で予算を組むな。ワークロードがシングルスレッドかつレイテンシ律速なら、来年のマシンは助けにならない。並列化するか、やる仕事を減らすかだ。",
+      "source": "Gordon E. Moore『Cramming More Components onto Integrated Circuits』(Electronics, 1965年4月19日)。"
+    }
+  },
+  {
+    "slug": "amaras-law",
+    "number": 67,
+    "tag": "estimation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Roy_Amara",
+    "seeAlso": [
+      "survivorship-bias",
+      "lindy-effect"
+    ],
+    "en": {
+      "title": "Amara's Law",
+      "concept": "Overestimated in the short run, underestimated in the long run.",
+      "mechanism": "A new technology is judged on a demo, which flatters it, and then adopted against an installed base, which resists it — so the first two years disappoint. The same compounding that made the early forecast wrong then runs for a decade in the other direction, and the ten-year forecast turns out to be wrong too, this time low.",
+      "counter": {
+        "name": "Some Things Simply Do Not Arrive",
+        "note": "survivorship makes the law look inevitable, because the technologies that never got a long run are not the ones quoted back at us"
+      },
+      "guideline": "Discount two-year forecasts about a new technology and take ten-year ones seriously — but plan around the version that actually ships, not the one in the demo.",
+      "source": "Roy Amara, president of the Institute for the Future; attributed and circulated from the 1970s onward."
+    },
+    "ja": {
+      "title": "アマラの法則",
+      "concept": "短期では過大評価され、長期では過小評価される。",
+      "mechanism": "新技術はデモで評価され——デモは技術を実際より良く見せる——そして既存の設備の上に導入される。既存設備は抵抗する。だから最初の2年は期待外れになる。その後、初期予測を外させたのと同じ複利が10年間逆方向に働き、10年予測もまた外れる。今度は過小に。",
+      "counter": {
+        "name": "そもそも来ないものもある",
+        "note": "生存者バイアスがこの法則を必然に見せている。長期を迎えられなかった技術は、あとから引用されないからだ"
+      },
+      "guideline": "新技術についての2年予測は割り引き、10年予測は真に受けよ。ただし計画はデモ版ではなく、実際に出荷される版を前提に立てよ。",
+      "source": "Institute for the Future 会長 Roy Amara に帰される。1970年代以降に流布した言葉。"
+    }
+  },
+  {
+    "slug": "the-bitter-lesson",
+    "number": 68,
+    "tag": "systems",
+    "sourceUrl": "https://web.archive.org/web/2024/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+    "seeAlso": [
+      "cargo-cult-engineering",
+      "moores-law"
+    ],
+    "en": {
+      "title": "The Bitter Lesson",
+      "concept": "General methods that scale with computation beat handcrafted knowledge.",
+      "mechanism": "Across seven decades of AI research the approaches that won were search and learning scaled with available computation, not the ones that encoded human insight about the domain. Built-in knowledge helps in the short run and becomes the ceiling in the long run, because unlike computation it does not get cheaper every year.",
+      "counter": {
+        "name": "Compute Is Not Free",
+        "note": "inside a fixed budget domain knowledge is often the only lever you have, and the lesson describes the trajectory of a field rather than the right move this quarter"
+      },
+      "guideline": "When choosing between encoding what you know and building something that learns from more data or more compute, ask which one improves on its own when the budget doubles. Bet on that one for anything with a multi-year horizon.",
+      "source": "Richard S. Sutton, *The Bitter Lesson* (13 March 2019)."
+    },
+    "ja": {
+      "title": "苦い教訓",
+      "concept": "計算量とともにスケールする汎用手法が、人手で作り込んだ知識に勝つ。",
+      "mechanism": "AI研究の70年を通じて勝ったのは、利用可能な計算量とともにスケールする探索と学習であり、その領域についての人間の洞察を埋め込んだ手法ではなかった。作り込まれた知識は短期では効き、長期では天井になる。計算資源と違って、毎年安くならないからだ。",
+      "counter": {
+        "name": "計算資源はタダではない",
+        "note": "固定予算の内側では領域知識が唯一使えるレバーであることも多い。この教訓は分野の軌跡を述べたものであって、今四半期の正解ではない"
+      },
+      "guideline": "「知っていることを埋め込む」か「より多くのデータや計算から学ぶものを作る」かで迷ったら、予算が倍になったとき勝手に良くなるのはどちらかを問え。数年単位の話なら、そちらに賭けよ。",
+      "source": "Richard S. Sutton『The Bitter Lesson』(2019年3月13日)。"
+    }
+  },
+  {
+    "slug": "metcalfes-law",
+    "number": 69,
+    "tag": "systems",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Metcalfe%27s_law",
+    "seeAlso": [
+      "dunbars-number"
+    ],
+    "en": {
+      "title": "Metcalfe's Law",
+      "concept": "A network's value grows faster than its size.",
+      "mechanism": "A network of n nodes has n(n−1)/2 possible connections, so its value was claimed to scale with n². The exponent is disputed — n log n fits real networks better — but the shape holds: each new node adds value to every existing node, which is why networks tip rather than grow smoothly.",
+      "counter": {
+        "name": "The Same Quadratic Is a Cost",
+        "note": "connections are an asset between users and a liability between colleagues; Brooks' Law is Metcalfe's Law with the sign flipped"
+      },
+      "guideline": "For a product whose value comes from other users, spend early effort on the smallest network that is already useful to its own members, not on features. For a team, do the opposite and cut connections.",
+      "source": "Attributed to Robert Metcalfe (c. 1980); the n log n critique is Bob Briscoe, Andrew Odlyzko & Benjamin Tilly, *Metcalfe's Law is Wrong* (IEEE Spectrum, July 2006)."
+    },
+    "ja": {
+      "title": "メトカーフの法則",
+      "concept": "ネットワークの価値は、その規模より速く増える。",
+      "mechanism": "n ノードのネットワークには n(n−1)/2 通りの接続がありうるため、価値は n² に比例すると主張された。指数には異論があり——実在のネットワークには n log n のほうがよく当てはまる——だが形は変わらない。新しいノードは既存の全ノードに価値を足す。だからネットワークは滑らかに成長せず、ある点で一気に傾く。",
+      "counter": {
+        "name": "同じ二次関数はコストでもある",
+        "note": "接続は利用者どうしでは資産だが、同僚どうしでは負債になる。ブルックスの法則はメトカーフの法則の符号を反転させたものだ"
+      },
+      "guideline": "価値が他の利用者から生まれるプロダクトでは、初期の労力を機能ではなく「その参加者にとってすでに有用な最小のネットワーク」に注げ。チームでは逆に、接続を削れ。",
+      "source": "Robert Metcalfe に帰される (1980年頃)。n log n による批判は Bob Briscoe, Andrew Odlyzko & Benjamin Tilly『Metcalfe's Law is Wrong』(IEEE Spectrum, 2006年7月)。"
+    }
+  },
+  {
+    "slug": "ringelmann-effect",
+    "number": 70,
+    "tag": "organization",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ringelmann_effect",
+    "seeAlso": [
+      "bystander-effect",
+      "dunbars-number"
+    ],
+    "en": {
+      "title": "Ringelmann Effect",
+      "concept": "Effort per person falls as the group grows.",
+      "mechanism": "Ringelmann had men pull a rope alone and in teams, and measured the force. Each additional person contributed less than they had alone — partly coordination loss, partly reduced individual effort once the contribution stopped being separable. It shows up wherever output is pooled and nobody can see who produced which part.",
+      "counter": {
+        "name": "Separable Contribution",
+        "note": "the effect is a property of how the work is measured rather than of the people; make the individual contribution legible and most of it disappears"
+      },
+      "guideline": "Give every workstream one named owner and a visible output. If you cannot say who produced which part of a result, expect the group to produce less than the sum of its members.",
+      "source": "Maximilien Ringelmann, *Recherches sur les moteurs animés: Travail de l'homme* (Annales de l'Institut National Agronomique, 1913)."
+    },
+    "ja": {
+      "title": "リンゲルマン効果",
+      "concept": "集団が大きくなるほど、一人あたりの努力は落ちる。",
+      "mechanism": "リンゲルマンは、綱を一人で引かせた場合とチームで引かせた場合の力を測った。人を増やすたび、一人あたりの寄与は単独時より小さくなった。一部は協調のロスだが、一部は「寄与が分離できなくなった途端に落ちる個人の努力」である。成果が合算され、誰がどの部分を出したか見えない場所ならどこでも起きる。",
+      "counter": {
+        "name": "寄与を分離可能にする",
+        "note": "この効果は人間の性質ではなく仕事の測り方の性質だ。個人の寄与を可視化すれば、その大半は消える"
+      },
+      "guideline": "すべての作業の流れに、名前の付いた担当者一人と、目に見える成果物を与えよ。成果のどの部分を誰が出したか言えないなら、その集団は構成員の総和より少ない成果しか出さないと考えよ。",
+      "source": "Maximilien Ringelmann『Recherches sur les moteurs animés: Travail de l'homme』(Annales de l'Institut National Agronomique, 1913)。"
+    }
+  },
+  {
+    "slug": "shirky-principle",
+    "number": 71,
+    "tag": "incentives",
+    "sourceUrl": "https://kk.org/thetechnium/the-shirky-prin/",
+    "seeAlso": [
+      "goodharts-law",
+      "peter-principle"
+    ],
+    "en": {
+      "title": "Shirky Principle",
+      "concept": "Institutions will try to preserve the problem to which they are the solution.",
+      "mechanism": "An organisation built to solve a problem draws its budget, headcount and status from that problem persisting. Nobody has to be cynical for this to work: the incentives simply never point at making the team unnecessary, so over time the solution quietly becomes an argument for the problem.",
+      "counter": {
+        "name": "Some Problems Are Permanent",
+        "note": "treating every long-lived team as self-serving destroys the ones doing necessary maintenance, which is invisible precisely when it is working"
+      },
+      "guideline": "For any team or tool created to fix something, write down what \"fixed\" looks like and when you will check. A platform team that cannot describe its own obsolescence is optimising for its own survival.",
+      "source": "Clay Shirky, named and quoted in Kevin Kelly, *The Shirky Principle* (The Technium, 2010)."
+    },
+    "ja": {
+      "title": "シャーキーの原理",
+      "concept": "組織は、自らが解である問題を保存しようとする。",
+      "mechanism": "ある問題を解くために作られた組織は、その問題が存続することから予算・人員・地位を得る。これが働くのに誰かが冷笑的である必要はない。インセンティブが「自分のチームを不要にすること」を決して指さないだけだ。時間が経つと、解決策は静かに問題の存続理由へと変わる。",
+      "counter": {
+        "name": "永続する問題も実在する",
+        "note": "長命なチームをすべて自己保存的だと見なせば、必要な保守をしているチームを壊す。保守はうまくいっているときほど見えない"
+      },
+      "guideline": "何かを直すために作ったチームやツールには、「直った状態」がどう見えるか、いつそれを確認するかを書き出せ。自らの不要化を説明できないプラットフォームチームは、自らの生存を最適化している。",
+      "source": "Clay Shirky の言。Kevin Kelly『The Shirky Principle』(The Technium, 2010) で命名・引用された。"
     }
   }
 ];

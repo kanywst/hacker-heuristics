@@ -3,7 +3,7 @@
 各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた、エンジニアリングの法典。
 
 [![stars](https://img.shields.io/github/stars/kanywst/hammurabi?style=for-the-badge&color=c2884a&labelColor=0c0b08)](https://github.com/kanywst/hammurabi/stargazers)
-[![laws](https://img.shields.io/badge/%E6%B3%95%E5%89%87-56-c2884a?style=for-the-badge&labelColor=0c0b08)](#法典)
+[![laws](https://img.shields.io/badge/%E6%B3%95%E5%89%87-71-c2884a?style=for-the-badge&labelColor=0c0b08)](#法典)
 [![site](https://img.shields.io/badge/%E6%B3%95%E5%85%B8%E3%82%92%E8%AA%AD%E3%82%80-e0aa6b?style=for-the-badge&labelColor=0c0b08)](https://kanywst.github.io/hammurabi/ja/)
 [![license](https://img.shields.io/badge/content-CC%20BY--SA%204.0-a39884?style=for-the-badge&labelColor=0c0b08)](../LICENSE)
 
@@ -101,6 +101,21 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 | `54` | [デメテルの法則 (Law of Demeter)](#デメテルの法則-law-of-demeter) | 保守性 | 最小知識の原則。 |
 | `55` | [ジェヴォンズのパラドックス (Jevons Paradox)](#ジェヴォンズのパラドックス-jevons-paradox) | インセンティブ | 効率化が総消費を増やしうる。 |
 | `56` | [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory) | 安全工学 | ある種の系では、事故は構造的なものである。 |
+| `57` | [割れ窓理論 (Broken Windows Theory)](#割れ窓理論-broken-windows-theory) | 安全工学 | 目に見える無秩序が、さらなる無秩序を招く。 |
+| `58` | [YAGNI (YAGNI)](#yagni-yagni) | 保守性 | それはきっと必要にならない——目の前のケースだけを作れ。 |
+| `59` | [KISS の原則 (KISS Principle)](#kiss-の原則-kiss-principle) | 保守性 | 悪条件下でも修理できる程度に単純であること。 |
+| `60` | [DRY 原則 (DRY Principle)](#dry-原則-dry-principle) | 保守性 | あらゆる知識は、系の中でただ一つの権威ある表現を持つ。 |
+| `61` | [制約理論 (Theory of Constraints)](#制約理論-theory-of-constraints) | 性能 | スループットは、常にただ一つの制約によって決まる。 |
+| `62` | [オッカムの剃刀 (Occam's Razor)](#オッカムの剃刀-occams-razor) | 認知 | 新しい仮定を最も必要としない説明を選べ。 |
+| `63` | [単一責任の原則 (Single Responsibility Principle)](#単一責任の原則-single-responsibility-principle) | 保守性 | モジュールが変更される理由は一つであるべき。SOLID の S。 |
+| `64` | [驚き最小の原則 (Principle of Least Astonishment)](#驚き最小の原則-principle-of-least-astonishment) | ヒューマンインタフェース | 部品は、利用者がすでに期待しているとおりに振る舞うべき。 |
+| `65` | [セカンドシステム症候群 (Second-System Effect)](#セカンドシステム症候群-second-system-effect) | システム | 人が設計する2番目のシステムが、最も危険である。 |
+| `66` | [ムーアの法則 (Moore's Law)](#ムーアの法則-moores-law) | 性能 | チップあたりのトランジスタ数は一定の周期で倍になる。 |
+| `67` | [アマラの法則 (Amara's Law)](#アマラの法則-amaras-law) | 見積り | 短期では過大評価され、長期では過小評価される。 |
+| `68` | [苦い教訓 (The Bitter Lesson)](#苦い教訓-the-bitter-lesson) | システム | 計算量とともにスケールする汎用手法が、人手で作り込んだ知識に勝つ。 |
+| `69` | [メトカーフの法則 (Metcalfe's Law)](#メトカーフの法則-metcalfes-law) | システム | ネットワークの価値は、その規模より速く増える。 |
+| `70` | [リンゲルマン効果 (Ringelmann Effect)](#リンゲルマン効果-ringelmann-effect) | 組織 | 集団が大きくなるほど、一人あたりの努力は落ちる。 |
+| `71` | [シャーキーの原理 (Shirky Principle)](#シャーキーの原理-shirky-principle) | インセンティブ | 組織は、自らが解である問題を保存しようとする。 |
 
 ### 意思決定の可逆性 (Type 1 vs Type 2 Decisions)
 
@@ -122,7 +137,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **割れ窓理論**。
 - **判断の指針:** 「以前も大丈夫だった」を理由に調査を省略するな。その場しのぎの「ハック」を見つけたら、即座に修正するか、高優先度の技術負債として記録せよ。
 - **出典:** Diane Vaughan, *The Challenger Launch Decision* (1996) — NASA チャレンジャー号事故の分析から提唱された概念。 — [原典 ↗](https://en.wikipedia.org/wiki/Normalization_of_deviance)
-- **関連:** [スイスチーズモデル (Swiss Cheese Model)](#スイスチーズモデル-swiss-cheese-model) · [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory) · [ボーイスカウトの規則 (Boy Scout Rule)](#ボーイスカウトの規則-boy-scout-rule) · [正常性バイアス (Normalcy Bias)](#正常性バイアス-normalcy-bias)
+- **関連:** [スイスチーズモデル (Swiss Cheese Model)](#スイスチーズモデル-swiss-cheese-model) · [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory) · [ボーイスカウトの規則 (Boy Scout Rule)](#ボーイスカウトの規則-boy-scout-rule) · [正常性バイアス (Normalcy Bias)](#正常性バイアス-normalcy-bias) · [割れ窓理論 (Broken Windows Theory)](#割れ窓理論-broken-windows-theory)
 
 ### チェスタトンの柵 (Chesterton's Fence)
 
@@ -133,7 +148,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **YAGNI (You Ain't Gonna Need It)**。
 - **判断の指針:** その「柵（コード/ルール）」がなぜそこに立てられたのか、理由を完全に説明できるようになるまで、それを壊してはならない。
 - **出典:** G. K. Chesterton, *The Thing* (1929) — 道に立つ柵の寓話の原典。 — [原典 ↗](https://www.chesterton.org/taking-a-fence-down/)
-- **関連:** [イーグルソンの法則 (Eagleson's Law)](#イーグルソンの法則-eaglesons-law)
+- **関連:** [イーグルソンの法則 (Eagleson's Law)](#イーグルソンの法則-eaglesons-law) · [YAGNI (YAGNI)](#yagni-yagni)
 
 ### 正常性バイアス (Normalcy Bias)
 
@@ -144,7 +159,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **プレモータム / レッドチーミング**。
 - **判断の指針:** 異常が起きたとき、「これがシステム全壊の始まりだとしたら、次の10分で何が起きるか？」を問え。その答えが恐ろしいなら、今すぐ調査せよ。
 - **出典:** 災害心理学の文献群。Amanda Ripley, *The Unthinkable* (2008) で総説されている。 — [原典 ↗](https://en.wikipedia.org/wiki/Normalcy_bias)
-- **関連:** [マーフィーの法則 (Murphy's Law)](#マーフィーの法則-murphys-law) · [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance)
+- **関連:** [マーフィーの法則 (Murphy's Law)](#マーフィーの法則-murphys-law) · [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [オッカムの剃刀 (Occam's Razor)](#オッカムの剃刀-occams-razor)
 
 ### パーキンソンの凡俗法則 (Law of Triviality)
 
@@ -166,7 +181,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **MVP (実用最小限の製品)**。
 - **判断の指針:** 機能している複雑なシステムは、例外なく「機能していた単純なシステム」から進化したものである。まずは動作する最小単位から始めよ。
 - **出典:** John Gall, *Systemantics: How Systems Really Work and How They Fail* (1975)。 — [原典 ↗](https://en.wikipedia.org/wiki/John_Gall_(author))
-- **関連:** [劣っている方が勝つ (Worse is Better)](#劣っている方が勝つ-worse-is-better)
+- **関連:** [劣っている方が勝つ (Worse is Better)](#劣っている方が勝つ-worse-is-better) · [YAGNI (YAGNI)](#yagni-yagni) · [セカンドシステム症候群 (Second-System Effect)](#セカンドシステム症候群-second-system-effect)
 
 ### コンウェイの法則 (Conway's Law)
 
@@ -177,7 +192,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **逆コンウェイ戦略**。
 - **判断の指針:** モジュール化されたアーキテクチャが欲しいなら、先にチームを独立したモジュールとして再編せよ。組織構造とコードで戦うな。
 - **出典:** Melvin E. Conway, *How Do Committees Invent?* (Datamation, 1968 年 4 月号)。 — [原典 ↗](https://www.melconway.com/Home/Committees_Paper.html)
-- **関連:** [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law)
+- **関連:** [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [単一責任の原則 (Single Responsibility Principle)](#単一責任の原則-single-responsibility-principle)
 
 ### ハイラムの法則 (Hyrum's Law)
 
@@ -188,7 +203,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **カオスエンジニアリング**。
 - **判断の指針:** ユーザーがいる限り「内部実装」は存在しない。すべての変更は破壊的変更であると想定し、厳格なバージョニングと機能フラグを使え。
 - **出典:** Hyrum Wright, *hyrumslaw.com*; *Software Engineering at Google* (Winters, Manshreck, Wright, 2020) で正式化。 — [原典 ↗](https://www.hyrumslaw.com/)
-- **関連:** [ポステルの法則 (Postel's Law)](#ポステルの法則-postels-law)
+- **関連:** [ポステルの法則 (Postel's Law)](#ポステルの法則-postels-law) · [驚き最小の原則 (Principle of Least Astonishment)](#驚き最小の原則-principle-of-least-astonishment)
 
 ### ブルックスの法則 (Brooks' Law)
 
@@ -199,7 +214,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **スコープ削減**。
 - **判断の指針:** プロジェクトが遅れているなら、人を増やすな。機能を削るか、期限を延ばせ。
 - **出典:** Fred Brooks, *人月の神話 (The Mythical Man-Month)* (1975, 20 周年記念版 1995)。 — [原典 ↗](https://en.wikipedia.org/wiki/Brooks%27s_law)
-- **関連:** [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law) · [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number)
+- **関連:** [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law) · [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number) · [セカンドシステム症候群 (Second-System Effect)](#セカンドシステム症候群-second-system-effect)
 
 ### XY問題 (XY Problem)
 
@@ -232,7 +247,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **心理的安全性**。
 - **判断の指針:** 無能（知識不足や文脈欠如）で説明がつくことに、決して悪意を見出すな。人ではなくシステムをデバッグせよ。
 - **出典:** Robert J. Hanlon が *Murphy's Law Book Two* (Arthur Bloch 編, 1980) に寄稿した格言。 — [原典 ↗](https://en.wikipedia.org/wiki/Hanlon%27s_razor)
-- **関連:** [傍観者効果 (Bystander Effect)](#傍観者効果-bystander-effect)
+- **関連:** [傍観者効果 (Bystander Effect)](#傍観者効果-bystander-effect) · [オッカムの剃刀 (Occam's Razor)](#オッカムの剃刀-occams-razor)
 
 ### ホフスタッターの法則 (Hofstadter's Law)
 
@@ -254,7 +269,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **バランスト・スコアカード**。
 - **判断の指針:** 単一の指標でパフォーマンスを判断するな。システムの「出力」そのものを観察し、その代用指標（プロキシ）に固執するな。
 - **出典:** Charles Goodhart, *Problems of Monetary Management* (1975); 現代によく引用される定式化は Marilyn Strathern (1997) による。 — [原典 ↗](https://en.wikipedia.org/wiki/Goodhart%27s_law)
-- **関連:** [コブラ効果 (Cobra Effect)](#コブラ効果-cobra-effect)
+- **関連:** [コブラ効果 (Cobra Effect)](#コブラ効果-cobra-effect) · [シャーキーの原理 (Shirky Principle)](#シャーキーの原理-shirky-principle)
 
 ### リンディ効果 (Lindy Effect)
 
@@ -265,7 +280,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **ハイプサイクル分析**。
 - **判断の指針:** 今後10年安定させたいなら、既に10年以上存在している技術（例：新しいNoSQLよりPostgreSQL）を選べ。
 - **出典:** Albert Goldman 命名 (*New Republic*, 1964); Benoit Mandelbrot が形式化し、Nassim Taleb *Antifragile* (2012) で普及。 — [原典 ↗](https://en.wikipedia.org/wiki/Lindy_effect)
-- **関連:** [劣っている方が勝つ (Worse is Better)](#劣っている方が勝つ-worse-is-better)
+- **関連:** [劣っている方が勝つ (Worse is Better)](#劣っている方が勝つ-worse-is-better) · [アマラの法則 (Amara's Law)](#アマラの法則-amaras-law)
 
 ### サンクコストの誤謬 (Sunk Cost Fallacy)
 
@@ -287,7 +302,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **第一原理思考**。
 - **判断の指針:** Googleが使っているからという理由で導入するな。そのスケールにおけるGoogleと同じ問題が自分たちにあるから、導入せよ。
 - **出典:** Richard P. Feynman, *Cargo Cult Science* (Caltech 卒業式講演, 1974)。 — [原典 ↗](https://calteches.library.caltech.edu/51/2/CargoCult.htm)
-- **関連:** [生存者バイアス (Survivorship Bias)](#生存者バイアス-survivorship-bias)
+- **関連:** [生存者バイアス (Survivorship Bias)](#生存者バイアス-survivorship-bias) · [苦い教訓 (The Bitter Lesson)](#苦い教訓-the-bitter-lesson)
 
 ### アムダールの法則 (Amdahl's Law)
 
@@ -298,7 +313,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **制約理論**。
 - **判断の指針:** 実行時間の90%を占める1%のコードを見つけ、そこだけを最適化せよ。それ以外は無視してよい。
 - **出典:** Gene Amdahl, *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* (AFIPS, 1967)。 — [原典 ↗](https://doi.org/10.1145/1465482.1465560)
-- **関連:** [グスタフソンの法則 (Gustafson's Law)](#グスタフソンの法則-gustafsons-law) · [早すぎる最適化 (Premature Optimization)](#早すぎる最適化-premature-optimization)
+- **関連:** [グスタフソンの法則 (Gustafson's Law)](#グスタフソンの法則-gustafsons-law) · [早すぎる最適化 (Premature Optimization)](#早すぎる最適化-premature-optimization) · [制約理論 (Theory of Constraints)](#制約理論-theory-of-constraints)
 
 ### リーキー・アブストラクション (Law of Leaky Abstractions)
 
@@ -331,7 +346,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **失敗学 / ポストモーテム文化**。
 - **判断の指針:** 「X社がこの方法で成功した」を根拠にする前に、同じ方法で失敗した企業を調べよ。死者はブログ記事を書かない。
 - **出典:** Abraham Wald, *A Method of Estimating Plane Vulnerability* (SRG メモ, 1943) — 第二次大戦時の爆撃機装甲分析。 — [原典 ↗](https://en.wikipedia.org/wiki/Survivorship_bias)
-- **関連:** [カーゴ・カルト・エンジニアリング (Cargo Cult Engineering)](#カーゴカルトエンジニアリング-cargo-cult-engineering)
+- **関連:** [カーゴ・カルト・エンジニアリング (Cargo Cult Engineering)](#カーゴカルトエンジニアリング-cargo-cult-engineering) · [アマラの法則 (Amara's Law)](#アマラの法則-amaras-law)
 
 ### カーニハンの法則 (Kernighan's Law)
 
@@ -342,7 +357,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **KISS (Keep It Simple, Stupid)**。
 - **判断の指針:** コードの「賢さ」は資産ではなく負債である。6ヶ月後の、午前3時に睡眠不足の自分がまだ理解できるコードを書け。
 - **出典:** Brian W. Kernighan & P. J. Plauger, *The Elements of Programming Style*, 第 2 版 (1978)。 — [原典 ↗](https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style)
-- **関連:** [イーグルソンの法則 (Eagleson's Law)](#イーグルソンの法則-eaglesons-law)
+- **関連:** [イーグルソンの法則 (Eagleson's Law)](#イーグルソンの法則-eaglesons-law) · [KISS の原則 (KISS Principle)](#kiss-の原則-kiss-principle)
 
 ### コブラ効果 (Cobra Effect)
 
@@ -364,7 +379,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **ツー・ピザ・ルール / チームトポロジー**。
 - **判断の指針:** チームが7±2人を超えたら分割を検討せよ。「情報共有ミーティング」が増殖し始めたら、認知限界を超えた兆候である。
 - **出典:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。 — [原典 ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
-- **関連:** [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [ミラーの法則 (Miller's Law)](#ミラーの法則-millers-law)
+- **関連:** [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [ミラーの法則 (Miller's Law)](#ミラーの法則-millers-law) · [メトカーフの法則 (Metcalfe's Law)](#メトカーフの法則-metcalfes-law) · [リンゲルマン効果 (Ringelmann Effect)](#リンゲルマン効果-ringelmann-effect)
 
 ### 劣っている方が勝つ (Worse is Better)
 
@@ -375,7 +390,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **The Right Thing / 完璧主義**。
 - **判断の指針:** 80%正しくて今日リリースできるものは、100%正しくて来年リリースされるものに勝つ。優雅さではなく普及を最適化せよ。
 - **出典:** Richard P. Gabriel, *Lisp: Good News, Bad News, How to Win Big* (1991) — "Worse is Better" のエッセイ。 — [原典 ↗](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
-- **関連:** [ガルの法則 (Gall's Law)](#ガルの法則-galls-law) · [リンディ効果 (Lindy Effect)](#リンディ効果-lindy-effect)
+- **関連:** [ガルの法則 (Gall's Law)](#ガルの法則-galls-law) · [リンディ効果 (Lindy Effect)](#リンディ効果-lindy-effect) · [セカンドシステム症候群 (Second-System Effect)](#セカンドシステム症候群-second-system-effect)
 
 ### カニンガムの法則 (Cunningham's Law)
 
@@ -397,7 +412,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **明示的な役割割り当て / インシデントコマンダー制**。
 - **判断の指針:** 「誰か見てますか？」とは決して言うな。「@名前、あなたがこれを調査してください」と名指しで依頼せよ。すべてのインシデントに、名前のある単一のオーナーを割り当てよ。
 - **出典:** John M. Darley & Bibb Latané, *Bystander Intervention in Emergencies: Diffusion of Responsibility* (Journal of Personality and Social Psychology, 1968)。 — [原典 ↗](https://doi.org/10.1037/h0025589)
-- **関連:** [ハンロンの剃刀 (Hanlon's Razor)](#ハンロンの剃刀-hanlons-razor)
+- **関連:** [ハンロンの剃刀 (Hanlon's Razor)](#ハンロンの剃刀-hanlons-razor) · [リンゲルマン効果 (Ringelmann Effect)](#リンゲルマン効果-ringelmann-effect)
 
 ### マーフィーの法則 (Murphy's Law)
 
@@ -419,7 +434,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **漸進的衛生管理 / 機会主義的リファクタリング**。
 - **判断の指針:** コードを来たときよりきれいにして去れ。1 行のリネーム、より明確なコメント、デッドコードの削除——同じ PR に含められる小ささで、月単位で見るとエントロピー曲線を曲げる大きさ。
 - **出典:** ボーイスカウト・アメリカのキャンプ場ルールが原典。コードへの応用は Robert C. Martin, *Clean Code* (2008)。 — [原典 ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
-- **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance)
+- **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [割れ窓理論 (Broken Windows Theory)](#割れ窓理論-broken-windows-theory)
 
 ### テスラーの複雑性保存則 (Tesler's Law)
 
@@ -452,7 +467,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **ユーザーテスト / オンボーディングバディ / 著者のチーム外のドキュメントレビュアー**。
 - **判断の指針:** ドキュメントや公開 API を出荷する前に、システムを一度も触ったことのない人にそのタスクをやらせ、自分は黙って観察せよ。彼らの混乱は、自分が言語化し忘れた前提を正確に指している。
 - **出典:** Colin Camerer, George Loewenstein & Martin Weber, *The Curse of Knowledge in Economic Settings: An Experimental Analysis* (Journal of Political Economy, 1989)。 — [原典 ↗](https://doi.org/10.1086/261651)
-- **関連:** [XY問題 (XY Problem)](#xy問題-xy-problem) · [ダニング・クルーガー効果 (Dunning-Kruger Effect)](#ダニングクルーガー効果-dunning-kruger-effect)
+- **関連:** [XY問題 (XY Problem)](#xy問題-xy-problem) · [ダニング・クルーガー効果 (Dunning-Kruger Effect)](#ダニングクルーガー効果-dunning-kruger-effect) · [驚き最小の原則 (Principle of Least Astonishment)](#驚き最小の原則-principle-of-least-astonishment)
 
 ### スイスチーズモデル (Swiss Cheese Model)
 
@@ -507,7 +522,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **バックプレッシャ / 流入制御**。
 - **判断の指針:** 容量 (capacity) を増やさずにレイテンシ (W) を下げたいなら、仕掛り (L) を減らせ。同時リクエスト数に上限を設けよ——短い行列は、速いサーバより速い。
 - **出典:** John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961)。 — [原典 ↗](https://doi.org/10.1287/opre.9.3.383)
-- **関連:** [スケールの裾野 (The Tail at Scale)](#スケールの裾野-the-tail-at-scale)
+- **関連:** [スケールの裾野 (The Tail at Scale)](#スケールの裾野-the-tail-at-scale) · [制約理論 (Theory of Constraints)](#制約理論-theory-of-constraints)
 
 ### 二人の将軍問題 (Two Generals Problem)
 
@@ -529,7 +544,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **複線型キャリアパス / 職務別の評価**。
 - **判断の指針:** 最高のエンジニアを褒美にマネジメントへ昇進させるな——優れたエンジニアを一人失い、かつ貧弱なマネージャーを一人生むリスクがある。技術職の梯子を用意し、すでに習熟した職務ではなく「一つ上の職務」への適性で候補者を評価せよ。
 - **出典:** Laurence J. Peter & Raymond Hull, *The Peter Principle* (1969)。 — [原典 ↗](https://en.wikipedia.org/wiki/Peter_principle)
-- **関連:** [ダニング・クルーガー効果 (Dunning-Kruger Effect)](#ダニングクルーガー効果-dunning-kruger-effect)
+- **関連:** [ダニング・クルーガー効果 (Dunning-Kruger Effect)](#ダニングクルーガー効果-dunning-kruger-effect) · [シャーキーの原理 (Shirky Principle)](#シャーキーの原理-shirky-principle)
 
 ### パーキンソンの法則 (Parkinson's Law)
 
@@ -551,7 +566,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **パフォーマンスバジェット / リーンなソフトウェア**。
 - **判断の指針:** 速いマシンが買ってくれた速度を、「使ってよい許可」ではなく「守るべき予算」とみなせ。性能予算を設け、リリースがそれを割り込んだらビルドを失敗させよ。
 - **出典:** Niklaus Wirth, *A Plea for Lean Software* (IEEE Computer, 1995)。 — [原典 ↗](https://doi.org/10.1109/2.348001)
-- **関連:** [ジェヴォンズのパラドックス (Jevons Paradox)](#ジェヴォンズのパラドックス-jevons-paradox)
+- **関連:** [ジェヴォンズのパラドックス (Jevons Paradox)](#ジェヴォンズのパラドックス-jevons-paradox) · [ムーアの法則 (Moore's Law)](#ムーアの法則-moores-law)
 
 ### 90対90の法則 (Ninety-Ninety Rule)
 
@@ -661,7 +676,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **アムダールの法則** — 固定サイズの作業量では、逐次部分が依然として速度向上を頭打ちにする。
 - **判断の指針:** コア増設を正当化する前に、問題規模がハードウェアとともに大きくなるかを問え。作業量が固定ならアムダールで考え、規模とともに増えるならグスタフソンが効く。
 - **出典:** John L. Gustafson, *Reevaluating Amdahl's Law* (Communications of the ACM, 1988)。 — [原典 ↗](https://doi.org/10.1145/42411.42415)
-- **関連:** [アムダールの法則 (Amdahl's Law)](#アムダールの法則-amdahls-law)
+- **関連:** [アムダールの法則 (Amdahl's Law)](#アムダールの法則-amdahls-law) · [ムーアの法則 (Moore's Law)](#ムーアの法則-moores-law)
 
 ### スケールの裾野 (The Tail at Scale)
 
@@ -683,7 +698,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **環境そのものを制約する** — 制御側の過剰な多様性は、それ自体がコストと複雑さである。
 - **判断の指針:** 障害がアラートや手順書を繰り返しすり抜けるなら、対応能力を多様性に見合うまで増やすか、設定を減らし入力を厳しくして系の状態空間を意図的に縮めよ。
 - **出典:** W. Ross Ashby, *An Introduction to Cybernetics* (Chapman & Hall, 1956)。 — [原典 ↗](https://en.wikipedia.org/wiki/Variety_(cybernetics))
-- **関連:** [テスラーの複雑性保存則 (Tesler's Law)](#テスラーの複雑性保存則-teslers-law) · [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory)
+- **関連:** [テスラーの複雑性保存則 (Tesler's Law)](#テスラーの複雑性保存則-teslers-law) · [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory) · [KISS の原則 (KISS Principle)](#kiss-の原則-kiss-principle)
 
 ### デメテルの法則 (Law of Demeter)
 
@@ -694,7 +709,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **対立概念:** **教条より実用** — 厳格な適用は転送メソッドとラッパーの肥大を招く。
 - **判断の指針:** 呼んでよいのは、直接の協力者・引数・自分が生成したもの・自分のフィールドのメソッドだけ。getter を数珠つなぎにしているなら、データを持つオブジェクト側にメソッドを足せ。
 - **出典:** Karl Lieberherr & Ian Holland, *Assuring Good Style for Object-Oriented Programs* (IEEE Software, 1989)。 — [原典 ↗](https://doi.org/10.1109/52.35588)
-- **関連:** [リーキー・アブストラクション (Law of Leaky Abstractions)](#リーキーアブストラクション-law-of-leaky-abstractions)
+- **関連:** [リーキー・アブストラクション (Law of Leaky Abstractions)](#リーキーアブストラクション-law-of-leaky-abstractions) · [DRY 原則 (DRY Principle)](#dry-原則-dry-principle) · [単一責任の原則 (Single Responsibility Principle)](#単一責任の原則-single-responsibility-principle)
 
 ### ジェヴォンズのパラドックス (Jevons Paradox)
 
@@ -717,6 +732,171 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **判断の指針:** バッファ・タイムアウト・隔壁・サーキットブレーカで結合を緩め、複雑さを削れ。安全連動装置を足すのはその後だ——連動装置自体もまた相互作用を増やす。
 - **出典:** Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984)。 — [原典 ↗](https://en.wikipedia.org/wiki/Normal_Accidents)
 - **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [スイスチーズモデル (Swiss Cheese Model)](#スイスチーズモデル-swiss-cheese-model) · [自動化の皮肉 (Ironies of Automation)](#自動化の皮肉-ironies-of-automation) · [アシュビーの必要多様性の法則 (Ashby's Law of Requisite Variety)](#アシュビーの必要多様性の法則-ashbys-law-of-requisite-variety)
+
+### 割れ窓理論 (Broken Windows Theory)
+
+`§ 57` · 安全工学
+
+- **概念:** 目に見える無秩序が、さらなる無秩序を招く。
+- **メカニズム:** 割れたまま放置された窓は「誰も見ていない」という信号になり、次の違反のコストを下げる。コードベースでも、見逃された一つのハック、飛ばされた一つのテスト、恒久的に黙らされた一つのアラートが揃って「この基準は守らなくてよい」と宣言する。
+- **対立概念:** **修繕もタダではない** — 塗装に注ぐ注意は土台に注がれない注意であり、そもそも元の犯罪学的主張の実証には強い異論がある。
+- **判断の指針:** いま触っているファイルにある、最初の目に見える欠陥を直せ。見逃す例外にはすべて担当者と期限を付けよ。自分がいま立っていない場所の窓を直すためにリファクタを起こすな。
+- **出典:** James Q. Wilson & George L. Kelling『Broken Windows』(The Atlantic, 1982年3月号)。 — [原典 ↗](https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/)
+- **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [ボーイスカウトの規則 (Boy Scout Rule)](#ボーイスカウトの規則-boy-scout-rule)
+
+### YAGNI (YAGNI)
+
+`§ 58` · 保守性
+
+- **概念:** それはきっと必要にならない——目の前のケースだけを作れ。
+- **メカニズム:** 推測に基づく一般化は3回支払わされる。抽象を書くとき、使われないまま抱え続けるとき、そして予期した要件が違う形で実際に来て解きほぐすとき。将来要件の予測は、たいてい「その抽象が固定してしまった細部」で外れる。
+- **対立概念:** **チェスタトンの柵** — YAGNI が許すのは「作らないこと」だけであり、目的を確かめていないものを「消すこと」まで許してはいない。
+- **判断の指針:** 実際に手元にあるケースだけを実装せよ。一般化したくなったら、まず2つ目の具体的なケースを名指しせよ。名指しできないなら、それはパターンではなく当て推量だ。
+- **出典:** Ron Jeffries による Extreme Programming の実践ノート。"You Aren't Gonna Need It" として命名され、Kent Beck『Extreme Programming Explained』(1999) で広まった。 — [原典 ↗](https://ronjeffries.com/xprog/articles/practices/pracnotneed/)
+- **関連:** [チェスタトンの柵 (Chesterton's Fence)](#チェスタトンの柵-chestertons-fence) · [ガルの法則 (Gall's Law)](#ガルの法則-galls-law)
+
+### KISS の原則 (KISS Principle)
+
+`§ 59` · 保守性
+
+- **概念:** 悪条件下でも修理できる程度に単純であること。
+- **メカニズム:** "Keep it simple, stupid" は航空機設計から出た言葉で、要件は「平均的な整備兵が、基本的な工具だけで、野戦で直せること」だった。基準は優雅さではなく、その機体が実際に遭遇する最悪の状況で、普通の人間が直せるかどうかだった。
+- **対立概念:** **アシュビーの必要多様性の法則** — 制御すべき問題より単純な系はその問題に対処できない。その下限を割った単純さは、複雑さの削減ではなく移動である。
+- **判断の指針:** 設計はレビューでの読みやすさではなく、「午前3時に誰が直せるか」で評価せよ。オンコール担当が作者を呼ばないと直せないなら、それは単純なのではなく、一人にとって馴染みがあるだけだ。
+- **出典:** Lockheed Skunk Works の Kelly Johnson に帰される (1960年頃)。戦闘機の野戦整備性の要求として。 — [原典 ↗](https://en.wikipedia.org/wiki/KISS_principle)
+- **関連:** [カーニハンの法則 (Kernighan's Law)](#カーニハンの法則-kernighans-law) · [アシュビーの必要多様性の法則 (Ashby's Law of Requisite Variety)](#アシュビーの必要多様性の法則-ashbys-law-of-requisite-variety)
+
+### DRY 原則 (DRY Principle)
+
+`§ 60` · 保守性
+
+- **概念:** あらゆる知識は、系の中でただ一つの権威ある表現を持つ。
+- **メカニズム:** 重複した知識は必ずずれていく。コピー同士を一緒に変えることを強制するものが何もないからだ。コストは余分な文字数ではない。将来の誰かが片方だけを直し、自分自身と静かに矛盾する系を出荷してしまうことだ。
+- **対立概念:** **誤った抽象より重複のほうが安い** — 今は似ているだけの2つのブロックは、分岐が必要になった瞬間に互いを縛り合う。
+- **判断の指針:** 重複を排除するのはテキストではなく知識だ。似た2つのブロックを統合する前に、「同じ理由で、同じ人の要求によって変わるか」を問え。違うなら分けたままにせよ。
+- **出典:** Andrew Hunt & David Thomas『The Pragmatic Programmer』(Addison-Wesley, 1999)——「あらゆる知識は、システムの中で単一かつ明確で権威ある表現を持たねばならない」。 — [原典 ↗](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+- **関連:** [デメテルの法則 (Law of Demeter)](#デメテルの法則-law-of-demeter) · [単一責任の原則 (Single Responsibility Principle)](#単一責任の原則-single-responsibility-principle)
+
+### 制約理論 (Theory of Constraints)
+
+`§ 61` · 性能
+
+- **概念:** スループットは、常にただ一つの制約によって決まる。
+- **メカニズム:** 鎖には必ず最も弱い環が一つある。それ以外のどこを改善しても、局所的な効率は上がるが全体のスループットは動かない。むしろ悪化することが多い——速くなった上流工程が、本当のボトルネックの前により多くの仕掛品を積み上げるからだ。
+- **対立概念:** **制約は移動する** — 一つを緩めれば別のものが制約になる。昨日のボトルネックに合わせて恒久的に最適化された工程は、新しい制約のところで飢える。
+- **判断の指針:** 制約を特定し、能力を買い足す前にまず徹底的に使い切り、他の全工程をそれに従属させよ。そのうえで測り直せ。あなたはたった今、別の場所に新しいボトルネックを作ったところだ。
+- **出典:** Eliyahu M. Goldratt & Jeff Cox『The Goal: A Process of Ongoing Improvement』(North River Press, 1984)。 — [原典 ↗](https://en.wikipedia.org/wiki/Theory_of_constraints)
+- **関連:** [アムダールの法則 (Amdahl's Law)](#アムダールの法則-amdahls-law) · [リトルの法則 (Little's Law)](#リトルの法則-littles-law)
+
+### オッカムの剃刀 (Occam's Razor)
+
+`§ 62` · 認知
+
+- **概念:** 新しい仮定を最も必要としない説明を選べ。
+- **メカニズム:** インシデントの圧力下では、思考は面白い仮説に手を伸ばす——カーネルのバグ、壊れたディスク、攻撃者。だが未検証の仮定を最も必要としない説明は、ほぼ常に「20分前に出たデプロイ」である。
+- **対立概念:** **ヒッカムの格言** — 系は複数の独立した障害を同時に抱えうる。症状に合う最も単純な物語が、自動的に真実になるわけではない。
+- **判断の指針:** 仮説を「未検証の仮定がいくつ必要か」で並べ、最も安いものから検証せよ。「何が壊れたか」の前に「何が変わったか」を問え。
+- **出典:** オッカムのウィリアム (1287頃–1347) に帰される。「剃刀」の比喩は、彼の倹約の原理 *entia non sunt multiplicanda praeter necessitatem* に対する後世の注釈。 — [原典 ↗](https://en.wikipedia.org/wiki/Occam%27s_razor)
+- **関連:** [正常性バイアス (Normalcy Bias)](#正常性バイアス-normalcy-bias) · [ハンロンの剃刀 (Hanlon's Razor)](#ハンロンの剃刀-hanlons-razor)
+
+### 単一責任の原則 (Single Responsibility Principle)
+
+`§ 63` · 保守性
+
+- **概念:** モジュールが変更される理由は一つであるべき。SOLID の S。
+- **メカニズム:** 一つのモジュールが二つの利用者集団に仕える場合、彼らの変更要求は異なるスケジュールで届き、同じファイルの上で衝突する。結合とは本当はモジュール間の呼び出しの話ではない——「誰があなたにそのモジュールの編集を強制できるか」の話だ。
+- **対立概念:** **早すぎる分解** — 想像上の責務で分割すると、メソッド1個のクラスが散乱し、複雑さがすべてその間の配線に移るだけになる。
+- **判断の指針:** 責務は「コードが何をするか」ではなく「誰が変更を要求してくるか」で定義せよ。同じモジュールに対して別々の人物がそれぞれ編集を要求できるなら、その線でだけ分割せよ。
+- **出典:** Robert C. Martin『Agile Software Development: Principles, Patterns, and Practices』(2002)。『Clean Architecture』(2017) では「同じ理由で変わるものを集めよ」と言い換えられている。 — [原典 ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
+- **関連:** [DRY 原則 (DRY Principle)](#dry-原則-dry-principle) · [デメテルの法則 (Law of Demeter)](#デメテルの法則-law-of-demeter) · [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law)
+
+### 驚き最小の原則 (Principle of Least Astonishment)
+
+`§ 64` · ヒューマンインタフェース
+
+- **概念:** 部品は、利用者がすでに期待しているとおりに振る舞うべき。
+- **メカニズム:** 利用者は、これまで使ってきた似たものすべてから組み立てたモデルを持ってやって来る。「筋は通っているが意外な」振る舞いは、「わずかに劣るが予想どおりの」振る舞いより高くつく。驚きは全利用者が、毎回、永久に支払い続けるからだ。
+- **対立概念:** **驚きは相対的である** — 今日の期待だけに合わせた設計は、悪い慣習をその場に凍結する。ときには移行手順を添えて、一度だけ大きく驚かせるのが正しい。
+- **判断の指針:** 2つの設計が拮抗したら、利用者がすでに知っている慣習に合うほうを取れ——フラグ名、終了コード、並び順。意図的な驚きは、告知するコストを払える場所にだけ使え。
+- **出典:** 言語・インタフェース設計の古くからの言い伝え。Michael F. Cowlishaw『The Design of the REXX Language』(IBM Systems Journal, 1984) に明示的な記述がある。 — [原典 ↗](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+- **関連:** [ハイラムの法則 (Hyrum's Law)](#ハイラムの法則-hyrums-law) · [知識の呪い (Curse of Knowledge)](#知識の呪い-curse-of-knowledge)
+
+### セカンドシステム症候群 (Second-System Effect)
+
+`§ 65` · システム
+
+- **概念:** 人が設計する2番目のシステムが、最も危険である。
+- **メカニズム:** 1番目のシステムは、地面の固さを測りかねている者によって慎重に作られる。その成功が慎重さを自信に変え、1回目に見送ったアイデアがすべて一度に書き直しへ流し込まれる。結果は過剰に汎用的で、遅れ、そして多くの場合そもそも出荷されない。
+- **対立概念:** **ガルの法則** — 答えは1番目のシステムを凍結することではなく、育てることだ。分割して出荷される書き直しは「2番目のシステム」ではない。
+- **判断の指針:** 書き直すときは、願望リストだけでなく制約も引き継げ。見送っていた機能は「実際に利用者を止めていた2つ」まで削り、元のシステムを一つずつ置き換えよ。
+- **出典:** Fred Brooks『人月の神話』(Addison-Wesley, 1975) 第5章。 — [原典 ↗](https://en.wikipedia.org/wiki/Second-system_effect)
+- **関連:** [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [ガルの法則 (Gall's Law)](#ガルの法則-galls-law) · [劣っている方が勝つ (Worse is Better)](#劣っている方が勝つ-worse-is-better)
+
+### ムーアの法則 (Moore's Law)
+
+`§ 66` · 性能
+
+- **概念:** チップあたりのトランジスタ数は一定の周期で倍になる。
+- **メカニズム:** ムーアの観察は物理ではなく経済のものだった——部品あたりコストが最小になる集積度が、およそ2年で倍になる。これが半世紀成立し、「ハードがいずれ救ってくれる」という前提のあらゆる計画を静かに支えた。だが2005年頃にデナードスケーリングが終わってから、シングルスレッド性能はこの曲線から外れている。
+- **対立概念:** **ヴィルトの法則** — 得られた余力は貯金されず消費される。しかもクロック速度はトランジスタ数よりずっと早く頭打ちになった。
+- **判断の指針:** ハードウェアが設計を救ってくれる前提で予算を組むな。ワークロードがシングルスレッドかつレイテンシ律速なら、来年のマシンは助けにならない。並列化するか、やる仕事を減らすかだ。
+- **出典:** Gordon E. Moore『Cramming More Components onto Integrated Circuits』(Electronics, 1965年4月19日)。 — [原典 ↗](https://en.wikipedia.org/wiki/Moore%27s_law)
+- **関連:** [ヴィルトの法則 (Wirth's Law)](#ヴィルトの法則-wirths-law) · [グスタフソンの法則 (Gustafson's Law)](#グスタフソンの法則-gustafsons-law) · [苦い教訓 (The Bitter Lesson)](#苦い教訓-the-bitter-lesson)
+
+### アマラの法則 (Amara's Law)
+
+`§ 67` · 見積り
+
+- **概念:** 短期では過大評価され、長期では過小評価される。
+- **メカニズム:** 新技術はデモで評価され——デモは技術を実際より良く見せる——そして既存の設備の上に導入される。既存設備は抵抗する。だから最初の2年は期待外れになる。その後、初期予測を外させたのと同じ複利が10年間逆方向に働き、10年予測もまた外れる。今度は過小に。
+- **対立概念:** **そもそも来ないものもある** — 生存者バイアスがこの法則を必然に見せている。長期を迎えられなかった技術は、あとから引用されないからだ。
+- **判断の指針:** 新技術についての2年予測は割り引き、10年予測は真に受けよ。ただし計画はデモ版ではなく、実際に出荷される版を前提に立てよ。
+- **出典:** Institute for the Future 会長 Roy Amara に帰される。1970年代以降に流布した言葉。 — [原典 ↗](https://en.wikipedia.org/wiki/Roy_Amara)
+- **関連:** [生存者バイアス (Survivorship Bias)](#生存者バイアス-survivorship-bias) · [リンディ効果 (Lindy Effect)](#リンディ効果-lindy-effect)
+
+### 苦い教訓 (The Bitter Lesson)
+
+`§ 68` · システム
+
+- **概念:** 計算量とともにスケールする汎用手法が、人手で作り込んだ知識に勝つ。
+- **メカニズム:** AI研究の70年を通じて勝ったのは、利用可能な計算量とともにスケールする探索と学習であり、その領域についての人間の洞察を埋め込んだ手法ではなかった。作り込まれた知識は短期では効き、長期では天井になる。計算資源と違って、毎年安くならないからだ。
+- **対立概念:** **計算資源はタダではない** — 固定予算の内側では領域知識が唯一使えるレバーであることも多い。この教訓は分野の軌跡を述べたものであって、今四半期の正解ではない。
+- **判断の指針:** 「知っていることを埋め込む」か「より多くのデータや計算から学ぶものを作る」かで迷ったら、予算が倍になったとき勝手に良くなるのはどちらかを問え。数年単位の話なら、そちらに賭けよ。
+- **出典:** Richard S. Sutton『The Bitter Lesson』(2019年3月13日)。 — [原典 ↗](https://web.archive.org/web/2024/http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+- **関連:** [カーゴ・カルト・エンジニアリング (Cargo Cult Engineering)](#カーゴカルトエンジニアリング-cargo-cult-engineering) · [ムーアの法則 (Moore's Law)](#ムーアの法則-moores-law)
+
+### メトカーフの法則 (Metcalfe's Law)
+
+`§ 69` · システム
+
+- **概念:** ネットワークの価値は、その規模より速く増える。
+- **メカニズム:** n ノードのネットワークには n(n−1)/2 通りの接続がありうるため、価値は n² に比例すると主張された。指数には異論があり——実在のネットワークには n log n のほうがよく当てはまる——だが形は変わらない。新しいノードは既存の全ノードに価値を足す。だからネットワークは滑らかに成長せず、ある点で一気に傾く。
+- **対立概念:** **同じ二次関数はコストでもある** — 接続は利用者どうしでは資産だが、同僚どうしでは負債になる。ブルックスの法則はメトカーフの法則の符号を反転させたものだ。
+- **判断の指針:** 価値が他の利用者から生まれるプロダクトでは、初期の労力を機能ではなく「その参加者にとってすでに有用な最小のネットワーク」に注げ。チームでは逆に、接続を削れ。
+- **出典:** Robert Metcalfe に帰される (1980年頃)。n log n による批判は Bob Briscoe, Andrew Odlyzko & Benjamin Tilly『Metcalfe's Law is Wrong』(IEEE Spectrum, 2006年7月)。 — [原典 ↗](https://en.wikipedia.org/wiki/Metcalfe%27s_law)
+- **関連:** [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number)
+
+### リンゲルマン効果 (Ringelmann Effect)
+
+`§ 70` · 組織
+
+- **概念:** 集団が大きくなるほど、一人あたりの努力は落ちる。
+- **メカニズム:** リンゲルマンは、綱を一人で引かせた場合とチームで引かせた場合の力を測った。人を増やすたび、一人あたりの寄与は単独時より小さくなった。一部は協調のロスだが、一部は「寄与が分離できなくなった途端に落ちる個人の努力」である。成果が合算され、誰がどの部分を出したか見えない場所ならどこでも起きる。
+- **対立概念:** **寄与を分離可能にする** — この効果は人間の性質ではなく仕事の測り方の性質だ。個人の寄与を可視化すれば、その大半は消える。
+- **判断の指針:** すべての作業の流れに、名前の付いた担当者一人と、目に見える成果物を与えよ。成果のどの部分を誰が出したか言えないなら、その集団は構成員の総和より少ない成果しか出さないと考えよ。
+- **出典:** Maximilien Ringelmann『Recherches sur les moteurs animés: Travail de l'homme』(Annales de l'Institut National Agronomique, 1913)。 — [原典 ↗](https://en.wikipedia.org/wiki/Ringelmann_effect)
+- **関連:** [傍観者効果 (Bystander Effect)](#傍観者効果-bystander-effect) · [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number)
+
+### シャーキーの原理 (Shirky Principle)
+
+`§ 71` · インセンティブ
+
+- **概念:** 組織は、自らが解である問題を保存しようとする。
+- **メカニズム:** ある問題を解くために作られた組織は、その問題が存続することから予算・人員・地位を得る。これが働くのに誰かが冷笑的である必要はない。インセンティブが「自分のチームを不要にすること」を決して指さないだけだ。時間が経つと、解決策は静かに問題の存続理由へと変わる。
+- **対立概念:** **永続する問題も実在する** — 長命なチームをすべて自己保存的だと見なせば、必要な保守をしているチームを壊す。保守はうまくいっているときほど見えない。
+- **判断の指針:** 何かを直すために作ったチームやツールには、「直った状態」がどう見えるか、いつそれを確認するかを書き出せ。自らの不要化を説明できないプラットフォームチームは、自らの生存を最適化している。
+- **出典:** Clay Shirky の言。Kevin Kelly『The Shirky Principle』(The Technium, 2010) で命名・引用された。 — [原典 ↗](https://kk.org/thetechnium/the-shirky-prin/)
+- **関連:** [グッドハートの法則 (Goodhart's Law)](#グッドハートの法則-goodharts-law) · [ピーターの法則 (Peter Principle)](#ピーターの法則-peter-principle)
 
 <!-- CODEX:END -->
 
