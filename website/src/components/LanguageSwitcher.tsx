@@ -1,33 +1,32 @@
-'use client';
+import Link from 'next/link';
+import { translations } from '@/translations';
+import { HTML_LANG } from '@/lib/site';
+import type { Locale } from '@/data/laws';
 
-import { useLanguage } from './LanguageContext';
-import { motion } from 'motion/react';
-
-export default function LanguageSwitcher() {
-  const { lang, setLang } = useLanguage();
+/**
+ * Language selection is navigation, not client state. The two locales are two
+ * sets of URLs, so a crawler (and a shared link) sees the language it was given
+ * rather than whatever the last visitor picked.
+ */
+export default function LanguageSwitcher({
+  lang,
+  counterpart,
+}: {
+  lang: Locale;
+  counterpart: string;
+}) {
+  const other: Locale = lang === 'en' ? 'ja' : 'en';
+  const t = translations[lang].switcher;
 
   return (
-    <div className="flex rounded-full border border-hairline bg-stone p-1">
-      {(['en', 'jp'] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLang(l)}
-          aria-pressed={lang === l}
-          aria-label={l === 'en' ? 'English' : '日本語'}
-          className={`relative rounded-full px-3 py-1 text-xs font-bold transition-colors ${
-            lang === l ? 'text-ink' : 'text-carve-dim hover:text-carve'
-          }`}
-        >
-          {lang === l && (
-            <motion.div
-              layoutId="activeTab"
-              className="absolute inset-0 -z-10 rounded-full bg-bronze"
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-          {l.toUpperCase()}
-        </button>
-      ))}
-    </div>
+    <Link
+      href={counterpart}
+      hrefLang={HTML_LANG[other]}
+      lang={HTML_LANG[other]}
+      aria-label={`${t.label}: ${t.other}`}
+      className="rounded-full border border-hairline bg-stone px-3 py-1 text-xs font-bold text-carve-dim transition-colors hover:border-bronze/40 hover:text-carve"
+    >
+      {t.other}
+    </Link>
   );
 }

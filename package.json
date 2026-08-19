@@ -1,0 +1,19 @@
+{
+  "name": "hammurabi-codex",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tooling for the Hammurabi codex: data/laws.yaml is the source of truth, everything else is generated from it.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "generate:check": "node scripts/generate.mjs --check",
+    "validate": "node scripts/validate.mjs",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.0"
+  }
+}

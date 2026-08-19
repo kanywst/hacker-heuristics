@@ -1,5 +1,17 @@
 version: 2
 updates:
+  # The codex tooling at the repository root (yaml parser only).
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Tokyo
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+
   - package-ecosystem: npm
     directory: /website
     schedule:

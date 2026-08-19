@@ -1,0 +1,1593 @@
+# Hammurabi — the single source of truth for the codex.
+#
+# Everything else is generated from this file: README.md, translations/ja.md and
+# the website's data module. Never edit those by hand — edit this, then run
+# `npm run generate` (and `npm run validate` to check it).
+#
+# `slug` is the permanent identity of a law. It appears in every permalink, so it
+# must never change once published. `number` is display only and is assigned in
+# file order by the generator; a new law is appended, never inserted.
+
+tags:
+  decision:
+    en: Decision
+    ja: 意思決定
+  cognition:
+    en: Cognition
+    ja: 認知
+  estimation:
+    en: Estimation
+    ja: 見積り
+  systems:
+    en: Systems
+    ja: システム
+  distributed-systems:
+    en: Distributed Systems
+    ja: 分散システム
+  performance:
+    en: Performance
+    ja: 性能
+  maintainability:
+    en: Maintainability
+    ja: 保守性
+  safety:
+    en: Safety
+    ja: 安全工学
+  security:
+    en: Security
+    ja: セキュリティ
+  organization:
+    en: Organization
+    ja: 組織
+  incentives:
+    en: Incentives
+    ja: インセンティブ
+  interaction:
+    en: Interaction
+    ja: ヒューマンインタフェース
+
+laws:
+  - slug: type-1-vs-type-2-decisions
+    tag: decision
+    source_url: https://www.sec.gov/Archives/edgar/data/1018724/000119312516530910/d168744dex991.htm
+    see_also:
+      - sunk-cost-fallacy
+      - parkinsons-law
+    en:
+      title: Type 1 vs Type 2 Decisions
+      concept: Reversibility of Decisions.
+      mechanism: |-
+        The brain instinctively treats all failures as threats to survival, demanding excessive caution for reversible decisions (Two-way doors). This causes "Analysis Paralysis."
+      counter:
+        name: The "One-Way Door" Filter
+      guideline: |-
+        If a decision is easily reversible (two-way door), ship within 24 hours to gain data. Only spend days/weeks on "one-way doors" (e.g., core database schema, security protocols).
+      source: |-
+        Jeff Bezos, *2015 Letter to Shareholders* (Amazon.com, Inc., filed April 2016) — the letter that introduced the "Type 1 / Type 2 decisions" framing. The 1997 letter is the "Day 1" letter and does not contain it.
+    ja:
+      title: 意思決定の可逆性
+      concept: 意思決定の可逆性。
+      mechanism: 脳は生存本能的に「すべての失敗」を脅威と見なし、すぐに戻せる決定（双方向のドア）に対しても過剰な慎重さを求めてしまう。これが「分析麻痺」の正体。
+      counter:
+        name: 「一方向のドア」フィルター
+      guideline: |-
+        容易にやり直しができる決定なら、24時間以内に実行してデータを得よ。数日・数週間かけるのは、やり直し不能な決定（DBスキーマの根幹、セキュリティ等）のみにせよ。
+      source: |-
+        Jeff Bezos『2015 年 株主への手紙』（Amazon.com, Inc.、2016 年 4 月提出）——"Type 1 / Type 2 decisions" の初出。1997 年の手紙は「Day 1」の手紙であり、この枠組みは含まれていない。
+
+  - slug: normalization-of-deviance
+    tag: safety
+    source_url: https://en.wikipedia.org/wiki/Normalization_of_deviance
+    see_also:
+      - swiss-cheese-model
+      - normal-accident-theory
+      - boy-scout-rule
+      - normalcy-bias
+    en:
+      title: Normalization of Deviance
+      concept: The erosion of safety standards.
+      mechanism: |-
+        When a minor rule is broken (e.g., skipping a test) and no immediate disaster occurs, the brain re-classifies this "deviance" as "normal." This is how catastrophic failures begin.
+      counter:
+        name: Broken Windows Theory
+      guideline: |-
+        If you see a "hack" or a bypassed alert, do not say "it worked before." Either fix it immediately or document it as high-priority technical debt.
+      source: |-
+        Diane Vaughan, *The Challenger Launch Decision* (1996) — coined while analyzing the NASA Challenger disaster.
+    ja:
+      title: 逸脱の常態化
+      concept: 安全基準の侵食。
+      mechanism: |-
+        小さなルール違反（テストのスキップ等）をしても即座に大惨事が起きない場合、脳はその「逸脱」を「正常」なものとして再定義する。これが破滅的な失敗の始まり。
+      counter:
+        name: 割れ窓理論
+      guideline: 「以前も大丈夫だった」を理由に調査を省略するな。その場しのぎの「ハック」を見つけたら、即座に修正するか、高優先度の技術負債として記録せよ。
+      source: |-
+        Diane Vaughan, *The Challenger Launch Decision* (1996) — NASA チャレンジャー号事故の分析から提唱された概念。
+
+  - slug: chestertons-fence
+    tag: systems
+    source_url: https://www.chesterton.org/taking-a-fence-down/
+    see_also:
+      - eaglesons-law
+    en:
+      title: Chesterton's Fence
+      concept: Second-Order Thinking.
+      mechanism: |-
+        We view legacy code/processes as "clutter" because we lack the context of their origin. The ego jumps to "simplify" by deleting what it doesn't understand.
+      counter:
+        name: YAGNI (You Ain't Gonna Need It)
+      guideline: |-
+        You are forbidden from removing a "fence" (code/rule) until you can explain exactly why it was put there in the first place.
+      source: |-
+        G. K. Chesterton, *The Thing* (1929) — the original parable of the fence in the road.
+    ja:
+      title: チェスタトンの柵
+      concept: 二次的思考。
+      mechanism: 背景文脈を知らない古いコードやプロセスを「無駄」に見誤る。エゴは理解できないものを「単純化」という名目で削除したがる。
+      counter:
+        name: YAGNI (You Ain't Gonna Need It)
+      guideline: その「柵（コード/ルール）」がなぜそこに立てられたのか、理由を完全に説明できるようになるまで、それを壊してはならない。
+      source: G. K. Chesterton, *The Thing* (1929) — 道に立つ柵の寓話の原典。
+
+  - slug: normalcy-bias
+    tag: cognition
+    source_url: https://en.wikipedia.org/wiki/Normalcy_bias
+    see_also:
+      - murphys-law
+      - normalization-of-deviance
+    en:
+      title: Normalcy Bias
+      concept: Crisis Denial.
+      mechanism: |-
+        In the face of a true anomaly, the brain defaults to the most "frequent" explanation to save energy. "It's probably just a transient network error," we say as the database corrupts.
+      counter:
+        name: Pre-mortem / Red Teaming
+      guideline: |-
+        When an error occurs, ask: "If this were the start of a total system collapse, what would the next 10 minutes look like?" If that scares you, investigate now.
+      source: |-
+        Disaster psychology literature; widely surveyed in Amanda Ripley, *The Unthinkable* (2008).
+    ja:
+      title: 正常性バイアス
+      concept: 危機への否認。
+      mechanism: |-
+        真の異常に直面しても、脳はエネルギー節約のため「いつものパターン」で解釈しようとする。DBが壊れ始めていても「一時的なネットワークの瞬断だろう」と片付けてしまう。
+      counter:
+        name: プレモータム / レッドチーミング
+      guideline: 異常が起きたとき、「これがシステム全壊の始まりだとしたら、次の10分で何が起きるか？」を問え。その答えが恐ろしいなら、今すぐ調査せよ。
+      source: 災害心理学の文献群。Amanda Ripley, *The Unthinkable* (2008) で総説されている。
+
+  - slug: law-of-triviality
+    tag: organization
+    source_url: https://en.wikipedia.org/wiki/Law_of_triviality
+    see_also:
+      - parkinsons-law
+    en:
+      title: Law of Triviality
+      concept: Cognitive Ease — the bike-shed problem.
+      mechanism: |-
+        People provide more feedback on simple things (naming variables) than complex things (distributed consensus) because everyone understands the simple things, creating a false sense of value.
+      counter:
+        name: Core Value Focus
+      guideline: |-
+        If a PR review spends 80% of comments on style/naming, approve immediately and move the discussion to an automated linter config.
+      source: |-
+        C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — the original "bike-shed" committee parable.
+    ja:
+      title: パーキンソンの凡俗法則
+      concept: 認知的な容易性。
+      mechanism: |-
+        人は複雑なこと（分散合意）より、単純なこと（変数名）に多くのフィードバックをする。誰でも理解できるため、意見を言うことで偽の貢献感を得やすいため。
+      counter:
+        name: コア・バリューへの集中
+      guideline: PRレビューのコメントの8割がスタイルや命名に集中しているなら、即座に承認し、議論をリンターの設定自動化に移せ。
+      source: |-
+        C. Northcote Parkinson, *Parkinson's Law: The Pursuit of Progress* (1957) — 自転車置き場委員会の原典の寓話。
+
+  - slug: galls-law
+    tag: systems
+    source_url: https://en.wikipedia.org/wiki/John_Gall_(author)
+    see_also:
+      - worse-is-better
+    en:
+      title: Gall's Law
+      concept: Evolutionary Design.
+      mechanism: |-
+        We believe we can "architect" a complex system from scratch. We can't. Complex systems are too chaotic to be designed top-down.
+      counter:
+        name: The MVP (Minimum Viable Product)
+      guideline: |-
+        A complex system that works is invariably found to have evolved from a simple system that worked. Start with a working "Hello World" and evolve.
+      source: |-
+        John Gall, *Systemantics: How Systems Really Work and How They Fail* (1975).
+    ja:
+      title: ガルの法則
+      concept: 進化的デザイン。
+      mechanism: 複雑なシステムをゼロから「設計」できるという妄想。実際には、複雑系は混沌すぎてトップダウンでは設計できない。
+      counter:
+        name: MVP (実用最小限の製品)
+      guideline: 機能している複雑なシステムは、例外なく「機能していた単純なシステム」から進化したものである。まずは動作する最小単位から始めよ。
+      source: |-
+        John Gall, *Systemantics: How Systems Really Work and How They Fail* (1975)。
+
+  - slug: conways-law
+    tag: organization
+    source_url: https://www.melconway.com/Home/Committees_Paper.html
+    see_also:
+      - dunbars-number
+      - brooks-law
+    en:
+      title: Conway's Law
+      concept: Mirroring.
+      mechanism: |-
+        The software architecture is a map of the organizational chart. If two teams don't talk, their services won't integrate smoothly.
+      counter:
+        name: Inverse Conway Maneuver
+      guideline: |-
+        If you want a modular architecture, create modular, independent teams first. Do not fight the org chart with code.
+      source: Melvin E. Conway, *How Do Committees Invent?* (Datamation, April 1968).
+    ja:
+      title: コンウェイの法則
+      concept: ミラーリング。
+      mechanism: ソフトウェアの構造は、組織図の写し鏡になる。2つのチームが会話しなければ、そのサービス間の統合もスムーズにはいかない。
+      counter:
+        name: 逆コンウェイ戦略
+      guideline: モジュール化されたアーキテクチャが欲しいなら、先にチームを独立したモジュールとして再編せよ。組織構造とコードで戦うな。
+      source: Melvin E. Conway, *How Do Committees Invent?* (Datamation, 1968 年 4 月号)。
+
+  - slug: hyrums-law
+    tag: systems
+    source_url: https://www.hyrumslaw.com/
+    see_also:
+      - postels-law
+    en:
+      title: Hyrum's Law
+      concept: Implicit Contract.
+      mechanism: |-
+        With a sufficient number of users, every observable behavior of your system (even bugs) will be depended on by someone.
+      counter:
+        name: Chaos Engineering
+      guideline: |-
+        "Internal" doesn't exist once you have users. Assume every change is breaking. Use strict versioning and feature flags.
+      source: |-
+        Hyrum Wright, *hyrumslaw.com*; canonicalized in *Software Engineering at Google* (Winters, Manshreck, Wright, 2020).
+    ja:
+      title: ハイラムの法則
+      concept: 暗黙の契約。
+      mechanism: ユーザー数が十分に増えれば、システムの観測可能なあらゆる挙動（バグさえも）は、誰かの依存対象になる。
+      counter:
+        name: カオスエンジニアリング
+      guideline: ユーザーがいる限り「内部実装」は存在しない。すべての変更は破壊的変更であると想定し、厳格なバージョニングと機能フラグを使え。
+      source: |-
+        Hyrum Wright, *hyrumslaw.com*; *Software Engineering at Google* (Winters, Manshreck, Wright, 2020) で正式化。
+
+  - slug: brooks-law
+    tag: organization
+    source_url: https://en.wikipedia.org/wiki/Brooks%27s_law
+    see_also:
+      - conways-law
+      - dunbars-number
+    en:
+      title: Brooks' Law
+      concept: Communication Debt.
+      mechanism: |-
+        Adding people to a late project increases communication overhead quadratically (n(n-1)/2 communication channels for n people). New people take more time from veterans than they contribute.
+      counter:
+        name: Scope Cutting
+      guideline: |-
+        If a project is late, do not add people. Remove features or push the date.
+      source: Fred Brooks, *The Mythical Man-Month* (1975, anniversary edition 1995).
+    ja:
+      title: ブルックスの法則
+      concept: コミュニケーション負債。
+      mechanism: |-
+        遅れているプロジェクトに人を追加すると、調整コストが二次関数的に増大する（n 人で n(n-1)/2 本の通信路）。新人はベテランの手を止めるため、貢献よりも損失が上回る。
+      counter:
+        name: スコープ削減
+      guideline: プロジェクトが遅れているなら、人を増やすな。機能を削るか、期限を延ばせ。
+      source: Fred Brooks, *人月の神話 (The Mythical Man-Month)* (1975, 20 周年記念版 1995)。
+
+  - slug: xy-problem
+    tag: cognition
+    source_url: https://xyproblem.info/
+    see_also:
+      - curse-of-knowledge
+    en:
+      title: XY Problem
+      concept: Goal Misalignment.
+      mechanism: |-
+        A user/engineer gets stuck on a solution (Y) and asks for help with it, forgetting that the original problem (X) might have a much simpler solution.
+      counter:
+        name: Five Whys
+      guideline: |-
+        When someone asks "How do I do Y?", always reply "What are you trying to achieve with Y?"
+      source: |-
+        Folklore from the Perl IRC and sysadmin communities; canonical write-up at *xyproblem.info*.
+    ja:
+      title: XY問題
+      concept: 目標の不整合。
+      mechanism: ユーザーやエンジニアが解決策（Y）で詰まったとき、その方法を質問してしまうが、本来の目的（X）にはもっと簡単な解決策があることが多い。
+      counter:
+        name: なぜなぜ分析
+      guideline: 誰かが「どうやってYをすればいいか？」と聞いてきたら、常に「Yで何を達成したいのか？」と問い返せ。
+      source: Perl IRC やシステム管理者コミュニティ発の口承。標準的な解説は *xyproblem.info*。
+
+  - slug: postels-law
+    tag: distributed-systems
+    source_url: https://www.rfc-editor.org/rfc/rfc760
+    see_also:
+      - hyrums-law
+      - fallacies-of-distributed-computing
+    en:
+      title: Postel's Law
+      concept: Fault Tolerance — the Robustness Principle.
+      mechanism: |-
+        In a distributed system, assuming everyone follows the spec perfectly leads to brittle failures.
+      counter:
+        name: Fail-Fast (Internal only)
+      guideline: |-
+        Be conservative in what you send (strict compliance) and liberal in what you accept (handle messy inputs gracefully).
+      source: Jon Postel, *RFC 760* (1980) and *RFC 793* (TCP, 1981).
+    ja:
+      title: ポステルの法則
+      concept: 障害許容性。
+      mechanism: 分散システムで全員が仕様を完璧に守ると想定すると、脆い失敗を招く。
+      counter:
+        name: フェイルファスト (内部エラー限定)
+      guideline: 自分が送るものには厳格に（仕様準拠）、受け取るものには寛容に（不完全な入力も優雅に処理）。
+      source: Jon Postel, *RFC 760* (1980) および *RFC 793 (TCP)* (1981)。
+
+  - slug: hanlons-razor
+    tag: organization
+    source_url: https://en.wikipedia.org/wiki/Hanlon%27s_razor
+    see_also:
+      - bystander-effect
+    en:
+      title: Hanlon's Razor
+      concept: Attribution Bias.
+      mechanism: |-
+        We take bugs/delays personally, assuming "malice" or "sabotage" when it's usually just lack of sleep or missing context.
+      counter:
+        name: Psychological Safety
+      guideline: |-
+        Never attribute to malice that which is adequately explained by stupidity or lack of context. Focus on the system, not the person.
+      source: |-
+        Robert J. Hanlon, contributed to *Murphy's Law Book Two* (Arthur Bloch, 1980).
+    ja:
+      title: ハンロンの剃刀
+      concept: 帰属バイアス。
+      mechanism: バグや遅延を「悪意」や「嫌がらせ」と受け取ってしまう。実際には、単なる睡眠不足やコンテキストの欠如であることがほとんど。
+      counter:
+        name: 心理的安全性
+      guideline: 無能（知識不足や文脈欠如）で説明がつくことに、決して悪意を見出すな。人ではなくシステムをデバッグせよ。
+      source: |-
+        Robert J. Hanlon が *Murphy's Law Book Two* (Arthur Bloch 編, 1980) に寄稿した格言。
+
+  - slug: hofstadters-law
+    tag: estimation
+    source_url: https://en.wikipedia.org/wiki/Hofstadter%27s_law
+    see_also:
+      - ninety-ninety-rule
+      - parkinsons-law
+    en:
+      title: Hofstadter's Law
+      concept: Recursive Estimation Bias.
+      mechanism: |-
+        "It always takes longer than you expect, even when you take into account Hofstadter's Law." The brain cannot visualize unknown unknowns.
+      counter:
+        name: Evidence-Based Scheduling
+      guideline: |-
+        Double your most conservative estimate, then add 20%. And expect to be wrong.
+      source: |-
+        Douglas Hofstadter, *Gödel, Escher, Bach: an Eternal Golden Braid* (1979).
+    ja:
+      title: ホフスタッターの法則
+      concept: 再帰的な見積もりバイアス。
+      mechanism: 「この法則を考慮に入れたとしても、常に予想以上の時間がかかる」。脳は「未知の未知」を可視化できない。
+      counter:
+        name: 実績ベースのスケジューリング
+      guideline: 最も慎重な見積もりを2倍し、さらに20%加えよ。それでもなお、外れることを覚悟せよ。
+      source: |-
+        Douglas Hofstadter, *ゲーデル、エッシャー、バッハ — あるいは不思議の環 (Gödel, Escher, Bach)* (1979)。
+
+  - slug: goodharts-law
+    tag: incentives
+    source_url: https://en.wikipedia.org/wiki/Goodhart%27s_law
+    see_also:
+      - cobra-effect
+    en:
+      title: Goodhart's Law
+      concept: Metric Obsolescence.
+      mechanism: |-
+        When a measure becomes a target, it ceases to be a good measure. If you reward "number of commits," people will make tiny, useless commits.
+      counter:
+        name: Balanced Scorecards
+      guideline: |-
+        Never use a single metric to judge performance. Observe the system's output, not its proxies.
+      source: |-
+        Charles Goodhart, *Problems of Monetary Management* (1975); reformulated by Marilyn Strathern (1997).
+    ja:
+      title: グッドハートの法則
+      concept: 指標の形骸化。
+      mechanism: ある指標が目標になると、それは良い指標ではなくなる。「コミット数」で評価すれば、人々は意味のない小さなコミットを量産する。
+      counter:
+        name: バランスト・スコアカード
+      guideline: 単一の指標でパフォーマンスを判断するな。システムの「出力」そのものを観察し、その代用指標（プロキシ）に固執するな。
+      source: |-
+        Charles Goodhart, *Problems of Monetary Management* (1975); 現代によく引用される定式化は Marilyn Strathern (1997) による。
+
+  - slug: lindy-effect
+    tag: systems
+    source_url: https://en.wikipedia.org/wiki/Lindy_effect
+    see_also:
+      - worse-is-better
+    en:
+      title: Lindy Effect
+      concept: Survivability.
+      mechanism: |-
+        For non-perishable things like ideas or software, the longer they have survived, the longer they are likely to survive.
+      counter:
+        name: Hype Cycle Analysis
+      guideline: |-
+        If you need a stable system for 10 years, choose a technology that has already been around for 10 years (e.g., PostgreSQL over a new NoSQL).
+      source: |-
+        Coined by Albert Goldman (*New Republic*, 1964); formalized by Benoit Mandelbrot and popularized by Nassim Taleb, *Antifragile* (2012).
+    ja:
+      title: リンディ効果
+      concept: 生存性。
+      mechanism: アイデアやソフトウェアのような非腐敗的なものは、長く生き残ってきたものほど、今後も長く生き残る可能性が高い。
+      counter:
+        name: ハイプサイクル分析
+      guideline: 今後10年安定させたいなら、既に10年以上存在している技術（例：新しいNoSQLよりPostgreSQL）を選べ。
+      source: |-
+        Albert Goldman 命名 (*New Republic*, 1964); Benoit Mandelbrot が形式化し、Nassim Taleb *Antifragile* (2012) で普及。
+
+  - slug: sunk-cost-fallacy
+    tag: decision
+    source_url: https://doi.org/10.1016/0749-5978(85)90049-4
+    see_also:
+      - type-1-vs-type-2-decisions
+    en:
+      title: Sunk Cost Fallacy
+      concept: Loss Aversion.
+      mechanism: |-
+        We continue investing in a failing tech stack/project because "we've already spent so much on it." The brain hates admitting a loss.
+      counter:
+        name: Zero-Based Budgeting
+      guideline: |-
+        Ask: "If we started today with zero investment, would we choose this path?" If no, kill it.
+      source: |-
+        Hal R. Arkes & Catherine Blumer, *The Psychology of Sunk Cost* (Organizational Behavior and Human Decision Processes, 1985).
+    ja:
+      title: サンクコストの誤謬
+      concept: 損失回避。
+      mechanism: 「既に多額の投資をしたから」という理由で、失敗している技術やプロジェクトに投資し続けてしまう。脳は負けを認めるのを嫌う。
+      counter:
+        name: ゼロベース予算
+      guideline: 「もし今日、ゼロから始めるとしたら、この道を選ぶか？」と問え。答えがNOなら、今すぐ捨てろ。
+      source: |-
+        Hal R. Arkes & Catherine Blumer, *The Psychology of Sunk Cost* (Organizational Behavior and Human Decision Processes, 1985)。
+
+  - slug: cargo-cult-engineering
+    tag: cognition
+    source_url: https://calteches.library.caltech.edu/51/2/CargoCult.htm
+    see_also:
+      - survivorship-bias
+    en:
+      title: Cargo Cult Engineering
+      concept: Surface Imitation.
+      mechanism: |-
+        Copying the practices of successful companies (e.g., "The Spotify Model") without understanding *why* they worked there, hoping for the same results.
+      counter:
+        name: First Principles Thinking
+      guideline: |-
+        Do not adopt a tool/process because Google uses it. Adopt it because you have the exact problem Google had at that scale.
+      source: |-
+        Richard P. Feynman, *Cargo Cult Science* (Caltech commencement address, 1974).
+    ja:
+      title: カーゴ・カルト・エンジニアリング
+      concept: 表面的な模倣。
+      mechanism: 成功企業の慣行（例：Spotifyモデル）を、なぜそれが機能したか理解せずに真似る。同じ結果が得られると盲信する罠。
+      counter:
+        name: 第一原理思考
+      guideline: Googleが使っているからという理由で導入するな。そのスケールにおけるGoogleと同じ問題が自分たちにあるから、導入せよ。
+      source: Richard P. Feynman, *Cargo Cult Science* (Caltech 卒業式講演, 1974)。
+
+  - slug: amdahls-law
+    tag: performance
+    source_url: https://doi.org/10.1145/1465482.1465560
+    see_also:
+      - gustafsons-law
+      - premature-optimization
+    en:
+      title: Amdahl's Law
+      concept: Diminishing Returns.
+      mechanism: |-
+        Optimizing a small part of a system has no impact if the bottleneck is elsewhere.
+      counter:
+        name: Theory of Constraints
+      guideline: |-
+        Find the 1% of the code that takes 90% of the time. Only optimize that. Ignore the rest.
+      source: |-
+        Gene Amdahl, *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* (AFIPS, 1967).
+    ja:
+      title: アムダールの法則
+      concept: 収穫逓減。
+      mechanism: ボトルネックが他にある場合、システムの一部をいくら最適化しても全体の性能には影響しない。
+      counter:
+        name: 制約理論
+      guideline: 実行時間の90%を占める1%のコードを見つけ、そこだけを最適化せよ。それ以外は無視してよい。
+      source: |-
+        Gene Amdahl, *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* (AFIPS, 1967)。
+
+  - slug: leaky-abstractions
+    tag: systems
+    source_url: https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
+    see_also:
+      - teslers-law
+      - law-of-demeter
+    en:
+      title: Law of Leaky Abstractions
+      concept: Complexity Leakage.
+      mechanism: |-
+        All non-trivial abstractions, to some degree, leak. You can't use SQL without understanding how indexes work eventually.
+      counter:
+        name: T-Shaped Skills
+      guideline: |-
+        Use abstractions to move fast, but ensure at least one person on the team understands the layer beneath it.
+      source: Joel Spolsky, *The Law of Leaky Abstractions* (Joel on Software, 2002).
+    ja:
+      title: リーキー・アブストラクション
+      concept: 複雑性の漏洩。
+      mechanism: あらゆる非自明な抽象化は、ある程度「漏れる」。インデックスの仕組みを知らずにSQLを使い続けることはできない。
+      counter:
+        name: T型スキル
+      guideline: 抽象化を利用して加速せよ。ただし、チーム内に少なくとも一人は、その下の層で何が起きているか理解している人間を置け。
+      source: Joel Spolsky, *The Law of Leaky Abstractions* (Joel on Software, 2002)。
+
+  - slug: pareto-principle
+    tag: decision
+    source_url: https://en.wikipedia.org/wiki/Pareto_principle
+    see_also:
+      - premature-optimization
+    en:
+      title: Pareto Principle
+      concept: Distribution Inequality — the 80/20 rule.
+      mechanism: |-
+        80% of bugs come from 20% of the code. 80% of value comes from 20% of the features.
+      counter:
+        name: Ruthless Prioritization
+      guideline: Identify the "Critical 20%" and give it 100% of your quality focus.
+      source: |-
+        Vilfredo Pareto, *Cours d'Économie Politique* (1896); applied to quality engineering by Joseph M. Juran (*Quality Control Handbook*, 1951).
+    ja:
+      title: パレートの法則
+      concept: 分布の不平等。
+      mechanism: バグの80%はコードの20%に起因する。価値の80%は機能の20%から生まれる。
+      counter:
+        name: 非情な優先順位付け
+      guideline: 「重要な20%」を特定し、品質管理のリソースの100%をそこに集中させよ。
+      source: |-
+        Vilfredo Pareto, *Cours d'Économie Politique* (1896); 品質工学への応用は Joseph M. Juran, *Quality Control Handbook* (1951)。
+
+  - slug: survivorship-bias
+    tag: cognition
+    source_url: https://en.wikipedia.org/wiki/Survivorship_bias
+    see_also:
+      - cargo-cult-engineering
+    en:
+      title: Survivorship Bias
+      concept: Invisible Failures.
+      mechanism: |-
+        We study only the successes that survived and draw conclusions from them, ignoring the silent graveyard of failures that used the same strategy. The data we see is fundamentally skewed.
+      counter:
+        name: Failure Studies / Post-mortem Culture
+      guideline: |-
+        Before adopting a strategy because "Company X succeeded with it," research how many companies failed using the same approach. The dead don't write blog posts.
+      source: |-
+        Abraham Wald, *A Method of Estimating Plane Vulnerability* (SRG Memo, 1943) — the WWII bomber-armor analysis.
+    ja:
+      title: 生存者バイアス
+      concept: 見えない失敗。
+      mechanism: |-
+        生き残った成功事例だけを研究し、そこから結論を導いてしまう。同じ戦略を採って消えていった無数の失敗は、データとして見えない。本質的に偏った情報で意思決定している。
+      counter:
+        name: 失敗学 / ポストモーテム文化
+      guideline: 「X社がこの方法で成功した」を根拠にする前に、同じ方法で失敗した企業を調べよ。死者はブログ記事を書かない。
+      source: |-
+        Abraham Wald, *A Method of Estimating Plane Vulnerability* (SRG メモ, 1943) — 第二次大戦時の爆撃機装甲分析。
+
+  - slug: kernighans-law
+    tag: maintainability
+    source_url: https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style
+    see_also:
+      - eaglesons-law
+    en:
+      title: Kernighan's Law
+      concept: Complexity Debt.
+      mechanism: |-
+        "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it."
+      counter:
+        name: KISS (Keep It Simple, Stupid)
+      guideline: |-
+        Code "cleverness" is a liability, not an asset. Write code that your future self, sleep-deprived at 3 AM, can still understand in 6 months.
+      source: |-
+        Brian W. Kernighan & P. J. Plauger, *The Elements of Programming Style*, 2nd ed. (1978).
+    ja:
+      title: カーニハンの法則
+      concept: 複雑性負債。
+      mechanism: |-
+        「デバッグは、コードを書くときの2倍の知性を要する。したがって、自分の知力の限界まで賢いコードを書いた時点で、そのコードをデバッグする知性が定義上、足りなくなる。」
+      counter:
+        name: KISS (Keep It Simple, Stupid)
+      guideline: コードの「賢さ」は資産ではなく負債である。6ヶ月後の、午前3時に睡眠不足の自分がまだ理解できるコードを書け。
+      source: |-
+        Brian W. Kernighan & P. J. Plauger, *The Elements of Programming Style*, 第 2 版 (1978)。
+
+  - slug: cobra-effect
+    tag: incentives
+    source_url: https://en.wikipedia.org/wiki/Perverse_incentive
+    see_also:
+      - goodharts-law
+      - jevons-paradox
+    en:
+      title: Cobra Effect
+      concept: Perverse Incentives.
+      mechanism: |-
+        A solution designed to fix a problem creates a worse problem. In colonial India, a bounty on cobras led people to breed cobras for the reward. When the bounty was cancelled, breeders released their stock, making the problem worse.
+      counter:
+        name: Second-Order Effects Analysis / System Dynamics
+      guideline: |-
+        For every incentive you create, ask: "If someone wanted to game this, how would they?" If you can find a way, the design is wrong.
+      source: |-
+        Horst Siebert, *Der Kobra-Effekt: Wie man Irrwege der Wirtschaftspolitik vermeidet* (2001).
+    ja:
+      title: コブラ効果
+      concept: 逆効果のインセンティブ。
+      mechanism: |-
+        問題を解決するための施策が、かえって問題を悪化させる。英領インドでコブラ駆除のため懸賞金をかけたら、人々がコブラを養殖し始めた。懸賞金を廃止すると養殖コブラが放流され、さらに事態が悪化した。
+      counter:
+        name: 二次効果分析 / システムダイナミクス
+      guideline: あらゆるインセンティブに対し「これを悪用するならどうする？」を問え。悪用方法が見つかるなら、設計が間違っている。
+      source: |-
+        Horst Siebert, *Der Kobra-Effekt: Wie man Irrwege der Wirtschaftspolitik vermeidet* (2001)。
+
+  - slug: dunbars-number
+    tag: organization
+    source_url: https://doi.org/10.1016/0047-2484(92)90081-J
+    see_also:
+      - conways-law
+      - brooks-law
+      - millers-law
+    en:
+      title: Dunbar's Number
+      concept: Cognitive Scaling Limit.
+      mechanism: |-
+        Humans can maintain approximately 150 stable social relationships. Teams larger than ~8 people experience exponential communication breakdown because the brain cannot track that many working relationships.
+      counter:
+        name: Two-Pizza Rule / Team Topologies
+      guideline: |-
+        When a team exceeds 7±2 people, split it. If "information-sharing meetings" start multiplying, that's the symptom of exceeding the cognitive limit.
+      source: |-
+        Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992).
+    ja:
+      title: ダンバー数
+      concept: 認知的スケーリング限界。
+      mechanism: |-
+        人間が安定した社会関係を維持できる認知限界は約150人。チームが約8人を超えると、脳がその数の人間関係を追跡できなくなり、コミュニケーションが指数関数的に崩壊し始める。
+      counter:
+        name: ツー・ピザ・ルール / チームトポロジー
+      guideline: チームが7±2人を超えたら分割を検討せよ。「情報共有ミーティング」が増殖し始めたら、認知限界を超えた兆候である。
+      source: |-
+        Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992)。
+
+  - slug: worse-is-better
+    tag: systems
+    source_url: https://www.dreamsongs.com/RiseOfWorseIsBetter.html
+    see_also:
+      - galls-law
+      - lindy-effect
+    en:
+      title: Worse is Better
+      concept: Pragmatic Design Philosophy.
+      mechanism: |-
+        A simpler, "inferior" design that is easy to implement and adopt will beat a theoretically "correct" but complex design in the real world. Unix beat Lisp. HTTP beat CORBA.
+      counter:
+        name: The Right Thing / Perfectionism
+      guideline: |-
+        A solution that is 80% correct and ships today will outperform a 100% correct solution that ships next year. Optimize for adoption, not elegance.
+      source: |-
+        Richard P. Gabriel, *Lisp: Good News, Bad News, How to Win Big* (1991) — the "Worse is Better" essay.
+    ja:
+      title: 劣っている方が勝つ
+      concept: 実用主義的設計哲学。
+      mechanism: |-
+        理論的に「正しい」が複雑な設計よりも、単純で「不完全」だが実装と採用が容易な設計の方が、現実世界では勝利する。UnixはLispに勝ち、HTTPはCORBAに勝った。
+      counter:
+        name: The Right Thing / 完璧主義
+      guideline: 80%正しくて今日リリースできるものは、100%正しくて来年リリースされるものに勝つ。優雅さではなく普及を最適化せよ。
+      source: |-
+        Richard P. Gabriel, *Lisp: Good News, Bad News, How to Win Big* (1991) — "Worse is Better" のエッセイ。
+
+  - slug: cunninghams-law
+    tag: organization
+    source_url: https://meta.wikimedia.org/wiki/Cunningham%27s_Law
+    see_also:
+      - linus-law
+    en:
+      title: Cunningham's Law
+      concept: Social Knowledge Extraction.
+      mechanism: |-
+        "The best way to get the right answer on the internet is not to ask a question; it's to post the wrong answer." People are more motivated to correct mistakes than to answer questions.
+      counter:
+        name: Socratic Method
+      guideline: |-
+        When documentation is missing, post your best guess of how something works. The person who knows the truth will appear to correct you far faster than if you had asked directly.
+      source: |-
+        Attributed to Ward Cunningham (inventor of the wiki) by Steven McGeady; named in this form on Wikipedia (~2010).
+    ja:
+      title: カニンガムの法則
+      concept: 社会的な知識抽出。
+      mechanism: |-
+        「インターネットで正しい答えを得る最良の方法は、質問することではなく、間違った答えを投稿することだ。」人は質問に答えるよりも、間違いを訂正する動機の方が強い。
+      counter:
+        name: ソクラテス式問答
+      guideline: |-
+        ドキュメントがないシステムについて「これはXをやっているのだと思う」と書け。真実を知る人間が沈黙を破って訂正してくれる確率は、単に「これは何？」と聞くより遥かに高い。
+      source: |-
+        Ward Cunningham (wiki の発明者) に Steven McGeady が帰属、Wikipedia 上でこの名称で定着 (~2010)。
+
+  - slug: bystander-effect
+    tag: organization
+    source_url: https://doi.org/10.1037/h0025589
+    see_also:
+      - hanlons-razor
+    en:
+      title: Bystander Effect
+      concept: Diffusion of Responsibility.
+      mechanism: |-
+        In an emergency, the more people who are present, the less likely any single person is to take action. "Someone else will handle it." In engineering, a page sent to a group channel often means nobody responds.
+      counter:
+        name: Explicit Role Assignment / Incident Commander
+      guideline: |-
+        Never say "Can someone look at this?" Instead, say "@name, you are investigating this." Assign a single, named owner for every incident.
+      source: |-
+        John M. Darley & Bibb Latané, *Bystander Intervention in Emergencies: Diffusion of Responsibility* (JPSP, 1968).
+    ja:
+      title: 傍観者効果
+      concept: 責任の拡散。
+      mechanism: |-
+        緊急事態において、居合わせる人数が多いほど、個々人が行動を起こす可能性は低くなる。「誰かが対応するだろう」と全員が思い、結果誰も対応しない。エンジニアリングでは、グループチャンネルへのアラートは往々にして無視される。
+      counter:
+        name: 明示的な役割割り当て / インシデントコマンダー制
+      guideline: |-
+        「誰か見てますか？」とは決して言うな。「@名前、あなたがこれを調査してください」と名指しで依頼せよ。すべてのインシデントに、名前のある単一のオーナーを割り当てよ。
+      source: |-
+        John M. Darley & Bibb Latané, *Bystander Intervention in Emergencies: Diffusion of Responsibility* (Journal of Personality and Social Psychology, 1968)。
+
+  - slug: murphys-law
+    tag: safety
+    source_url: https://en.wikipedia.org/wiki/Murphy%27s_law
+    see_also:
+      - normalcy-bias
+      - fallacies-of-distributed-computing
+    en:
+      title: Murphy's Law
+      concept: Failure as a Default Assumption.
+      mechanism: |-
+        "Anything that can go wrong, will go wrong." Given enough time, traffic, or unexpected input, every latent failure mode eventually fires. Engineers who design only for the happy path build systems that are one network blip away from collapse.
+      counter:
+        name: Defensive Design / Chaos Engineering
+      guideline: |-
+        Treat every external dependency, retry, and timeout as something that *will* fail in production. Build the failure path before the success path.
+      source: |-
+        Capt. Edward A. Murphy Jr., USAF Project MX981 (1949); popularized by Maj. John Paul Stapp.
+    ja:
+      title: マーフィーの法則
+      concept: 失敗を前提とする設計姿勢。
+      mechanism: |-
+        「うまくいかない可能性があることは、必ずうまくいかない。」十分な時間・トラフィック・想定外の入力さえあれば、潜在的な失敗モードはいずれ必ず発火する。ハッピーパスだけを設計したシステムは、ネットワークの一瞬の揺れで崩れる。
+      counter:
+        name: 防御的設計 / カオスエンジニアリング
+      guideline: 外部依存・リトライ・タイムアウトはすべて、本番でいつか必ず失敗するものとして扱え。成功パスより先に失敗パスを設計せよ。
+      source: |-
+        Capt. Edward A. Murphy Jr. (USAF MX981 計画, 1949); Maj. John Paul Stapp により普及。
+
+  - slug: boy-scout-rule
+    tag: maintainability
+    source_url: https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html
+    see_also:
+      - normalization-of-deviance
+    en:
+      title: Boy Scout Rule
+      concept: Continuous Improvement.
+      mechanism: |-
+        Codebases decay because cleanup is always "someone else's job." Each engineer absorbs the entropy hit but defers the fix to a future refactor that never lands. The graph trends down.
+      counter:
+        name: Incremental Hygiene / Opportunistic Refactoring
+      guideline: |-
+        Always leave the code cleaner than you found it. A one-line rename, a clearer comment, a deleted dead branch — small enough to ship in the same PR, large enough to bend the entropy curve over months.
+      source: |-
+        Adapted from a Boy Scouts of America campsite rule; applied to code in Robert C. Martin, *Clean Code* (2008).
+    ja:
+      title: ボーイスカウトの規則
+      concept: 継続的改善。
+      mechanism: |-
+        クリーンアップは常に「誰か別の人の仕事」になりがちで、コードベースは劣化していく。各エンジニアはエントロピー増加の影響だけ受けて、修正は「いつかのリファクタ」に先送りされ、それは結局来ない。
+      counter:
+        name: 漸進的衛生管理 / 機会主義的リファクタリング
+      guideline: |-
+        コードを来たときよりきれいにして去れ。1 行のリネーム、より明確なコメント、デッドコードの削除——同じ PR に含められる小ささで、月単位で見るとエントロピー曲線を曲げる大きさ。
+      source: ボーイスカウト・アメリカのキャンプ場ルールが原典。コードへの応用は Robert C. Martin, *Clean Code* (2008)。
+
+  - slug: teslers-law
+    tag: systems
+    source_url: https://en.wikipedia.org/wiki/Law_of_conservation_of_complexity
+    see_also:
+      - leaky-abstractions
+      - ashbys-law
+    en:
+      title: Tesler's Law
+      concept: Complexity is a Conserved Quantity.
+      mechanism: |-
+        Every system has an irreducible amount of complexity that cannot be removed — only relocated. Hide it from the user and it lands on the developer. Hide it from the developer and it lands on the operator. Hide it from the operator and it lands on the customer at 3 AM.
+      counter:
+        name: Honest Layering / Explicit Tradeoffs
+      guideline: |-
+        When a "simple API" feels too clean, ask: who absorbed the complexity I just removed? If you can't name them, you didn't simplify — you displaced.
+      source: |-
+        Larry Tesler, while at Xerox PARC / Apple (~1984); cited as the "Law of Conservation of Complexity."
+    ja:
+      title: テスラーの複雑性保存則
+      concept: 複雑性は保存量である。
+      mechanism: |-
+        あらゆるシステムには取り除けない本質的複雑性があり、それは消えるのではなく**移動する**だけだ。ユーザーから隠せば開発者へ、開発者から隠せば運用者へ、運用者から隠せば午前 3 時の顧客の手元に着地する。
+      counter:
+        name: 誠実なレイヤリング / 明示的なトレードオフ
+      guideline: |-
+        「シンプルな API」が綺麗すぎると感じたら問え——いま自分が消した複雑性を、誰が吸収したのか? 答えられないなら、簡素化したのではなく**転嫁**しただけだ。
+      source: |-
+        Larry Tesler (Xerox PARC / Apple 在籍時, ~1984) が "Law of Conservation of Complexity" として提示。
+
+  - slug: dunning-kruger-effect
+    tag: cognition
+    source_url: https://doi.org/10.1037/0022-3514.77.6.1121
+    see_also:
+      - curse-of-knowledge
+      - peter-principle
+    en:
+      title: Dunning-Kruger Effect
+      concept: Metacognitive Blind Spots.
+      mechanism: |-
+        Lacking expertise in a domain also means lacking the meta-skill required to recognize one's own incompetence. Novices rate themselves at the same percentile as experts. True experts often *under*-rate themselves, because they assume others share their understanding.
+      counter:
+        name: Calibrated Confidence / Structured Skill Assessment
+      guideline: |-
+        When someone declares a hard problem "easy," check their domain history before trusting the estimate. During scoping, pair confident newcomers with quiet veterans and weight the quiet voice.
+      source: |-
+        Justin Kruger & David Dunning, *Unskilled and Unaware of It* (JPSP, 1999).
+    ja:
+      title: ダニング・クルーガー効果
+      concept: メタ認知の盲点。
+      mechanism: |-
+        ある分野で専門性を欠くということは、「自分の無能さを認識するために必要なメタ的スキル」も同時に欠くということ。初心者は自分を熟達者と同じパーセンタイルに評価する。一方で本当の熟達者は、他人も自分と同じ理解を持っていると仮定し、自分を過小評価することが多い。
+      counter:
+        name: 較正された自信 / 構造化されたスキル評価
+      guideline: |-
+        誰かが難問を「簡単」と断言したら、その見積もりを信じる前に、その分野での実績を確認せよ。スコーピングの場面では、自信ある新参者と寡黙な熟達者をペアにし、寡黙な側の声を重く扱え。
+      source: |-
+        Justin Kruger & David Dunning, *Unskilled and Unaware of It* (Journal of Personality and Social Psychology, 1999)。
+
+  - slug: curse-of-knowledge
+    tag: cognition
+    source_url: https://doi.org/10.1086/261651
+    see_also:
+      - xy-problem
+      - dunning-kruger-effect
+    en:
+      title: Curse of Knowledge
+      concept: Expert-Novice Asymmetry.
+      mechanism: |-
+        Once you know a thing, you cannot easily imagine not knowing it. Engineers write docs, error messages, and APIs that are obvious to themselves and opaque to the next person who has to use them.
+      counter:
+        name: |-
+          User Testing / Onboarding Buddies / Documentation Reviewers Outside the Author's Team
+      guideline: |-
+        Before shipping documentation or a public API, have someone who has never touched the system attempt the task while you watch silently. Their confusion points exactly at the assumptions you forgot to spell out.
+      source: |-
+        Colin Camerer, George Loewenstein & Martin Weber, *The Curse of Knowledge in Economic Settings: An Experimental Analysis* (Journal of Political Economy, 1989).
+    ja:
+      title: 知識の呪い
+      concept: 熟達者と初心者の非対称性。
+      mechanism: |-
+        一度ある事を知ってしまうと、「それを知らなかった状態」を容易には想像できなくなる。エンジニアはドキュメント、エラーメッセージ、API を、自分にとっては自明で、次に使う人にとっては不透明な状態で書いてしまう。
+      counter:
+        name: ユーザーテスト / オンボーディングバディ / 著者のチーム外のドキュメントレビュアー
+      guideline: |-
+        ドキュメントや公開 API を出荷する前に、システムを一度も触ったことのない人にそのタスクをやらせ、自分は黙って観察せよ。彼らの混乱は、自分が言語化し忘れた前提を正確に指している。
+      source: |-
+        Colin Camerer, George Loewenstein & Martin Weber, *The Curse of Knowledge in Economic Settings: An Experimental Analysis* (Journal of Political Economy, 1989)。
+
+  - slug: swiss-cheese-model
+    tag: safety
+    source_url: https://en.wikipedia.org/wiki/Swiss_cheese_model
+    see_also:
+      - normalization-of-deviance
+      - normal-accident-theory
+    en:
+      title: Swiss Cheese Model
+      concept: Layered Defense and Aligned Holes.
+      mechanism: |-
+        Every protective layer (review, test, alert, runbook, rollback) has holes. Accidents happen when holes across multiple independent layers happen to align. No single layer can ever be perfect, so resilience comes from layers that fail in independent ways.
+      counter:
+        name: Defense in Depth / Independent Controls / Hole-Audit at Post-Mortem
+      guideline: |-
+        During an incident review, do not stop at "the one thing that failed." Enumerate every layer that should have caught the failure and ask why each hole was open at exactly that moment. The fix is rarely a single layer; it's plugging the cheapest two.
+      source: James Reason, *Human Error* (Cambridge University Press, 1990).
+    ja:
+      title: スイスチーズモデル
+      concept: 多層防御と穴の整列。
+      mechanism: |-
+        すべての保護層（レビュー、テスト、アラート、ランブック、ロールバック）には穴がある。事故は、独立した複数層の穴が偶然一直線に並んだ瞬間に発生する。単一の層を完璧にすることはできないので、独立した形で失敗する複数層に依存するしかない。
+      counter:
+        name: 多層防御 / 独立した統制 / ポストモーテムでの「穴の監査」
+      guideline: |-
+        インシデントレビューにおいて、「失敗した一つのもの」で止まってはならない。本来それを捉えるはずだった全層を列挙し、なぜ同じ瞬間にすべての穴が開いていたのかを問え。修正対象は単一層ではなく、最も安価に塞げる二層が答えになる。
+      source: James Reason, *Human Error* (Cambridge University Press, 1990)。
+
+  - slug: premature-optimization
+    tag: performance
+    source_url: https://doi.org/10.1145/356635.356640
+    see_also:
+      - amdahls-law
+      - pareto-principle
+    en:
+      title: Premature Optimization
+      concept: Misallocated Engineering Cost.
+      mechanism: |-
+        "Premature optimization is the root of all evil." Optimizing code before measurement proves it matters wastes engineering hours, adds complexity, and obstructs the eventual real optimization by entangling hot and cold paths.
+      counter:
+        name: |-
+          Profile First / Make It Work, Make It Right, Make It Fast (in that order)
+      guideline: |-
+        Write the obvious code first. Only optimize hot paths that a profiler proves are bottlenecks. Leave the other 97% of the code simple — that's where the next maintainer will live.
+      source: |-
+        Donald E. Knuth, *Structured Programming with go to Statements* (Computing Surveys, 1974).
+    ja:
+      title: 早すぎる最適化
+      concept: 工数の誤配分。
+      mechanism: |-
+        「早すぎる最適化はあらゆる悪の根源である。」計測が必要性を示す前にコードを最適化すると、エンジニアの時間を浪費するだけでなく、ホットパスとコールドパスを絡め取って、本当に必要となる最適化を阻む複雑性を残してしまう。
+      counter:
+        name: プロファイル優先 / Make It Work, Make It Right, Make It Fast (この順序で)
+      guideline: |-
+        まず素直なコードを書け。プロファイラがボトルネックと証明したホットパスのみを最適化せよ。残り 97% のクリティカルでないコードは単純なまま保て——次のメンテナーが住むのはそこである。
+      source: |-
+        Donald E. Knuth, *Structured Programming with go to Statements* (Computing Surveys, 1974)。
+
+  - slug: linus-law
+    tag: maintainability
+    source_url: https://web.archive.org/web/2024/http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/
+    see_also:
+      - cunninghams-law
+    en:
+      title: Linus's Law
+      concept: Distributed Bug Detection.
+      mechanism: |-
+        "Given enough eyeballs, all bugs are shallow." A defect that looks impossible to one person often becomes trivial when many independent perspectives are applied to it — provided the code is actually visible to those perspectives.
+      counter:
+        name: |-
+          Open Source / Rotated Reviewers / Bug Bounties / Internal Code Discoverability
+      guideline: |-
+        If the same class of bug keeps slipping through, the fix is not more careful review by the same people — it is exposing the code to more, differently-shaped eyes. Rotate reviewers, open up internal libraries, run bug bounties.
+      source: |-
+        Eric S. Raymond, *The Cathedral and the Bazaar* (1999) — named for Linus Torvalds.
+    ja:
+      title: リーナスの法則
+      concept: 分散型のバグ検出。
+      mechanism: |-
+        「十分な目玉があれば、あらゆるバグは浅い。」一人の目には不可能に見える欠陥も、独立した多くの視点が当たれば自明になる——ただし、コードが実際にその視点に対して可視であることが前提。
+      counter:
+        name: オープンソース / レビュアーのローテーション / バグバウンティ / 社内コードの発見可能性
+      guideline: |-
+        ある型のバグが何度もすり抜けるなら、解決策は「同じ人による、より慎重なレビュー」ではない。形の違う多くの目にコードを晒せ。レビュアーをローテーションし、内部ライブラリを公開し、バウンティを開け。
+      source: |-
+        Eric S. Raymond, *The Cathedral and the Bazaar* (1999) — Linus Torvalds に因んで命名。
+
+  - slug: cap-theorem
+    tag: distributed-systems
+    source_url: https://doi.org/10.1145/564585.564601
+    see_also:
+      - two-generals-problem
+      - fallacies-of-distributed-computing
+    en:
+      title: CAP Theorem
+      concept: Impossibility Under Partition.
+      mechanism: |-
+        A networked data store cannot simultaneously guarantee **C**onsistency, **A**vailability, and **P**artition tolerance. Because network partitions are not optional in the real world, the live choice is really between consistency and availability *at the moment a partition happens*.
+      counter:
+        name: PACELC / Tunable Consistency
+      guideline: |-
+        Decide *before* an outage whether each operation prefers consistency or availability. The partition will happen; the only question is what your system does when it does.
+      source: |-
+        Eric Brewer, *Towards Robust Distributed Systems* (PODC keynote, 2000); proved by Seth Gilbert & Nancy Lynch (*SIGACT News*, 2002).
+    ja:
+      title: CAP定理
+      concept: 分断下の不可能性。
+      mechanism: |-
+        ネットワーク化されたデータストアは、**一貫性 (C)**・**可用性 (A)**・**分断耐性 (P)** を同時には保証できない。現実世界でネットワーク分断は不可避なので、実際に選べるのは*分断が起きたその瞬間*の「一貫性か可用性か」である。
+      counter:
+        name: PACELC / 調整可能な一貫性
+      guideline: |-
+        障害が起きる*前*に、各操作が一貫性と可用性のどちらを優先するか決めておけ。分断は必ず起きる。問われるのは「起きた時にシステムが何をするか」だけだ。
+      source: |-
+        Eric Brewer, *Towards Robust Distributed Systems* (PODC 基調講演, 2000); Seth Gilbert & Nancy Lynch が証明 (*SIGACT News*, 2002)。
+
+  - slug: littles-law
+    tag: performance
+    source_url: https://doi.org/10.1287/opre.9.3.383
+    see_also:
+      - tail-at-scale
+    en:
+      title: Little's Law
+      concept: Queueing Invariant.
+      mechanism: |-
+        In any stable system, the average number of items in the system (L) equals the average arrival rate (λ) times the average time each item spends in it (W): **L = λW**. It holds regardless of arrival distribution or service discipline.
+      counter:
+        name: Backpressure / Admission Control
+      guideline: |-
+        To cut latency (W) without adding capacity, cut work-in-progress (L). Cap concurrent requests — a shorter queue is faster than a faster server.
+      source: |-
+        John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961).
+    ja:
+      title: リトルの法則
+      concept: 待ち行列の不変量。
+      mechanism: |-
+        安定したシステムでは、系内の平均項目数 (L) は平均到着率 (λ) と平均滞留時間 (W) の積に等しい: **L = λW**。到着分布やサービス規律に依らず成り立つ。
+      counter:
+        name: バックプレッシャ / 流入制御
+      guideline: |-
+        容量 (capacity) を増やさずにレイテンシ (W) を下げたいなら、仕掛り (L) を減らせ。同時リクエスト数に上限を設けよ——短い行列は、速いサーバより速い。
+      source: |-
+        John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961)。
+
+  - slug: two-generals-problem
+    tag: distributed-systems
+    source_url: https://en.wikipedia.org/wiki/Two_Generals%27_Problem
+    see_also:
+      - cap-theorem
+    en:
+      title: Two Generals Problem
+      concept: Impossibility of Guaranteed Agreement.
+      mechanism: |-
+        Two parties communicating over an unreliable channel can never be *certain* they have reached agreement — every message needs an acknowledgment, which itself needs an acknowledgment, forever. No fixed number of messages yields common knowledge.
+      counter:
+        name: Idempotency / Eventual Consistency / Acknowledged Retries
+      guideline: |-
+        Never assume "I sent it, so they got it." Make every cross-network action safely retryable and idempotent, and reconcile state instead of trusting a single round-trip.
+      source: |-
+        E. A. Akkoyunlu, K. Ekanadham & R. V. Huber (1975); framed as a database problem by Jim Gray, *Notes on Data Base Operating Systems* (1978).
+    ja:
+      title: 二人の将軍問題
+      concept: 合意の保証は不可能。
+      mechanism: |-
+        不確実な通信路で通信する二者は、合意に達したと*確信*することが決してできない——あらゆるメッセージは確認応答を必要とし、その応答自体もまた応答を必要とし、永遠に終わらない。いかなる固定回数のやり取りも共有知識をもたらさない。
+      counter:
+        name: べき等性 / 結果整合性 / 確認付き再送
+      guideline: |-
+        「送ったから届いた」と決して仮定するな。ネットワークを跨ぐ操作はすべて再送安全かつべき等に設計し、一往復を信じる代わりに状態を突き合わせて整合させよ。
+      source: |-
+        E. A. Akkoyunlu, K. Ekanadham & R. V. Huber (1975); Jim Gray が *Notes on Data Base Operating Systems* (1978) でデータベースの問題として定式化。
+
+  - slug: peter-principle
+    tag: organization
+    source_url: https://en.wikipedia.org/wiki/Peter_principle
+    see_also:
+      - dunning-kruger-effect
+    en:
+      title: Peter Principle
+      concept: Promotion to Incompetence.
+      mechanism: |-
+        In a hierarchy, people are promoted on performance in their *current* role, not the one above. So everyone tends to rise until they reach a role they are bad at — and there they stay. Competence is promoted away; incompetence accumulates.
+      counter:
+        name: Dual Career Ladders / Role-Specific Evaluation
+      guideline: |-
+        Do not promote your best engineer into management as a reward — it removes a great engineer and risks creating a poor manager. Offer a technical ladder, and evaluate candidates for the role above, not the one they already mastered.
+      source: Laurence J. Peter & Raymond Hull, *The Peter Principle* (1969).
+    ja:
+      title: ピーターの法則
+      concept: 無能への昇進。
+      mechanism: |-
+        階層組織では、人は*一つ上*の職務ではなく*現職*の成績で昇進する。だから誰もが、自分の不得手な職位に達するまで昇り続け、そこで留まる。有能は昇進によって失われ、無能が堆積していく。
+      counter:
+        name: 複線型キャリアパス / 職務別の評価
+      guideline: |-
+        最高のエンジニアを褒美にマネジメントへ昇進させるな——優れたエンジニアを一人失い、かつ貧弱なマネージャーを一人生むリスクがある。技術職の梯子を用意し、すでに習熟した職務ではなく「一つ上の職務」への適性で候補者を評価せよ。
+      source: Laurence J. Peter & Raymond Hull, *The Peter Principle* (1969)。
+
+  - slug: parkinsons-law
+    tag: organization
+    source_url: https://www.economist.com/news/1955/11/19/parkinsons-law
+    see_also:
+      - type-1-vs-type-2-decisions
+      - law-of-triviality
+      - hofstadters-law
+    en:
+      title: Parkinson's Law
+      concept: Work Expands to Fill Time.
+      mechanism: |-
+        "Work expands so as to fill the time available for its completion." Give a task a week and it takes a week; the same task with a two-day deadline ships in two days. Slack is consumed, not banked.
+      counter:
+        name: Timeboxing
+      guideline: |-
+        Set deliberately short timeboxes for open-ended work and review at the deadline. A tight box forces the scoping decisions an open one defers forever.
+      source: |-
+        C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; book, 1957).
+    ja:
+      title: パーキンソンの法則
+      concept: 仕事は時間を満たすまで膨張する。
+      mechanism: |-
+        「仕事は、それを完了するために与えられた時間を満たすまで膨張する。」一週間与えれば一週間かかり、同じ作業も締切が二日なら二日で片付く。緩衝 (slack) は貯蓄されず、消費される。
+      counter:
+        name: タイムボックス
+      guideline: 終わりの見えない作業には意図的に短いタイムボックスを切り、締切の時点で見直せ。きつい箱は、緩い箱が永遠に先送りしてしまうスコープ判断を強制する。
+      source: |-
+        C. Northcote Parkinson, *Parkinson's Law* (The Economist, 1955; 書籍, 1957)。
+
+  - slug: wirths-law
+    tag: performance
+    source_url: https://doi.org/10.1109/2.348001
+    see_also:
+      - jevons-paradox
+    en:
+      title: Wirth's Law
+      concept: Software Bloat Outpaces Hardware.
+      mechanism: |-
+        "Software is getting slower more rapidly than hardware is becoming faster." Each hardware gain is absorbed by added abstraction layers, features, and carelessness, so user-perceived speed stays flat or worsens.
+      counter:
+        name: Performance Budgets / Lean Software
+      guideline: |-
+        Treat the speed a faster machine buys you as a budget to protect, not a license to spend. Set a performance budget and fail the build when a release regresses against it.
+      source: Niklaus Wirth, *A Plea for Lean Software* (IEEE Computer, 1995).
+    ja:
+      title: ヴィルトの法則
+      concept: ソフトの肥大はハードの高速化を上回る。
+      mechanism: |-
+        「ソフトウェアはハードウェアが速くなるよりも速く遅くなっている。」ハードの利得はそのたびに、追加された抽象層・機能・不注意によって吸収され、ユーザーが体感する速度は横ばいか悪化する。
+      counter:
+        name: パフォーマンスバジェット / リーンなソフトウェア
+      guideline: |-
+        速いマシンが買ってくれた速度を、「使ってよい許可」ではなく「守るべき予算」とみなせ。性能予算を設け、リリースがそれを割り込んだらビルドを失敗させよ。
+      source: Niklaus Wirth, *A Plea for Lean Software* (IEEE Computer, 1995)。
+
+  - slug: ninety-ninety-rule
+    tag: estimation
+    source_url: https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule
+    see_also:
+      - hofstadters-law
+    en:
+      title: Ninety-Ninety Rule
+      concept: The Estimation Tail.
+      mechanism: |-
+        "The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time." The visible work hides a second, equally large body of integration, edge cases, and polish.
+      counter:
+        name: Demo on Real Data / Hard Definition of Done
+      guideline: |-
+        When something looks "almost done," assume an entire second project remains: the last-10% of hardening, edge cases, and integration. Schedule it explicitly instead of treating it as a rounding error.
+      source: |-
+        Tom Cargill (Bell Labs); popularized by Jon Bentley, *Programming Pearls* (CACM, 1985).
+    ja:
+      title: 90対90の法則
+      concept: 見積りの尾。
+      mechanism: |-
+        「最初の90%のコードが、開発時間の最初の90%を占める。残り10%のコードが、もう90%を占める。」目に見える作業は、同じ大きさの統合・エッジケース・仕上げという第二の塊を隠している。
+      counter:
+        name: 本番相当データでのデモ / 厳格な完了の定義
+      guideline: |-
+        「ほぼ完成」に見えたら、もう一つ丸ごとプロジェクトが残ると思え——最後の10%、すなわち堅牢化・エッジケース・統合。端数として無視せず、明示的にスケジュールに積め。
+      source: |-
+        Tom Cargill (Bell Labs); Jon Bentley が *Programming Pearls* (CACM, 1985) で広めた。
+
+  - slug: eaglesons-law
+    tag: maintainability
+    source_url: https://wiki.c2.com/?EaglesonsLaw
+    see_also:
+      - chestertons-fence
+      - kernighans-law
+    en:
+      title: Eagleson's Law
+      concept: Code Memory Decay.
+      mechanism: |-
+        "Any code of your own that you haven't looked at for six months might as well have been written by someone else." Your mental model of the code evaporates far faster than the code does; context is not stored in the source.
+      counter:
+        name: ADRs / Self-Explaining Code / Code Comments on the "Why"
+      guideline: |-
+        Write code and commit messages for the stranger you will become in six months. If a decision is not obvious from the code, record the *why* in a comment or an ADR — not just in your head.
+      source: |-
+        Programming folklore attributed to Peter Eagleson; a long-circulated adage among the catalogued "laws of software development."
+    ja:
+      title: イーグルソンの法則
+      concept: コードの記憶の減衰。
+      mechanism: |-
+        「半年見ていない自分のコードは、他人が書いたも同然である。」コードそのものより遥かに速く、頭の中のメンタルモデルは蒸発する。文脈はソースには保存されない。
+      counter:
+        name: ADR / 自己説明的なコード / 「なぜ」を記すコメント
+      guideline: |-
+        半年後に他人と化す自分のために、コードとコミットメッセージを書け。コードから自明でない判断は、その「なぜ」をコメントか ADR に残せ——頭の中だけに留めるな。
+      source: Peter Eagleson に帰される、プログラミングの口伝。カタログ化された「ソフトウェア開発の法則」群の一つとして長く流布。
+
+  - slug: hicks-law
+    tag: interaction
+    source_url: https://doi.org/10.1080/17470215208416600
+    see_also:
+      - millers-law
+      - fitts-law
+    en:
+      title: Hick's Law
+      concept: Choice Overload.
+      mechanism: |-
+        The time to make a decision grows logarithmically with the number of choices: **T = b·log₂(n+1)**. More options do not just add visual clutter — they measurably slow every user down.
+      counter:
+        name: Progressive Disclosure / Sensible Defaults
+      guideline: |-
+        Cut the number of choices on any screen or API surface to the few that matter; push the rest behind defaults and progressive disclosure. Fewer doors, faster decisions.
+      source: William E. Hick (1952) and Ray Hyman (1953) — the "Hick–Hyman Law."
+    ja:
+      title: ヒックの法則
+      concept: 選択肢過多。
+      mechanism: |-
+        決定にかかる時間は選択肢の数の対数で増える: **T = b·log₂(n+1)**。選択肢の増加は見た目を散らかすだけでなく、すべてのユーザーを計測可能なほど遅くする。
+      counter:
+        name: 段階的開示 / 妥当な既定値
+      guideline: 画面や API 表面の選択肢を、効くものだけに絞れ。残りは既定値と段階的開示の裏へ押しやれ。ドアが少ないほど、決定は速い。
+      source: William E. Hick (1952) と Ray Hyman (1953) — 「ヒック・ハイマンの法則」。
+
+  - slug: fitts-law
+    tag: interaction
+    source_url: https://doi.org/10.1037/h0055392
+    see_also:
+      - hicks-law
+    en:
+      title: Fitts's Law
+      concept: Target Acquisition Cost.
+      mechanism: |-
+        The time to move to a target depends on its distance and size: distant, small targets are slow and error-prone; near, large targets are fast. Pointing is a physical act with a measurable cost.
+      counter:
+        name: Edges & Corners / Sizing by Frequency
+      guideline: |-
+        Make frequent or destructive actions big and easy to hit; make rare or dangerous ones small and far. Screen edges and corners are effectively infinite targets — put primary actions there.
+      source: |-
+        Paul M. Fitts, *The Information Capacity of the Human Motor System in Controlling the Amplitude of Movement* (Journal of Experimental Psychology, 1954).
+    ja:
+      title: フィッツの法則
+      concept: 標的到達のコスト。
+      mechanism: |-
+        標的へ移動する時間は、その距離と大きさで決まる。遠く小さい標的は遅く誤りやすく、近く大きい標的は速い。ポインティングは計測可能なコストを持つ物理的行為である。
+      counter:
+        name: 端と角の活用 / 頻度に応じたサイズ設計
+      guideline: 頻用する操作や破壊的な操作は大きく当てやすく、稀な操作や危険な操作は小さく遠くに。画面の端と角は実質無限大の的である——主要な操作はそこに置け。
+      source: |-
+        Paul M. Fitts, *The Information Capacity of the Human Motor System in Controlling the Amplitude of Movement* (Journal of Experimental Psychology, 1954)。
+
+  - slug: millers-law
+    tag: cognition
+    source_url: https://doi.org/10.1037/h0043158
+    see_also:
+      - dunbars-number
+      - hicks-law
+    en:
+      title: Miller's Law
+      concept: Working-Memory Limit.
+      mechanism: |-
+        "The Magical Number Seven, Plus or Minus Two" — human working memory holds only about seven chunks at once. Cross that limit and recall collapses; the brain drops items rather than slowing down.
+      counter:
+        name: Chunking / Information Hiding
+      guideline: |-
+        Group related items into a handful of named chunks — phone-number style — wherever a person must hold state in their head: function arguments, form fields, menu groups, on-call steps.
+      source: |-
+        George A. Miller, *The Magical Number Seven, Plus or Minus Two* (Psychological Review, 1956).
+    ja:
+      title: ミラーの法則
+      concept: 作業記憶の限界。
+      mechanism: |-
+        「マジカルナンバー 7 ± 2」——人間の作業記憶が一度に保持できるのは約7チャンクのみ。その限界を超えると想起は崩壊する。脳は速度を落とすのではなく、項目を捨てる。
+      counter:
+        name: チャンク化 / 情報隠蔽
+      guideline: |-
+        人が頭の中で状態を保持しなければならない場所——関数の引数・フォーム項目・メニュー群・オンコール手順——では、関連する項目を電話番号のように少数の名前付きチャンクへまとめよ。
+      source: |-
+        George A. Miller, *The Magical Number Seven, Plus or Minus Two* (Psychological Review, 1956)。
+
+  - slug: fallacies-of-distributed-computing
+    tag: distributed-systems
+    source_url: https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+    see_also:
+      - postels-law
+      - murphys-law
+      - cap-theorem
+    en:
+      title: Fallacies of Distributed Computing
+      concept: The hidden assumptions of networked code.
+      mechanism: |-
+        Newcomers to distributed systems silently assume the network is reliable, latency is zero, bandwidth is infinite, the network is secure, topology is stable, there is one administrator, transport cost is zero, and the network is homogeneous. Every one of these eight assumptions fails in production.
+      counter:
+        name: Design for Failure
+        note: without gold-plating against impossible modes
+      guideline: |-
+        Before shipping any cross-process call, name which of the eight assumptions you are relying on and add an explicit timeout, retry, and failure path for each.
+      source: |-
+        L. Peter Deutsch (fallacies 5–7, 1994) and James Gosling (the 8th, ~1997), building on earlier work at Sun Microsystems.
+    ja:
+      title: 分散コンピューティングの誤謬
+      concept: ネットワーク越しのコードに潜む暗黙の仮定。
+      mechanism: |-
+        分散システムに不慣れな者は、ネットワークは信頼でき、遅延はゼロ、帯域は無限、通信は安全、構成は不変、管理者は一人、転送コストはゼロ、ネットワークは均質だと暗黙に仮定する。この8つの仮定はすべて本番で崩れる。
+      counter:
+        name: 失敗前提の設計
+        note: 起こり得ない故障への過剰武装は避けつつ
+      guideline: プロセス間呼び出しを出す前に、8つの仮定のどれに依存しているかを明示し、各々に明示的なタイムアウト・リトライ・失敗経路を与えよ。
+      source: |-
+        L. Peter Deutsch（誤謬 5〜7、1994年）と James Gosling（8つ目、1997年頃）——Sun Microsystems での先行研究に基づく。
+
+  - slug: ironies-of-automation
+    tag: safety
+    source_url: https://doi.org/10.1016/0005-1098(83)90046-8
+    see_also:
+      - normal-accident-theory
+    en:
+      title: Ironies of Automation
+      concept: Automation reshapes the human role rather than removing it.
+      mechanism: |-
+        Automating the routine parts of a task leaves the human only the rarest, hardest exceptions — while their manual skill and situational awareness atrophy from disuse, precisely at the moment a failing automated system hands control back to them.
+      counter:
+        name: Human-in-the-Loop Drills
+        note: better teaming, not less automation
+      guideline: |-
+        Keep operators sharp with regular game-days and hands-on drills, and design handoffs so a human takes over with context, not cold.
+      source: Lisanne Bainbridge, *Ironies of Automation* (Automatica, 1983).
+    ja:
+      title: 自動化の皮肉
+      concept: 自動化は人間の役割を消すのではなく作り変える。
+      mechanism: |-
+        作業の定型部分を自動化すると、人間には最も稀で難しい例外だけが残る——しかも使わぬ間に手作業の技能と状況認識は衰える。破綻した自動システムが制御を人へ返すのは、まさにその瞬間である。
+      counter:
+        name: 人間参加型の訓練
+        note: 自動化を減らすのではなく、協働を良くする
+      guideline: 定期的なゲームデーと実地訓練で運用者の勘を保て。引き継ぎは、文脈なく冷えた状態でなく、状況を保持したまま人が引き取れるよう設計せよ。
+      source: Lisanne Bainbridge, *Ironies of Automation* (Automatica, 1983)。
+
+  - slug: principle-of-least-privilege
+    tag: security
+    source_url: https://web.mit.edu/Saltzer/www/publications/protection/
+    see_also:
+      - kerckhoffs-principle
+    en:
+      title: Principle of Least Privilege
+      concept: Grant the minimum authority required.
+      mechanism: |-
+        Every component granted more authority than it strictly needs enlarges the blast radius of any bug, compromise, or accident, and multiplies the interactions an auditor must reason about.
+      counter:
+        name: Psychological Acceptability
+        note: over-restriction that users route around defeats itself
+      guideline: |-
+        Default every process, service account, and token to deny, then add only the minimal scopes the job provably needs; re-audit the grants whenever the job changes.
+      source: |-
+        Jerome Saltzer & Michael Schroeder, *The Protection of Information in Computer Systems* (Proceedings of the IEEE, 1975).
+    ja:
+      title: 最小権限の原則
+      concept: 必要最小限の権限だけを与える。
+      mechanism: 厳密に必要な以上の権限を与えられた要素は、あらゆるバグ・侵害・事故の被害範囲を広げ、監査者が考慮すべき相互作用を増やす。
+      counter:
+        name: 心理的受容性
+        note: 利用者が回避してしまうほどの過剰な制限は、自らを敗北させる
+      guideline: すべてのプロセス・サービスアカウント・トークンを既定で拒否とし、職務が証明できる最小限の権限だけを加えよ。職務が変わるたびに権限を再監査せよ。
+      source: |-
+        Jerome Saltzer & Michael Schroeder, *The Protection of Information in Computer Systems* (Proceedings of the IEEE, 1975)。
+
+  - slug: kerckhoffs-principle
+    tag: security
+    source_url: https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle
+    see_also:
+      - principle-of-least-privilege
+    en:
+      title: Kerckhoffs's Principle
+      concept: Security must not depend on the secrecy of the mechanism.
+      mechanism: |-
+        A cryptosystem should remain secure even if everything about it except the key is public. Secrecy of the algorithm is brittle: mechanisms leak, get reverse-engineered, and get reused across systems.
+      counter:
+        name: Defense in Depth
+        note: obscurity may be one thin extra layer, never the foundation
+      guideline: |-
+        Assume the attacker has your source and design. Put all of the secret in rotatable keys, and never rely on a hidden algorithm to protect anything.
+      source: |-
+        Auguste Kerckhoffs, *La cryptographie militaire* (Journal des sciences militaires, 1883).
+    ja:
+      title: ケルクホフスの原理
+      concept: 安全は仕組みの秘匿に依存してはならない。
+      mechanism: 暗号方式は、鍵以外のすべてが公開されても安全であるべきだ。アルゴリズムの秘匿は脆い——仕組みは漏れ、解析され、他システムで使い回される。
+      counter:
+        name: 多層防御
+        note: 秘匿は薄い一層としてなら許されるが、決して土台にはならない
+      guideline: 攻撃者は自分のソースと設計をすべて握っていると仮定せよ。秘密はすべて交換可能な鍵に置き、隠したアルゴリズムに防御を頼るな。
+      source: |-
+        Auguste Kerckhoffs, *La cryptographie militaire* (Journal des sciences militaires, 1883)。
+
+  - slug: gustafsons-law
+    tag: performance
+    source_url: https://doi.org/10.1145/42411.42415
+    see_also:
+      - amdahls-law
+    en:
+      title: Gustafson's Law
+      concept: Scaled speedup for growing problems.
+      mechanism: |-
+        For a fixed time budget, a larger machine lets you solve a proportionally larger problem, so the serial fraction shrinks with scale and speedup grows near-linearly — the optimistic counterpart to Amdahl's fixed-workload pessimism.
+      counter:
+        name: Amdahl's Law
+        note: for a fixed-size workload, the serial fraction still hard-caps speedup
+      guideline: |-
+        Before justifying more cores, ask whether the problem size grows with the hardware. If the workload is fixed, reason with Amdahl; if it scales, Gustafson applies.
+      source: |-
+        John L. Gustafson, *Reevaluating Amdahl's Law* (Communications of the ACM, 1988).
+    ja:
+      title: グスタフソンの法則
+      concept: 問題が拡大するときのスケール速度向上。
+      mechanism: |-
+        時間の予算を固定すれば、大きな計算機はそれに比例して大きな問題を解ける。ゆえに規模とともに逐次部分の割合は縮み、速度向上はほぼ線形に伸びる——固定作業量を前提とするアムダールの悲観に対する、楽観的な対の視点である。
+      counter:
+        name: アムダールの法則
+        note: 固定サイズの作業量では、逐次部分が依然として速度向上を頭打ちにする
+      guideline: |-
+        コア増設を正当化する前に、問題規模がハードウェアとともに大きくなるかを問え。作業量が固定ならアムダールで考え、規模とともに増えるならグスタフソンが効く。
+      source: |-
+        John L. Gustafson, *Reevaluating Amdahl's Law* (Communications of the ACM, 1988)。
+
+  - slug: tail-at-scale
+    tag: distributed-systems
+    source_url: https://doi.org/10.1145/2408776.2408794
+    see_also:
+      - littles-law
+    en:
+      title: The Tail at Scale
+      concept: Tail latency dominates at fan-out.
+      mechanism: |-
+        In a service that fans out to many components, rare per-node slowness (GC pauses, contention, a failing disk) is near-certain to hit some node on every request. So tail latency (p99, p99.9) governs the user experience even when medians look healthy.
+      counter:
+        name: Redundancy Has a Price
+        note: |-
+          hedged and tied requests add load; don't chase the tail where the median is what users feel
+      guideline: |-
+        Set SLOs on p99/p99.9, not the mean, and deploy tail-tolerance — hedged requests, micro-partitioning — instead of trying to make every node uniformly fast.
+      source: |-
+        Jeffrey Dean & Luiz André Barroso, *The Tail at Scale* (Communications of the ACM, 2013).
+    ja:
+      title: スケールの裾野
+      concept: 扇状展開では裾野のレイテンシが支配する。
+      mechanism: |-
+        多数の要素へ扇状に処理を広げるサービスでは、ノード単位の稀な遅延（GC 停止・競合・不良ディスク）がほぼ毎リクエストどこかのノードで発生する。ゆえに中央値が健全に見えても、裾野のレイテンシ（p99・p99.9）が体感を支配する。
+      counter:
+        name: 冗長化には代償がある
+        note: ヘッジドリクエストや連動リクエストは負荷を増やす。中央値が体感を決める場面で裾野を追うな
+      guideline: |-
+        平均ではなく p99／p99.9 で SLO を引け。すべてのノードを均一に速くしようとするより、ヘッジドリクエストやマイクロ分割といった裾野耐性の技法を導入せよ。
+      source: |-
+        Jeffrey Dean & Luiz André Barroso, *The Tail at Scale* (Communications of the ACM, 2013)。
+
+  - slug: ashbys-law
+    tag: systems
+    source_url: https://en.wikipedia.org/wiki/Variety_(cybernetics)
+    see_also:
+      - teslers-law
+      - normal-accident-theory
+    en:
+      title: Ashby's Law of Requisite Variety
+      concept: Only variety can absorb variety.
+      mechanism: |-
+        A controller can regulate a system only if it can match the variety of states that system can produce. Under-powered control simply cannot cope with a sufficiently rich environment.
+      counter:
+        name: Constrain the Environment
+        note: excess control variety is itself cost and complexity
+      guideline: |-
+        When incidents keep escaping your alerts and runbooks, either add matching response capability or deliberately shrink the system's state space: fewer configurations, stricter inputs.
+      source: W. Ross Ashby, *An Introduction to Cybernetics* (Chapman & Hall, 1956).
+    ja:
+      title: アシュビーの必要多様性の法則
+      concept: 多様性のみが多様性を吸収する。
+      mechanism: |-
+        制御装置が系を調整できるのは、その系が生み出しうる状態の多様性に匹敵できる場合のみである。力不足の制御は、十分に豊かな環境にはそもそも対処できない。
+      counter:
+        name: 環境そのものを制約する
+        note: 制御側の過剰な多様性は、それ自体がコストと複雑さである
+      guideline: 障害がアラートや手順書を繰り返しすり抜けるなら、対応能力を多様性に見合うまで増やすか、設定を減らし入力を厳しくして系の状態空間を意図的に縮めよ。
+      source: W. Ross Ashby, *An Introduction to Cybernetics* (Chapman & Hall, 1956)。
+
+  - slug: law-of-demeter
+    tag: maintainability
+    source_url: https://doi.org/10.1109/52.35588
+    see_also:
+      - leaky-abstractions
+    en:
+      title: Law of Demeter
+      concept: Principle of Least Knowledge.
+      mechanism: |-
+        An object that reaches through other objects' internals (`a.getB().getC().doThing()`) couples itself to the entire dependency chain, so a change anywhere along that chain ripples back and breaks it.
+      counter:
+        name: Pragmatism over Dogma
+        note: strict application breeds forwarding and wrapper bloat
+      guideline: |-
+        Only call methods on your direct collaborators, your arguments, objects you create, and your own fields. If you are chaining getters, add a method to the object that owns the data.
+      source: |-
+        Karl Lieberherr & Ian Holland, *Assuring Good Style for Object-Oriented Programs* (IEEE Software, 1989).
+    ja:
+      title: デメテルの法則
+      concept: 最小知識の原則。
+      mechanism: |-
+        他オブジェクトの内部を辿って呼び出すコード（`a.getB().getC().doThing()`）は、依存の連鎖全体に自らを結びつける。ゆえにその連鎖のどこかの変更が波及して壊れる。
+      counter:
+        name: 教条より実用
+        note: 厳格な適用は転送メソッドとラッパーの肥大を招く
+      guideline: |-
+        呼んでよいのは、直接の協力者・引数・自分が生成したもの・自分のフィールドのメソッドだけ。getter を数珠つなぎにしているなら、データを持つオブジェクト側にメソッドを足せ。
+      source: |-
+        Karl Lieberherr & Ian Holland, *Assuring Good Style for Object-Oriented Programs* (IEEE Software, 1989)。
+
+  - slug: jevons-paradox
+    tag: incentives
+    source_url: https://en.wikipedia.org/wiki/Jevons_paradox
+    see_also:
+      - cobra-effect
+      - wirths-law
+    en:
+      title: Jevons Paradox
+      concept: Efficiency can increase total consumption.
+      mechanism: |-
+        Making a resource cheaper to use per unit lowers its effective price and can raise total consumption instead of lowering it — the efficiency gain is spent on more usage rather than banked as savings.
+      counter:
+        name: Cap the Rebound
+        note: |-
+          pair efficiency with a quota, cap, or price signal to actually capture the savings
+      guideline: |-
+        When you make something cheaper — compute, storage, an internal API — expect demand to balloon; provision and budget for the rebound instead of assuming a net reduction.
+      source: William Stanley Jevons, *The Coal Question* (1865).
+    ja:
+      title: ジェヴォンズのパラドックス
+      concept: 効率化が総消費を増やしうる。
+      mechanism: 資源の単位あたり利用を安くすると実効価格が下がり、総消費はむしろ増えうる——効率化で浮いた分は、節約として貯まらず、さらなる利用に費やされる。
+      counter:
+        name: 反動に上限を設ける
+        note: 効率化には割当・上限・価格シグナルを組み合わせ、節約を実際に回収せよ
+      guideline: 計算資源・ストレージ・社内 API など何かを安くしたら、需要が膨らむと見込め。純減を前提にせず、反動を織り込んで容量と予算を確保せよ。
+      source: William Stanley Jevons, *The Coal Question* (1865)。
+
+  - slug: normal-accident-theory
+    tag: safety
+    source_url: https://en.wikipedia.org/wiki/Normal_Accidents
+    see_also:
+      - normalization-of-deviance
+      - swiss-cheese-model
+      - ironies-of-automation
+      - ashbys-law
+    en:
+      title: Normal Accident Theory
+      concept: In some systems, accidents are structural.
+      mechanism: |-
+        In systems that are both interactively complex and tightly coupled, small independent failures interact in ways no designer anticipated and propagate faster than operators can intervene — so accidents become a property of the structure, not bad luck.
+      counter:
+        name: High-Reliability Organizations
+        note: culture, slack, and decoupling measurably beat fatalism
+      guideline: |-
+        Reduce coupling — add buffers, timeouts, bulkheads, and circuit breakers — and cut complexity before adding more safety interlocks, which themselves add interactions.
+      source: |-
+        Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984).
+    ja:
+      title: 通常事故理論
+      concept: ある種の系では、事故は構造的なものである。
+      mechanism: |-
+        相互作用的に複雑で、かつ密結合な系では、独立した小さな故障が設計者の予見しない形で相互作用し、運用者が介入するより速く伝播する——ゆえに事故は不運ではなく、構造の性質となる。
+      counter:
+        name: 高信頼性組織（HRO）
+        note: 文化・余裕・疎結合は、宿命論に測定可能な形で勝る
+      guideline: |-
+        バッファ・タイムアウト・隔壁・サーキットブレーカで結合を緩め、複雑さを削れ。安全連動装置を足すのはその後だ——連動装置自体もまた相互作用を増やす。
+      source: |-
+        Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984)。

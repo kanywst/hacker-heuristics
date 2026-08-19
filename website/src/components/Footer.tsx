@@ -1,11 +1,7 @@
-'use client';
-
-import { useLanguage } from './LanguageContext';
 import { translations } from '@/translations';
+import type { Locale } from '@/data/laws';
 
-export default function Footer() {
-  const { lang } = useLanguage();
-
+export default function Footer({ lang }: { lang: Locale }) {
   return (
     <footer className="border-t border-hairline py-16 text-center">
       <div className="rule-diamond mx-auto mb-6 w-24">

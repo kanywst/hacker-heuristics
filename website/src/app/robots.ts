@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const SITE_URL = 'https://kanywst.github.io/hammurabi';
+import { SITE_URL } from '@/lib/site';
 
 // Required for `output: 'export'` — emit a static robots.txt at build time.
 export const dynamic = 'force-static';

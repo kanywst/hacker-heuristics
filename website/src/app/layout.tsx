@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
-import { LanguageProvider } from '@/components/LanguageContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import BackToTop from '@/components/BackToTop';
 import { translations } from '@/translations';
+import {
+  alternatesFor,
+  DEFAULT_LOCALE,
+  HTML_LANG,
+  OG_LOCALE,
+  SITE_URL,
+  urlFor,
+} from '@/lib/site';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -20,54 +24,32 @@ const manrope = Manrope({
   variable: '--font-body-sans',
 });
 
-const SITE_URL = 'https://kanywst.github.io/hammurabi';
-const SITE_TITLE = 'Hammurabi — Laws Every Engineer Should Know';
-const SITE_DESCRIPTION =
-  'A codex of engineering laws, each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.';
+const copy = translations[DEFAULT_LOCALE].ui;
 const SITE_IMAGE = `${SITE_URL}/banner.jpg`;
-
-const CODEX_JSON_LD = {
-  '@context': 'https://schema.org',
-  '@type': 'DefinedTermSet',
-  name: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  url: SITE_URL,
-  hasDefinedTerm: translations.en.heuristics.map((h, i) => ({
-    '@type': 'DefinedTerm',
-    '@id': `${SITE_URL}/#law-${String(i + 1).padStart(2, '0')}`,
-    name: h.title,
-    description: h.mechanism,
-    termCode: `§ ${String(i + 1).padStart(2, '0')}`,
-    inDefinedTermSet: SITE_URL,
-  })),
-};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: SITE_URL,
+  title: {
+    default: copy.metaTitle,
+    template: '%s — Hammurabi',
   },
+  description: copy.metaDescription,
+  alternates: alternatesFor(DEFAULT_LOCALE),
   openGraph: {
     type: 'website',
     siteName: 'Hammurabi',
-    url: SITE_URL,
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    url: urlFor(DEFAULT_LOCALE),
+    locale: OG_LOCALE[DEFAULT_LOCALE],
+    title: copy.metaTitle,
+    description: copy.metaDescription,
     images: [
-      {
-        url: SITE_IMAGE,
-        width: 1600,
-        height: 643,
-        alt: SITE_TITLE,
-      },
+      { url: SITE_IMAGE, width: 1600, height: 643, alt: copy.metaTitle },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: copy.metaTitle,
+    description: copy.metaDescription,
     images: [SITE_IMAGE],
   },
 };
@@ -77,22 +59,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // One root layout owns <html> for every route, so this is the default locale.
+  // Per-route correction happens in two places: scripts/postbuild.mjs rewrites
+  // the exported Japanese documents, and <HtmlLang> handles client navigation.
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html
+      lang={HTML_LANG[DEFAULT_LOCALE]}
+      className={`${fraunces.variable} ${manrope.variable}`}
+    >
       <body className="antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(CODEX_JSON_LD) }}
-        />
         <div className="stele-wash" />
         <div className="stele-rules" />
         <div className="grain" />
-        <LanguageProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <BackToTop />
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   );
