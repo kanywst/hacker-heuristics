@@ -23,6 +23,24 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      # `release-as` in the config is a one-shot: it pins the next release to a
+      # chosen version, and then pins every release after it to the same version
+      # until somebody remembers to take it out. Nobody remembers. So once the
+      # pinned version is the version we are already on, this fails loudly
+      # instead of silently refusing to move.
+      - name: Fail if the version pin has already shipped
+        run: |
+          pin=$(jq -r '.packages["."]["release-as"] // empty' .github/release-please-config.json)
+          current=$(jq -r '.["."]' .github/.release-please-manifest.json)
+          if [ -n "$pin" ] && [ "$pin" = "$current" ]; then
+            echo "::error file=.github/release-please-config.json::release-as \"$pin\" has already shipped. Remove it so the next version is computed from the commits again."
+            exit 1
+          fi
+
       - uses: googleapis/release-please-action@v4
         with:
           config-file: .github/release-please-config.json

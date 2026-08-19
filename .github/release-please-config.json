@@ -14,7 +14,8 @@
   ],
   "packages": {
     ".": {
-      "package-name": "hammurabi"
+      "package-name": "hammurabi",
+      "release-as": "1.0.0"
     }
   }
 }
