@@ -3,7 +3,7 @@
 A codex of engineering laws — each with its counter-force, a field guideline, and a source.
 
 [![stars](https://img.shields.io/github/stars/kanywst/hammurabi?style=for-the-badge&color=c2884a&labelColor=0c0b08)](https://github.com/kanywst/hammurabi/stargazers)
-[![laws](https://img.shields.io/badge/laws-56-c2884a?style=for-the-badge&labelColor=0c0b08)](#the-codex)
+[![laws](https://img.shields.io/badge/laws-71-c2884a?style=for-the-badge&labelColor=0c0b08)](#the-codex)
 [![site](https://img.shields.io/badge/read-the%20codex-e0aa6b?style=for-the-badge&labelColor=0c0b08)](https://kanywst.github.io/hammurabi/)
 [![license](https://img.shields.io/badge/content-CC%20BY--SA%204.0-a39884?style=for-the-badge&labelColor=0c0b08)](./LICENSE)
 
@@ -101,6 +101,21 @@ The `§` number is a stable display label, assigned in file order. The permanent
 | `54` | [Law of Demeter](#law-of-demeter) | Maintainability | Principle of Least Knowledge. |
 | `55` | [Jevons Paradox](#jevons-paradox) | Incentives | Efficiency can increase total consumption. |
 | `56` | [Normal Accident Theory](#normal-accident-theory) | Safety | In some systems, accidents are structural. |
+| `57` | [Broken Windows Theory](#broken-windows-theory) | Safety | Visible disorder invites more disorder. |
+| `58` | [YAGNI](#yagni) | Maintainability | You aren't gonna need it — build for the case in front of you. |
+| `59` | [KISS Principle](#kiss-principle) | Maintainability | Simple enough to be repaired under bad conditions. |
+| `60` | [DRY Principle](#dry-principle) | Maintainability | Every piece of knowledge has one authoritative representation. |
+| `61` | [Theory of Constraints](#theory-of-constraints) | Performance | Throughput is set by exactly one constraint at a time. |
+| `62` | [Occam's Razor](#occams-razor) | Cognition | Prefer the explanation that requires the fewest new assumptions. |
+| `63` | [Single Responsibility Principle](#single-responsibility-principle) | Maintainability | A module should have one reason to change. The S in SOLID. |
+| `64` | [Principle of Least Astonishment](#principle-of-least-astonishment) | Interaction | A component should behave the way its users already expect. |
+| `65` | [Second-System Effect](#second-system-effect) | Systems | The second system a person designs is the most dangerous one. |
+| `66` | [Moore's Law](#moores-law) | Performance | Transistors per chip double on a regular cadence. |
+| `67` | [Amara's Law](#amaras-law) | Estimation | Overestimated in the short run, underestimated in the long run. |
+| `68` | [The Bitter Lesson](#the-bitter-lesson) | Systems | General methods that scale with computation beat handcrafted knowledge. |
+| `69` | [Metcalfe's Law](#metcalfes-law) | Systems | A network's value grows faster than its size. |
+| `70` | [Ringelmann Effect](#ringelmann-effect) | Organization | Effort per person falls as the group grows. |
+| `71` | [Shirky Principle](#shirky-principle) | Incentives | Institutions will try to preserve the problem to which they are the solution. |
 
 ### Type 1 vs Type 2 Decisions
 
@@ -122,7 +137,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Broken Windows Theory**.
 - **Guideline:** If you see a "hack" or a bypassed alert, do not say "it worked before." Either fix it immediately or document it as high-priority technical debt.
 - **Source:** Diane Vaughan, *The Challenger Launch Decision* (1996) — coined while analyzing the NASA Challenger disaster. — [source ↗](https://en.wikipedia.org/wiki/Normalization_of_deviance)
-- **See also:** [Swiss Cheese Model](#swiss-cheese-model) · [Normal Accident Theory](#normal-accident-theory) · [Boy Scout Rule](#boy-scout-rule) · [Normalcy Bias](#normalcy-bias)
+- **See also:** [Swiss Cheese Model](#swiss-cheese-model) · [Normal Accident Theory](#normal-accident-theory) · [Boy Scout Rule](#boy-scout-rule) · [Normalcy Bias](#normalcy-bias) · [Broken Windows Theory](#broken-windows-theory)
 
 ### Chesterton's Fence
 
@@ -133,7 +148,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **YAGNI (You Ain't Gonna Need It)**.
 - **Guideline:** You are forbidden from removing a "fence" (code/rule) until you can explain exactly why it was put there in the first place.
 - **Source:** G. K. Chesterton, *The Thing* (1929) — the original parable of the fence in the road. — [source ↗](https://www.chesterton.org/taking-a-fence-down/)
-- **See also:** [Eagleson's Law](#eaglesons-law)
+- **See also:** [Eagleson's Law](#eaglesons-law) · [YAGNI](#yagni)
 
 ### Normalcy Bias
 
@@ -144,7 +159,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Pre-mortem / Red Teaming**.
 - **Guideline:** When an error occurs, ask: "If this were the start of a total system collapse, what would the next 10 minutes look like?" If that scares you, investigate now.
 - **Source:** Disaster psychology literature; widely surveyed in Amanda Ripley, *The Unthinkable* (2008). — [source ↗](https://en.wikipedia.org/wiki/Normalcy_bias)
-- **See also:** [Murphy's Law](#murphys-law) · [Normalization of Deviance](#normalization-of-deviance)
+- **See also:** [Murphy's Law](#murphys-law) · [Normalization of Deviance](#normalization-of-deviance) · [Occam's Razor](#occams-razor)
 
 ### Law of Triviality
 
@@ -166,7 +181,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **The MVP (Minimum Viable Product)**.
 - **Guideline:** A complex system that works is invariably found to have evolved from a simple system that worked. Start with a working "Hello World" and evolve.
 - **Source:** John Gall, *Systemantics: How Systems Really Work and How They Fail* (1975). — [source ↗](https://en.wikipedia.org/wiki/John_Gall_(author))
-- **See also:** [Worse is Better](#worse-is-better)
+- **See also:** [Worse is Better](#worse-is-better) · [YAGNI](#yagni) · [Second-System Effect](#second-system-effect)
 
 ### Conway's Law
 
@@ -177,7 +192,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Inverse Conway Maneuver**.
 - **Guideline:** If you want a modular architecture, create modular, independent teams first. Do not fight the org chart with code.
 - **Source:** Melvin E. Conway, *How Do Committees Invent?* (Datamation, April 1968). — [source ↗](https://www.melconway.com/Home/Committees_Paper.html)
-- **See also:** [Dunbar's Number](#dunbars-number) · [Brooks' Law](#brooks-law)
+- **See also:** [Dunbar's Number](#dunbars-number) · [Brooks' Law](#brooks-law) · [Single Responsibility Principle](#single-responsibility-principle)
 
 ### Hyrum's Law
 
@@ -188,7 +203,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Chaos Engineering**.
 - **Guideline:** "Internal" doesn't exist once you have users. Assume every change is breaking. Use strict versioning and feature flags.
 - **Source:** Hyrum Wright, *hyrumslaw.com*; canonicalized in *Software Engineering at Google* (Winters, Manshreck, Wright, 2020). — [source ↗](https://www.hyrumslaw.com/)
-- **See also:** [Postel's Law](#postels-law)
+- **See also:** [Postel's Law](#postels-law) · [Principle of Least Astonishment](#principle-of-least-astonishment)
 
 ### Brooks' Law
 
@@ -199,7 +214,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Scope Cutting**.
 - **Guideline:** If a project is late, do not add people. Remove features or push the date.
 - **Source:** Fred Brooks, *The Mythical Man-Month* (1975, anniversary edition 1995). — [source ↗](https://en.wikipedia.org/wiki/Brooks%27s_law)
-- **See also:** [Conway's Law](#conways-law) · [Dunbar's Number](#dunbars-number)
+- **See also:** [Conway's Law](#conways-law) · [Dunbar's Number](#dunbars-number) · [Second-System Effect](#second-system-effect)
 
 ### XY Problem
 
@@ -232,7 +247,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Psychological Safety**.
 - **Guideline:** Never attribute to malice that which is adequately explained by stupidity or lack of context. Focus on the system, not the person.
 - **Source:** Robert J. Hanlon, contributed to *Murphy's Law Book Two* (Arthur Bloch, 1980). — [source ↗](https://en.wikipedia.org/wiki/Hanlon%27s_razor)
-- **See also:** [Bystander Effect](#bystander-effect)
+- **See also:** [Bystander Effect](#bystander-effect) · [Occam's Razor](#occams-razor)
 
 ### Hofstadter's Law
 
@@ -254,7 +269,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Balanced Scorecards**.
 - **Guideline:** Never use a single metric to judge performance. Observe the system's output, not its proxies.
 - **Source:** Charles Goodhart, *Problems of Monetary Management* (1975); reformulated by Marilyn Strathern (1997). — [source ↗](https://en.wikipedia.org/wiki/Goodhart%27s_law)
-- **See also:** [Cobra Effect](#cobra-effect)
+- **See also:** [Cobra Effect](#cobra-effect) · [Shirky Principle](#shirky-principle)
 
 ### Lindy Effect
 
@@ -265,7 +280,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Hype Cycle Analysis**.
 - **Guideline:** If you need a stable system for 10 years, choose a technology that has already been around for 10 years (e.g., PostgreSQL over a new NoSQL).
 - **Source:** Coined by Albert Goldman (*New Republic*, 1964); formalized by Benoit Mandelbrot and popularized by Nassim Taleb, *Antifragile* (2012). — [source ↗](https://en.wikipedia.org/wiki/Lindy_effect)
-- **See also:** [Worse is Better](#worse-is-better)
+- **See also:** [Worse is Better](#worse-is-better) · [Amara's Law](#amaras-law)
 
 ### Sunk Cost Fallacy
 
@@ -287,7 +302,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **First Principles Thinking**.
 - **Guideline:** Do not adopt a tool/process because Google uses it. Adopt it because you have the exact problem Google had at that scale.
 - **Source:** Richard P. Feynman, *Cargo Cult Science* (Caltech commencement address, 1974). — [source ↗](https://calteches.library.caltech.edu/51/2/CargoCult.htm)
-- **See also:** [Survivorship Bias](#survivorship-bias)
+- **See also:** [Survivorship Bias](#survivorship-bias) · [The Bitter Lesson](#the-bitter-lesson)
 
 ### Amdahl's Law
 
@@ -298,7 +313,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Theory of Constraints**.
 - **Guideline:** Find the 1% of the code that takes 90% of the time. Only optimize that. Ignore the rest.
 - **Source:** Gene Amdahl, *Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities* (AFIPS, 1967). — [source ↗](https://doi.org/10.1145/1465482.1465560)
-- **See also:** [Gustafson's Law](#gustafsons-law) · [Premature Optimization](#premature-optimization)
+- **See also:** [Gustafson's Law](#gustafsons-law) · [Premature Optimization](#premature-optimization) · [Theory of Constraints](#theory-of-constraints)
 
 ### Law of Leaky Abstractions
 
@@ -331,7 +346,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Failure Studies / Post-mortem Culture**.
 - **Guideline:** Before adopting a strategy because "Company X succeeded with it," research how many companies failed using the same approach. The dead don't write blog posts.
 - **Source:** Abraham Wald, *A Method of Estimating Plane Vulnerability* (SRG Memo, 1943) — the WWII bomber-armor analysis. — [source ↗](https://en.wikipedia.org/wiki/Survivorship_bias)
-- **See also:** [Cargo Cult Engineering](#cargo-cult-engineering)
+- **See also:** [Cargo Cult Engineering](#cargo-cult-engineering) · [Amara's Law](#amaras-law)
 
 ### Kernighan's Law
 
@@ -342,7 +357,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **KISS (Keep It Simple, Stupid)**.
 - **Guideline:** Code "cleverness" is a liability, not an asset. Write code that your future self, sleep-deprived at 3 AM, can still understand in 6 months.
 - **Source:** Brian W. Kernighan & P. J. Plauger, *The Elements of Programming Style*, 2nd ed. (1978). — [source ↗](https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style)
-- **See also:** [Eagleson's Law](#eaglesons-law)
+- **See also:** [Eagleson's Law](#eaglesons-law) · [KISS Principle](#kiss-principle)
 
 ### Cobra Effect
 
@@ -364,7 +379,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Two-Pizza Rule / Team Topologies**.
 - **Guideline:** When a team exceeds 7±2 people, split it. If "information-sharing meetings" start multiplying, that's the symptom of exceeding the cognitive limit.
 - **Source:** Robin I. M. Dunbar, *Neocortex size as a constraint on group size in primates* (Journal of Human Evolution, 1992). — [source ↗](https://doi.org/10.1016/0047-2484(92)90081-J)
-- **See also:** [Conway's Law](#conways-law) · [Brooks' Law](#brooks-law) · [Miller's Law](#millers-law)
+- **See also:** [Conway's Law](#conways-law) · [Brooks' Law](#brooks-law) · [Miller's Law](#millers-law) · [Metcalfe's Law](#metcalfes-law) · [Ringelmann Effect](#ringelmann-effect)
 
 ### Worse is Better
 
@@ -375,7 +390,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **The Right Thing / Perfectionism**.
 - **Guideline:** A solution that is 80% correct and ships today will outperform a 100% correct solution that ships next year. Optimize for adoption, not elegance.
 - **Source:** Richard P. Gabriel, *Lisp: Good News, Bad News, How to Win Big* (1991) — the "Worse is Better" essay. — [source ↗](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
-- **See also:** [Gall's Law](#galls-law) · [Lindy Effect](#lindy-effect)
+- **See also:** [Gall's Law](#galls-law) · [Lindy Effect](#lindy-effect) · [Second-System Effect](#second-system-effect)
 
 ### Cunningham's Law
 
@@ -397,7 +412,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Explicit Role Assignment / Incident Commander**.
 - **Guideline:** Never say "Can someone look at this?" Instead, say "@name, you are investigating this." Assign a single, named owner for every incident.
 - **Source:** John M. Darley & Bibb Latané, *Bystander Intervention in Emergencies: Diffusion of Responsibility* (JPSP, 1968). — [source ↗](https://doi.org/10.1037/h0025589)
-- **See also:** [Hanlon's Razor](#hanlons-razor)
+- **See also:** [Hanlon's Razor](#hanlons-razor) · [Ringelmann Effect](#ringelmann-effect)
 
 ### Murphy's Law
 
@@ -419,7 +434,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Incremental Hygiene / Opportunistic Refactoring**.
 - **Guideline:** Always leave the code cleaner than you found it. A one-line rename, a clearer comment, a deleted dead branch — small enough to ship in the same PR, large enough to bend the entropy curve over months.
 - **Source:** Adapted from a Boy Scouts of America campsite rule; applied to code in Robert C. Martin, *Clean Code* (2008). — [source ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
-- **See also:** [Normalization of Deviance](#normalization-of-deviance)
+- **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Broken Windows Theory](#broken-windows-theory)
 
 ### Tesler's Law
 
@@ -452,7 +467,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **User Testing / Onboarding Buddies / Documentation Reviewers Outside the Author's Team**.
 - **Guideline:** Before shipping documentation or a public API, have someone who has never touched the system attempt the task while you watch silently. Their confusion points exactly at the assumptions you forgot to spell out.
 - **Source:** Colin Camerer, George Loewenstein & Martin Weber, *The Curse of Knowledge in Economic Settings: An Experimental Analysis* (Journal of Political Economy, 1989). — [source ↗](https://doi.org/10.1086/261651)
-- **See also:** [XY Problem](#xy-problem) · [Dunning-Kruger Effect](#dunning-kruger-effect)
+- **See also:** [XY Problem](#xy-problem) · [Dunning-Kruger Effect](#dunning-kruger-effect) · [Principle of Least Astonishment](#principle-of-least-astonishment)
 
 ### Swiss Cheese Model
 
@@ -507,7 +522,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Backpressure / Admission Control**.
 - **Guideline:** To cut latency (W) without adding capacity, cut work-in-progress (L). Cap concurrent requests — a shorter queue is faster than a faster server.
 - **Source:** John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961). — [source ↗](https://doi.org/10.1287/opre.9.3.383)
-- **See also:** [The Tail at Scale](#the-tail-at-scale)
+- **See also:** [The Tail at Scale](#the-tail-at-scale) · [Theory of Constraints](#theory-of-constraints)
 
 ### Two Generals Problem
 
@@ -529,7 +544,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Dual Career Ladders / Role-Specific Evaluation**.
 - **Guideline:** Do not promote your best engineer into management as a reward — it removes a great engineer and risks creating a poor manager. Offer a technical ladder, and evaluate candidates for the role above, not the one they already mastered.
 - **Source:** Laurence J. Peter & Raymond Hull, *The Peter Principle* (1969). — [source ↗](https://en.wikipedia.org/wiki/Peter_principle)
-- **See also:** [Dunning-Kruger Effect](#dunning-kruger-effect)
+- **See also:** [Dunning-Kruger Effect](#dunning-kruger-effect) · [Shirky Principle](#shirky-principle)
 
 ### Parkinson's Law
 
@@ -551,7 +566,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Performance Budgets / Lean Software**.
 - **Guideline:** Treat the speed a faster machine buys you as a budget to protect, not a license to spend. Set a performance budget and fail the build when a release regresses against it.
 - **Source:** Niklaus Wirth, *A Plea for Lean Software* (IEEE Computer, 1995). — [source ↗](https://doi.org/10.1109/2.348001)
-- **See also:** [Jevons Paradox](#jevons-paradox)
+- **See also:** [Jevons Paradox](#jevons-paradox) · [Moore's Law](#moores-law)
 
 ### Ninety-Ninety Rule
 
@@ -661,7 +676,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Amdahl's Law** — for a fixed-size workload, the serial fraction still hard-caps speedup.
 - **Guideline:** Before justifying more cores, ask whether the problem size grows with the hardware. If the workload is fixed, reason with Amdahl; if it scales, Gustafson applies.
 - **Source:** John L. Gustafson, *Reevaluating Amdahl's Law* (Communications of the ACM, 1988). — [source ↗](https://doi.org/10.1145/42411.42415)
-- **See also:** [Amdahl's Law](#amdahls-law)
+- **See also:** [Amdahl's Law](#amdahls-law) · [Moore's Law](#moores-law)
 
 ### The Tail at Scale
 
@@ -683,7 +698,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Constrain the Environment** — excess control variety is itself cost and complexity.
 - **Guideline:** When incidents keep escaping your alerts and runbooks, either add matching response capability or deliberately shrink the system's state space: fewer configurations, stricter inputs.
 - **Source:** W. Ross Ashby, *An Introduction to Cybernetics* (Chapman & Hall, 1956). — [source ↗](https://en.wikipedia.org/wiki/Variety_(cybernetics))
-- **See also:** [Tesler's Law](#teslers-law) · [Normal Accident Theory](#normal-accident-theory)
+- **See also:** [Tesler's Law](#teslers-law) · [Normal Accident Theory](#normal-accident-theory) · [KISS Principle](#kiss-principle)
 
 ### Law of Demeter
 
@@ -694,7 +709,7 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Counter:** **Pragmatism over Dogma** — strict application breeds forwarding and wrapper bloat.
 - **Guideline:** Only call methods on your direct collaborators, your arguments, objects you create, and your own fields. If you are chaining getters, add a method to the object that owns the data.
 - **Source:** Karl Lieberherr & Ian Holland, *Assuring Good Style for Object-Oriented Programs* (IEEE Software, 1989). — [source ↗](https://doi.org/10.1109/52.35588)
-- **See also:** [Law of Leaky Abstractions](#law-of-leaky-abstractions)
+- **See also:** [Law of Leaky Abstractions](#law-of-leaky-abstractions) · [DRY Principle](#dry-principle) · [Single Responsibility Principle](#single-responsibility-principle)
 
 ### Jevons Paradox
 
@@ -717,6 +732,171 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Guideline:** Reduce coupling — add buffers, timeouts, bulkheads, and circuit breakers — and cut complexity before adding more safety interlocks, which themselves add interactions.
 - **Source:** Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984). — [source ↗](https://en.wikipedia.org/wiki/Normal_Accidents)
 - **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Swiss Cheese Model](#swiss-cheese-model) · [Ironies of Automation](#ironies-of-automation) · [Ashby's Law of Requisite Variety](#ashbys-law-of-requisite-variety)
+
+### Broken Windows Theory
+
+`§ 57` · Safety
+
+- **Concept:** Visible disorder invites more disorder.
+- **Mechanism:** An unrepaired broken window signals that nobody is watching, which lowers the cost of the next violation. In a codebase, one tolerated hack, one skipped test and one permanently silenced alert together announce that the standard is optional.
+- **Counter:** **Repair Is Not Free** — attention spent on paint is attention not spent on the foundation, and the criminological evidence for the original claim is contested.
+- **Guideline:** Repair the first visible defect in a file you are already touching, and give every tolerated exception an owner and a date. Do not open a refactor for a window you are not standing next to.
+- **Source:** James Q. Wilson & George L. Kelling, *Broken Windows* (The Atlantic, March 1982). — [source ↗](https://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/)
+- **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Boy Scout Rule](#boy-scout-rule)
+
+### YAGNI
+
+`§ 58` · Maintainability
+
+- **Concept:** You aren't gonna need it — build for the case in front of you.
+- **Mechanism:** Speculative generality is paid for three times: writing the abstraction, carrying it while it is unused, and unpicking it when the anticipated requirement finally arrives in a different shape. Predictions about future requirements are usually wrong in exactly the details the abstraction fixed.
+- **Counter:** **Chesterton's Fence** — YAGNI licenses you not to build something; it never licenses you to delete something whose purpose you have not established.
+- **Guideline:** Implement the case you actually have. When you feel the pull to generalise, name the second concrete case first — if you cannot, you do not have a pattern, you have a guess.
+- **Source:** Ron Jeffries, Extreme Programming practice notes; named "You Aren't Gonna Need It" and popularised in Kent Beck, *Extreme Programming Explained* (1999). — [source ↗](https://ronjeffries.com/xprog/articles/practices/pracnotneed/)
+- **See also:** [Chesterton's Fence](#chestertons-fence) · [Gall's Law](#galls-law)
+
+### KISS Principle
+
+`§ 59` · Maintainability
+
+- **Concept:** Simple enough to be repaired under bad conditions.
+- **Mechanism:** "Keep it simple, stupid" came out of aircraft design, where the requirement was that a jet be repairable by an average mechanic in a field with basic tools. The test was never elegance — it was whether an ordinary person could fix it in the worst circumstances the thing would actually meet.
+- **Counter:** **Ashby's Law of Requisite Variety** — a system simpler than the problem it has to regulate cannot cope with it, and simplicity below that floor is displaced complexity rather than less of it.
+- **Guideline:** Judge a design by who can repair it at 3 AM, not by how it reads in review. If the on-call engineer needs the author on the call, it is not simple — it is familiar to one person.
+- **Source:** Attributed to Kelly Johnson at Lockheed's Skunk Works (c. 1960), as a field-maintainability requirement for combat aircraft. — [source ↗](https://en.wikipedia.org/wiki/KISS_principle)
+- **See also:** [Kernighan's Law](#kernighans-law) · [Ashby's Law of Requisite Variety](#ashbys-law-of-requisite-variety)
+
+### DRY Principle
+
+`§ 60` · Maintainability
+
+- **Concept:** Every piece of knowledge has one authoritative representation.
+- **Mechanism:** Duplicated knowledge drifts, because nothing forces the copies to change together. The cost is not the extra characters — it is that some future editor fixes one copy and ships a system that now quietly contradicts itself.
+- **Counter:** **Duplication Is Cheaper Than the Wrong Abstraction** — two blocks that merely look alike today will fight each other the moment they need to diverge.
+- **Guideline:** Deduplicate knowledge, not text. Before merging two similar blocks, ask whether they change for the same reason and at the request of the same person; if not, leave them apart.
+- **Source:** Andrew Hunt & David Thomas, *The Pragmatic Programmer* (Addison-Wesley, 1999) — "every piece of knowledge must have a single, unambiguous, authoritative representation within a system." — [source ↗](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+- **See also:** [Law of Demeter](#law-of-demeter) · [Single Responsibility Principle](#single-responsibility-principle)
+
+### Theory of Constraints
+
+`§ 61` · Performance
+
+- **Concept:** Throughput is set by exactly one constraint at a time.
+- **Mechanism:** Every chain has one weakest link. Improvement anywhere else raises local efficiency while total throughput stays flat — and often makes things worse, because the faster upstream stage simply piles more work in front of the real bottleneck.
+- **Counter:** **The Constraint Moves** — relieve one and another takes its place, so a process permanently optimised around yesterday's bottleneck starves at the new one.
+- **Guideline:** Find the constraint, exploit it fully before you buy capacity, and subordinate every other stage to it. Then measure again — you have just created a different bottleneck somewhere else.
+- **Source:** Eliyahu M. Goldratt & Jeff Cox, *The Goal: A Process of Ongoing Improvement* (North River Press, 1984). — [source ↗](https://en.wikipedia.org/wiki/Theory_of_constraints)
+- **See also:** [Amdahl's Law](#amdahls-law) · [Little's Law](#littles-law)
+
+### Occam's Razor
+
+`§ 62` · Cognition
+
+- **Concept:** Prefer the explanation that requires the fewest new assumptions.
+- **Mechanism:** Under incident pressure the mind reaches for the interesting hypothesis — a kernel bug, a bad disk, an attacker. The explanation requiring the fewest unverified assumptions is almost always the deploy that went out twenty minutes ago.
+- **Counter:** **Hickam's Dictum** — a system can carry several independent faults at once, and the simplest story that fits the symptoms is not automatically the true one.
+- **Guideline:** Rank your hypotheses by how many unverified assumptions each needs, and test the cheapest first. Ask "what changed?" before "what is broken?"
+- **Source:** Attributed to William of Ockham (c. 1287–1347); the shaving metaphor is a later gloss on his principle of parsimony, *entia non sunt multiplicanda praeter necessitatem*. — [source ↗](https://en.wikipedia.org/wiki/Occam%27s_razor)
+- **See also:** [Normalcy Bias](#normalcy-bias) · [Hanlon's Razor](#hanlons-razor)
+
+### Single Responsibility Principle
+
+`§ 63` · Maintainability
+
+- **Concept:** A module should have one reason to change. The S in SOLID.
+- **Mechanism:** When one module serves two audiences, their change requests arrive on different schedules and collide in the same file. Coupling is not really about calls between modules — it is about who is entitled to force you to edit them.
+- **Counter:** **Premature Decomposition** — splitting by imagined responsibilities produces a scatter of one-method classes and moves all the complexity into the wiring between them.
+- **Guideline:** Define responsibility by who asks for the change, not by what the code does. If two different people can each demand an edit to the same module, split it along that line and nowhere else.
+- **Source:** Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002); restated as "gather together the things that change for the same reason" in *Clean Architecture* (2017). — [source ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
+- **See also:** [DRY Principle](#dry-principle) · [Law of Demeter](#law-of-demeter) · [Conway's Law](#conways-law)
+
+### Principle of Least Astonishment
+
+`§ 64` · Interaction
+
+- **Concept:** A component should behave the way its users already expect.
+- **Mechanism:** Users arrive with a model assembled from every similar thing they have used. A behaviour that is defensible but surprising costs more than a behaviour that is slightly worse but predicted, because the surprise is paid again by every user, every time, forever.
+- **Counter:** **Astonishment Is Relative** — designing only for today's expectations freezes bad conventions in place; sometimes the right move is to surprise everyone once, loudly, with a migration path.
+- **Guideline:** When two designs are close, take the one that matches the convention your users already know — the flag name, the exit code, the sort order. Spend deliberate surprise only where you can afford to announce it.
+- **Source:** Long-standing folklore in language and interface design; stated explicitly in Michael F. Cowlishaw, *The Design of the REXX Language* (IBM Systems Journal, 1984). — [source ↗](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+- **See also:** [Hyrum's Law](#hyrums-law) · [Curse of Knowledge](#curse-of-knowledge)
+
+### Second-System Effect
+
+`§ 65` · Systems
+
+- **Concept:** The second system a person designs is the most dangerous one.
+- **Mechanism:** The first system is built cautiously, by someone unsure of the ground. Its success converts that caution into confidence, and every idea deferred the first time is loaded into the rewrite at once. The result is over-general, late, and frequently never ships at all.
+- **Counter:** **Gall's Law** — the answer is not to freeze the first system but to grow it — a rewrite that ships in slices is not a second system.
+- **Guideline:** When rewriting, carry forward the constraints and not just the wish list. Cut the deferred features to the two that actually blocked users, and replace the original one piece at a time.
+- **Source:** Fred Brooks, *The Mythical Man-Month* (Addison-Wesley, 1975), chapter 5. — [source ↗](https://en.wikipedia.org/wiki/Second-system_effect)
+- **See also:** [Brooks' Law](#brooks-law) · [Gall's Law](#galls-law) · [Worse is Better](#worse-is-better)
+
+### Moore's Law
+
+`§ 66` · Performance
+
+- **Concept:** Transistors per chip double on a regular cadence.
+- **Mechanism:** Moore's observation was economic rather than physical: the component count giving the lowest cost per component doubles about every two years. It held for half a century and quietly underwrote every plan that assumed hardware would rescue it — but single-thread performance stopped following it once Dennard scaling ended around 2005.
+- **Counter:** **Wirth's Law** — the gains get spent rather than banked, and clock speed stopped rising long before transistor counts did.
+- **Guideline:** Do not budget for the hardware bailing out a design. If the workload is single-threaded and latency-bound, next year's machine will not save it — you have to parallelise it or do less work.
+- **Source:** Gordon E. Moore, *Cramming More Components onto Integrated Circuits* (Electronics, 19 April 1965). — [source ↗](https://en.wikipedia.org/wiki/Moore%27s_law)
+- **See also:** [Wirth's Law](#wirths-law) · [Gustafson's Law](#gustafsons-law) · [The Bitter Lesson](#the-bitter-lesson)
+
+### Amara's Law
+
+`§ 67` · Estimation
+
+- **Concept:** Overestimated in the short run, underestimated in the long run.
+- **Mechanism:** A new technology is judged on a demo, which flatters it, and then adopted against an installed base, which resists it — so the first two years disappoint. The same compounding that made the early forecast wrong then runs for a decade in the other direction, and the ten-year forecast turns out to be wrong too, this time low.
+- **Counter:** **Some Things Simply Do Not Arrive** — survivorship makes the law look inevitable, because the technologies that never got a long run are not the ones quoted back at us.
+- **Guideline:** Discount two-year forecasts about a new technology and take ten-year ones seriously — but plan around the version that actually ships, not the one in the demo.
+- **Source:** Roy Amara, president of the Institute for the Future; attributed and circulated from the 1970s onward. — [source ↗](https://en.wikipedia.org/wiki/Roy_Amara)
+- **See also:** [Survivorship Bias](#survivorship-bias) · [Lindy Effect](#lindy-effect)
+
+### The Bitter Lesson
+
+`§ 68` · Systems
+
+- **Concept:** General methods that scale with computation beat handcrafted knowledge.
+- **Mechanism:** Across seven decades of AI research the approaches that won were search and learning scaled with available computation, not the ones that encoded human insight about the domain. Built-in knowledge helps in the short run and becomes the ceiling in the long run, because unlike computation it does not get cheaper every year.
+- **Counter:** **Compute Is Not Free** — inside a fixed budget domain knowledge is often the only lever you have, and the lesson describes the trajectory of a field rather than the right move this quarter.
+- **Guideline:** When choosing between encoding what you know and building something that learns from more data or more compute, ask which one improves on its own when the budget doubles. Bet on that one for anything with a multi-year horizon.
+- **Source:** Richard S. Sutton, *The Bitter Lesson* (13 March 2019). — [source ↗](https://web.archive.org/web/2024/http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+- **See also:** [Cargo Cult Engineering](#cargo-cult-engineering) · [Moore's Law](#moores-law)
+
+### Metcalfe's Law
+
+`§ 69` · Systems
+
+- **Concept:** A network's value grows faster than its size.
+- **Mechanism:** A network of n nodes has n(n−1)/2 possible connections, so its value was claimed to scale with n². The exponent is disputed — n log n fits real networks better — but the shape holds: each new node adds value to every existing node, which is why networks tip rather than grow smoothly.
+- **Counter:** **The Same Quadratic Is a Cost** — connections are an asset between users and a liability between colleagues; Brooks' Law is Metcalfe's Law with the sign flipped.
+- **Guideline:** For a product whose value comes from other users, spend early effort on the smallest network that is already useful to its own members, not on features. For a team, do the opposite and cut connections.
+- **Source:** Attributed to Robert Metcalfe (c. 1980); the n log n critique is Bob Briscoe, Andrew Odlyzko & Benjamin Tilly, *Metcalfe's Law is Wrong* (IEEE Spectrum, July 2006). — [source ↗](https://en.wikipedia.org/wiki/Metcalfe%27s_law)
+- **See also:** [Dunbar's Number](#dunbars-number)
+
+### Ringelmann Effect
+
+`§ 70` · Organization
+
+- **Concept:** Effort per person falls as the group grows.
+- **Mechanism:** Ringelmann had men pull a rope alone and in teams, and measured the force. Each additional person contributed less than they had alone — partly coordination loss, partly reduced individual effort once the contribution stopped being separable. It shows up wherever output is pooled and nobody can see who produced which part.
+- **Counter:** **Separable Contribution** — the effect is a property of how the work is measured rather than of the people; make the individual contribution legible and most of it disappears.
+- **Guideline:** Give every workstream one named owner and a visible output. If you cannot say who produced which part of a result, expect the group to produce less than the sum of its members.
+- **Source:** Maximilien Ringelmann, *Recherches sur les moteurs animés: Travail de l'homme* (Annales de l'Institut National Agronomique, 1913). — [source ↗](https://en.wikipedia.org/wiki/Ringelmann_effect)
+- **See also:** [Bystander Effect](#bystander-effect) · [Dunbar's Number](#dunbars-number)
+
+### Shirky Principle
+
+`§ 71` · Incentives
+
+- **Concept:** Institutions will try to preserve the problem to which they are the solution.
+- **Mechanism:** An organisation built to solve a problem draws its budget, headcount and status from that problem persisting. Nobody has to be cynical for this to work: the incentives simply never point at making the team unnecessary, so over time the solution quietly becomes an argument for the problem.
+- **Counter:** **Some Problems Are Permanent** — treating every long-lived team as self-serving destroys the ones doing necessary maintenance, which is invisible precisely when it is working.
+- **Guideline:** For any team or tool created to fix something, write down what "fixed" looks like and when you will check. A platform team that cannot describe its own obsolescence is optimising for its own survival.
+- **Source:** Clay Shirky, named and quoted in Kevin Kelly, *The Shirky Principle* (The Technium, 2010). — [source ↗](https://kk.org/thetechnium/the-shirky-prin/)
+- **See also:** [Goodhart's Law](#goodharts-law) · [Peter Principle](#peter-principle)
 
 <!-- CODEX:END -->
 
