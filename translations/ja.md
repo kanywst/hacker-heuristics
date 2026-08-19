@@ -431,9 +431,9 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 
 - **概念:** 継続的改善。
 - **メカニズム:** クリーンアップは常に「誰か別の人の仕事」になりがちで、コードベースは劣化していく。各エンジニアはエントロピー増加の影響だけ受けて、修正は「いつかのリファクタ」に先送りされ、それは結局来ない。
-- **対立概念:** **漸進的衛生管理 / 機会主義的リファクタリング**。
-- **判断の指針:** コードを来たときよりきれいにして去れ。1 行のリネーム、より明確なコメント、デッドコードの削除——同じ PR に含められる小ささで、月単位で見るとエントロピー曲線を曲げる大きさ。
-- **出典:** ボーイスカウト・アメリカのキャンプ場ルールが原典。コードへの応用は Robert C. Martin, *Clean Code* (2008)。 — [原典 ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
+- **対立概念:** **1つの差分に1つの理由** — 振る舞いの変更に清掃が相乗りすると変更そのものが隠れる。ついでに40箇所リネームした PR は、誰にもレビューされない。
+- **判断の指針:** コードを来たときよりきれいにして去れ。ただし清掃は、同じ差分の中で読み切れる大きさに留めよ——1行のリネーム、より明確なコメント、デッドコードの削除。それより大きいものは独立したコミットにせよ。
+- **出典:** Robert C. Martin『The Boy Scout Rule』(Kevlin Henney 編『97 Things Every Programmer Should Know』O'Reilly, 2010 所収)——ベーデン＝パウエルの「この世界を来たときより少しだけ良くして去れ」の翻案。『Clean Code』(2008) にも記述がある。 — [原典 ↗](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
 - **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [割れ窓理論 (Broken Windows Theory)](#割れ窓理論-broken-windows-theory)
 
 ### テスラーの複雑性保存則 (Tesler's Law)
@@ -807,7 +807,7 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **メカニズム:** 一つのモジュールが二つの利用者集団に仕える場合、彼らの変更要求は異なるスケジュールで届き、同じファイルの上で衝突する。結合とは本当はモジュール間の呼び出しの話ではない——「誰があなたにそのモジュールの編集を強制できるか」の話だ。
 - **対立概念:** **早すぎる分解** — 想像上の責務で分割すると、メソッド1個のクラスが散乱し、複雑さがすべてその間の配線に移るだけになる。
 - **判断の指針:** 責務は「コードが何をするか」ではなく「誰が変更を要求してくるか」で定義せよ。同じモジュールに対して別々の人物がそれぞれ編集を要求できるなら、その線でだけ分割せよ。
-- **出典:** Robert C. Martin『Agile Software Development: Principles, Patterns, and Practices』(2002)。『Clean Architecture』(2017) では「同じ理由で変わるものを集めよ」と言い換えられている。 — [原典 ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
+- **出典:** Robert C. Martin『Agile Software Development: Principles, Patterns, and Practices』(2002)。『The Single Responsibility Principle』(The Clean Code Blog, 2014年5月8日、本項のリンク先) で「モジュールはただ一人のアクターに対して責任を負う」と鋭くされ、『Clean Architecture』(2017) で再掲された。 — [原典 ↗](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
 - **関連:** [DRY 原則 (DRY Principle)](#dry-原則-dry-principle) · [デメテルの法則 (Law of Demeter)](#デメテルの法則-law-of-demeter) · [コンウェイの法則 (Conway's Law)](#コンウェイの法則-conways-law)
 
 ### 驚き最小の原則 (Principle of Least Astonishment)
