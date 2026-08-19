@@ -43,9 +43,10 @@ export default function HomePage({ lang }: { lang: Locale }) {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="eyebrow text-gold"
+          className="eyebrow text-carve-dim"
         >
-          § 01–{lastArticle} · {t.hero.tagLabel}
+          <span className="text-gold">§ 01–{lastArticle}</span> ·{' '}
+          {t.hero.tagLabel}
         </motion.p>
 
         <motion.h1
@@ -126,7 +127,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
         id="prologue"
         className="mx-auto max-w-3xl px-6 py-28 text-center"
       >
-        <p className="eyebrow text-gold">{t.ui.prologueLabel}</p>
+        <p className="eyebrow text-lapis-bright">{t.ui.prologueLabel}</p>
         <blockquote className="quoted display mt-8 text-2xl leading-snug text-carve sm:text-3xl">
           {t.ui.prologueQuote}
         </blockquote>
@@ -144,11 +145,11 @@ export default function HomePage({ lang }: { lang: Locale }) {
         id="about"
         className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center"
       >
-        <p className="eyebrow text-gold">{t.ui.epilogueLabel}</p>
+        <p className="eyebrow text-lapis-bright">{t.ui.epilogueLabel}</p>
         <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
           {t.ui.maxim}
         </blockquote>
-        <p className="eyebrow mt-8 text-gold">{t.ui.maximBy}</p>
+        <p className="eyebrow mt-8 text-carve-dim">{t.ui.maximBy}</p>
         <p className="quoted mt-12 max-w-2xl text-sm leading-relaxed text-carve-dim">
           {t.ui.epilogueCurse}
         </p>

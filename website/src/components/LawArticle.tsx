@@ -21,7 +21,7 @@ function Field({
 }) {
   return (
     <section className="border-t border-hairline pt-6 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-8">
-      <p className="eyebrow text-gold lg:pt-1 lg:text-right">{label}</p>
+      <p className="eyebrow text-lapis-bright lg:pt-1 lg:text-right">{label}</p>
       <div className="mt-3 text-base leading-relaxed text-carve-dim lg:mt-0">
         {children}
       </div>
