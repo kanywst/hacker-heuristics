@@ -1,8 +1,12 @@
 @import 'tailwindcss';
 
 /* The stele is polished black diorite, and the pigment Mesopotamia prized was
-   lapis. So the ground is cold stone rather than warm brown, blue carries the
-   structure, and gold is spent on one thing only: the article numeral. */
+   lapis. So the ground is cold stone rather than warm brown.
+   
+   Lapis carries structure: section labels, the IF and UNLESS operators, links,
+   focus. Gold marks an article — its § numeral wherever one appears — and the
+   THEN clause, which is the article's verdict. Nothing else is gold; the moment
+   it starts labelling things it stops meaning anything. */
 @theme {
   --color-ink: #0a0c10;
   --color-stone: #12151b;
@@ -221,8 +225,7 @@ body {
   font-variant-numeric: lining-nums;
 }
 
-/* The THEN clause — the verdict, and the only place gold appears besides the
-   article numeral. */
+/* The THEN clause — the article's verdict, and the reason gold exists here. */
 .directive {
   border-left: 2px solid var(--color-gold);
   background: rgba(201, 162, 39, 0.055);

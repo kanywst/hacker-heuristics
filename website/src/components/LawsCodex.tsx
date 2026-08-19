@@ -85,7 +85,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
   return (
     <section id="laws" className="mx-auto max-w-6xl px-6 py-28">
       <header className="mb-12 text-center">
-        <p className="eyebrow text-gold">Codex</p>
+        <p className="eyebrow text-lapis-bright">Codex</p>
         <h2 className="display mt-3 text-4xl text-carve sm:text-5xl">
           {t.ui.laws}
         </h2>
@@ -163,7 +163,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
                   >
                     <span aria-hidden>§</span> {article(law.number)}
                     {copied === law.slug ? (
-                      <Check className="h-4 w-4 text-gold" />
+                      <Check className="h-4 w-4 text-lapis-bright" />
                     ) : (
                       <Link2 className="h-4 w-4 opacity-0 transition-opacity group-hover/num:opacity-60 group-focus-visible/num:opacity-60" />
                     )}
@@ -211,7 +211,7 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
 
                 <div className="flex flex-col justify-end gap-3 border-t border-hairline pt-3">
                   <p className="text-xs text-carve-dim">
-                    <span className="text-gold">§</span>{' '}
+                    <span className="text-carve-dim">§</span>{' '}
                     <RichText>{text.source}</RichText>
                   </p>
                   <Link
