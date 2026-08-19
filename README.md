@@ -200,8 +200,8 @@ The `§` number is a stable display label, assigned in file order. The permanent
 
 - **Concept:** Implicit Contract.
 - **Mechanism:** With a sufficient number of users, every observable behavior of your system (even bugs) will be depended on by someone.
-- **Counter:** **Chaos Engineering**.
-- **Guideline:** "Internal" doesn't exist once you have users. Assume every change is breaking. Use strict versioning and feature flags.
+- **Counter:** **Deliberate Variance** — if every observable behaviour were sacred nothing could ever change, so vary what you never promised — randomised iteration order, planned outages — and the dependency never forms.
+- **Guideline:** "Internal" doesn't exist once you have users. Version and feature-flag what you promise; deliberately vary what you do not, so nobody can build on it in the first place.
 - **Source:** Hyrum Wright, *hyrumslaw.com*; canonicalized in *Software Engineering at Google* (Winters, Manshreck, Wright, 2020). — [source ↗](https://www.hyrumslaw.com/)
 - **See also:** [Postel's Law](#postels-law) · [Principle of Least Astonishment](#principle-of-least-astonishment)
 
@@ -452,8 +452,8 @@ The `§` number is a stable display label, assigned in file order. The permanent
 `§ 31` · Cognition
 
 - **Concept:** Metacognitive Blind Spots.
-- **Mechanism:** Lacking expertise in a domain also means lacking the meta-skill required to recognize one's own incompetence. Novices rate themselves at the same percentile as experts. True experts often *under*-rate themselves, because they assume others share their understanding.
-- **Counter:** **Calibrated Confidence / Structured Skill Assessment**.
+- **Mechanism:** Lacking expertise in a domain also means lacking the meta-skill required to recognize one's own incompetence. In the original study the bottom quartile scored around the 12th percentile and placed themselves near the 60th. Top performers *under*-rated themselves, because they assumed others found the task as easy as they did.
+- **Counter:** **Calibrated Confidence** — the effect is contested — much of the classic pattern is reproduced by regression to the mean in noisy self-assessment, so treat overconfidence as a prompt to check the record rather than as a diagnosis.
 - **Guideline:** When someone declares a hard problem "easy," check their domain history before trusting the estimate. During scoping, pair confident newcomers with quiet veterans and weight the quiet voice.
 - **Source:** Justin Kruger & David Dunning, *Unskilled and Unaware of It* (JPSP, 1999). — [source ↗](https://doi.org/10.1037/0022-3514.77.6.1121)
 - **See also:** [Curse of Knowledge](#curse-of-knowledge) · [Peter Principle](#peter-principle)

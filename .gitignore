@@ -36,3 +36,6 @@ next-env.d.ts
 .claude/
 CLAUDE.md
 CLAUDE.local.md
+
+# Playwright MCP screenshots and traces
+.playwright-mcp/

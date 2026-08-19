@@ -4,6 +4,7 @@ import { translations } from '@/translations';
 import { lawBySlug, tags, type Law, type Locale } from '@/data/laws';
 import { article, DATA_URL, routeFor } from '@/lib/site';
 import RichText from './RichText';
+import LawDiagram from './diagrams';
 
 function Field({
   label,
@@ -59,6 +60,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
       <div className="space-y-8">
         <Field label={t.law.mechanism}>
           <RichText>{text.mechanism}</RichText>
+          <LawDiagram slug={law.slug} lang={lang} />
         </Field>
 
         <Field label={t.law.counter}>
