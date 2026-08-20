@@ -25,19 +25,26 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          fetch-depth: 0
+          fetch-tags: true
           persist-credentials: false
 
       # `release-as` in the config is a one-shot: it pins the next release to a
       # chosen version, and then pins every release after it to the same version
-      # until somebody remembers to take it out. Nobody remembers. So once the
-      # pinned version is the version we are already on, this fails loudly
-      # instead of silently refusing to move.
+      # until somebody remembers to take it out. Nobody remembers, so this says
+      # so out loud.
+      #
+      # The test is whether the tag exists, not whether the manifest matches.
+      # release-please bumps the manifest inside the release pull request, so by
+      # the time this runs on main the two are always equal — comparing them
+      # blocked the very run that creates the tag. The tag does not exist until
+      # that run succeeds, so testing for it fires on the next push instead,
+      # which is when the pin has genuinely outlived its purpose.
       - name: Fail if the version pin has already shipped
         run: |
           pin=$(jq -r '.packages["."]["release-as"] // empty' .github/release-please-config.json)
-          current=$(jq -r '.["."]' .github/.release-please-manifest.json)
-          if [ -n "$pin" ] && [ "$pin" = "$current" ]; then
-            echo "::error file=.github/release-please-config.json::release-as \"$pin\" has already shipped. Remove it so the next version is computed from the commits again."
+          if [ -n "$pin" ] && git rev-parse -q --verify "refs/tags/v$pin" >/dev/null; then
+            echo "::error file=.github/release-please-config.json::release-as \"$pin\" shipped as tag v$pin. Remove it so the next version is computed from the commits again."
             exit 1
           fi
 
