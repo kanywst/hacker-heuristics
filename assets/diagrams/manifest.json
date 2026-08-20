@@ -1,0 +1,62 @@
+{
+  "conways-law": {
+    "en": {
+      "title": "Two team structures and the two architectures they produce",
+      "caption": "The architecture is downstream of the communication structure, not the org chart on paper — the one that describes who actually talks to whom. Redraw the teams and the seam moves with them; redraw the diagram alone and the old seam grows back."
+    },
+    "ja": {
+      "title": "2つのチーム構造と、それぞれが生むアーキテクチャ",
+      "caption": "アーキテクチャはコミュニケーション構造の下流にある。紙の上の組織図ではなく、実際に誰が誰と話しているかのほうだ。チームを引き直せば継ぎ目もついてくる。図だけを引き直せば、古い継ぎ目が生えてくる。"
+    }
+  },
+  "swiss-cheese-model": {
+    "en": {
+      "title": "Four defensive layers, each with holes; an incident happens where the holes line up",
+      "caption": "Every layer has holes, and the holes move. The incident is not the failure of one layer — it is the moment four independent holes happen to align. Which is why the fix is rarely the layer that failed last."
+    },
+    "ja": {
+      "title": "穴のある4つの防護層。穴が一直線に並んだところで事故が起きる",
+      "caption": "どの層にも穴があり、穴は動く。事故とは「ある層が失敗したこと」ではなく、独立した4つの穴がたまたま一直線に並んだ瞬間である。だから対策は、最後に破れた層とは限らない。"
+    }
+  },
+  "cap-theorem": {
+    "en": {
+      "title": "The CAP triangle, with partition tolerance marked as not optional and the live choice on the remaining edge",
+      "caption": "The triangle is usually drawn as \"pick two\", which is misleading — you do not get to decline partitions, the network declines for you. P is a fact about the world. The only choice you actually make is the one along the bottom edge, and you make it before the partition, not during it."
+    },
+    "ja": {
+      "title": "CAP の三角形。分断耐性は選択肢ではなく、実際の選択は残る一辺の上にある",
+      "caption": "この三角形はよく「3つから2つを選ぶ」と描かれるが、それは誤解を招く。分断を断る権利はこちらにはなく、ネットワークが勝手に断ってくる。P は選択ではなく世界の事実である。実際に選べるのは底辺の上の一点だけで、しかもそれを選ぶのは分断の最中ではなく、その前だ。"
+    }
+  },
+  "littles-law": {
+    "en": {
+      "title": "A queue with arrival rate lambda, L items in the system, and time W spent in it",
+      "caption": "L = λW binds the three quantities, so you cannot move one without moving another. Arrival rate is set by your users, not by you. That leaves one lever you actually control: cap the work in progress, and latency falls out of the arithmetic — no faster server required."
+    },
+    "ja": {
+      "title": "到着率 λ、系内の item 数 L、滞在時間 W を持つ待ち行列",
+      "caption": "L = λW は3つの量を縛り合う。ひとつを動かせば必ず別のものが動く。到着率を決めるのは利用者であってこちらではない。残る、実際に握れているレバーはひとつ——仕掛りに上限を掛ければ、レイテンシは算術として落ちる。速いサーバは要らない。"
+    }
+  },
+  "tail-at-scale": {
+    "en": {
+      "title": "One request fanning out to 100 leaves; the odds that at least one is slow",
+      "caption": "A leaf that is slow one request in a hundred is invisible on its own. Fan out to 100 of them and the same leaf-level p99 becomes the median user experience: 63% of requests now wait on a straggler. Tail latency is not a per-node property at scale — it is an arithmetic consequence of the fan-out."
+    },
+    "ja": {
+      "title": "1リクエストが100枚の葉に扇状展開したとき、少なくとも1枚が遅い確率",
+      "caption": "100回に1回だけ遅い葉は、単体では見えない。それを100枚に扇状展開すると、同じ葉レベルの p99 が利用者の体感の中央値になる——63%のリクエストが遅れた1枚を待つ。スケールにおける裾野レイテンシは、ノード単体の性質ではなく、扇状展開の算術的な帰結である。"
+    }
+  },
+  "normal-accident-theory": {
+    "en": {
+      "title": "Perrow's two axes: interaction complexity against coupling, with the accident-prone quadrant marked",
+      "caption": "Perrow put systems on two axes. Only the top-right quadrant produces accidents nobody designed and nobody can catch in time. Both axes are yours to move: decouple with buffers, timeouts and bulkheads, or cut the interactions. Adding another safety interlock moves you the wrong way on the horizontal one."
+    },
+    "ja": {
+      "title": "ペローの2軸——相互作用の複雑さと結合度。事故が構造的になる象限を示す",
+      "caption": "ペローは系を2軸に置いた。誰も設計せず、誰も間に合わないタイプの事故が出るのは右上の象限だけである。どちらの軸も動かせる——バッファ・タイムアウト・隔壁で疎結合にするか、相互作用そのものを削るか。安全連動装置を足す対策は、横軸を悪い方向に動かす。"
+    }
+  }
+}

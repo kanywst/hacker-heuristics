@@ -15,6 +15,18 @@ npm run generate      # rewrite every generated file
 npm run check:links   # verify every source URL still resolves
 ```
 
+If you change a diagram under `website/src/components/diagrams/`, the figures in
+the markdown are extracted from the built site, so they need rebuilding too:
+
+```bash
+npm --prefix website run build
+npm run generate:diagrams     # re-cut assets/diagrams from the built pages
+npm run generate              # splice the new figures into the markdown
+```
+
+CI checks this, so a diagram change cannot land without the markdown's copy of
+it following.
+
 Run `npm run generate` before you commit, and commit its output alongside your data change.
 
 ## What belongs in the codex

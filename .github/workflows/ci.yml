@@ -70,3 +70,11 @@ jobs:
 
       - name: Build Test
         run: npm run build
+
+      # The figures in the markdown are extracted from the built site, so a
+      # change to a diagram component has to bring its committed copy with it.
+      - name: Check the markdown figures match the site
+        working-directory: .
+        run: |
+          npm ci
+          npm run generate:diagrams:check
