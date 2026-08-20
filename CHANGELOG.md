@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/kanywst/hammurabi/compare/v1.0.0...v1.0.1) (2026-08-20)
+
+
+### Corrections
+
+* **ci:** let release-please keep the token it releases with ([#84](https://github.com/kanywst/hammurabi/issues/84)) ([9057426](https://github.com/kanywst/hammurabi/commit/9057426027e05241618e50631184e26966042b2b))
+* **ci:** the release guard was blocking the release it guarded ([#83](https://github.com/kanywst/hammurabi/issues/83)) ([bb203b2](https://github.com/kanywst/hammurabi/commit/bb203b25f4feae417551f08f8b9ddb96197b9dce))
+
 ## [1.0.0](https://github.com/kanywst/hammurabi/compare/v0.1.0...v1.0.0) (2026-08-20)
 
 
