@@ -48,3 +48,24 @@ export function alternatesFor(locale: Locale, slug?: string) {
 export function article(number: number): string {
   return String(number).padStart(2, '0');
 }
+
+const TEN = '\u{1230B}'; // 𒌋 CUNEIFORM SIGN U
+const ONE = '\u{12079}'; // 𒁹 CUNEIFORM SIGN DISH
+
+/**
+ * The article number as a Babylonian would have written it.
+ *
+ * The system is sexagesimal and positional with no zero: within a digit, tens
+ * are 𒌋 and units are 𒁹, and past fifty-nine the digits separate — 71 is one
+ * sixty and eleven, written 𒁹 𒌋𒁹. It is decorative here in the sense that the
+ * Arabic numeral is always beside it, but it is not invented: it is what the
+ * number looks like in the script the original was cut in.
+ */
+export function babylonian(number: number): string {
+  if (!Number.isInteger(number) || number < 1) return '';
+  const digits: number[] = [];
+  for (let n = number; n > 0; n = Math.floor(n / 60)) digits.unshift(n % 60);
+  return digits
+    .map((d) => TEN.repeat(Math.floor(d / 10)) + ONE.repeat(d % 10))
+    .join('\u2009');
+}

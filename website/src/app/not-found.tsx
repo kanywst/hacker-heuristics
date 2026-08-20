@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <PageShell lang={DEFAULT_LOCALE} counterpart={routeFor('ja')}>
-      <section className="mx-auto flex min-h-[70vh] max-w-2xl flex-col items-center justify-center px-6 text-center">
-        <p className="eyebrow text-gold">§ —</p>
-        <h1 className="display mt-6 text-4xl text-carve sm:text-5xl">
+      <section className="flex min-h-[70vh] flex-col justify-center px-5 sm:px-8 lg:pl-22">
+        <p className="numeral text-3xl">—</p>
+        <h1 className="mt-4 text-2xl font-medium uppercase tracking-[0.02em]">
           {t.notFound.title}
         </h1>
-        <p className="mt-4 text-carve-dim">{t.notFound.body}</p>
+        <p className="mt-3 max-w-[52ch] text-relief-dim">{t.notFound.body}</p>
         <Link
           href={routeFor(DEFAULT_LOCALE)}
-          className="btn-solid mt-10 rounded-full px-7 py-3 text-sm"
+          className="btn-ghost mt-8 self-start px-5 py-2.5"
         >
           {t.law.backToCodex}
         </Link>

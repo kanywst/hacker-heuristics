@@ -20,8 +20,8 @@ export default function Figure({
   children: ReactNode;
 }) {
   return (
-    <figure className="mt-6">
-      <div className="overflow-x-auto rounded border border-hairline bg-stone/40 p-5">
+    <figure className="mt-6 max-w-[46rem]">
+      <div className="overflow-x-auto border border-rule-soft bg-field-sunk p-5">
         <svg
           viewBox={viewBox}
           role="img"
@@ -32,7 +32,7 @@ export default function Figure({
           {children}
         </svg>
       </div>
-      <figcaption className="mt-3 text-sm leading-relaxed text-carve-dim">
+      <figcaption className="mt-3 text-[0.6875rem] leading-relaxed text-relief-faint">
         {caption}
       </figcaption>
     </figure>
@@ -41,24 +41,24 @@ export default function Figure({
 
 /** Shared drawing constants, so the diagrams read as one set. */
 export const ink = {
-  line: 'var(--color-carve-dim)',
-  faint: 'var(--color-hairline)',
-  text: 'var(--color-carve)',
-  dim: 'var(--color-carve-dim)',
-  accent: 'var(--color-gold)',
-  accentBright: 'var(--color-gold-bright)',
-  cool: 'var(--color-lapis-bright)',
-  panel: 'var(--color-stone)',
+  line: 'var(--color-relief-dim)',
+  faint: 'var(--color-rule-soft)',
+  text: 'var(--color-relief)',
+  dim: 'var(--color-relief-dim)',
+  accent: 'var(--color-rubric)',
+  accentBright: 'var(--color-rubric-bright)',
+  cool: 'var(--color-relief-dim)',
+  panel: 'var(--color-field-sunk)',
 };
 
 export const label = {
-  fontFamily: 'var(--font-body)',
+  fontFamily: 'var(--font-mono)',
   fontSize: 13,
   fill: ink.text,
 } as const;
 
 export const small = {
-  fontFamily: 'var(--font-body)',
+  fontFamily: 'var(--font-mono)',
   fontSize: 11,
   fill: ink.dim,
 } as const;

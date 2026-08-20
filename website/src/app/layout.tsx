@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import {
   Bodoni_Moda,
   JetBrains_Mono,
-  Schibsted_Grotesk,
+  Noto_Sans_Cuneiform,
 } from 'next/font/google';
 import './globals.css';
 import { translations } from '@/translations';
@@ -25,18 +25,22 @@ const bodoni = Bodoni_Moda({
   variable: '--font-bodoni',
 });
 
-const schibsted = Schibsted_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body-sans',
-});
-
-// Every label, operator and numeral. The engineering half of the rhyme.
+// The body face. A statute is set to a measure, and a fixed advance width is
+// the closest a screen gets to a set line.
 const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500'],
   variable: '--font-mono-face',
+});
+
+// Real cuneiform, for the article numerals and the edge of the stone. One
+// weight, one subset, and it is never asked to carry meaning on its own.
+const cuneiform = Noto_Sans_Cuneiform({
+  subsets: ['cuneiform'],
+  display: 'swap',
+  weight: '400',
+  variable: '--font-cuneiform-face',
 });
 
 const copy = translations[DEFAULT_LOCALE].ui;
@@ -80,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang={HTML_LANG[DEFAULT_LOCALE]}
-      className={`${bodoni.variable} ${schibsted.variable} ${jetbrains.variable}`}
+      className={`${bodoni.variable} ${jetbrains.variable} ${cuneiform.variable}`}
     >
       <body className="antialiased">
         <div className="stele-wash" />

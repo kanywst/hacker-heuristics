@@ -1,158 +1,96 @@
-'use client';
-
-import { motion } from 'motion/react';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { translations } from '@/translations';
 import LawsCodex from './LawsCodex';
-import { laws, lawBySlug, type Locale } from '@/data/laws';
-import { article, REPO_URL } from '@/lib/site';
+import { laws, type Locale } from '@/data/laws';
+import { article, babylonian } from '@/lib/site';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.15 + i * 0.08,
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  }),
-};
-
+/**
+ * There is no hero. An instrument opens with its own title page — what it is,
+ * what it covers, where the original is — then the prologue, then the articles,
+ * in that order, because that is the order the stele is carved in.
+ */
 export default function HomePage({ lang }: { lang: Locale }) {
   const t = translations[lang];
-  const lastArticle = article(laws.length);
-  // Goodhart is short enough to read at a glance and famous enough that the
-  // form, not the content, is what the reader notices.
-  const demo = lawBySlug.get('goodharts-law');
+  const last = article(laws.length);
 
   return (
-    <div className="relative">
-      {/* ── Hero ─────────────────────────────────────────────────
-          The thesis, demonstrated rather than described: the page opens by
-          showing one real article in the conditional form the original code was
-          written in, so the claim in the lede is already proved by the time you
-          finish reading it. */}
+    <div className="lg:pl-14">
+      {/* ── Title page ───────────────────────────────────────── */}
       <section
         id="top"
-        className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pt-24"
+        className="border-b border-rule px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-28"
       >
-        <motion.p
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="eyebrow text-carve-dim"
-        >
-          <span className="text-gold">§ 01–{lastArticle}</span> ·{' '}
-          {t.hero.tagLabel}
-        </motion.p>
+        <p className="label">
+          § 01–{last} · {t.hero.tagLabel}
+        </p>
 
-        <motion.h1
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="display mt-5 text-[3.5rem] leading-[0.9] tracking-tight text-carve sm:text-8xl md:text-[9.5rem]"
-        >
-          Hammurabi
-        </motion.h1>
+        <h1 className="mt-5 text-[clamp(2.5rem,9vw,5.5rem)] font-medium leading-[0.92] tracking-[-0.05em]">
+          HAMMURABI
+        </h1>
 
-        <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="mono mt-6 max-w-3xl text-xs leading-relaxed tracking-wide text-carve-dim sm:text-sm"
-        >
+        <p className="cuneiform mt-4 text-2xl sm:text-3xl" aria-hidden>
+          {'\u{12129}\u{12000}\u{12220}\u{12261}\u{12049}'}
+        </p>
+
+        <p className="label mt-6 text-relief-faint">{t.ui.provenance}</p>
+
+        <p className="mt-4 max-w-[62ch] leading-relaxed text-relief-dim">
           {t.hero.lede}
-        </motion.p>
+        </p>
 
-        {demo ? (
-          <motion.div
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="tablet mt-10 max-w-3xl p-6 sm:p-8"
-          >
-            <p className="eyebrow mb-5 text-carve-dim">
-              <span className="text-gold">§ {article(demo.number)}</span> ·{' '}
-              {demo[lang].title}
-            </p>
-            <div className="clause">
-              <p className="clause__op">{t.law.opIf}</p>
-              <p className="text-sm leading-relaxed text-carve-dim">
-                {demo[lang].mechanism}
-              </p>
-              <p className="clause__op clause__op--then">{t.law.opThen}</p>
-              <p className="quoted display text-lg leading-relaxed text-carve sm:text-xl">
-                {t.ui.quoteOpen}
-                {demo[lang].guideline}
-                {t.ui.quoteClose}
-              </p>
-              <p className="clause__op">{t.law.opUnless}</p>
-              <p className="text-sm text-carve">{demo[lang].counter.name}</p>
-            </div>
-          </motion.div>
-        ) : null}
-
-        <motion.div
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="mt-10 flex flex-wrap items-center gap-3"
-        >
-          <a
-            href="#laws"
-            className="btn-solid flex items-center gap-2 px-6 py-3 text-sm"
-          >
-            {t.hero.ctaPrimary} <ArrowDown className="h-4 w-4" />
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#laws" className="btn-solid px-5 py-2.5">
+            {t.hero.ctaPrimary}
           </a>
-          <a
-            href={REPO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-ghost flex items-center gap-2 px-6 py-3 text-sm"
-          >
-            {t.hero.ctaSecondary} <ArrowUpRight className="h-4 w-4" />
+          <a href="#prologue" className="btn-ghost px-5 py-2.5">
+            {t.ui.prologueLabel}
           </a>
-        </motion.div>
+        </div>
       </section>
 
       {/* ── Prologue ─────────────────────────────────────────── */}
       <section
         id="prologue"
-        className="mx-auto max-w-3xl px-6 py-28 text-center"
+        className="grid border-b border-rule lg:grid-cols-[10rem_1fr]"
       >
-        <p className="eyebrow text-lapis-bright">{t.ui.prologueLabel}</p>
-        <blockquote className="quoted display mt-8 text-2xl leading-snug text-carve sm:text-3xl">
-          {t.ui.prologueQuote}
-        </blockquote>
-        <p className="eyebrow mt-6 text-carve-dim">{t.ui.prologueQuoteBy}</p>
-        <p className="text-base leading-relaxed text-carve-dim">
-          {t.ui.prologueBody}
+        <p className="label px-5 pb-2 pt-6 sm:px-8 lg:px-0 lg:py-8 lg:pr-6 lg:text-right">
+          {t.ui.prologueLabel}
         </p>
+        <div className="px-5 pb-8 sm:px-8 lg:py-8 lg:pl-0 lg:pr-8">
+          <blockquote className="max-w-[58ch] font-display text-xl leading-snug text-relief sm:text-2xl">
+            {t.ui.prologueQuote}
+          </blockquote>
+          <p className="label mt-4 text-relief-faint">{t.ui.prologueQuoteBy}</p>
+          <p className="mt-6 max-w-[62ch] leading-relaxed text-relief-dim">
+            {t.ui.prologueBody}
+          </p>
+        </div>
       </section>
 
-      {/* ── The Laws ─────────────────────────────────────────── */}
+      {/* ── The articles ─────────────────────────────────────── */}
       <LawsCodex lang={lang} />
 
-      {/* ── Epilogue ─────────────────────────────────────────── */}
+      {/* ── Epilogue ─────────────────────────────────────────────
+          The original ends with curses on anyone who defaces the stone. This
+          one keeps the position and changes the target. */}
       <section
         id="about"
-        className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center"
+        className="grid border-t border-rule lg:grid-cols-[10rem_1fr]"
       >
-        <p className="eyebrow text-lapis-bright">{t.ui.epilogueLabel}</p>
-        <blockquote className="display text-3xl leading-snug text-carve sm:text-4xl">
-          {t.ui.maxim}
-        </blockquote>
-        <p className="eyebrow mt-8 text-carve-dim">{t.ui.maximBy}</p>
-        <p className="quoted mt-12 max-w-2xl text-sm leading-relaxed text-carve-dim">
-          {t.ui.epilogueCurse}
+        <p className="label px-5 pb-2 pt-8 sm:px-8 lg:px-0 lg:py-10 lg:pr-6 lg:text-right">
+          {t.ui.epilogueLabel}
         </p>
+        <div className="px-5 pb-12 sm:px-8 lg:py-10 lg:pl-0 lg:pr-8">
+          <blockquote className="max-w-[54ch] font-display text-2xl leading-snug text-relief sm:text-3xl">
+            {t.ui.maxim}
+          </blockquote>
+          <p className="label mt-4 text-relief-faint">{t.ui.maximBy}</p>
+          <p className="mt-8 max-w-[62ch] leading-relaxed text-rubric">
+            {t.ui.epilogueCurse}
+          </p>
+          <p className="cuneiform mt-8 text-lg" aria-hidden>
+            {babylonian(laws.length)}
+          </p>
+        </div>
       </section>
     </div>
   );

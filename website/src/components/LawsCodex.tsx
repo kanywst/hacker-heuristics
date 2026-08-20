@@ -1,19 +1,19 @@
 'use client';
 
-import { motion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Check, Link2, Search } from 'lucide-react';
+import { Check, Link2 } from 'lucide-react';
 import { translations } from '@/translations';
 import { laws, tags, type Locale } from '@/data/laws';
-import { article, routeFor, urlFor } from '@/lib/site';
+import { article, babylonian, routeFor, urlFor } from '@/lib/site';
 import RichText from './RichText';
 
-const chip =
-  'rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide transition-colors';
-
-// The searchable, filterable codex. Kept as its own component so typing in the
-// search box only re-renders this section, not the animated hero/prologue.
+/**
+ * The body of the instrument: seventy-one articles set as one continuous
+ * document, divided by rules rather than dealt out as cards. Each carries a line
+ * count in the margin, its number in both Arabic and Babylonian, and the
+ * conditional the original was written in.
+ */
 export default function LawsCodex({ lang }: { lang: Locale }) {
   const t = translations[lang];
 
@@ -22,7 +22,6 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
   const [copied, setCopied] = useState<string | null>(null);
   const copyTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Clear a pending "copied" reset if the component unmounts first.
   useEffect(() => {
     return () => {
       if (copyTimeout.current) clearTimeout(copyTimeout.current);
@@ -40,8 +39,6 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
   }, []);
 
   const filtered = useMemo(() => {
-    // Match each whitespace-separated term independently (AND), so a query
-    // like "distributed failure" hits a law that contains both words apart.
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return laws
       .filter((law) => !activeTag || law.tag === activeTag)
@@ -65,8 +62,6 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
       });
   }, [lang, activeTag, query, label]);
 
-  // The permalink is the article's own page, not an index-derived fragment, so
-  // a link copied today still points at the same law after the codex grows.
   const copyLink = (slug: string) => {
     if (!navigator.clipboard) return;
     navigator.clipboard
@@ -83,148 +78,147 @@ export default function LawsCodex({ lang }: { lang: Locale }) {
   };
 
   return (
-    <section id="laws" className="mx-auto max-w-6xl px-6 py-28">
-      <header className="mb-12 text-center">
-        <p className="eyebrow text-lapis-bright">Codex</p>
-        <h2 className="display mt-3 text-4xl text-carve sm:text-5xl">
-          {t.ui.laws}
-        </h2>
-      </header>
+    <section id="laws" className="border-t border-rule">
+      {/* The finding aid, set as one line of the instrument rather than as a
+          search widget with chips. */}
+      <div className="border-b border-rule-soft px-5 py-4 sm:px-8">
+        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3">
+          <label className="label shrink-0" htmlFor="codex-search">
+            {t.ui.searchPlaceholder}
+          </label>
+          <input
+            id="codex-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="field min-w-0 flex-1 px-3 py-1.5 text-xs"
+          />
+          <span className="label text-relief-faint">
+            {filtered.length}/{laws.length}
+          </span>
+        </div>
 
-      <div className="relative mx-auto mb-6 max-w-sm">
-        <Search
-          aria-hidden
-          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-carve-dim"
-        />
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t.ui.searchPlaceholder}
-          aria-label={t.ui.searchPlaceholder}
-          className="w-full rounded-full border border-hairline bg-stone/60 py-2.5 pl-11 pr-4 text-sm text-carve placeholder:text-carve-dim focus-visible:border-lapis/60 focus-visible:outline-none"
-        />
-      </div>
-
-      <div
-        role="group"
-        aria-label={t.ui.filterGroupLabel}
-        className="mb-12 flex flex-wrap items-center justify-center gap-2"
-      >
-        <button
-          onClick={() => setActiveTag(null)}
-          aria-pressed={activeTag === null}
-          className={`${chip} ${
-            activeTag === null
-              ? 'border-lapis/50 bg-lapis/10 text-carve'
-              : 'border-hairline text-carve-dim hover:border-lapis/40 hover:text-carve'
-          }`}
+        <div
+          role="group"
+          aria-label={t.ui.filterGroupLabel}
+          className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1"
         >
-          {t.ui.filterAll}
-        </button>
-        {usedTags.map((tag) => (
           <button
-            key={tag.key}
-            onClick={() => setActiveTag(tag.key)}
-            aria-pressed={activeTag === tag.key}
-            className={`${chip} ${
-              activeTag === tag.key
-                ? 'border-lapis/50 bg-lapis/10 text-carve'
-                : 'border-hairline text-carve-dim hover:border-lapis/40 hover:text-carve'
-            }`}
+            onClick={() => setActiveTag(null)}
+            aria-pressed={activeTag === null}
+            className="term"
           >
-            {tag[lang]}
+            {t.ui.filterAll}
           </button>
-        ))}
+          {usedTags.map((tag) => (
+            <button
+              key={tag.key}
+              onClick={() => setActiveTag(tag.key)}
+              aria-pressed={activeTag === tag.key}
+              className="term"
+            >
+              {tag[lang]}
+            </button>
+          ))}
+        </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="py-16 text-center text-carve-dim">{t.ui.resultsNone}</p>
+        <p className="px-5 py-20 text-center text-relief-dim sm:px-8">
+          {t.ui.resultsNone}
+        </p>
       ) : (
-        <div className="codex-grid grid grid-cols-1 overflow-hidden border border-hairline md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((law) => {
-            const text = law[lang];
-            return (
-              <motion.article
-                key={law.slug}
-                id={law.slug}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="tablet p-7"
-              >
-                <div className="flex items-start justify-between gap-4 pb-5">
+        filtered.map((law) => {
+          const text = law[lang];
+          const lines = 4 + (text.counter.note ? 1 : 0);
+          return (
+            <article
+              key={law.slug}
+              id={law.slug}
+              className="article-row grid grid-cols-[2.25rem_1fr] sm:grid-cols-[3rem_1fr] xl:grid-cols-[3rem_minmax(0,42rem)_1fr]"
+            >
+              <div className="linecount border-r border-rule-soft px-2 py-5">
+                {Array.from({ length: lines }, (_, i) => (
+                  <div key={i}>{String(i + 1).padStart(2, '0')}</div>
+                ))}
+              </div>
+
+              <div className="min-w-0 px-4 py-5 sm:px-8">
+                <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <button
                     type="button"
                     onClick={() => copyLink(law.slug)}
                     aria-label={`${t.ui.copyLink} — § ${article(law.number)}`}
-                    className="tablet__num group/num flex items-center gap-2 text-5xl"
+                    className="article-row__no numeral group/no inline-flex items-baseline gap-2"
                   >
-                    <span aria-hidden>§</span> {article(law.number)}
+                    {article(law.number)}
+                    <span className="cuneiform text-sm" aria-hidden>
+                      {babylonian(law.number)}
+                    </span>
                     {copied === law.slug ? (
-                      <Check className="h-4 w-4 text-lapis-bright" />
+                      <Check className="h-3 w-3 self-center text-rubric" />
                     ) : (
-                      <Link2 className="h-4 w-4 opacity-0 transition-opacity group-hover/num:opacity-60 group-focus-visible/num:opacity-60" />
+                      <Link2 className="h-3 w-3 self-center opacity-0 transition-opacity group-hover/no:opacity-50 group-focus-visible/no:opacity-50" />
                     )}
                   </button>
-                  <span className="eyebrow mt-2 text-right text-carve-dim">
+
+                  <h3 className="text-sm font-medium uppercase tracking-[0.06em]">
+                    <Link
+                      href={routeFor(lang, law.slug)}
+                      className="hover:text-rubric"
+                    >
+                      {text.title}
+                    </Link>
+                  </h3>
+
+                  <span className="label ml-auto text-relief-faint xl:hidden">
                     {label.get(law.tag)}
                   </span>
                 </div>
 
-                <h3 className="display pb-5 text-2xl leading-tight text-carve">
-                  <Link
-                    href={routeFor(lang, law.slug)}
-                    className="transition-colors hover:text-lapis-bright"
-                  >
-                    {text.title}
-                  </Link>
-                </h3>
-
-                <div className="pb-6">
-                  <p className="eyebrow mb-1.5 text-lapis-bright">
-                    {t.law.opIf}
-                  </p>
-                  <p className="text-sm leading-relaxed text-carve-dim">
+                <div className="clause">
+                  <p className="clause__op">{t.law.opIf}</p>
+                  <p className="clause__v">
                     <RichText>{text.mechanism}</RichText>
                   </p>
-                </div>
 
-                <div className="pb-5">
-                  <p className="eyebrow mb-1.5 text-gold">{t.law.opThen}</p>
-                  <div className="directive rounded-r px-4 py-3">
-                    <p className="quoted display text-[15px] leading-relaxed text-carve">
-                      {t.ui.quoteOpen}
-                      <RichText>{text.guideline}</RichText>
-                      {t.ui.quoteClose}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pb-5">
-                  <p className="eyebrow mb-1.5 text-lapis-bright">
-                    {t.law.opUnless}
+                  <p className="clause__op clause__op--then">{t.law.opThen}</p>
+                  <p className="clause__v clause__v--then">
+                    {t.ui.quoteOpen}
+                    <RichText>{text.guideline}</RichText>
+                    {t.ui.quoteClose}
                   </p>
-                  <p className="text-sm text-carve">{text.counter.name}</p>
+
+                  <p className="clause__op">{t.law.opUnless}</p>
+                  <p className="clause__v">
+                    <span className="text-relief">{text.counter.name}</span>
+                    {text.counter.note ? (
+                      <>
+                        {' — '}
+                        <RichText>{text.counter.note}</RichText>
+                      </>
+                    ) : null}
+                  </p>
                 </div>
 
-                <div className="flex flex-col justify-end gap-3 border-t border-hairline pt-3">
-                  <p className="text-xs text-carve-dim">
-                    <span className="text-carve-dim">§</span>{' '}
-                    <RichText>{text.source}</RichText>
-                  </p>
-                  <Link
-                    href={routeFor(lang, law.slug)}
-                    className="link-quiet self-start text-xs text-carve-dim"
-                  >
-                    {t.ui.readArticle} →
-                  </Link>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
+                <p className="mt-1 text-[0.6875rem] text-relief-faint xl:hidden">
+                  <span className="label mr-2">{t.law.source}</span>
+                  <RichText>{text.source}</RichText>
+                </p>
+              </div>
+
+              {/* The right margin is not empty space; on a wide sheet it holds
+                  what a statute puts in its margin — the classification and the
+                  authority the article rests on. */}
+              <aside className="hidden py-5 pr-8 xl:block">
+                <p className="label text-relief-faint">{label.get(law.tag)}</p>
+                <p className="mt-3 max-w-[34ch] text-[0.6875rem] leading-relaxed text-relief-faint">
+                  <RichText>{text.source}</RichText>
+                </p>
+              </aside>
+            </article>
+          );
+        })
       )}
     </section>
   );
