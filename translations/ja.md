@@ -194,6 +194,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **出典:** Melvin E. Conway, *How Do Committees Invent?* (Datamation, 1968 年 4 月号)。 — [原典 ↗](https://www.melconway.com/Home/Committees_Paper.html)
 - **関連:** [ダンバー数 (Dunbar's Number)](#ダンバー数-dunbars-number) · [ブルックスの法則 (Brooks' Law)](#ブルックスの法則-brooks-law) · [単一責任の原則 (Single Responsibility Principle)](#単一責任の原則-single-responsibility-principle)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/conways-law-ja-dark.svg">
+  <img alt="2つのチーム構造と、それぞれが生むアーキテクチャ" src="../assets/diagrams/conways-law-ja-light.svg">
+</picture>
+
+アーキテクチャはコミュニケーション構造の下流にある。紙の上の組織図ではなく、実際に誰が誰と話しているかのほうだ。チームを引き直せば継ぎ目もついてくる。図だけを引き直せば、古い継ぎ目が生えてくる。
+
 ### ハイラムの法則 (Hyrum's Law)
 
 `§ 08` · システム
@@ -480,6 +487,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **出典:** James Reason, *Human Error* (Cambridge University Press, 1990)。 — [原典 ↗](https://en.wikipedia.org/wiki/Swiss_cheese_model)
 - **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [通常事故理論 (Normal Accident Theory)](#通常事故理論-normal-accident-theory)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/swiss-cheese-model-ja-dark.svg">
+  <img alt="穴のある4つの防護層。穴が一直線に並んだところで事故が起きる" src="../assets/diagrams/swiss-cheese-model-ja-light.svg">
+</picture>
+
+どの層にも穴があり、穴は動く。事故とは「ある層が失敗したこと」ではなく、独立した4つの穴がたまたま一直線に並んだ瞬間である。だから対策は、最後に破れた層とは限らない。
+
 ### 早すぎる最適化 (Premature Optimization)
 
 `§ 34` · 性能
@@ -513,6 +527,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **出典:** Eric Brewer, *Towards Robust Distributed Systems* (PODC 基調講演, 2000); Seth Gilbert & Nancy Lynch が証明 (*SIGACT News*, 2002)。 — [原典 ↗](https://doi.org/10.1145/564585.564601)
 - **関連:** [二人の将軍問題 (Two Generals Problem)](#二人の将軍問題-two-generals-problem) · [分散コンピューティングの誤謬 (Fallacies of Distributed Computing)](#分散コンピューティングの誤謬-fallacies-of-distributed-computing)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/cap-theorem-ja-dark.svg">
+  <img alt="CAP の三角形。分断耐性は選択肢ではなく、実際の選択は残る一辺の上にある" src="../assets/diagrams/cap-theorem-ja-light.svg">
+</picture>
+
+この三角形はよく「3つから2つを選ぶ」と描かれるが、それは誤解を招く。分断を断る権利はこちらにはなく、ネットワークが勝手に断ってくる。P は選択ではなく世界の事実である。実際に選べるのは底辺の上の一点だけで、しかもそれを選ぶのは分断の最中ではなく、その前だ。
+
 ### リトルの法則 (Little's Law)
 
 `§ 37` · 性能
@@ -523,6 +544,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **判断の指針:** 容量 (capacity) を増やさずにレイテンシ (W) を下げたいなら、仕掛り (L) を減らせ。同時リクエスト数に上限を設けよ——短い行列は、速いサーバより速い。
 - **出典:** John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961)。 — [原典 ↗](https://doi.org/10.1287/opre.9.3.383)
 - **関連:** [スケールの裾野 (The Tail at Scale)](#スケールの裾野-the-tail-at-scale) · [制約理論 (Theory of Constraints)](#制約理論-theory-of-constraints)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/littles-law-ja-dark.svg">
+  <img alt="到着率 λ、系内の item 数 L、滞在時間 W を持つ待ち行列" src="../assets/diagrams/littles-law-ja-light.svg">
+</picture>
+
+L = λW は3つの量を縛り合う。ひとつを動かせば必ず別のものが動く。到着率を決めるのは利用者であってこちらではない。残る、実際に握れているレバーはひとつ——仕掛りに上限を掛ければ、レイテンシは算術として落ちる。速いサーバは要らない。
 
 ### 二人の将軍問題 (Two Generals Problem)
 
@@ -689,6 +717,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **出典:** Jeffrey Dean & Luiz André Barroso, *The Tail at Scale* (Communications of the ACM, 2013)。 — [原典 ↗](https://doi.org/10.1145/2408776.2408794)
 - **関連:** [リトルの法則 (Little's Law)](#リトルの法則-littles-law)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/tail-at-scale-ja-dark.svg">
+  <img alt="1リクエストが100枚の葉に扇状展開したとき、少なくとも1枚が遅い確率" src="../assets/diagrams/tail-at-scale-ja-light.svg">
+</picture>
+
+100回に1回だけ遅い葉は、単体では見えない。それを100枚に扇状展開すると、同じ葉レベルの p99 が利用者の体感の中央値になる——63%のリクエストが遅れた1枚を待つ。スケールにおける裾野レイテンシは、ノード単体の性質ではなく、扇状展開の算術的な帰結である。
+
 ### アシュビーの必要多様性の法則 (Ashby's Law of Requisite Variety)
 
 `§ 53` · システム
@@ -732,6 +767,13 @@ Hammurabi は、**認知心理学**・**安全工学**・**システム設計**�
 - **判断の指針:** バッファ・タイムアウト・隔壁・サーキットブレーカで結合を緩め、複雑さを削れ。安全連動装置を足すのはその後だ——連動装置自体もまた相互作用を増やす。
 - **出典:** Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984)。 — [原典 ↗](https://en.wikipedia.org/wiki/Normal_Accidents)
 - **関連:** [逸脱の常態化 (Normalization of Deviance)](#逸脱の常態化-normalization-of-deviance) · [スイスチーズモデル (Swiss Cheese Model)](#スイスチーズモデル-swiss-cheese-model) · [自動化の皮肉 (Ironies of Automation)](#自動化の皮肉-ironies-of-automation) · [アシュビーの必要多様性の法則 (Ashby's Law of Requisite Variety)](#アシュビーの必要多様性の法則-ashbys-law-of-requisite-variety)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/diagrams/normal-accident-theory-ja-dark.svg">
+  <img alt="ペローの2軸——相互作用の複雑さと結合度。事故が構造的になる象限を示す" src="../assets/diagrams/normal-accident-theory-ja-light.svg">
+</picture>
+
+ペローは系を2軸に置いた。誰も設計せず、誰も間に合わないタイプの事故が出るのは右上の象限だけである。どちらの軸も動かせる——バッファ・タイムアウト・隔壁で疎結合にするか、相互作用そのものを削るか。安全連動装置を足す対策は、横軸を悪い方向に動かす。
 
 ### 割れ窓理論 (Broken Windows Theory)
 

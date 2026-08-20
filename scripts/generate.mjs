@@ -6,9 +6,42 @@
  * That is what CI uses, so a pull request that edits a generated file by hand,
  * or edits the data without regenerating, cannot merge.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { anchor, article, heading, requireCodex, ROOT } from './lib/codex.mjs';
+
+/* Figures, if `npm run generate:diagrams` has been run. They are optional so a
+   contributor editing a law never has to build the site to regenerate the
+   markdown. */
+const MANIFEST = join(ROOT, 'assets', 'diagrams', 'manifest.json');
+const diagrams = existsSync(MANIFEST)
+  ? JSON.parse(readFileSync(MANIFEST, 'utf8'))
+  : {};
+
+const escapeAttr = (text) =>
+  text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+/**
+ * A figure that follows the reader's GitHub theme. An SVG loaded through <img>
+ * cannot see the page's colours, so there are two files and <picture> picks.
+ */
+function figure(law, locale, depth) {
+  const entry = diagrams[law.slug]?.[locale];
+  if (!entry) return null;
+  const base = depth === 0 ? './assets/diagrams' : '../assets/diagrams';
+  return [
+    '<picture>',
+    `  <source media="(prefers-color-scheme: dark)" srcset="${base}/${law.slug}-${locale}-dark.svg">`,
+    `  <img alt="${escapeAttr(entry.title)}" src="${base}/${law.slug}-${locale}-light.svg">`,
+    '</picture>',
+    '',
+    entry.caption,
+  ].join('\n');
+}
 
 const CHECK = process.argv.includes('--check');
 const START = '<!-- CODEX:START -->';
@@ -61,7 +94,7 @@ function indexTable(laws, tags, locale) {
   ].join('\n');
 }
 
-function entry(law, tags, locale, bySlug) {
+function entry(law, tags, locale, bySlug, depth) {
   const t = COPY[locale];
   const loc = law[locale];
   const stop = locale === 'ja' ? '。' : '.';
@@ -90,17 +123,20 @@ function entry(law, tags, locale, bySlug) {
     lines.push(`- **${t.seeAlso}:** ${refs.join(' · ')}`);
   }
 
+  const drawn = figure(law, locale, depth);
+  if (drawn) lines.push('', drawn);
+
   return lines.join('\n');
 }
 
-function codexSection(laws, tags, locale) {
+function codexSection(laws, tags, locale, depth) {
   const bySlug = new Map(laws.map((l) => [l.slug, l]));
   return [
     WARNING,
     '',
     indexTable(laws, tags, locale),
     '',
-    ...laws.flatMap((law) => [entry(law, tags, locale, bySlug), '']),
+    ...laws.flatMap((law) => [entry(law, tags, locale, bySlug, depth), '']),
   ]
     .join('\n')
     .trimEnd();
@@ -188,8 +224,8 @@ export const lawBySlug: ReadonlyMap<string, Law> = new Map(
 const { tags, laws } = requireCodex();
 
 const targets = [
-  { path: join(ROOT, 'README.md'), build: () => spliceMarkdown(join(ROOT, 'README.md'), codexSection(laws, tags, 'en'), laws.length) },
-  { path: join(ROOT, 'translations', 'ja.md'), build: () => spliceMarkdown(join(ROOT, 'translations', 'ja.md'), codexSection(laws, tags, 'ja'), laws.length) },
+  { path: join(ROOT, 'README.md'), build: () => spliceMarkdown(join(ROOT, 'README.md'), codexSection(laws, tags, 'en', 0), laws.length) },
+  { path: join(ROOT, 'translations', 'ja.md'), build: () => spliceMarkdown(join(ROOT, 'translations', 'ja.md'), codexSection(laws, tags, 'ja', 1), laws.length) },
   { path: join(ROOT, 'website', 'src', 'data', 'laws.ts'), build: () => websiteModule(laws, tags) },
 ];
 

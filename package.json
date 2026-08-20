@@ -11,7 +11,9 @@
     "generate": "node scripts/generate.mjs",
     "generate:check": "node scripts/generate.mjs --check",
     "validate": "node scripts/validate.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "generate:diagrams": "node scripts/generate-diagrams.mjs",
+    "generate:diagrams:check": "node scripts/generate-diagrams.mjs --check"
   },
   "devDependencies": {
     "yaml": "^2.9.0"

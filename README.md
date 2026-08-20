@@ -194,6 +194,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Source:** Melvin E. Conway, *How Do Committees Invent?* (Datamation, April 1968). — [source ↗](https://www.melconway.com/Home/Committees_Paper.html)
 - **See also:** [Dunbar's Number](#dunbars-number) · [Brooks' Law](#brooks-law) · [Single Responsibility Principle](#single-responsibility-principle)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/conways-law-en-dark.svg">
+  <img alt="Two team structures and the two architectures they produce" src="./assets/diagrams/conways-law-en-light.svg">
+</picture>
+
+The architecture is downstream of the communication structure, not the org chart on paper — the one that describes who actually talks to whom. Redraw the teams and the seam moves with them; redraw the diagram alone and the old seam grows back.
+
 ### Hyrum's Law
 
 `§ 08` · Systems
@@ -480,6 +487,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Source:** James Reason, *Human Error* (Cambridge University Press, 1990). — [source ↗](https://en.wikipedia.org/wiki/Swiss_cheese_model)
 - **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Normal Accident Theory](#normal-accident-theory)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/swiss-cheese-model-en-dark.svg">
+  <img alt="Four defensive layers, each with holes; an incident happens where the holes line up" src="./assets/diagrams/swiss-cheese-model-en-light.svg">
+</picture>
+
+Every layer has holes, and the holes move. The incident is not the failure of one layer — it is the moment four independent holes happen to align. Which is why the fix is rarely the layer that failed last.
+
 ### Premature Optimization
 
 `§ 34` · Performance
@@ -513,6 +527,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Source:** Eric Brewer, *Towards Robust Distributed Systems* (PODC keynote, 2000); proved by Seth Gilbert & Nancy Lynch (*SIGACT News*, 2002). — [source ↗](https://doi.org/10.1145/564585.564601)
 - **See also:** [Two Generals Problem](#two-generals-problem) · [Fallacies of Distributed Computing](#fallacies-of-distributed-computing)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/cap-theorem-en-dark.svg">
+  <img alt="The CAP triangle, with partition tolerance marked as not optional and the live choice on the remaining edge" src="./assets/diagrams/cap-theorem-en-light.svg">
+</picture>
+
+The triangle is usually drawn as "pick two", which is misleading — you do not get to decline partitions, the network declines for you. P is a fact about the world. The only choice you actually make is the one along the bottom edge, and you make it before the partition, not during it.
+
 ### Little's Law
 
 `§ 37` · Performance
@@ -523,6 +544,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Guideline:** To cut latency (W) without adding capacity, cut work-in-progress (L). Cap concurrent requests — a shorter queue is faster than a faster server.
 - **Source:** John D. C. Little, *A Proof for the Queuing Formula L = λW* (Operations Research, 1961). — [source ↗](https://doi.org/10.1287/opre.9.3.383)
 - **See also:** [The Tail at Scale](#the-tail-at-scale) · [Theory of Constraints](#theory-of-constraints)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/littles-law-en-dark.svg">
+  <img alt="A queue with arrival rate lambda, L items in the system, and time W spent in it" src="./assets/diagrams/littles-law-en-light.svg">
+</picture>
+
+L = λW binds the three quantities, so you cannot move one without moving another. Arrival rate is set by your users, not by you. That leaves one lever you actually control: cap the work in progress, and latency falls out of the arithmetic — no faster server required.
 
 ### Two Generals Problem
 
@@ -689,6 +717,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Source:** Jeffrey Dean & Luiz André Barroso, *The Tail at Scale* (Communications of the ACM, 2013). — [source ↗](https://doi.org/10.1145/2408776.2408794)
 - **See also:** [Little's Law](#littles-law)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/tail-at-scale-en-dark.svg">
+  <img alt="One request fanning out to 100 leaves; the odds that at least one is slow" src="./assets/diagrams/tail-at-scale-en-light.svg">
+</picture>
+
+A leaf that is slow one request in a hundred is invisible on its own. Fan out to 100 of them and the same leaf-level p99 becomes the median user experience: 63% of requests now wait on a straggler. Tail latency is not a per-node property at scale — it is an arithmetic consequence of the fan-out.
+
 ### Ashby's Law of Requisite Variety
 
 `§ 53` · Systems
@@ -732,6 +767,13 @@ The `§` number is a stable display label, assigned in file order. The permanent
 - **Guideline:** Reduce coupling — add buffers, timeouts, bulkheads, and circuit breakers — and cut complexity before adding more safety interlocks, which themselves add interactions.
 - **Source:** Charles Perrow, *Normal Accidents: Living with High-Risk Technologies* (Basic Books, 1984). — [source ↗](https://en.wikipedia.org/wiki/Normal_Accidents)
 - **See also:** [Normalization of Deviance](#normalization-of-deviance) · [Swiss Cheese Model](#swiss-cheese-model) · [Ironies of Automation](#ironies-of-automation) · [Ashby's Law of Requisite Variety](#ashbys-law-of-requisite-variety)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/diagrams/normal-accident-theory-en-dark.svg">
+  <img alt="Perrow's two axes: interaction complexity against coupling, with the accident-prone quadrant marked" src="./assets/diagrams/normal-accident-theory-en-light.svg">
+</picture>
+
+Perrow put systems on two axes. Only the top-right quadrant produces accidents nobody designed and nobody can catch in time. Both axes are yours to move: decouple with buffers, timeouts and bulkheads, or cut the interactions. Adding another safety interlock moves you the wrong way on the horizontal one.
 
 ### Broken Windows Theory
 
