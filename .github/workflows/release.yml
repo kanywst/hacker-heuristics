@@ -50,7 +50,35 @@ jobs:
             exit 1
           fi
 
-      - uses: googleapis/release-please-action@v5
+      # Known unresolved: on the 1.0.0 release this step opened the pull request
+      # fine and then failed with "Resource not accessible by integration" on
+      # create-a-release, and v1.0.0 had to be tagged by hand. Ruled out at the
+      # time: the job was granted Contents: write, the token input defaults to
+      # github.token, the repository has no rulesets, no tag protection and no
+      # branch protection, and raising the repository's default workflow
+      # permission changed nothing. The step below narrows it on the next
+      # failure instead of making anyone reconstruct all that again.
+      - id: release
+        uses: googleapis/release-please-action@v5
         with:
           config-file: .github/release-please-config.json
           manifest-file: .github/.release-please-manifest.json
+
+      # Asks the one question the error does not answer: can this token create a
+      # release at all, or is it release-please's call in particular? A dry-run
+      # POST is not possible, so this reads the collection, which needs the same
+      # contents scope, and reports what the API says.
+      - name: Report what the token can reach
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "::group::token reachability"
+          echo "releases (read):"
+          gh api "repos/${{ github.repository }}/releases?per_page=1" \
+            --jq 'length' || echo "  unreadable"
+          echo "permissions the run was granted are printed in Set up job above."
+          echo "If reads work and creates do not, the token is scoped but the"
+          echo "create is being refused — cut the release by hand and open an"
+          echo "issue upstream; otherwise the grant is the problem."
+          echo "::endgroup::"
