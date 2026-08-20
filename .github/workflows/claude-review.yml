@@ -24,8 +24,8 @@ concurrency:
 
 jobs:
   review:
-    # Every pull request gets reviewed, drafts included, with two exceptions that
-    # are mechanical rather than editorial:
+    # Every pull request gets reviewed, drafts included, with three exceptions.
+    # Two are mechanical, one is editorial:
     #
     # Dependabot runs are handed dependabot secrets rather than the repository's,
     # so the token is not there to be read and every dependency bump would go red
@@ -34,8 +34,15 @@ jobs:
     # A pull request from a fork gets no secrets at all, for the same reason.
     # Skipping is the graceful outcome; the alternative is a guaranteed failure
     # that says nothing about the diff.
+    #
+    # release-please's branch carries a generated changelog and a version bump.
+    # There is no prose in it to check against a prompt about attribution and
+    # counter-forces, so reviewing it would post "nothing to flag" on every
+    # release forever. This skips the branch rather than the actor, so a human
+    # pull request is still reviewed no matter who opened it.
     if: >-
       github.event.pull_request.user.login != 'dependabot[bot]' &&
+      !startsWith(github.event.pull_request.head.ref, 'release-please--') &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -71,6 +78,11 @@ jobs:
           # A subscription token, not an API key: runs against the Claude plan
           # instead of API credits. Generate it with `claude setup-token`.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # The action keeps its own list of who may trigger it and errors out on
+          # a bot rather than skipping, which turns "not reviewed" into a red
+          # check. Who gets reviewed is decided once, in the `if` above; this
+          # stops the action being a second, hidden policy that fails instead.
+          allowed_bots: '*'
           prompt: |
             REPO: ${{ github.repository }}
             PR: ${{ github.event.pull_request.number }}
