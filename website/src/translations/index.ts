@@ -31,7 +31,7 @@ export const translations = {
       epilogueLabel: 'Epilogue',
       epilogueCurse:
         'Let the engineer who tears down a fence without learning why it stands, who turns a measure into a target, or who calls a hard problem easy — inherit the pager at 3 AM.',
-      provenance: 'Susa · basalt · 2.25 m · c. 1754 BCE · 282 laws',
+      provenance: 'Susa · basalt or diorite · 2.25 m · c. 1754 BCE · 282 laws',
       metaTitle: 'Hammurabi — Laws Every Engineer Should Know',
       metaDescription:
         'A codex of engineering laws, each paired with its counter-force, a field guideline, and a primary source. Named for the first written code of laws.',
@@ -89,7 +89,7 @@ export const translations = {
       epilogueLabel: '結',
       epilogueCurse:
         'なぜ柵が立つかを学ばずに引き倒す者、測定を目標へとすり替える者、難問を「簡単だ」と言い切る者——その者に午前3時のページャーを継がせよ。',
-      provenance: 'スーサ · 玄武岩 · 2.25 m · 紀元前1754年頃 · 282条',
+      provenance: 'スーサ · 玄武岩か閃緑岩か · 2.25 m · 紀元前1754年頃 · 282条',
       metaTitle: 'Hammurabi — エンジニアが知るべき法則集',
       metaDescription:
         '各法則に「対抗力」「現場の指針」「一次資料の出典」を添えた、エンジニアリングの法典。人類最古の成文法典に因んで名付けました。',
