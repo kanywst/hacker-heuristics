@@ -17,7 +17,6 @@ export const translations = {
       github: 'GitHub',
     },
     ui: {
-      laws: 'The Laws',
       quoteOpen: '“',
       quoteClose: '”',
       prologueLabel: 'Prologue',
@@ -42,7 +41,6 @@ export const translations = {
       resultsNone: 'No law matches your search.',
       copyLink: 'Copy link',
       backToTop: 'Back to top',
-      readArticle: 'Read the article',
     },
     law: {
       article: 'The article',
@@ -77,7 +75,6 @@ export const translations = {
       github: 'GitHub',
     },
     ui: {
-      laws: '法則',
       quoteOpen: '「',
       quoteClose: '」',
       prologueLabel: '序',
@@ -102,7 +99,6 @@ export const translations = {
       resultsNone: '該当する法則がありません。',
       copyLink: 'リンクをコピー',
       backToTop: 'トップへ戻る',
-      readArticle: '条文を読む',
     },
     law: {
       article: '条文',

@@ -191,10 +191,6 @@ body {
 
 /* --- Rules and line numbers ------------------------------------------ */
 
-.rule-hard {
-  border-color: var(--color-rule);
-}
-
 .rule-soft {
   border-color: var(--color-rule-soft);
 }
