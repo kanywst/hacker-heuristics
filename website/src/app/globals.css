@@ -93,7 +93,9 @@ body {
   font-family: var(--font-cuneiform);
   writing-mode: vertical-rl;
   text-orientation: upright;
-  font-size: 1rem;
+  /* Sized so a wedge fits the band whole. Above this the glyph advance exceeds
+     the column and every character gets clipped on both edges. */
+  font-size: 0.8125rem;
   line-height: 1.6;
   letter-spacing: 0.08em;
   color: var(--color-rule-soft);

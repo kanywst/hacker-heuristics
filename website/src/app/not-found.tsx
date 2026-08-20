@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <PageShell lang={DEFAULT_LOCALE} counterpart={routeFor('ja')}>
-      <section className="flex min-h-[70vh] flex-col justify-center px-5 sm:px-8 lg:pl-22">
+      <section className="flex min-h-[70vh] flex-col justify-center px-5 sm:px-8 lg:pl-28">
         <p className="numeral text-3xl">—</p>
         <h1 className="mt-4 text-2xl font-medium uppercase tracking-[0.02em]">
           {t.notFound.title}
