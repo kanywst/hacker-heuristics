@@ -1,11 +1,16 @@
 import { translations } from '@/translations';
-import type { Locale } from '@/data/laws';
+import { laws, type Locale } from '@/data/laws';
+import { article } from '@/lib/site';
 
 export default function Footer({ lang }: { lang: Locale }) {
   return (
-    <footer className="border-t border-hairline py-16 text-center">
-      <p className="display text-lg text-carve">Hammurabi</p>
-      <p className="mt-2 text-sm text-carve-dim">{translations[lang].footer}</p>
+    <footer className="border-t border-rule px-5 py-6 sm:px-8 lg:pl-14">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+        <p className="label">Hammurabi · § 01–{article(laws.length)}</p>
+        <p className="text-[0.6875rem] text-relief-faint">
+          {translations[lang].footer}
+        </p>
+      </div>
     </footer>
   );
 }

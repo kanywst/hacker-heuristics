@@ -74,7 +74,7 @@ export default function SwissCheese({ lang }: { lang: Locale }) {
             cy={ALIGNED_Y}
             rx="15"
             ry="11"
-            fill="var(--color-ink)"
+            fill="var(--color-field)"
             stroke={ink.accent}
             strokeWidth="1.5"
           />
@@ -85,7 +85,7 @@ export default function SwissCheese({ lang }: { lang: Locale }) {
               cy={cy}
               rx="13"
               ry="9"
-              fill="var(--color-ink)"
+              fill="var(--color-field)"
               stroke={ink.line}
               strokeOpacity="0.5"
             />

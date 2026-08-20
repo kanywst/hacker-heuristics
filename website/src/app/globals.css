@@ -1,166 +1,179 @@
 @import 'tailwindcss';
 
-/* The stele is polished black diorite, and the pigment Mesopotamia prized was
-   lapis. So the ground is cold stone rather than warm brown.
-   
-   Lapis carries structure: section labels, the IF and UNLESS operators, links,
-   focus. Gold marks an article — its § numeral wherever one appears — and the
-   THEN clause, which is the article's verdict. Nothing else is gold; the moment
-   it starts labelling things it stops meaning anything. */
+/* This is an estampage, not a website.
+ *
+ * An estampage — a squeeze — is how an inscription is recorded: damp paper is
+ * beaten into the cuts, inked, and peeled off, and what comes away is the carved
+ * text in white on a black field. It is the standard technique for cuneiform.
+ * So a dark ground here is not a theme; it is what the document looks like.
+ *
+ * One colour, used once. Incised inscriptions were filled with red ochre, and
+ * legal texts have marked the binding clause in red for a thousand years — the
+ * word "rubric" is Latin for red earth. So the verdict is red and nothing else
+ * is. Two other sites in this category own cream-with-vermilion and
+ * black-with-acid-green; this is neither.
+ *
+ * The stone the original was cut from is black. Whether it is basalt or diorite
+ * has been argued for a century and a 2026 analysis favours basalt, so the page
+ * takes no side: it is the impression, not the stone. */
 @theme {
-  --color-ink: #0a0c10;
-  --color-stone: #12151b;
-  --color-carve: #e9e8e4;
-  --color-carve-dim: #8a8f9a;
-  --color-lapis: #5b74ff;
-  --color-lapis-bright: #8fa0ff;
-  --color-gold: #c9a227;
-  --color-gold-bright: #e0bb43;
-  --color-hairline: rgba(233, 232, 228, 0.11);
+  --color-field: #100e0c;
+  --color-field-sunk: #171410;
+  --color-relief: #ece6d9;
+  --color-relief-dim: #8b8478;
+  --color-relief-faint: #5a554c;
+  --color-rule: #ece6d9;
+  --color-rule-soft: #322d26;
+  --color-rubric: #c9543a;
+  --color-rubric-bright: #e0684c;
 
-  /* Bodoni Moda is a didone: the thick-to-hairline contrast is a chisel cut,
-     which is why it is here and why it is never used below ~18px. Its optical
-     size axis pulls the hairlines back as the type gets smaller. */
+  /* The body face is the monospace: a statute is set to a measure, and a fixed
+     advance width is the closest a screen gets to a set line. Bodoni Moda is
+     kept for one job only — the verdict — where a didone's thick-to-hairline
+     contrast reads as something cut rather than typed. */
+  --font-mono:
+    var(--font-mono-face), 'Hiragino Sans', 'Noto Sans JP', ui-monospace,
+    SFMono-Regular, Menlo, monospace;
   --font-display:
     var(--font-bodoni), 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP',
     Georgia, serif;
-  --font-body:
-    var(--font-body-sans), 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
-    sans-serif;
-  --font-mono:
-    var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-cuneiform: var(--font-cuneiform-face), var(--font-mono);
 }
 
 :root {
   color-scheme: dark;
 }
 
-/* Keep in-page anchors clear of the fixed header */
+/* Keep in-page anchors clear of the fixed masthead */
 html {
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5rem;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-ink);
-  color: var(--color-carve);
-  font-family: var(--font-body);
+  background-color: var(--color-field);
+  color: var(--color-relief);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(91, 116, 255, 0.32);
-  color: #fff;
+  background: rgba(201, 84, 58, 0.3);
 }
 
-/* Keyboard focus: a legible lapis ring against the dark slab.
-   The browser curves the outline to each element's own radius. */
 :focus-visible {
-  outline: 2px solid var(--color-lapis);
-  outline-offset: 3px;
+  outline: 2px solid var(--color-rubric);
+  outline-offset: 2px;
 }
 
-/* --- Atmosphere: a spotlit basalt slab ------------------------------- */
+/* --- The sheet ------------------------------------------------------- */
 
-.stele-wash {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(
-      120% 70% at 50% -10%,
-      rgba(217, 142, 61, 0.18) 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      80% 60% at 88% 112%,
-      rgba(79, 138, 214, 0.14) 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      100% 100% at 50% 120%,
-      rgba(0, 0, 0, 0.6) 0%,
-      transparent 60%
-    );
-}
-
-/* Stone grain overlay */
+/* A faint fibre, so the ground reads as stock rather than as #eeeae0. */
 .grain {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   opacity: 0.5;
-  /* Promote to its own compositor layer so the static noise never repaints on scroll. */
+  mix-blend-mode: screen;
   transform: translateZ(0);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-/* --- Type & ornament ------------------------------------------------- */
+/* --- The edge of the stone ------------------------------------------- */
 
-.display {
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
+/* Real cuneiform, set vertically down the outer edge, the way the original runs
+   in columns. It is decoration in the honest sense — it carries no message — so
+   it is hidden from assistive technology and dropped entirely on narrow screens
+   where the width it costs is width the law needs. */
+.edge {
+  font-family: var(--font-cuneiform);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  color: var(--color-rule-soft);
+  user-select: none;
 }
 
-/* Japanese has no italic. Asking for one synthesises a slant, which reads as a
-   rendering fault rather than as emphasis — so the editorial italic is dropped
-   inside the Japanese codex. Genuine Latin emphasis in the same text (book and
-   paper titles, set with <em>) keeps its real italic face. */
-.quoted {
-  font-style: italic;
-}
+/* --- Type ------------------------------------------------------------ */
 
-:lang(ja) .quoted {
-  font-style: normal;
-}
-
-/* Every label, operator and numeral in the interface is monospaced. The codex
-   is a legal instrument on one side and a listing on the other; this is the
-   listing half, and it is what makes the rhyme visible. */
-.eyebrow {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.65rem;
+.label {
+  font-size: 0.625rem;
   font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-relief-dim);
 }
 
-.mono {
-  font-family: var(--font-mono);
+.label--rubric {
+  color: var(--color-rubric);
 }
 
-/* The IF / THEN / UNLESS rail. The operators form a right-aligned column and the
-   clauses form a block, the way a statute sets out its conditions. */
+.numeral {
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-rubric);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Base-sixty, the way it was actually written: 𒌋 is ten, 𒁹 is one, and past
+   fifty-nine the digits separate — 71 is one sixty and eleven. */
+.cuneiform {
+  font-family: var(--font-cuneiform);
+  color: var(--color-relief-faint);
+  letter-spacing: 0.06em;
+}
+
+/* --- The clause ------------------------------------------------------ */
+
 .clause {
   display: grid;
-  grid-template-columns: minmax(3.25rem, auto) 1fr;
-  gap: 0.3rem 1rem;
+  grid-template-columns: minmax(3.75rem, auto) 1fr;
+  gap: 0 0.9rem;
   align-items: baseline;
 }
 
 .clause__op {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.625rem;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-lapis-bright);
+  color: var(--color-relief-dim);
   text-align: right;
-  padding-top: 0.35rem;
+  padding-top: 0.45rem;
   white-space: nowrap;
 }
 
 .clause__op--then {
-  color: var(--color-gold);
+  color: var(--color-rubric);
 }
 
-/* On a phone the operator column costs more width than it earns, so the
-   operators sit above their clauses instead of beside them. */
+.clause__v {
+  padding-bottom: 0.7rem;
+  color: var(--color-relief-dim);
+}
+
+/* The verdict: the one thing on the page set in a serif, and the one thing in
+   red. Everything else is evidence for it. */
+.clause__v--then {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: var(--color-relief);
+  border-left: 2px solid var(--color-rubric);
+  padding-left: 0.9rem;
+  padding-bottom: 0.85rem;
+}
+
 @media (max-width: 40rem) {
   .clause {
     grid-template-columns: 1fr;
-    gap: 0.2rem 0;
   }
 
   .clause__op {
@@ -169,119 +182,132 @@ body {
   }
 }
 
-/* --- The law tablet -------------------------------------------------- */
-
-/* A code of laws whose rows do not line up is not a code of laws. Each card
-   subgrids onto the parent's rows, so Counter, Guideline and Source sit on the
-   same line right across a row no matter how long any one mechanism runs.
-   Spacing lives in each cell's padding rather than a gap, because a subgrid
-   inherits its gutters from the parent and would otherwise open hairlines
-   through the middle of every card. */
-.codex-grid {
-  column-gap: 1px;
-  row-gap: 0;
+/* Japanese has no italic and no need of one here; the display face falls to a
+   mincho, which carries the same weight of authority. */
+:lang(ja) .clause__v--then {
+  font-size: 1.0625rem;
+  line-height: 1.85;
 }
 
-@supports (grid-template-rows: subgrid) {
-  @media (min-width: 768px) {
-    .codex-grid > .tablet {
-      display: grid;
-      grid-row: span 6;
-      grid-template-rows: subgrid;
-    }
-  }
+/* --- Rules and line numbers ------------------------------------------ */
+
+.rule-hard {
+  border-color: var(--color-rule);
 }
 
-.tablet {
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(233, 232, 228, 0.035),
-    rgba(233, 232, 228, 0)
-  );
-  border: 1px solid var(--color-hairline);
-  border-top: 1px solid rgba(91, 116, 255, 0.26);
+.rule-soft {
+  border-color: var(--color-rule-soft);
+}
+
+/* The margin count. A statute numbers its lines so a reader can cite one; here
+   the count is per article, which is the unit anyone would actually cite. */
+.linecount {
+  font-size: 0.5625rem;
+  line-height: 2.05;
+  color: var(--color-relief-faint);
+  text-align: right;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Controls -------------------------------------------------------- */
+
+.field {
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  color: var(--color-relief);
+  font-family: var(--font-mono);
+}
+
+.field::placeholder {
+  color: var(--color-relief-faint);
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--color-rubric);
+  outline-offset: -1px;
+}
+
+/* Filters are set as a running list of terms, not as pills. A code of laws has
+   an index, not a tag cloud. */
+.term {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--color-relief-dim);
+  border-bottom: 1px solid transparent;
   transition:
-    border-color 0.4s ease,
-    background 0.4s ease;
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-/* Lighting the slab rather than lifting it: a card that detaches on hover tears
-   a hole in the grid it is part of. */
-.tablet:hover {
-  border-color: rgba(91, 116, 255, 0.42);
-  background: linear-gradient(
-    180deg,
-    rgba(91, 116, 255, 0.07),
-    rgba(233, 232, 228, 0)
-  );
+.term:hover {
+  color: var(--color-relief);
+  border-bottom-color: var(--color-rule-soft);
 }
 
-.tablet__num {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1;
-  color: var(--color-gold);
-  font-variant-numeric: lining-nums;
+.term[aria-pressed='true'] {
+  color: var(--color-rubric);
+  border-bottom-color: var(--color-rubric);
 }
 
-/* The THEN clause — the article's verdict, and the reason gold exists here. */
-.directive {
-  border-left: 2px solid var(--color-gold);
-  background: rgba(201, 162, 39, 0.055);
-}
-
-/* Bronze link underline that grows on hover */
 .link-quiet {
-  position: relative;
-  color: var(--color-carve);
-  transition: color 0.3s ease;
-}
-
-.link-quiet::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 1px;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: left;
-  background: var(--color-lapis);
-  transition: transform 0.3s ease;
+  color: var(--color-relief);
+  border-bottom: 1px solid var(--color-rule-soft);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .link-quiet:hover {
-  color: var(--color-lapis-bright);
+  color: var(--color-rubric);
+  border-bottom-color: var(--color-rubric);
 }
 
-.link-quiet:hover::after {
-  transform: scaleX(1);
-}
-
-/* A solid CTA. Square, not a pill — this is a code, not a product page. */
 .btn-solid {
-  background: var(--color-lapis);
-  color: #060810;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  background: var(--color-relief);
+  color: var(--color-field);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  transition: background 0.2s ease;
 }
 
 .btn-solid:hover {
-  background: var(--color-lapis-bright);
+  background: var(--color-rubric);
 }
 
 .btn-ghost {
-  border: 1px solid rgba(91, 116, 255, 0.38);
-  color: var(--color-carve);
+  border: 1px solid var(--color-rule);
+  color: var(--color-relief);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
   transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .btn-ghost:hover {
-  border-color: var(--color-lapis);
-  background: rgba(91, 116, 255, 0.08);
+  background: var(--color-relief);
+  color: var(--color-field);
+}
+
+/* --- The article ----------------------------------------------------- */
+
+/* Articles are entries in one continuous instrument, divided by a rule, not
+   cards floating on a background. */
+.article-row {
+  border-top: 1px solid var(--color-rule);
+}
+
+.article-row:hover .article-row__no {
+  color: var(--color-rubric-bright);
+}
+
+.article-row__no {
+  transition: color 0.2s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
