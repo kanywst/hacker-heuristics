@@ -23,11 +23,13 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      # Credentials stay in the workspace here, unlike the reviewer workflow:
+      # release-please tags and releases through this checkout's token, and
+      # stripping it is what "Resource not accessible by integration" was.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           fetch-tags: true
-          persist-credentials: false
 
       # `release-as` in the config is a one-shot: it pins the next release to a
       # chosen version, and then pins every release after it to the same version
