@@ -43,7 +43,7 @@ export default function LawArticle({ law, lang }: { law: Law; lang: Locale }) {
   const next = index < laws.length - 1 ? laws[index + 1] : null;
 
   return (
-    <article className="lg:pl-14">
+    <article className="lg:pl-20">
       <div className="border-b border-rule px-5 pb-2 pt-20 sm:px-8 sm:pt-24">
         <Link
           href={`${routeFor(lang)}#laws`}

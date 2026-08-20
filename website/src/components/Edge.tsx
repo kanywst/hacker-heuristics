@@ -12,7 +12,7 @@ export default function Edge() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-y-0 left-0 z-0 hidden w-14 justify-center overflow-hidden border-r border-rule-soft lg:flex"
+      className="pointer-events-none fixed inset-y-0 left-0 z-0 hidden w-20 justify-center overflow-hidden border-r border-rule-soft lg:flex"
     >
       <p className="edge py-6">{WEDGES.repeat(40)}</p>
     </div>

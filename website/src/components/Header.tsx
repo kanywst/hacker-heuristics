@@ -30,7 +30,7 @@ export default function Header({
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-rule bg-field/95 backdrop-blur-sm lg:pl-14">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-field/95 backdrop-blur-sm lg:pl-20">
       <div className="flex items-center justify-between gap-6 px-5 py-3 sm:px-8">
         <Link href={home} className="label hover:text-relief">
           Hammurabi

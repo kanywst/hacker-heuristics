@@ -13,7 +13,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
   const last = article(laws.length);
 
   return (
-    <div className="lg:pl-14">
+    <div className="lg:pl-20">
       {/* ── Title page ───────────────────────────────────────── */}
       <section
         id="top"
